@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { pb } from '../lib/pb'
 import type { Member } from '../lib/types'
 
 interface MemberManagerProps {
@@ -28,28 +28,26 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
     e.preventDefault()
     setError(null)
     setAdding(true)
-    const { error: err } = await supabase
-      .from('members')
-      .insert({ name: name.trim(), rank })
-    if (err) {
-      setError(err.message)
-    } else {
+    try {
+      await pb.collection('members').create({ name: name.trim(), rank })
       setName('')
       setRank(1)
       onRefresh()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to add member')
     }
     setAdding(false)
   }
 
   async function handleDelete(id: string) {
     setDeletingId(id)
-    await supabase.from('members').delete().eq('id', id)
+    await pb.collection('members').delete(id)
     setDeletingId(null)
     onRefresh()
   }
 
   async function handleUpdateRank(id: string) {
-    await supabase.from('members').update({ rank: editRank }).eq('id', id)
+    await pb.collection('members').update(id, { rank: editRank })
     setEditingId(null)
     onRefresh()
   }

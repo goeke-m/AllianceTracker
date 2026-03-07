@@ -2,8 +2,8 @@ export interface Member {
   id: string;
   name: string;
   rank: number; // 1-5
-  created_at: string;
-  updated_at: string;
+  created: string;
+  updated: string;
 }
 
 export interface DamageLog {
@@ -12,24 +12,13 @@ export interface DamageLog {
   damage: number;
   event_date: string;
   notes?: string;
-  created_at: string;
+  created: string;
 }
 
-export interface MarshallPosition {
-  id: string;
-  name: string;
-  rank: number;
-  is_leadership: boolean;
-  wad: number;
-  ring_level: number;
-  position_index: number;
-}
-
-export interface UserProfile {
+export interface PBUser {
   id: string;
   email: string;
   is_admin: boolean;
-  created_at: string;
 }
 
 export interface MemberWithWAD {

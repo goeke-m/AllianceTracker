@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { pb } from '../lib/pb'
 import type { Member, JsonImportEntry } from '../lib/types'
 
 interface EventLogImportProps {
@@ -59,9 +59,10 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
     }
 
     if (logs.length > 0) {
-      const { error: insertError } = await supabase.from('damage_logs').insert(logs)
-      if (insertError) {
-        setError(insertError.message)
+      try {
+        await Promise.all(logs.map((log) => pb.collection('damage_logs').create(log)))
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Import failed')
         setLoading(false)
         return
       }

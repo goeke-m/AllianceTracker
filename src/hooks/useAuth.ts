@@ -1,62 +1,42 @@
 import { useEffect, useState } from 'react'
-import type { User } from '@supabase/supabase-js'
-import { supabase } from '../lib/supabase'
-import type { UserProfile } from '../lib/types'
+import { pb } from '../lib/pb'
+import type { PBUser } from '../lib/types'
+
+function getUser(): PBUser | null {
+  if (!pb.authStore.isValid || !pb.authStore.model) return null
+  const m = pb.authStore.model
+  return { id: m['id'], email: m['email'], is_admin: m['is_admin'] ?? false }
+}
 
 export function useAuth() {
-  const [user, setUser] = useState<User | null>(null)
-  const [profile, setProfile] = useState<UserProfile | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  async function fetchProfile(userId: string) {
-    const { data } = await supabase
-      .from('user_profiles')
-      .select('*')
-      .eq('id', userId)
-      .single()
-    setProfile(data)
-    setLoading(false)
-  }
+  const [user, setUser] = useState<PBUser | null>(getUser)
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        fetchProfile(session.user.id)
-      } else {
-        setLoading(false)
-      }
+    const unsub = pb.authStore.onChange(() => {
+      setUser(getUser())
     })
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        fetchProfile(session.user.id)
-      } else {
-        setProfile(null)
-        setLoading(false)
-      }
-    })
-
-    return () => subscription.unsubscribe()
+    return () => unsub()
   }, [])
 
-  async function signIn(email: string, password: string) {
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    return error
+  async function signIn(
+    email: string,
+    password: string
+  ): Promise<{ message: string } | null> {
+    try {
+      await pb.collection('users').authWithPassword(email, password)
+      return null
+    } catch (err) {
+      return err instanceof Error ? err : new Error('Sign in failed')
+    }
   }
 
-  async function signOut() {
-    await supabase.auth.signOut()
+  function signOut() {
+    pb.authStore.clear()
   }
 
   return {
     user,
-    profile,
-    isAdmin: profile?.is_admin ?? false,
-    loading,
+    isAdmin: user?.is_admin ?? false,
     signIn,
     signOut,
   }

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { pb } from '../lib/pb'
 import { assignRingPositions } from '../lib/wad'
 import type { Member, DamageLog, MemberWithWAD } from '../lib/types'
 
@@ -14,21 +14,13 @@ export function useMarshallData() {
     setLoading(true)
     setError(null)
     try {
-      const [memberRes, logRes] = await Promise.all([
-        supabase.from('members').select('*').order('name'),
-        supabase
-          .from('damage_logs')
-          .select('*')
-          .order('event_date', { ascending: false }),
+      const [memberRecords, logRecords] = await Promise.all([
+        pb.collection('members').getFullList<Member>({ sort: 'name' }),
+        pb.collection('damage_logs').getFullList<DamageLog>({ sort: '-event_date' }),
       ])
-      if (memberRes.error) throw memberRes.error
-      if (logRes.error) throw logRes.error
-
-      const m = memberRes.data ?? []
-      const l = logRes.data ?? []
-      setMembers(m)
-      setDamageLogs(l)
-      setPositions(assignRingPositions(m, l))
+      setMembers(memberRecords)
+      setDamageLogs(logRecords)
+      setPositions(assignRingPositions(memberRecords, logRecords))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load data')
     } finally {
