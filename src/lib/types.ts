@@ -31,6 +31,20 @@ export interface MemberWithWAD {
   isStrategicCore: boolean;
 }
 
+export interface TrainEntry {
+  id: string;
+  date: string; // YYYY-MM-DD
+  conductor: string; // member id
+  vip: string; // member id
+  notes?: string;
+  created: string;
+  updated: string;
+  expand?: {
+    conductor: Member;
+    vip: Member;
+  };
+}
+
 export type Page = 'map' | 'schedule' | 'admin';
 
 export interface JsonImportEntry {
