@@ -49,10 +49,6 @@ export function TrainSchedule() {
 
   async function handleSave() {
     if (!editState) return
-    if (!editState.conductorId || !editState.vipId) {
-      setSaveError('Conductor and VIP are required.')
-      return
-    }
     setSaving(true)
     setSaveError(null)
     try {
@@ -139,11 +135,11 @@ export function TrainSchedule() {
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                   <div>
                     <span className="text-gray-500 text-xs uppercase tracking-wide">Conductor</span>
-                    <p className="text-white font-medium">{entry.expand?.Conductor?.name ?? getMemberName(entry.conductor)}</p>
+                    <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>
                   </div>
                   <div>
                     <span className="text-gray-500 text-xs uppercase tracking-wide">VIP</span>
-                    <p className="text-white font-medium">{entry.expand?.VIP?.name ?? getMemberName(entry.vip)}</p>
+                    <p className="text-white font-medium">{getMemberName(entry.vip)}</p>
                   </div>
                   {entry.notes && (
                     <div className="col-span-2 mt-1">

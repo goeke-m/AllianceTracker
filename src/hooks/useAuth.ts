@@ -1,42 +1,55 @@
 import { useEffect, useState } from 'react'
-import { pb } from '../lib/pb'
+import { supabase } from '../lib/supabase'
 import type { PBUser } from '../lib/types'
 
-function getUser(): PBUser | null {
-  if (!pb.authStore.isValid || !pb.authStore.model) return null
-  const m = pb.authStore.model
-  return { id: m['id'], email: m['email'], is_admin: m['is_admin'] ?? false }
-}
-
 export function useAuth() {
-  const [user, setUser] = useState<PBUser | null>(getUser)
+  const [user, setUser] = useState<PBUser | null>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const unsub = pb.authStore.onChange(() => {
-      setUser(getUser())
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        setUser({
+          id: session.user.id,
+          email: session.user.email ?? '',
+          is_admin: session.user.user_metadata?.is_admin ?? false,
+        })
+      }
+      setLoading(false)
     })
-    return () => unsub()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUser({
+          id: session.user.id,
+          email: session.user.email ?? '',
+          is_admin: session.user.user_metadata?.is_admin ?? false,
+        })
+      } else {
+        setUser(null)
+      }
+    })
+
+    return () => subscription.unsubscribe()
   }, [])
 
   async function signIn(
     email: string,
     password: string
   ): Promise<{ message: string } | null> {
-    try {
-      await pb.collection('users').authWithPassword(email, password)
-      return null
-    } catch (err) {
-      return err instanceof Error ? err : new Error('Sign in failed')
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) return { message: error.message }
+    return null
   }
 
-  function signOut() {
-    pb.authStore.clear()
+  async function signOut() {
+    await supabase.auth.signOut()
   }
 
   return {
-    user,
+    user: loading ? null : user,
     isAdmin: user?.is_admin ?? false,
+    loading,
     signIn,
     signOut,
   }

@@ -19,6 +19,14 @@ export function assignRingPositions(
   members: Member[],
   damageLogs: DamageLog[]
 ): MemberWithWAD[] {
+  // Most recent 10 event dates across all members
+  const ATTENDANCE_WINDOW = 10
+  const recentEventDates = [...new Set(damageLogs.map((l) => l.event_date))]
+    .sort((a, b) => new Date(b).getTime() - new Date(a).getTime())
+    .slice(0, ATTENDANCE_WINDOW)
+  const recentEventSet = new Set(recentEventDates)
+  const windowSize = recentEventDates.length
+
   const memberWADs = members.map((member) => {
     const logs = damageLogs
       .filter((log) => log.member_id === member.id)
@@ -27,8 +35,11 @@ export function assignRingPositions(
           new Date(b.event_date).getTime() - new Date(a.event_date).getTime()
       )
     const wad = calculateWAD(logs.map((l) => l.damage))
+    const attendedRecent = logs.filter((l) => recentEventSet.has(l.event_date)).length
+    const attendance = windowSize > 0 ? attendedRecent / windowSize : 1
+    const score = wad * attendance
     const rankNum = rankToNum(member.Rank)
-    return { id: member.id, name: member.name, Rank: member.Rank, rankNum, wad }
+    return { id: member.id, name: member.name, Rank: member.Rank, rankNum, wad: score }
   })
 
   const leadership = [...memberWADs.filter((m) => m.rankNum >= 4)].sort(

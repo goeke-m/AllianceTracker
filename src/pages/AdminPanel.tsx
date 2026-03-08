@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { MemberManager } from '../components/MemberManager'
 import { EventLogImport } from '../components/EventLogImport'
 import { useMarshallData } from '../hooks/useMarshallData'
-import { pb } from '../lib/pb'
+import { supabase } from '../lib/supabase'
 import { formatNumber } from '../lib/wad'
 
 type AdminTab = 'members' | 'import' | 'logs'
@@ -14,8 +14,7 @@ export function AdminPanel() {
 
   async function handleClearLogs(memberId: string) {
     setClearingMemberId(memberId)
-    const logs = await pb.collection('damage_logs').getFullList({ filter: `member_id="${memberId}"` })
-    await Promise.all(logs.map((l) => pb.collection('damage_logs').delete(l.id)))
+    await supabase.from('damage_logs').delete().eq('member_id', memberId)
     setClearingMemberId(null)
     refresh()
   }

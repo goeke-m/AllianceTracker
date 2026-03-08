@@ -7,15 +7,15 @@ import { TrainSchedule } from './pages/TrainSchedule'
 import { AdminPanel } from './pages/AdminPanel'
 import type { Page } from './lib/types'
 
-const PB_CONFIGURED =
-  !!import.meta.env.VITE_PB_URL &&
-  import.meta.env.VITE_PB_URL !== 'http://127.0.0.1:8090'
+const SUPABASE_CONFIGURED =
+  !!import.meta.env.VITE_SUPABASE_URL &&
+  !!import.meta.env.VITE_SUPABASE_ANON_KEY
 
 export function App() {
-  const { user, isAdmin, signIn, signOut } = useAuth()
+  const { user, isAdmin, loading, signIn, signOut } = useAuth()
   const [page, setPage] = useState<Page>('map')
 
-  if (!PB_CONFIGURED) {
+  if (!SUPABASE_CONFIGURED) {
     return (
       <div className="min-h-screen bg-game-dark flex items-center justify-center p-6">
         <div className="max-w-sm w-full bg-game-card border border-game-accent rounded-xl p-6 space-y-3">
@@ -23,13 +23,22 @@ export function App() {
           <p className="text-gray-300 text-sm">
             Copy <code className="text-game-gold">.env.example</code> to{' '}
             <code className="text-game-gold">.env</code> and set{' '}
-            <code className="text-game-gold">VITE_PB_URL</code> to your PocketBase URL,
+            <code className="text-game-gold">VITE_SUPABASE_URL</code> and{' '}
+            <code className="text-game-gold">VITE_SUPABASE_ANON_KEY</code>,
             then restart the dev server.
           </p>
           <div className="bg-game-dark rounded-lg p-3 font-mono text-xs text-green-400">
             cp .env.example .env
           </div>
         </div>
+      </div>
+    )
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-game-dark flex items-center justify-center">
+        <p className="text-game-gold animate-pulse">Loading...</p>
       </div>
     )
   }

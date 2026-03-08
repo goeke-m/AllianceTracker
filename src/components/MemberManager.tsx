@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { pb } from '../lib/pb'
+import { supabase } from '../lib/supabase'
 import type { Member, RankValue, SquadType } from '../lib/types'
 
 interface MemberManagerProps {
@@ -118,7 +118,8 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
     setError(null)
     setAdding(true)
     try {
-      await pb.collection('members').create({ name: name.trim(), Rank: newRank })
+      const { error } = await supabase.from('members').insert({ name: name.trim(), Rank: newRank })
+      if (error) throw error
       setName('')
       setNewRank('R3')
       onRefresh()
@@ -130,14 +131,14 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
 
   async function handleDelete(id: string) {
     setDeletingId(id)
-    await pb.collection('members').delete(id)
+    await supabase.from('members').delete().eq('id', id)
     setDeletingId(null)
     onRefresh()
   }
 
   async function handleSave(id: string) {
     if (!editState) return
-    await pb.collection('members').update(id, {
+    await supabase.from('members').update({
       Rank: editState.Rank,
       THP: editState.THP !== '' ? Number(editState.THP) : null,
       S1_Power: editState.S1_Power !== '' ? Number(editState.S1_Power) : null,
@@ -146,7 +147,7 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
       S2_Type: editState.S2_Type || null,
       Strike_Team: editState.Strike_Team,
       Availability: editState.Availability || null,
-    })
+    }).eq('id', id)
     setEditingId(null)
     setEditState(null)
     onRefresh()

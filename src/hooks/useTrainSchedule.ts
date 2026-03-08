@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { pb } from '../lib/pb'
+import { supabase } from '../lib/supabase'
 import type { Member, TrainEntry } from '../lib/types'
 
 function getWeekDates(): string[] {
@@ -28,22 +28,27 @@ export function useTrainSchedule() {
     setLoading(true)
     setError(null)
     try {
-      const [memberRecords, entryRecords] = await Promise.all([
-        pb.collection('members').getFullList<Member>({ sort: 'name', $autoCancel: false }),
-        pb.collection('train_schedule').getFullList<TrainEntry>({
-          filter: `Date >= "${startDate} 00:00:00" && Date <= "${endDate} 23:59:59"`,
-          expand: 'Conductor,VIP',
-          sort: 'Date',
-          $autoCancel: false,
-        }),
-      ])
-      setMembers(memberRecords)
-      setEntries(entryRecords.map(e => ({
-        ...e,
-        date: (e as any).Date?.slice(0, 10) ?? '',
-        conductor: (e as any).Conductor ?? e.conductor,
-        vip: (e as any).VIP ?? e.vip,
-      })))
+      const [{ data: memberRecords, error: membersError }, { data: entryRecords, error: entriesError }] =
+        await Promise.all([
+          supabase.from('members').select('*').order('name'),
+          supabase
+            .from('train_schedule')
+            .select('*')
+            .gte('Date', `${startDate} 00:00:00`)
+            .lte('Date', `${endDate} 23:59:59`)
+            .order('Date'),
+        ])
+      if (membersError) throw membersError
+      if (entriesError) throw entriesError
+      setMembers((memberRecords ?? []) as Member[])
+      setEntries(
+        (entryRecords ?? []).map((e) => ({
+          ...(e as unknown as TrainEntry),
+          date: (e as unknown as Record<string, string>)['Date']?.slice(0, 10) ?? '',
+          conductor: (e as unknown as Record<string, string>)['Conductor'] ?? '',
+          vip: (e as unknown as Record<string, string>)['VIP'] ?? '',
+        }))
+      )
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load schedule')
     } finally {
@@ -62,17 +67,20 @@ export function useTrainSchedule() {
     notes: string,
     existingId?: string
   ): Promise<void> {
-    const data = { Date: date, Conductor: conductorId, VIP: vipId, notes }
+    const data = { Date: date, Conductor: conductorId || null, VIP: vipId || null, notes }
     if (existingId) {
-      await pb.collection('train_schedule').update(existingId, data)
+      const { error } = await supabase.from('train_schedule').update(data).eq('id', existingId)
+      if (error) throw error
     } else {
-      await pb.collection('train_schedule').create(data)
+      const { error } = await supabase.from('train_schedule').insert(data)
+      if (error) throw error
     }
     await fetchData()
   }
 
   async function deleteEntry(id: string): Promise<void> {
-    await pb.collection('train_schedule').delete(id)
+    const { error } = await supabase.from('train_schedule').delete().eq('id', id)
+    if (error) throw error
     await fetchData()
   }
 

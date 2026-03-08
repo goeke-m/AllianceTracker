@@ -12,8 +12,8 @@ export interface Member {
   S2_Type?: SquadType;
   Strike_Team?: boolean;
   Availability?: string;
-  created: string;
-  updated: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface DamageLog {
@@ -22,7 +22,7 @@ export interface DamageLog {
   damage: number;
   event_date: string;
   notes?: string;
-  created: string;
+  created_at: string;
 }
 
 export interface PBUser {
@@ -48,12 +48,8 @@ export interface TrainEntry {
   conductor: string; // member id
   vip: string; // member id
   notes?: string;
-  created: string;
-  updated: string;
-  expand?: {
-    Conductor: Member;
-    VIP: Member;
-  };
+  created_at: string;
+  updated_at: string;
 }
 
 export type Page = 'map' | 'schedule' | 'admin';
