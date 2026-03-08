@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import type { ReactNode } from 'react'
 import { useOoto } from '../hooks/useOoto'
 import { useAuth } from '../hooks/useAuth'
 import type { OotoEntry } from '../lib/types'
@@ -70,7 +71,7 @@ export function Out() {
       await saveEntry(editState.memberId, editState.startDate, editState.endDate, editState.notes, editState.existingId)
       setEditState(null)
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : 'Save failed')
+      setSaveError((err as { message?: string }).message ?? 'Save failed')
     } finally {
       setSaving(false)
     }
@@ -83,7 +84,7 @@ export function Out() {
       await deleteEntry(editState.existingId)
       setEditState(null)
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : 'Delete failed')
+      setSaveError((err as { message?: string }).message ?? 'Delete failed')
     } finally {
       setSaving(false)
     }
@@ -234,7 +235,7 @@ export function Out() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Notes</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Notes <span className="normal-case text-gray-600">(optional)</span></label>
                 <input
                   type="text"
                   value={editState.notes}
@@ -286,7 +287,7 @@ function Section({
 }: {
   label: string
   accent: string
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
     <div className="mb-4">

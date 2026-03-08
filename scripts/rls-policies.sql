@@ -63,3 +63,24 @@ CREATE POLICY "Authenticated users can delete train_schedule"
   ON train_schedule FOR DELETE
   TO authenticated
   USING (true);
+
+-- ooto: authenticated users can read and write
+CREATE POLICY "Authenticated users can read ooto"
+  ON ooto FOR SELECT
+  TO authenticated
+  USING (true);
+
+CREATE POLICY "Authenticated users can insert ooto"
+  ON ooto FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+CREATE POLICY "Authenticated users can update ooto"
+  ON ooto FOR UPDATE
+  TO authenticated
+  USING (true);
+
+CREATE POLICY "Authenticated users can delete ooto"
+  ON ooto FOR DELETE
+  TO authenticated
+  USING (true);

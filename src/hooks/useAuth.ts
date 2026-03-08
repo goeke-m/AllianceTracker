@@ -42,6 +42,15 @@ export function useAuth() {
     return null
   }
 
+  async function signInWithOAuth(provider: 'google' | 'discord'): Promise<{ message: string } | null> {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: window.location.origin },
+    })
+    if (error) return { message: error.message }
+    return null
+  }
+
   async function signOut() {
     await supabase.auth.signOut()
   }
@@ -51,6 +60,7 @@ export function useAuth() {
     isAdmin: user?.is_admin ?? false,
     loading,
     signIn,
+    signInWithOAuth,
     signOut,
   }
 }

@@ -22,7 +22,7 @@ export function useOoto() {
       setMembers((memberRecords ?? []) as Member[])
       setEntries((ootoRecords ?? []) as OotoEntry[])
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load OOTO data')
+      setError((err as { message?: string }).message ?? 'Failed to load OOTO data')
     } finally {
       setLoading(false)
     }

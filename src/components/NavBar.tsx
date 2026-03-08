@@ -7,15 +7,16 @@ interface NavBarProps {
   onSignOut: () => void
 }
 
-const tabs: { id: Page; label: string; icon: string }[] = [
-  { id: 'map', label: 'Marshall Map', icon: '🗺' },
+const tabs: { id: Page; label: string; icon: string; adminOnly?: boolean }[] = [
   { id: 'schedule', label: 'Train Schedule', icon: '🚂' },
-  { id: 'out', label: 'Out', icon: '🏖' },
-  { id: 'admin', label: 'Admin', icon: '⚙' },
+  { id: 'map', label: 'Marshall Map', icon: '🗺' },
+  { id: 'tech', label: 'Alliance Tech', icon: '🔬' },
+  { id: 'out', label: 'Out', icon: '🏖', adminOnly: true },
+  { id: 'admin', label: 'Admin', icon: '⚙', adminOnly: true },
 ]
 
 export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps) {
-  const visibleTabs = isAdmin ? tabs : tabs.filter((t) => t.id !== 'admin')
+  const visibleTabs = isAdmin ? tabs : tabs.filter((t) => !t.adminOnly)
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-game-card border-t border-game-accent z-50">

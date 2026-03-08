@@ -6,6 +6,7 @@ import { MarshallMap } from './pages/MarshallMap'
 import { TrainSchedule } from './pages/TrainSchedule'
 import { Out } from './pages/Out'
 import { AdminPanel } from './pages/AdminPanel'
+import { AllianceTech } from './pages/AllianceTech'
 import type { Page } from './lib/types'
 
 const SUPABASE_CONFIGURED =
@@ -13,8 +14,8 @@ const SUPABASE_CONFIGURED =
   !!import.meta.env.VITE_SUPABASE_ANON_KEY
 
 export function App() {
-  const { user, isAdmin, loading, signIn, signOut } = useAuth()
-  const [page, setPage] = useState<Page>('out')
+  const { user, isAdmin, loading, signIn, signInWithOAuth, signOut } = useAuth()
+  const [page, setPage] = useState<Page>('schedule')
 
   if (!SUPABASE_CONFIGURED) {
     return (
@@ -45,11 +46,11 @@ export function App() {
   }
 
   if (!user) {
-    return <LoginPage onSignIn={signIn} />
+    return <LoginPage onSignIn={signIn} onSignInWithOAuth={signInWithOAuth} />
   }
 
   // Redirect non-admin away from admin page
-  const safePage: Page = page === 'admin' && !isAdmin ? 'out' : page
+  const safePage: Page = (page === 'admin' || page === 'out') && !isAdmin ? 'schedule' : page
 
   return (
     <div className="min-h-screen bg-game-dark text-white">
@@ -67,7 +68,8 @@ export function App() {
       <div className="pt-10 min-h-screen">
         {safePage === 'map' && <MarshallMap />}
         {safePage === 'schedule' && <TrainSchedule />}
-        {safePage === 'out' && <Out />}
+        {safePage === 'tech' && <AllianceTech />}
+        {safePage === 'out' && isAdmin && <Out />}
         {safePage === 'admin' && isAdmin && <AdminPanel />}
       </div>
 

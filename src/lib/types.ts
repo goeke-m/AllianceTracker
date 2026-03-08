@@ -62,7 +62,14 @@ export interface OotoEntry {
   updated_at: string;
 }
 
-export type Page = 'map' | 'schedule' | 'out' | 'admin';
+export type Page = 'map' | 'schedule' | 'out' | 'admin' | 'tech';
+
+export interface AllianceTechStatus {
+  key: 'current' | 'next'
+  tech_name: string
+  category: 'development' | 'war'
+  updated_at: string
+}
 
 export interface JsonImportEntry {
   name?: string;
