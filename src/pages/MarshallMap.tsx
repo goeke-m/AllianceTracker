@@ -1,9 +1,27 @@
+import { useState } from 'react'
 import { MarshallVisualizer } from '../components/MarshallVisualizer'
+import { EventLogImport } from '../components/EventLogImport'
 import { useMarshallData } from '../hooks/useMarshallData'
 import { formatNumber } from '../lib/wad'
+import { supabase } from '../lib/supabase'
 
-export function MarshallMap() {
-  const { positions, loading, error, refresh } = useMarshallData()
+interface MarshallMapProps {
+  isAdmin?: boolean
+}
+
+type AdminTab = 'import' | 'logs'
+
+export function MarshallMap({ isAdmin }: MarshallMapProps) {
+  const { positions, members, damageLogs, loading, error, refresh } = useMarshallData()
+  const [adminTab, setAdminTab] = useState<AdminTab>('import')
+  const [clearingMemberId, setClearingMemberId] = useState<string | null>(null)
+
+  async function handleClearLogs(memberId: string) {
+    setClearingMemberId(memberId)
+    await supabase.from('damage_logs').delete().eq('member_id', memberId)
+    setClearingMemberId(null)
+    refresh()
+  }
 
   if (loading) {
     return (
@@ -104,6 +122,88 @@ export function MarshallMap() {
             ))}
           </div>
         </>
+      )}
+
+      {/* Admin-only: Import & Logs */}
+      {isAdmin && (
+        <div className="mt-6 border-t border-game-accent pt-4 space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
+              ADMIN
+            </span>
+            <span className="text-sm font-semibold text-gray-300">Data Management</span>
+          </div>
+
+          {/* Sub-tabs */}
+          <div className="flex bg-game-dark border border-game-accent rounded-lg p-1 gap-1">
+            {(['import', 'logs'] as AdminTab[]).map((t) => (
+              <button
+                key={t}
+                onClick={() => setAdminTab(t)}
+                className={`flex-1 py-1.5 rounded text-sm font-medium capitalize transition-colors ${
+                  adminTab === t
+                    ? 'bg-game-accent text-game-gold'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {t === 'import' ? 'Import' : 'Logs'}
+              </button>
+            ))}
+          </div>
+
+          {adminTab === 'import' && (
+            <EventLogImport members={members} onSuccess={refresh} />
+          )}
+
+          {adminTab === 'logs' && (
+            <div className="space-y-3">
+              <h2 className="text-lg font-bold text-white">
+                Damage Logs ({damageLogs.length} entries)
+              </h2>
+
+              {members.map((m) => {
+                const logs = damageLogs
+                  .filter((l) => l.member_id === m.id)
+                  .sort((a, b) => new Date(b.event_date).getTime() - new Date(a.event_date).getTime())
+                if (logs.length === 0) return null
+                return (
+                  <div key={m.id} className="bg-game-card border border-game-accent rounded-xl p-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-white text-sm">
+                        {m.name}{' '}
+                        <span className="text-gray-400 font-normal">{m.Rank}</span>
+                      </span>
+                      <button
+                        onClick={() => handleClearLogs(m.id)}
+                        disabled={clearingMemberId === m.id}
+                        className="text-xs text-game-highlight border border-red-800 px-2 py-0.5 rounded hover:bg-red-900/30 disabled:opacity-50"
+                      >
+                        {clearingMemberId === m.id ? '...' : 'Clear'}
+                      </button>
+                    </div>
+                    <div className="space-y-1">
+                      {logs.slice(0, 5).map((log, i) => (
+                        <div key={log.id} className="flex justify-between text-xs text-gray-400">
+                          <span>#{i + 1} {new Date(log.event_date).toLocaleDateString()}</span>
+                          <span className="font-mono text-white">{formatNumber(log.damage)}</span>
+                        </div>
+                      ))}
+                      {logs.length > 5 && (
+                        <p className="text-xs text-gray-600">+{logs.length - 5} more</p>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+
+              {damageLogs.length === 0 && (
+                <p className="text-gray-500 text-sm text-center py-8">
+                  No damage logs. Use the Import tab to add data.
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       )}
     </div>
   )

@@ -66,7 +66,7 @@ export function App() {
 
       {/* Page content with top/bottom padding for fixed bars */}
       <div className="pt-10 min-h-screen">
-        {safePage === 'map' && <MarshallMap />}
+        {safePage === 'map' && <MarshallMap isAdmin={isAdmin} />}
         {safePage === 'schedule' && <TrainSchedule />}
         {safePage === 'tech' && <AllianceTech />}
         {safePage === 'out' && isAdmin && <Out />}
