@@ -52,7 +52,17 @@ export interface TrainEntry {
   updated_at: string;
 }
 
-export type Page = 'map' | 'schedule' | 'admin';
+export interface OotoEntry {
+  id: string;
+  member_id: string;
+  start_date: string; // YYYY-MM-DD
+  end_date: string;   // YYYY-MM-DD
+  notes?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export type Page = 'map' | 'schedule' | 'out' | 'admin';
 
 export interface JsonImportEntry {
   name?: string;

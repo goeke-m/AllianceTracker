@@ -10,6 +10,7 @@ interface NavBarProps {
 const tabs: { id: Page; label: string; icon: string }[] = [
   { id: 'map', label: 'Marshall Map', icon: '🗺' },
   { id: 'schedule', label: 'Train Schedule', icon: '🚂' },
+  { id: 'out', label: 'Out', icon: '🏖' },
   { id: 'admin', label: 'Admin', icon: '⚙' },
 ]
 
