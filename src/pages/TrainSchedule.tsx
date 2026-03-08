@@ -139,11 +139,11 @@ export function TrainSchedule() {
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                   <div>
                     <span className="text-gray-500 text-xs uppercase tracking-wide">Conductor</span>
-                    <p className="text-white font-medium">{entry.expand?.conductor?.name ?? getMemberName(entry.conductor)}</p>
+                    <p className="text-white font-medium">{entry.expand?.Conductor?.name ?? getMemberName(entry.conductor)}</p>
                   </div>
                   <div>
                     <span className="text-gray-500 text-xs uppercase tracking-wide">VIP</span>
-                    <p className="text-white font-medium">{entry.expand?.vip?.name ?? getMemberName(entry.vip)}</p>
+                    <p className="text-white font-medium">{entry.expand?.VIP?.name ?? getMemberName(entry.vip)}</p>
                   </div>
                   {entry.notes && (
                     <div className="col-span-2 mt-1">
@@ -162,7 +162,7 @@ export function TrainSchedule() {
 
       {/* Edit modal */}
       {editState && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-end justify-center p-4">
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-game-gold font-bold">
@@ -183,7 +183,7 @@ export function TrainSchedule() {
                 >
                   <option value="">— Select member —</option>
                   {members.map(m => (
-                    <option key={m.id} value={m.id}>{m.name} (R{m.rank})</option>
+                    <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
                 </select>
               </div>
@@ -197,7 +197,7 @@ export function TrainSchedule() {
                 >
                   <option value="">— Select member —</option>
                   {members.map(m => (
-                    <option key={m.id} value={m.id}>{m.name} (R{m.rank})</option>
+                    <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
                 </select>
               </div>

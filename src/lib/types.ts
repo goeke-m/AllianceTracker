@@ -1,7 +1,17 @@
+export type RankValue = 'R1' | 'R2' | 'R3' | 'R4' | 'R5';
+export type SquadType = 'Tank' | 'Air' | 'Missile';
+
 export interface Member {
   id: string;
   name: string;
-  rank: number; // 1-5
+  Rank: RankValue;
+  THP?: number;
+  S1_Power?: number;
+  S1_Type?: SquadType;
+  S2_Power?: number;
+  S2_Type?: SquadType;
+  Strike_Team?: boolean;
+  Availability?: string;
   created: string;
   updated: string;
 }
@@ -24,7 +34,8 @@ export interface PBUser {
 export interface MemberWithWAD {
   id: string;
   name: string;
-  rank: number;
+  Rank: RankValue;
+  rankNum: number; // 1-5, derived from Rank
   wad: number;
   ring: 1 | 2 | 3;
   slotIndex: number;
@@ -40,8 +51,8 @@ export interface TrainEntry {
   created: string;
   updated: string;
   expand?: {
-    conductor: Member;
-    vip: Member;
+    Conductor: Member;
+    VIP: Member;
   };
 }
 

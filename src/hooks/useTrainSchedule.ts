@@ -29,15 +29,21 @@ export function useTrainSchedule() {
     setError(null)
     try {
       const [memberRecords, entryRecords] = await Promise.all([
-        pb.collection('members').getFullList<Member>({ sort: 'name' }),
+        pb.collection('members').getFullList<Member>({ sort: 'name', $autoCancel: false }),
         pb.collection('train_schedule').getFullList<TrainEntry>({
-          filter: `date >= "${startDate}" && date <= "${endDate}"`,
-          expand: 'conductor,vip',
-          sort: 'date',
+          filter: `Date >= "${startDate} 00:00:00" && Date <= "${endDate} 23:59:59"`,
+          expand: 'Conductor,VIP',
+          sort: 'Date',
+          $autoCancel: false,
         }),
       ])
       setMembers(memberRecords)
-      setEntries(entryRecords)
+      setEntries(entryRecords.map(e => ({
+        ...e,
+        date: (e as any).Date?.slice(0, 10) ?? '',
+        conductor: (e as any).Conductor ?? e.conductor,
+        vip: (e as any).VIP ?? e.vip,
+      })))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load schedule')
     } finally {
@@ -56,7 +62,7 @@ export function useTrainSchedule() {
     notes: string,
     existingId?: string
   ): Promise<void> {
-    const data = { date, conductor: conductorId, vip: vipId, notes }
+    const data = { Date: date, Conductor: conductorId, VIP: vipId, notes }
     if (existingId) {
       await pb.collection('train_schedule').update(existingId, data)
     } else {
