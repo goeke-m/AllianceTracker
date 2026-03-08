@@ -90,7 +90,7 @@ export function AdminPanel() {
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-semibold text-white text-sm">
                         {m.name}{' '}
-                        <span className="text-gray-400 font-normal">R{m.rank}</span>
+                        <span className="text-gray-400 font-normal">{m.Rank}</span>
                       </span>
                       <button
                         onClick={() => handleClearLogs(m.id)}

@@ -78,18 +78,18 @@ export function MarshallVisualizer({
   }
 
   function renderNode(member: MemberWithWAD, x: number, y: number) {
-    const color = rankColor(member.rank, member.isStrategicCore)
+    const color = rankColor(member.rankNum, member.isStrategicCore)
     const abbr = abbreviate(member.name)
     return (
       <g key={member.id} transform={`translate(${x},${y})`}>
         <circle
           r={NODE_R}
           fill={color}
-          stroke={member.isStrategicCore && member.rank < 4 ? '#e94560' : '#1a3a6e'}
+          stroke={member.isStrategicCore && member.rankNum < 4 ? '#e94560' : '#1a3a6e'}
           strokeWidth={2}
           opacity={0.92}
         />
-        {member.rank >= 4 && (
+        {member.rankNum >= 4 && (
           <circle r={NODE_R + 3} fill="none" stroke="#FFD700" strokeWidth={1.5} opacity={0.5} />
         )}
         <text
@@ -109,7 +109,7 @@ export function MarshallVisualizer({
           fontSize={6}
           fill="rgba(255,255,255,0.75)"
         >
-          {rankLabel(member.rank)}
+          {member.Rank}
         </text>
         <text
           textAnchor="middle"

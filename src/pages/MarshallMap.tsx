@@ -75,7 +75,7 @@ export function MarshallMap() {
                       <tr key={m.id} className="border-b border-game-accent/50 last:border-0">
                         <td className="px-3 py-2 text-gray-500">{i + 1}</td>
                         <td className="px-3 py-2 text-white">{m.name}</td>
-                        <td className="px-3 py-2 text-gray-300">R{m.rank}</td>
+                        <td className="px-3 py-2 text-gray-300">{m.Rank}</td>
                         <td className="px-3 py-2 text-right text-gray-300 font-mono">
                           {formatNumber(m.wad)}
                         </td>

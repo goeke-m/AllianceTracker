@@ -4,6 +4,10 @@ const RING1_CAPACITY = 8
 const RING2_STRATEGIC_SLOTS = 3
 const RING2_STANDARD_SLOTS = 13
 
+function rankToNum(rank: string): number {
+  return parseInt(rank.slice(1)) || 1
+}
+
 export function calculateWAD(damages: number[]): number {
   const weights = [0.6, 0.25, 0.15]
   return damages
@@ -23,13 +27,14 @@ export function assignRingPositions(
           new Date(b.event_date).getTime() - new Date(a.event_date).getTime()
       )
     const wad = calculateWAD(logs.map((l) => l.damage))
-    return { ...member, wad }
+    const rankNum = rankToNum(member.Rank)
+    return { id: member.id, name: member.name, Rank: member.Rank, rankNum, wad }
   })
 
-  const leadership = [...memberWADs.filter((m) => m.rank >= 4)].sort(
+  const leadership = [...memberWADs.filter((m) => m.rankNum >= 4)].sort(
     (a, b) => b.wad - a.wad
   )
-  const standard = [...memberWADs.filter((m) => m.rank < 4)].sort(
+  const standard = [...memberWADs.filter((m) => m.rankNum < 4)].sort(
     (a, b) => b.wad - a.wad
   )
 

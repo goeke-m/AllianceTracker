@@ -15,8 +15,8 @@ export function useMarshallData() {
     setError(null)
     try {
       const [memberRecords, logRecords] = await Promise.all([
-        pb.collection('members').getFullList<Member>({ sort: 'name' }),
-        pb.collection('damage_logs').getFullList<DamageLog>({ sort: '-event_date' }),
+        pb.collection('members').getFullList<Member>({ sort: 'name', $autoCancel: false }),
+        pb.collection('damage_logs').getFullList<DamageLog>({ sort: '-event_date', $autoCancel: false }),
       ])
       setMembers(memberRecords)
       setDamageLogs(logRecords)
