@@ -6,7 +6,7 @@ export function AdminPanel() {
 
   return (
     <div className="p-4 pb-24 space-y-4">
-      <h1 className="text-xl font-bold text-game-gold">Admin Panel</h1>
+      <h1 className="text-xl font-bold text-game-gold">☠️ Captain's Quarters</h1>
 
       {loading && (
         <div className="text-center py-8 text-game-gold animate-pulse">Loading...</div>

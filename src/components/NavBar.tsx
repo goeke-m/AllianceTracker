@@ -8,11 +8,11 @@ interface NavBarProps {
 }
 
 const tabs: { id: Page; label: string; icon: string; adminOnly?: boolean }[] = [
-  { id: 'schedule', label: 'Train Schedule', icon: '🚂' },
-  { id: 'map', label: 'Marshall Map', icon: '🗺' },
-  { id: 'tech', label: 'Alliance Tech', icon: '🔬' },
-  { id: 'out', label: 'Out', icon: '🏖', adminOnly: true },
-  { id: 'admin', label: 'Admin', icon: '⚙', adminOnly: true },
+  { id: 'schedule', label: 'Voyage Log', icon: '⚓' },
+  { id: 'map', label: 'Treasure Map', icon: '🗺' },
+  { id: 'tech', label: 'Ship Upgrades', icon: '⚔️' },
+  { id: 'out', label: 'Shore Leave', icon: '🏝️', adminOnly: true },
+  { id: 'admin', label: 'Captain', icon: '☠️', adminOnly: true },
 ]
 
 export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps) {
@@ -39,8 +39,8 @@ export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps)
           onClick={onSignOut}
           className="flex-1 flex flex-col items-center py-3 text-xs font-medium text-gray-400 hover:text-game-highlight transition-colors"
         >
-          <span className="text-lg mb-0.5">↩</span>
-          <span>Sign Out</span>
+          <span className="text-lg mb-0.5">🏴‍☠️</span>
+          <span>Abandon Ship</span>
         </button>
       </div>
     </nav>

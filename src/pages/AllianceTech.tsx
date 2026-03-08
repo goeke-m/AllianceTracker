@@ -113,13 +113,13 @@ export function AllianceTech() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-gold">Alliance Tech</h1>
+        <h1 className="text-xl font-bold text-game-gold">Ship Upgrades</h1>
       </div>
-      <p className="text-gray-400 text-xs mb-6">Current and upcoming alliance technology research</p>
+      <p className="text-gray-400 text-xs mb-6">Current and upcoming ship improvements</p>
 
       <div className="space-y-4">
         <TechCard
-          label="Currently Working On"
+          label="Currently Upgrading"
           slot="current"
           status={current}
           accent="border-game-standard"
@@ -130,7 +130,7 @@ export function AllianceTech() {
           saving={saving}
         />
         <TechCard
-          label="Up Next"
+          label="Next on the Docket"
           slot="next"
           status={next}
           accent="border-game-accent"

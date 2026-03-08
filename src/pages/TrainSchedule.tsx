@@ -81,7 +81,7 @@ export function TrainSchedule() {
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">Loading schedule...</p>
+        <p className="text-gray-400 animate-pulse">Charting the seas...</p>
       </div>
     )
   }
@@ -96,8 +96,8 @@ export function TrainSchedule() {
 
   return (
     <div className="p-4 pb-24">
-      <h1 className="text-xl font-bold text-game-gold mb-1">Train Schedule</h1>
-      <p className="text-gray-400 text-xs mb-4">Daily train runs ~1:00 EST · 7-day view</p>
+      <h1 className="text-xl font-bold text-game-gold mb-1">Voyage Schedule</h1>
+      <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · 7-day view</p>
 
       <div className="space-y-2">
         {weekDates.map(date => {
@@ -134,22 +134,22 @@ export function TrainSchedule() {
               {entry ? (
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                   <div>
-                    <span className="text-gray-500 text-xs uppercase tracking-wide">Conductor</span>
+                    <span className="text-gray-500 text-xs uppercase tracking-wide">Captain</span>
                     <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>
                   </div>
                   <div>
-                    <span className="text-gray-500 text-xs uppercase tracking-wide">VIP</span>
+                    <span className="text-gray-500 text-xs uppercase tracking-wide">First Mate</span>
                     <p className="text-white font-medium">{getMemberName(entry.vip)}</p>
                   </div>
                   {entry.notes && (
                     <div className="col-span-2 mt-1">
-                      <span className="text-gray-500 text-xs uppercase tracking-wide">Criteria</span>
+                      <span className="text-gray-500 text-xs uppercase tracking-wide">Captain's Log</span>
                       <p className="text-gray-300 text-xs">{entry.notes}</p>
                     </div>
                   )}
                 </div>
               ) : (
-                <p className="text-gray-600 text-sm italic">Not scheduled</p>
+                <p className="text-gray-600 text-sm italic">No voyage planned</p>
               )}
             </div>
           )
@@ -171,7 +171,7 @@ export function TrainSchedule() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Conductor</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Captain</label>
                 <select
                   value={editState.conductorId}
                   onChange={e => setEditState(s => s && ({ ...s, conductorId: e.target.value }))}
@@ -185,7 +185,7 @@ export function TrainSchedule() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">VIP</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">First Mate</label>
                 <select
                   value={editState.vipId}
                   onChange={e => setEditState(s => s && ({ ...s, vipId: e.target.value }))}
@@ -199,7 +199,7 @@ export function TrainSchedule() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Criteria / Notes</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Captain's Log</label>
                 <input
                   type="text"
                   value={editState.notes}
