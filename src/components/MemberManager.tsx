@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import type { Member, RankValue, SquadType } from '../lib/types'
 
@@ -26,7 +26,7 @@ function formatPower(val?: number | null): string {
   return String(val)
 }
 
-type SortKey = 'Rank' | 'name' | 'THP' | 'S1_Power' | 'S2_Power' | 'Strike_Team'
+type SortKey = 'Rank' | 'name' | 'THP' | 'S1_Power' | 'S2_Power' | 'Strike_Team' | 'avg_vs'
 type SortDir = 'asc' | 'desc'
 
 interface EditState {
@@ -63,6 +63,25 @@ function rankNum(r: RankValue): number {
 }
 
 export function MemberManager({ members, onRefresh }: MemberManagerProps) {
+  const [avgVsMap, setAvgVsMap] = useState<Record<string, number>>({})
+
+  useEffect(() => {
+    supabase.from('vs_points').select('member_id, points').then(({ data }) => {
+      if (!data) return
+      const totals: Record<string, { sum: number; count: number }> = {}
+      for (const row of data) {
+        if (!totals[row.member_id]) totals[row.member_id] = { sum: 0, count: 0 }
+        totals[row.member_id].sum += row.points
+        totals[row.member_id].count += 1
+      }
+      const avg: Record<string, number> = {}
+      for (const [id, { sum, count }] of Object.entries(totals)) {
+        avg[id] = sum / count
+      }
+      setAvgVsMap(avg)
+    })
+  }, [])
+
   const [name, setName] = useState('')
   const [newRank, setNewRank] = useState<RankValue>('R3')
   const [adding, setAdding] = useState(false)
@@ -105,6 +124,7 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
         case 'S1_Power':   av = a.S1_Power ?? -1;     bv = b.S1_Power ?? -1;     break
         case 'S2_Power':   av = a.S2_Power ?? -1;     bv = b.S2_Power ?? -1;     break
         case 'Strike_Team': av = a.Strike_Team ? 1 : 0; bv = b.Strike_Team ? 1 : 0; break
+        case 'avg_vs':      av = avgVsMap[a.id] ?? -1;  bv = avgVsMap[b.id] ?? -1;  break
       }
       if (av < bv) return sortDir === 'asc' ? -1 : 1
       if (av > bv) return sortDir === 'asc' ? 1 : -1
@@ -261,6 +281,9 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
               <th className={`${thCls} text-center`} onClick={() => handleSort('Strike_Team')}>
                 Strike <SortIcon col="Strike_Team" sortKey={sortKey} sortDir={sortDir} />
               </th>
+              <th className={`${thCls} text-right`} onClick={() => handleSort('avg_vs')}>
+                Avg VS <SortIcon col="avg_vs" sortKey={sortKey} sortDir={sortDir} />
+              </th>
               <th className={thCls}>Availability</th>
               <th className="px-3 py-2"></th>
             </tr>
@@ -268,7 +291,7 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
           <tbody>
             {displayed.length === 0 && (
               <tr>
-                <td colSpan={10} className="text-center text-gray-500 py-6">No members match the current filters.</td>
+                <td colSpan={11} className="text-center text-gray-500 py-6">No members match the current filters.</td>
               </tr>
             )}
             {displayed.map((m) => (
@@ -304,6 +327,9 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
                   <td className="px-2 py-1.5 text-center">
                     <input type="checkbox" checked={editState.Strike_Team} onChange={(e) => set('Strike_Team', e.target.checked)} className="accent-game-gold" />
                   </td>
+                  <td className="px-3 py-1.5 text-right text-gray-500">
+                    {avgVsMap[m.id] != null ? avgVsMap[m.id].toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—'}
+                  </td>
                   <td className="px-2 py-1.5">
                     <input type="text" value={editState.Availability} onChange={(e) => set('Availability', e.target.value)} placeholder="Availability" className={inputCls} />
                   </td>
@@ -329,6 +355,9 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
                   <td className="px-3 py-2 text-gray-300">{m.S2_Type ?? '—'}</td>
                   <td className="px-3 py-2 text-center">
                     {m.Strike_Team ? <span className="text-game-gold font-bold">✓</span> : <span className="text-gray-600">—</span>}
+                  </td>
+                  <td className="px-3 py-2 text-right text-gray-300">
+                    {avgVsMap[m.id] != null ? avgVsMap[m.id].toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—'}
                   </td>
                   <td className="px-3 py-2 text-gray-300 max-w-[160px] truncate" title={m.Availability ?? undefined}>{m.Availability ?? '—'}</td>
                   <td className="px-3 py-2">
