@@ -71,6 +71,22 @@ export interface AllianceTechStatus {
   updated_at: string
 }
 
+export interface Demerit {
+  id: string;
+  member_id: string;
+  date: string; // YYYY-MM-DD
+  note: string;
+  created_at: string;
+}
+
+export interface VsPoint {
+  id: string;
+  member_id: string;
+  week_ending: string; // YYYY-MM-DD
+  points: number;
+  created_at: string;
+}
+
 export interface JsonImportEntry {
   name?: string;
   player?: string;
