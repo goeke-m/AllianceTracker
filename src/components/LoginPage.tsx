@@ -66,56 +66,60 @@ export function LoginPage({ onSignIn, onSignInWithOAuth }: LoginPageProps) {
             {oauthLoading === 'discord' ? 'Setting sail...' : 'Board with Discord'}
           </button>
 
-          <div className="flex items-center gap-3">
-            <div className="flex-1 h-px bg-game-accent" />
-            <span className="text-xs text-gray-500">or</span>
-            <div className="flex-1 h-px bg-game-accent" />
-          </div>
+          {/* Email/Password Form - local dev only */}
+          {import.meta.env.DEV && (
+            <>
+              <div className="flex items-center gap-3">
+                <div className="flex-1 h-px bg-game-accent" />
+                <span className="text-xs text-gray-500">or</span>
+                <div className="flex-1 h-px bg-game-accent" />
+              </div>
 
-          {/* Email/Password Form */}
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
-                Pirate's Address
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-gold"
-                placeholder="your@email.com"
-              />
-            </div>
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-1">
+                    Pirate's Address
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-gold"
+                    placeholder="your@email.com"
+                  />
+                </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
-                Secret Code
-              </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-gold"
-                placeholder="••••••••"
-              />
-            </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-1">
+                    Secret Code
+                  </label>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-gold"
+                    placeholder="••••••••"
+                  />
+                </div>
 
-            {error && (
-              <p className="text-game-highlight text-sm bg-red-900/20 border border-red-800 rounded-lg px-3 py-2">
-                {error}
-              </p>
-            )}
+                {error && (
+                  <p className="text-game-highlight text-sm bg-red-900/20 border border-red-800 rounded-lg px-3 py-2">
+                    {error}
+                  </p>
+                )}
 
-            <button
-              type="submit"
-              disabled={loading || oauthLoading !== null}
-              className="w-full bg-game-gold text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
-            >
-              {loading ? 'Setting sail...' : 'Board the Ship'}
-            </button>
-          </form>
+                <button
+                  type="submit"
+                  disabled={loading || oauthLoading !== null}
+                  className="w-full bg-game-gold text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
+                >
+                  {loading ? 'Setting sail...' : 'Board the Ship'}
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </div>

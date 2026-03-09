@@ -1,8 +1,5 @@
 import type { Member, DamageLog, MemberWithWAD } from './types'
 
-const RING1_CAPACITY = 8
-const RING2_STRATEGIC_SLOTS = 3
-const RING2_STANDARD_SLOTS = 13
 
 function rankToNum(rank: string): number {
   return parseInt(rank.slice(1)) || 1
@@ -51,36 +48,14 @@ export function assignRingPositions(
 
   const positions: MemberWithWAD[] = []
 
-  // Ring 1: top 8 leadership (R4/R5) by WAD
-  leadership.slice(0, RING1_CAPACITY).forEach((m, i) => {
+  // All R4/R5 members sorted by WAD: slotIndex 0 = rank 1 (best)
+  leadership.forEach((m, i) => {
     positions.push({ ...m, ring: 1, slotIndex: i, isStrategicCore: true })
   })
 
-  // Ring 2 strategic core: leadership ranks 9-11 (closest to Marshall)
-  const ring2Leadership = leadership.slice(
-    RING1_CAPACITY,
-    RING1_CAPACITY + RING2_STRATEGIC_SLOTS
-  )
-  ring2Leadership.forEach((m, i) => {
-    positions.push({ ...m, ring: 2, slotIndex: i, isStrategicCore: true })
-  })
-
-  // Ring 2 outer: top standard (R1-R3) members fill remaining slots
-  const usedStrategic = ring2Leadership.length
-  const ring2StandardMax =
-    RING2_STRATEGIC_SLOTS + RING2_STANDARD_SLOTS - usedStrategic
-  standard.slice(0, ring2StandardMax).forEach((m, i) => {
-    positions.push({
-      ...m,
-      ring: 2,
-      slotIndex: usedStrategic + i,
-      isStrategicCore: false,
-    })
-  })
-
-  // Ring 3+: remaining standard members by WAD
-  standard.slice(ring2StandardMax).forEach((m, i) => {
-    positions.push({ ...m, ring: 3, slotIndex: i, isStrategicCore: false })
+  // All standard members sorted by WAD: slotIndex 0 = rank 1 (best)
+  standard.forEach((m, i) => {
+    positions.push({ ...m, ring: 2, slotIndex: i, isStrategicCore: false })
   })
 
   return positions
