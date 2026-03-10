@@ -51,10 +51,22 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
         skipped.push(`${name} (invalid damage)`)
         continue
       }
+      const rawDate = entry.date ?? entry.event_date
+      let event_date: string
+      if (rawDate) {
+        // Treat bare date strings (YYYY-MM-DD) as Eastern time midnight
+        const dateStr = String(rawDate)
+        const isDateOnly = /^\d{4}-\d{2}-\d{2}$/.test(dateStr)
+        event_date = isDateOnly
+          ? new Date(`${dateStr}T00:00:00-05:00`).toISOString()
+          : new Date(dateStr).toISOString()
+      } else {
+        event_date = new Date().toISOString()
+      }
       logs.push({
         member_id: memberId,
         damage: entry.damage,
-        event_date: entry.date ?? entry.event_date ?? new Date().toISOString(),
+        event_date,
       })
     }
 
