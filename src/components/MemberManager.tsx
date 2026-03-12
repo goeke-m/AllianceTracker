@@ -30,6 +30,7 @@ type SortKey = 'Rank' | 'name' | 'THP' | 'S1_Power' | 'S2_Power' | 'Strike_Team'
 type SortDir = 'asc' | 'desc'
 
 interface EditState {
+  name: string
   Rank: RankValue
   THP: string
   S1_Power: string
@@ -42,6 +43,7 @@ interface EditState {
 
 function memberToEditState(m: Member): EditState {
   return {
+    name: m.name,
     Rank: m.Rank,
     THP: m.THP != null ? String(m.THP) : '',
     S1_Power: m.S1_Power != null ? String(m.S1_Power) : '',
@@ -159,6 +161,7 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
   async function handleSave(id: string) {
     if (!editState) return
     await supabase.from('members').update({
+      name: editState.name.trim(),
       Rank: editState.Rank,
       THP: editState.THP !== '' ? Number(editState.THP) : null,
       S1_Power: editState.S1_Power !== '' ? Number(editState.S1_Power) : null,
@@ -302,7 +305,9 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
                       {RANKS.map((r) => <option key={r} value={r}>{r}</option>)}
                     </select>
                   </td>
-                  <td className="px-3 py-1.5 text-white whitespace-nowrap">{m.name}</td>
+                  <td className="px-2 py-1.5">
+                    <input type="text" value={editState.name} onChange={(e) => set('name', e.target.value)} placeholder="Name" required className={inputCls} />
+                  </td>
                   <td className="px-2 py-1.5">
                     <input type="number" value={editState.THP} onChange={(e) => set('THP', e.target.value)} placeholder="THP" className={inputCls} />
                   </td>
