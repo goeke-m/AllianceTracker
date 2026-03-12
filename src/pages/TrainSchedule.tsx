@@ -30,6 +30,8 @@ export function TrainSchedule() {
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
 
+  const todayStr = new Date().toISOString().slice(0, 10)
+
   const entryByDate = new Map<string, TrainEntry>()
   for (const e of entries) {
     entryByDate.set(e.date, e)
@@ -97,12 +99,12 @@ export function TrainSchedule() {
   return (
     <div className="p-4 pb-24">
       <h1 className="text-xl font-bold text-game-gold mb-1">Voyage Schedule</h1>
-      <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · 7-day view</p>
+      <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · Sun–Sun view</p>
 
       <div className="space-y-2">
         {weekDates.map(date => {
           const entry = entryByDate.get(date)
-          const isToday = date === weekDates[0]
+          const isToday = date === todayStr
 
           return (
             <div

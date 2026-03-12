@@ -6,9 +6,11 @@ function getWeekDates(): string[] {
   const dates: string[] = []
   const today = new Date()
   today.setHours(0, 0, 0, 0)
-  for (let i = 0; i < 7; i++) {
-    const d = new Date(today)
-    d.setDate(today.getDate() + i)
+  const sunday = new Date(today)
+  sunday.setDate(today.getDate() - today.getDay()) // rewind to Sunday
+  for (let i = 0; i <= 7; i++) {
+    const d = new Date(sunday)
+    d.setDate(sunday.getDate() + i)
     dates.push(d.toISOString().slice(0, 10))
   }
   return dates
