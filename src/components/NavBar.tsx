@@ -11,6 +11,8 @@ const tabs: { id: Page; label: string; icon: string; adminOnly?: boolean }[] = [
   { id: 'schedule', label: 'Voyage Log', icon: '⚓' },
   { id: 'map', label: 'Treasure Map', icon: '🗺' },
   { id: 'tech', label: 'Ship Upgrades', icon: '⚔️' },
+  { id: 'kills', label: 'Kill List', icon: '⚔️' },
+  { id: 'friends', label: 'Friends', icon: '🤝' },
   { id: 'out', label: 'Shore Leave', icon: '🏝️', adminOnly: true },
   { id: 'admin', label: 'Captain', icon: '☠️', adminOnly: true },
 ]

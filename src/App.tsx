@@ -7,6 +7,8 @@ import { TrainSchedule } from './pages/TrainSchedule'
 import { Out } from './pages/Out'
 import { AdminPanel } from './pages/AdminPanel'
 import { AllianceTech } from './pages/AllianceTech'
+import { KillList } from './pages/KillList'
+import { FriendsList } from './pages/FriendsList'
 import type { Page } from './lib/types'
 
 const SUPABASE_CONFIGURED =
@@ -69,6 +71,8 @@ export function App() {
         {safePage === 'map' && <MarshallMap isAdmin={isAdmin} />}
         {safePage === 'schedule' && <TrainSchedule />}
         {safePage === 'tech' && <AllianceTech />}
+        {safePage === 'kills' && <KillList isAdmin={isAdmin} />}
+        {safePage === 'friends' && <FriendsList isAdmin={isAdmin} />}
         {safePage === 'out' && isAdmin && <Out />}
         {safePage === 'admin' && isAdmin && <AdminPanel />}
       </div>

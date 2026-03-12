@@ -62,7 +62,23 @@ export interface OotoEntry {
   updated_at: string;
 }
 
-export type Page = 'map' | 'schedule' | 'out' | 'admin' | 'tech';
+export type Page = 'map' | 'schedule' | 'out' | 'admin' | 'tech' | 'kills' | 'friends';
+
+export interface KillListEntry {
+  id: string;
+  name: string;
+  server: string;
+  reason?: string;
+  created_at: string;
+}
+
+export interface FriendsListEntry {
+  id: string;
+  name: string;
+  server: string;
+  reason?: string;
+  created_at: string;
+}
 
 export interface AllianceTechStatus {
   key: 'current' | 'next'
