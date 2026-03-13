@@ -9,6 +9,9 @@ function levels(name: string, max: number): string[] {
 }
 
 const DEVELOPMENT_TECHS: string[] = [
+  ...levels('Auto Rally', 10),
+  ...levels('Great Helper', 10),
+  ...levels('Quick Construction', 10),
   ...levels('Quick Gathering', 10),
   ...levels('Iron Output', 10),
   ...levels('Food Output', 10),
