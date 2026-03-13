@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useAllianceTech } from '../hooks/useAllianceTech'
 import { useAuth } from '../hooks/useAuth'
-import type { AllianceTechStatus } from '../lib/types'
 
 // ─── Static tech lists ────────────────────────────────────────────────────────
 
@@ -36,34 +35,26 @@ const WAR_TECHS: string[] = [
   ...levels('Expert Blacksmith', 20),
 ]
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Component ────────────────────────────────────────────────────────────────
 
 interface PickerState {
-  slot: 'current' | 'next'
   category: 'development' | 'war' | null
   search: string
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
-
 export function AllianceTech() {
   const { isAdmin } = useAuth()
-  const { current, next, loading, error, setStatus, clearStatus } = useAllianceTech()
+  const { queue, loading, error, addItem, completeTop, moveUp, moveDown } = useAllianceTech()
   const [picker, setPicker] = useState<PickerState | null>(null)
   const [saving, setSaving] = useState(false)
+  const [completing, setCompleting] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
 
-  function openPicker(slot: 'current' | 'next') {
-    setPicker({ slot, category: null, search: '' })
-    setSaveError(null)
-  }
-
   async function handleSelect(techName: string, category: 'development' | 'war') {
-    if (!picker) return
     setSaving(true)
     setSaveError(null)
     try {
-      await setStatus(picker.slot, techName, category)
+      await addItem(techName, category)
       setPicker(null)
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Save failed')
@@ -72,12 +63,25 @@ export function AllianceTech() {
     }
   }
 
-  async function handleClear(slot: 'current' | 'next') {
+  async function handleComplete() {
+    setCompleting(true)
+    setSaveError(null)
+    try {
+      await completeTop()
+    } catch (err) {
+      setSaveError((err as { message?: string }).message ?? 'Failed to complete')
+    } finally {
+      setCompleting(false)
+    }
+  }
+
+  async function handleMove(index: number, dir: 'up' | 'down') {
     setSaving(true)
     try {
-      await clearStatus(slot)
+      if (dir === 'up') await moveUp(index)
+      else await moveDown(index)
     } catch (err) {
-      setSaveError((err as { message?: string }).message ?? 'Clear failed')
+      setSaveError((err as { message?: string }).message ?? 'Reorder failed')
     } finally {
       setSaving(false)
     }
@@ -110,37 +114,113 @@ export function AllianceTech() {
     ? filteredTechs.filter(t => t.toLowerCase().includes(picker.search.toLowerCase()))
     : filteredTechs
 
+  const [current, ...upcoming] = queue
+
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
         <h1 className="text-xl font-bold text-game-gold">Ship Upgrades</h1>
+        {isAdmin && (
+          <button
+            onClick={() => { setPicker({ category: null, search: '' }); setSaveError(null) }}
+            className="text-xs text-game-standard border border-game-standard rounded px-3 py-1 hover:bg-game-standard hover:text-white transition-colors"
+          >
+            + Add
+          </button>
+        )}
       </div>
-      <p className="text-gray-400 text-xs mb-6">Current and upcoming ship improvements</p>
+      <p className="text-gray-400 text-xs mb-6">Planned ship improvements in order</p>
 
-      <div className="space-y-4">
-        <TechCard
-          label="Currently Upgrading"
-          slot="current"
-          status={current}
-          accent="border-game-standard"
-          badgeColor="bg-game-standard"
-          isAdmin={isAdmin}
-          onEdit={() => openPicker('current')}
-          onClear={() => handleClear('current')}
-          saving={saving}
-        />
-        <TechCard
-          label="Next on the Docket"
-          slot="next"
-          status={next}
-          accent="border-game-accent"
-          badgeColor="bg-game-accent"
-          isAdmin={isAdmin}
-          onEdit={() => openPicker('next')}
-          onClear={() => handleClear('next')}
-          saving={saving}
-        />
-      </div>
+      {queue.length === 0 ? (
+        <p className="text-gray-500 italic text-sm text-center py-8">No techs queued</p>
+      ) : (
+        <div className="space-y-3">
+          {/* Currently upgrading */}
+          <div className="bg-game-card border-l-4 border-game-standard rounded-xl p-4">
+            <div className="flex items-start justify-between gap-2">
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Currently Upgrading</p>
+                <p className="text-lg font-bold text-white leading-tight">{current.tech_name}</p>
+                <span className="inline-block mt-1.5 text-xs font-semibold px-2 py-0.5 rounded capitalize bg-game-standard text-white">
+                  {current.category}
+                </span>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                {isAdmin && (
+                  <>
+                    <div className="flex flex-col gap-0.5">
+                      <button
+                        disabled={true}
+                        className="w-6 h-5 flex items-center justify-center text-gray-700 rounded text-xs cursor-not-allowed"
+                      >▲</button>
+                      <button
+                        disabled={saving || queue.length < 2}
+                        onClick={() => handleMove(0, 'down')}
+                        className="w-6 h-5 flex items-center justify-center text-gray-400 hover:text-white rounded text-xs transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                      >▼</button>
+                    </div>
+                    <button
+                      onClick={handleComplete}
+                      disabled={completing}
+                      className="w-8 h-8 rounded-full border-2 border-green-500 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-white transition-colors disabled:opacity-50"
+                      title="Mark complete"
+                    >
+                      ✓
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Upcoming */}
+          {upcoming.length > 0 && (
+            <div className="bg-game-card border border-game-accent/30 rounded-xl overflow-hidden">
+              <div className="px-4 py-2 border-b border-game-accent/20">
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-500">Up Next</p>
+              </div>
+              <div className="divide-y divide-game-accent/10">
+                {upcoming.map((item, i) => {
+                  const idx = i + 1 // actual index in queue array
+                  return (
+                    <div key={item.id} className="flex items-center gap-3 px-4 py-3">
+                      <span className="text-xs text-gray-600 w-5 text-right shrink-0">{idx + 1}</span>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-sm text-white">{item.tech_name}</span>
+                        <span className={`ml-2 text-xs px-1.5 py-0.5 rounded capitalize ${
+                          item.category === 'war'
+                            ? 'bg-game-highlight/20 text-game-highlight'
+                            : 'bg-game-standard/20 text-game-standard'
+                        }`}>
+                          {item.category}
+                        </span>
+                      </div>
+                      {isAdmin && (
+                        <div className="flex flex-col gap-0.5 shrink-0">
+                          <button
+                            disabled={saving}
+                            onClick={() => handleMove(idx, 'up')}
+                            className="w-6 h-5 flex items-center justify-center text-gray-400 hover:text-white rounded text-xs transition-colors disabled:opacity-30"
+                          >▲</button>
+                          <button
+                            disabled={saving || idx === queue.length - 1}
+                            onClick={() => handleMove(idx, 'down')}
+                            className="w-6 h-5 flex items-center justify-center text-gray-400 hover:text-white rounded text-xs transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                          >▼</button>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {saveError && (
+        <p className="mt-4 text-game-highlight text-sm">{saveError}</p>
+      )}
 
       {/* Picker modal */}
       {picker && (
@@ -148,9 +228,7 @@ export function AllianceTech() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-lg flex flex-col max-h-[85vh]">
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5 pb-3 shrink-0">
-              <h2 className="text-game-gold font-bold">
-                Set {picker.slot === 'current' ? 'Current' : 'Next'} Tech
-              </h2>
+              <h2 className="text-game-gold font-bold">Add to Queue</h2>
               <button
                 onClick={() => setPicker(null)}
                 className="text-gray-400 hover:text-white text-xl leading-none"
@@ -160,7 +238,6 @@ export function AllianceTech() {
             </div>
 
             {!picker.category ? (
-              /* Category selection */
               <div className="px-5 pb-6 space-y-3">
                 <p className="text-xs text-gray-400">Choose category:</p>
                 <button
@@ -189,7 +266,6 @@ export function AllianceTech() {
                 </button>
               </div>
             ) : (
-              /* Tech selection */
               <>
                 <div className="px-5 pb-3 shrink-0 space-y-2">
                   <div className="flex items-center gap-2">
@@ -235,76 +311,6 @@ export function AllianceTech() {
           </div>
         </div>
       )}
-    </div>
-  )
-}
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
-
-function TechCard({
-  label,
-  status,
-  accent,
-  badgeColor,
-  isAdmin,
-  onEdit,
-  onClear,
-  saving,
-}: {
-  label: string
-  slot: 'current' | 'next'
-  status: AllianceTechStatus | null
-  accent: string
-  badgeColor: string
-  isAdmin: boolean
-  onEdit: () => void
-  onClear: () => void
-  saving: boolean
-}) {
-  return (
-    <div className={`bg-game-card border-l-4 rounded-xl p-4 ${accent}`}>
-      <div className="flex items-start justify-between gap-2">
-        <div className="min-w-0">
-          <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">{label}</p>
-          {status ? (
-            <>
-              <p className="text-lg font-bold text-white leading-tight">{status.tech_name}</p>
-              <span
-                className={`inline-block mt-1.5 text-xs font-semibold px-2 py-0.5 rounded capitalize ${badgeColor} text-white`}
-              >
-                {status.category}
-              </span>
-              {status.updated_at && (
-                <p className="mt-1 text-xs text-gray-600">
-                  Updated {new Date(status.updated_at).toLocaleDateString()}
-                </p>
-              )}
-            </>
-          ) : (
-            <p className="text-gray-500 italic text-sm">Not set</p>
-          )}
-        </div>
-        {isAdmin && (
-          <div className="flex flex-col gap-1 shrink-0">
-            <button
-              onClick={onEdit}
-              disabled={saving}
-              className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors disabled:opacity-50"
-            >
-              {status ? 'Change' : 'Set'}
-            </button>
-            {status && (
-              <button
-                onClick={onClear}
-                disabled={saving}
-                className="text-xs text-gray-500 border border-gray-600 rounded px-2 py-0.5 hover:bg-gray-700 hover:text-white transition-colors disabled:opacity-50"
-              >
-                Clear
-              </button>
-            )}
-          </div>
-        )}
-      </div>
     </div>
   )
 }

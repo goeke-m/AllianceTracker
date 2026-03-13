@@ -87,6 +87,15 @@ export interface AllianceTechStatus {
   updated_at: string
 }
 
+export interface AllianceTechQueueItem {
+  id: string
+  position: number
+  tech_name: string
+  category: 'development' | 'war'
+  completed: boolean
+  created_at: string
+}
+
 export interface Demerit {
   id: string;
   member_id: string;
