@@ -5,6 +5,16 @@ import type { TrainEntry } from '../lib/types'
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
+const DOW_SOURCES: Record<string, { captain: string; firstMate: string }> = {
+  Sun: { captain: 'Weekly top VS scorer', firstMate: 'Top VS scorer (Sat)' },
+  Mon: { captain: 'Alliance MVP', firstMate: 'DS top scorer' },
+  Tue: { captain: 'Highest donator', firstMate: 'Top VS scorer (Mon)' },
+  Wed: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Tue)' },
+  Thu: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Wed)' },
+  Fri: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Thu)' },
+  Sat: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Fri)' },
+}
+
 function formatDate(iso: string): string {
   const [y, m, d] = iso.split('-')
   return `${m}/${d}/${y.slice(2)}`
@@ -106,6 +116,7 @@ export function TrainSchedule() {
         {weekDates.map(date => {
           const entry = entryByDate.get(date)
           const isToday = date === todayStr
+          const sources = DOW_SOURCES[getDow(date)]
 
           return (
             <div
@@ -134,26 +145,24 @@ export function TrainSchedule() {
               </div>
 
               {/* Entry content */}
-              {entry ? (
-                <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                  <div>
-                    <span className="text-gray-500 text-xs uppercase tracking-wide">Captain</span>
-                    <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>
-                  </div>
-                  <div>
-                    <span className="text-gray-500 text-xs uppercase tracking-wide">First Mate</span>
-                    <p className="text-white font-medium">{getMemberName(entry.vip)}</p>
-                  </div>
-                  {entry.notes && (
-                    <div className="col-span-2 mt-1">
-                      <span className="text-gray-500 text-xs uppercase tracking-wide">Captain's Log</span>
-                      <p className="text-gray-300 text-xs">{entry.notes}</p>
-                    </div>
-                  )}
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+                <div>
+                  <span className="text-gray-500 text-xs uppercase tracking-wide">Captain</span>
+                  <p className="text-gray-400 text-xs italic">{sources.captain}</p>
+                  {entry && <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>}
                 </div>
-              ) : (
-                <p className="text-gray-600 text-sm italic">No voyage planned</p>
-              )}
+                <div>
+                  <span className="text-gray-500 text-xs uppercase tracking-wide">First Mate</span>
+                  <p className="text-gray-400 text-xs italic">{sources.firstMate}</p>
+                  {entry && <p className="text-white font-medium">{getMemberName(entry.vip)}</p>}
+                </div>
+                {entry?.notes && (
+                  <div className="col-span-2 mt-1">
+                    <span className="text-gray-500 text-xs uppercase tracking-wide">Captain's Log</span>
+                    <p className="text-gray-300 text-xs">{entry.notes}</p>
+                  </div>
+                )}
+              </div>
             </div>
           )
         })}
