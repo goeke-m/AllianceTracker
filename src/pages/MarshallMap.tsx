@@ -15,6 +15,16 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
   const { positions, members, damageLogs, loading, error, refresh } = useMarshallData()
   const [adminTab, setAdminTab] = useState<AdminTab>('import')
   const [clearingMemberId, setClearingMemberId] = useState<string | null>(null)
+  const [logFilter, setLogFilter] = useState<Set<string>>(new Set())
+
+  function toggleLogFilter(id: string) {
+    setLogFilter((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
 
   async function handleClearLogs(memberId: string) {
     setClearingMemberId(memberId)
@@ -157,11 +167,44 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
 
           {adminTab === 'logs' && (
             <div className="space-y-3">
-              <h2 className="text-lg font-bold text-white">
-                Damage Logs ({damageLogs.length} entries)
-              </h2>
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-bold text-white">
+                  Damage Logs ({damageLogs.length} entries)
+                </h2>
+                {logFilter.size > 0 && (
+                  <button
+                    onClick={() => setLogFilter(new Set())}
+                    className="text-xs text-gray-400 hover:text-white border border-game-accent px-2 py-0.5 rounded"
+                  >
+                    Clear filter
+                  </button>
+                )}
+              </div>
 
-              {members.map((m) => {
+              {/* Member filter pills */}
+              {damageLogs.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {members
+                    .filter((m) => damageLogs.some((l) => l.member_id === m.id))
+                    .map((m) => (
+                      <button
+                        key={m.id}
+                        onClick={() => toggleLogFilter(m.id)}
+                        className={`text-xs px-2 py-0.5 rounded-full border transition-colors ${
+                          logFilter.has(m.id)
+                            ? 'bg-game-gold text-game-dark border-game-gold font-semibold'
+                            : 'border-game-accent text-gray-400 hover:text-white hover:border-gray-400'
+                        }`}
+                      >
+                        {m.name}
+                      </button>
+                    ))}
+                </div>
+              )}
+
+              {members
+                .filter((m) => logFilter.size === 0 || logFilter.has(m.id))
+                .map((m) => {
                 const logs = damageLogs
                   .filter((l) => l.member_id === m.id)
                   .sort((a, b) => new Date(b.event_date).getTime() - new Date(a.event_date).getTime())
