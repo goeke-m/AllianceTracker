@@ -5,6 +5,20 @@ import type { TrainEntry } from '../lib/types'
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
+const R4_ROTATION = [
+  'Ruthless Cajun',
+  'BeBetter',
+  'Deezzz420',
+  'skibidi rizz toilet5',
+  'BaconALcH3MiST',
+  'PAINisthebestTeacher',
+  'Dhilldo',
+  'Saucy808',
+  'WapitiDreaming',
+  'GatitoTriste',
+  'ShadowMohawk',
+]
+
 const DOW_SOURCES: Record<string, { captain: string; firstMate: string }> = {
   Sun: { captain: 'Weekly top VS scorer', firstMate: 'Top VS scorer (Sat)' },
   Mon: { captain: 'Alliance MVP', firstMate: 'DS top scorer' },
@@ -37,6 +51,7 @@ export function TrainSchedule() {
   const { isAdmin } = useAuth()
   const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule()
   const [editState, setEditState] = useState<EditState | null>(null)
+  const [showR4Info, setShowR4Info] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
 
@@ -109,7 +124,17 @@ export function TrainSchedule() {
 
   return (
     <div className="p-4 pb-24">
-      <h1 className="text-xl font-bold text-game-gold mb-1">Voyage Schedule</h1>
+      <div className="flex items-start justify-between mb-1">
+        <h1 className="text-xl font-bold text-game-gold">Voyage Schedule</h1>
+        <button
+          onClick={() => setShowR4Info(true)}
+          className="text-game-standard hover:text-white transition-colors text-sm flex items-center gap-1"
+          title="View R4 rotation list"
+        >
+          <span>R4 Rotation</span>
+          <span>ⓘ</span>
+        </button>
+      </div>
       <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · Sun–Sun view</p>
 
       <div className="space-y-2">
@@ -167,6 +192,28 @@ export function TrainSchedule() {
           )
         })}
       </div>
+
+      {/* R4 rotation info modal */}
+      {showR4Info && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-xs p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <h2 className="text-game-gold font-bold">R4 Rotation</h2>
+              <button onClick={() => setShowR4Info(false)} className="text-gray-400 hover:text-white text-xl leading-none">
+                ×
+              </button>
+            </div>
+            <ol className="space-y-1">
+              {R4_ROTATION.map((name, i) => (
+                <li key={name} className="flex items-center gap-2 text-sm">
+                  <span className="text-game-gold font-bold w-5 text-right shrink-0">{i + 1}.</span>
+                  <span className="text-white">{name}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      )}
 
       {/* Edit modal */}
       {editState && (
