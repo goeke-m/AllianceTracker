@@ -2,6 +2,11 @@
 
 All notable changes to OPNz Tracker are documented here.
 
+## 2026-04-16
+
+### Changed
+- **R4 Rotation Update** — Replaced GatitoTriste with BeastMachine in the weekly captain rotation order.
+
 ## 2026-03-17
 
 ### Added

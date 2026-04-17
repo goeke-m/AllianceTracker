@@ -14,8 +14,8 @@ const R4_ROTATION = [
   'PAINisthebestTeacher',
   'Dhilldo',
   'Saucy808',
+  'BeastMachine',
   'WapitiDreaming',
-  'GatitoTriste',
   'ShadowMohawk',
 ]
 
