@@ -153,9 +153,18 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
 
   async function handleDelete(id: string) {
     setDeletingId(id)
-    await supabase.from('members').delete().eq('id', id)
+    setError(null)
+    try {
+      // Nullify train_schedule FKs (NO ACTION — must be cleared before member delete)
+      await supabase.from('train_schedule').update({ Conductor: null }).eq('Conductor', id)
+      await supabase.from('train_schedule').update({ VIP: null }).eq('VIP', id)
+      const { error } = await supabase.from('members').delete().eq('id', id)
+      if (error) throw error
+      onRefresh()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to delete member')
+    }
     setDeletingId(null)
-    onRefresh()
   }
 
   async function handleSave(id: string) {
