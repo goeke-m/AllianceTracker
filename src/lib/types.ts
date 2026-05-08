@@ -3,6 +3,7 @@ export type SquadType = 'Tank' | 'Air' | 'Missile';
 
 export interface Member {
   id: string;
+  game_uid?: string | null;
   name: string;
   Rank: RankValue;
   THP?: number;
