@@ -5,6 +5,7 @@ import type { Member, RankValue, SquadType } from '../lib/types'
 interface MemberManagerProps {
   members: Member[]
   onRefresh: () => void
+  syncUserId?: string
 }
 
 const RANKS: RankValue[] = ['R1', 'R2', 'R3', 'R4', 'R5']
@@ -64,7 +65,7 @@ function rankNum(r: RankValue): number {
   return parseInt(r.slice(1))
 }
 
-export function MemberManager({ members, onRefresh }: MemberManagerProps) {
+export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerProps) {
   const [avgVsMap, setAvgVsMap] = useState<Record<string, number>>({})
 
   useEffect(() => {
@@ -88,6 +89,8 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
   const [newRank, setNewRank] = useState<RankValue>('R3')
   const [adding, setAdding] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [syncing, setSyncing] = useState(false)
+  const [syncResult, setSyncResult] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editState, setEditState] = useState<EditState | null>(null)
@@ -134,6 +137,28 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
     })
     return list
   }, [members, filterName, filterRanks, filterStrike, sortKey, sortDir])
+
+  async function handleSync() {
+    setSyncing(true)
+    setSyncResult(null)
+    setError(null)
+    try {
+      const { data, error } = await supabase.functions.invoke('sync-alliance-members')
+      if (error) throw error
+      const { added, updated, removed, errors } = data as {
+        added: number; updated: number; removed: number; errors: string[]
+      }
+      if (errors.length > 0) {
+        setError(`Sync errors: ${errors.join('; ')}`)
+      } else {
+        setSyncResult(`Synced: +${added} added, ${updated} updated, ${removed} removed`)
+        onRefresh()
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Sync failed')
+    }
+    setSyncing(false)
+  }
 
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault()
@@ -194,7 +219,18 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-bold text-white">Members ({displayed.length} / {members.length})</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-bold text-white">Members ({displayed.length} / {members.length})</h2>
+        {syncUserId === 'edac282d-fd53-4353-8af8-c6b7c3f7480d' && (
+          <button
+            onClick={handleSync}
+            disabled={syncing}
+            className="bg-game-card border border-game-accent text-gray-300 font-semibold px-4 py-1.5 rounded-lg text-sm hover:border-game-gold hover:text-white transition-colors disabled:opacity-50"
+          >
+            {syncing ? 'Syncing…' : 'Sync Now'}
+          </button>
+        )}
+      </div>
 
       {/* Add member form */}
       <form onSubmit={handleAdd} className="flex gap-2">
@@ -223,6 +259,9 @@ export function MemberManager({ members, onRefresh }: MemberManagerProps) {
 
       {error && (
         <p className="text-game-highlight text-sm bg-red-900/20 border border-red-800 rounded-lg px-3 py-2">{error}</p>
+      )}
+      {syncResult && (
+        <p className="text-green-400 text-sm bg-green-900/20 border border-green-800 rounded-lg px-3 py-2">{syncResult}</p>
       )}
 
       {/* Filters */}

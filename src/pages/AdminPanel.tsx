@@ -3,11 +3,13 @@ import { MemberManager } from '../components/MemberManager'
 import { DemeritManager } from '../components/DemeritManager'
 import { VsPointManager } from '../components/VsPointManager'
 import { useMarshallData } from '../hooks/useMarshallData'
+import { useAuth } from '../hooks/useAuth'
 
 type AdminTab = 'members' | 'demerits' | 'vs points'
 
 export function AdminPanel() {
   const { members, loading, error, refresh } = useMarshallData()
+  const { user } = useAuth()
   const [tab, setTab] = useState<AdminTab>('members')
 
   return (
@@ -42,7 +44,7 @@ export function AdminPanel() {
             ))}
           </div>
 
-          {tab === 'members' && <MemberManager members={members} onRefresh={refresh} />}
+          {tab === 'members' && <MemberManager members={members} onRefresh={refresh} syncUserId={user?.id} />}
           {tab === 'demerits' && <DemeritManager members={members} />}
           {tab === 'vs points' && <VsPointManager members={members} />}
         </>
