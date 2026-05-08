@@ -57,7 +57,7 @@ export function reconcile(apiMembers: ApiMember[], dbMembers: DbMember[]): Recon
       game_uid: api.uid,
       name: api.name,
       Rank: mapRank(api.rank),
-      THP: Math.round((api.power / 1_000_000) * 10) / 10,
+      THP: api.power,
     }
 
     if (dbByUid.has(api.uid)) {

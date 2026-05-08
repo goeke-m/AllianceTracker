@@ -18,7 +18,7 @@ Deno.test('reconcile: updates member matched by game_uid', () => {
     [{ id: 'db-1', game_uid: 'abc123', name: 'OldName' }]
   )
   assertEquals(result.toUpdate, [{
-    game_uid: 'abc123', name: 'NewName', Rank: 'R4', THP: 85.4
+    game_uid: 'abc123', name: 'NewName', Rank: 'R4', THP: 85400000
   }])
   assertEquals(result.toInsert, [])
   assertEquals(result.toMatchByName, [])
@@ -31,7 +31,7 @@ Deno.test('reconcile: matches null-game_uid row by name (case-insensitive)', () 
     [{ id: 'db-1', game_uid: null, name: 'shadowmohawk' }]
   )
   assertEquals(result.toMatchByName, [{
-    dbId: 'db-1', game_uid: 'abc123', name: 'ShadowMohawk', Rank: 'R4', THP: 31.7
+    dbId: 'db-1', game_uid: 'abc123', name: 'ShadowMohawk', Rank: 'R4', THP: 31700000
   }])
   assertEquals(result.toInsert, [])
   assertEquals(result.toUpdate, [])
@@ -44,7 +44,7 @@ Deno.test('reconcile: inserts member not found in DB', () => {
     []
   )
   assertEquals(result.toInsert, [{
-    game_uid: 'new-uid', name: 'NewPlayer', Rank: 'R3', THP: 20.0
+    game_uid: 'new-uid', name: 'NewPlayer', Rank: 'R3', THP: 20000000
   }])
   assertEquals(result.toMatchByName, [])
   assertEquals(result.toUpdate, [])
