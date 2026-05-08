@@ -156,8 +156,9 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sync failed')
+    } finally {
+      setSyncing(false)
     }
-    setSyncing(false)
   }
 
   async function handleAdd(e: React.FormEvent) {
