@@ -442,7 +442,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
         </table>
       </div>
       {syncResult && (
-        <div className="fixed bottom-6 right-6 z-50 bg-green-900 border border-green-600 text-green-300 text-sm font-medium px-5 py-3 rounded-xl shadow-lg">
+        <div className="fixed bottom-24 right-4 z-[60] bg-green-900 border border-green-600 text-green-300 text-sm font-medium px-5 py-3 rounded-xl shadow-lg">
           {syncResult}
         </div>
       )}
