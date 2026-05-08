@@ -4,7 +4,16 @@ import { reconcile } from './reconcile.ts'
 const SYNC_USER_ID = 'edac282d-fd53-4353-8af8-c6b7c3f7480d'
 const LASTWAR_BASE = 'https://api.lastwar.tools'
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+
 Deno.serve(async (req) => {
+  if (req.method === 'OPTIONS') {
+    return new Response('ok', { headers: corsHeaders })
+  }
+
   try {
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
     const token = req.headers.get('Authorization')?.replace('Bearer ', '') ?? ''
@@ -28,7 +37,7 @@ Deno.serve(async (req) => {
       if (!user || user.id !== SYNC_USER_ID) {
         return new Response(JSON.stringify({ error: 'Forbidden' }), {
           status: 403,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', ...corsHeaders },
         })
       }
     }
@@ -54,7 +63,7 @@ Deno.serve(async (req) => {
       const body = await submitResp.text().catch(() => '(no body)')
       return new Response(
         JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [`Queue submit error ${submitResp.status}: ${body}`] }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
+        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       )
     }
 
@@ -67,7 +76,7 @@ Deno.serve(async (req) => {
       const body = await streamResp.text().catch(() => '(no body)')
       return new Response(
         JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [`Queue stream error ${streamResp.status}: ${body}`] }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
+        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       )
     }
 
@@ -105,14 +114,14 @@ Deno.serve(async (req) => {
     if (queueError) {
       return new Response(
         JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [`Queue error: ${queueError}`] }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
+        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       )
     }
 
     if (!completed || apiMembers.length === 0) {
       return new Response(
         JSON.stringify({ added: 0, updated: 0, removed: 0, errors: ['API returned empty member list — aborting to prevent mass delete'] }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
+        { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       )
     }
 
@@ -179,12 +188,12 @@ Deno.serve(async (req) => {
 
     return new Response(
       JSON.stringify({ added, updated, removed, errors }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
+      { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     )
   } catch (err) {
     return new Response(
       JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [String(err)] }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
+      { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     )
   }
 })

@@ -268,9 +268,6 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       {error && (
         <p className="text-game-highlight text-sm bg-red-900/20 border border-red-800 rounded-lg px-3 py-2">{error}</p>
       )}
-      {syncResult && (
-        <p className="text-green-400 text-sm bg-green-900/20 border border-green-800 rounded-lg px-3 py-2">{syncResult}</p>
-      )}
 
       {/* Filters */}
       <div className="flex flex-wrap gap-2 items-center">
@@ -444,6 +441,11 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           </tbody>
         </table>
       </div>
+      {syncResult && (
+        <div className="fixed bottom-6 right-6 z-50 bg-green-900 border border-green-600 text-green-300 text-sm font-medium px-5 py-3 rounded-xl shadow-lg">
+          {syncResult}
+        </div>
+      )}
     </div>
   )
 }
