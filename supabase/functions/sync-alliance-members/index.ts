@@ -56,7 +56,7 @@ Deno.serve(async (req) => {
       .from('members')
       .select('id, game_uid, name')
 
-    if (dbError) throw dbError
+    if (dbError) throw new Error(dbError.message)
 
     const result = reconcile(apiMembers, dbRows ?? [])
 
@@ -101,8 +101,10 @@ Deno.serve(async (req) => {
 
     // Delete departed members (clear train_schedule FKs first)
     for (const dbId of result.toDelete) {
-      await supabaseAdmin.from('train_schedule').update({ Conductor: null }).eq('Conductor', dbId)
-      await supabaseAdmin.from('train_schedule').update({ VIP: null }).eq('VIP', dbId)
+      const { error: e1 } = await supabaseAdmin.from('train_schedule').update({ Conductor: null }).eq('Conductor', dbId)
+      if (e1) { errors.push(`train_schedule Conductor clear error for "${dbId}": ${e1.message}`); continue }
+      const { error: e2 } = await supabaseAdmin.from('train_schedule').update({ VIP: null }).eq('VIP', dbId)
+      if (e2) { errors.push(`train_schedule VIP clear error for "${dbId}": ${e2.message}`); continue }
       const { error } = await supabaseAdmin.from('members').delete().eq('id', dbId)
       if (error) errors.push(`delete error for id "${dbId}": ${error.message}`)
       else removed++
