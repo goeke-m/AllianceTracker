@@ -7,12 +7,18 @@ const LASTWAR_BASE = 'https://api.lastwar.tools'
 Deno.serve(async (req) => {
   try {
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
-    const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const token = req.headers.get('Authorization')?.replace('Bearer ', '') ?? ''
 
-    // Allow service role key (pg_cron scheduled calls). Anything else must be
-    // the specific sync user's JWT.
-    if (token !== serviceRoleKey) {
+    // Decode the JWT role claim to distinguish service_role (pg_cron) from user JWTs.
+    let jwtRole: string | null = null
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')))
+      jwtRole = payload.role ?? null
+    } catch { /* not a valid JWT */ }
+
+    // Allow service_role calls (pg_cron scheduled invocations) through unconditionally.
+    // Anything else must be the specific sync user's JWT.
+    if (jwtRole !== 'service_role') {
       const supabaseForUser = createClient(
         supabaseUrl,
         Deno.env.get('SUPABASE_ANON_KEY')!,
