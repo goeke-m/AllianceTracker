@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { assignRingPositions } from '../lib/wad'
 import type { Member, DamageLog, MemberWithWAD } from '../lib/types'
@@ -9,9 +9,10 @@ export function useMarshallData() {
   const [positions, setPositions] = useState<MemberWithWAD[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const initialized = useRef(false)
 
   const fetchData = useCallback(async () => {
-    setLoading(true)
+    if (!initialized.current) setLoading(true)
     setError(null)
     try {
       const [{ data: memberRecords, error: membersError }, { data: logRecords, error: logsError }] =
@@ -30,6 +31,7 @@ export function useMarshallData() {
       setError(err instanceof Error ? err.message : 'Failed to load data')
     } finally {
       setLoading(false)
+      initialized.current = true
     }
   }, [])
 
