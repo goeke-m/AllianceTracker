@@ -35,27 +35,81 @@ Deno.serve(async (req) => {
 
     const apiKey = Deno.env.get('LASTWAR_API_KEY')!
     const allianceId = Deno.env.get('LASTWAR_ALLIANCE_ID')!
+    const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+    const QUEUE_BASE = `${LASTWAR_BASE}/queue`
 
-    // Fetch members from lastwar.tools shared queue (no session_key)
-    const apiResp = await fetch(
-      `${LASTWAR_BASE}/alliance/${allianceId}/members`,
-      { headers: { 'X-API-Key': apiKey } }
-    )
+    // 1. Submit to the shared queue
+    const requestId = crypto.randomUUID()
+    const submitResp = await fetch(`${QUEUE_BASE}/submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-API-Key': apiKey },
+      body: JSON.stringify({
+        request_id: requestId,
+        endpoint: 'alliance/members',
+        params: { alliance_id: allianceId },
+      }),
+    })
 
-    if (!apiResp.ok) {
-      const body = await apiResp.text().catch(() => '(no body)')
+    if (!submitResp.ok) {
+      const body = await submitResp.text().catch(() => '(no body)')
       return new Response(
-        JSON.stringify({
-          added: 0, updated: 0, removed: 0,
-          errors: [`lastwar.tools API error ${apiResp.status}: ${body}`],
-        }),
+        JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [`Queue submit error ${submitResp.status}: ${body}`] }),
         { status: 200, headers: { 'Content-Type': 'application/json' } }
       )
     }
 
-    const apiData = await apiResp.json()
-    const apiMembers: unknown[] = apiData.members ?? []
-    if (apiMembers.length === 0) {
+    // 2. Stream SSE until completed or failed
+    const streamResp = await fetch(`${QUEUE_BASE}/stream/${requestId}`, {
+      headers: { 'X-API-Key': apiKey },
+    })
+
+    if (!streamResp.ok) {
+      const body = await streamResp.text().catch(() => '(no body)')
+      return new Response(
+        JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [`Queue stream error ${streamResp.status}: ${body}`] }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
+    let apiMembers: unknown[] = []
+    let queueError: string | null = null
+    let completed = false
+    const reader = streamResp.body!.getReader()
+    const decoder = new TextDecoder()
+    let sseBuffer = ''
+
+    outer: while (true) {
+      const { done, value } = await reader.read()
+      if (done) break
+      sseBuffer += decoder.decode(value, { stream: true })
+      const lines = sseBuffer.split('\n')
+      sseBuffer = lines.pop() ?? ''
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue
+        try {
+          const event = JSON.parse(line.slice(6))
+          if (event.type === 'completed') {
+            apiMembers = event.result?.members ?? []
+            completed = true
+            break outer
+          } else if (event.type === 'failed' || event.type === 'cancelled') {
+            queueError = event.error ?? `Queue ${event.type}`
+            break outer
+          }
+        } catch { /* skip malformed SSE line */ }
+      }
+    }
+
+    reader.cancel()
+
+    if (queueError) {
+      return new Response(
+        JSON.stringify({ added: 0, updated: 0, removed: 0, errors: [`Queue error: ${queueError}`] }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (!completed || apiMembers.length === 0) {
       return new Response(
         JSON.stringify({ added: 0, updated: 0, removed: 0, errors: ['API returned empty member list — aborting to prevent mass delete'] }),
         { status: 200, headers: { 'Content-Type': 'application/json' } }
