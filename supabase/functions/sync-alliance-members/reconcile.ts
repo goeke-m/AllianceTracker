@@ -13,6 +13,7 @@ export interface DbMember {
   name: string
 }
 
+// Field names match Supabase column names exactly (Rank and THP are PascalCase/uppercase in the schema).
 export interface SyncUpdate {
   game_uid: string
   name: string
@@ -32,7 +33,7 @@ export interface ReconcileResult {
 }
 
 export function mapRank(rank: number): RankValue {
-  if (rank < 1 || rank > 5) throw new Error(`Invalid rank: ${rank}`)
+  if (!Number.isInteger(rank) || rank < 1 || rank > 5) throw new Error(`Invalid rank: ${rank}`)
   return `R${rank}` as RankValue
 }
 
@@ -61,11 +62,13 @@ export function reconcile(apiMembers: ApiMember[], dbMembers: DbMember[]): Recon
 
     if (dbByUid.has(api.uid)) {
       toUpdate.push(update)
-    } else if (dbByNameLower.has(api.name.toLowerCase())) {
-      const db = dbByNameLower.get(api.name.toLowerCase())!
-      toMatchByName.push({ ...update, dbId: db.id })
     } else {
-      toInsert.push(update)
+      const nameMatch = dbByNameLower.get(api.name.toLowerCase())
+      if (nameMatch) {
+        toMatchByName.push({ ...update, dbId: nameMatch.id })
+      } else {
+        toInsert.push(update)
+      }
     }
   }
 
