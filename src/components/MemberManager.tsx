@@ -169,6 +169,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
   async function handleAdd(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
+    setSyncResult(null)
     setAdding(true)
     try {
       const { error } = await supabase.from('members').insert({ name: name.trim(), Rank: newRank })
@@ -185,6 +186,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
   async function handleDelete(id: string) {
     setDeletingId(id)
     setError(null)
+    setSyncResult(null)
     try {
       // Nullify train_schedule FKs (NO ACTION — must be cleared before member delete)
       await supabase.from('train_schedule').update({ Conductor: null }).eq('Conductor', id)

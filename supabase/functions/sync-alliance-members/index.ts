@@ -48,7 +48,13 @@ Deno.serve(async (req) => {
     }
 
     const apiData = await apiResp.json()
-    const apiMembers = apiData.members ?? []
+    const apiMembers: unknown[] = apiData.members ?? []
+    if (apiMembers.length === 0) {
+      return new Response(
+        JSON.stringify({ added: 0, updated: 0, removed: 0, errors: ['API returned empty member list — aborting to prevent mass delete'] }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
 
     const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey)
 
@@ -73,6 +79,7 @@ Deno.serve(async (req) => {
           name: m.name,
           Rank: m.Rank,
           THP: m.THP,
+          updated_at: new Date().toISOString(),
         }))
       )
       if (error) errors.push(`insert error: ${error.message}`)

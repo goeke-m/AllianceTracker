@@ -11,6 +11,9 @@
 --      (found in: Project Settings → API → service_role key)
 --
 -- Run this in the Supabase SQL Editor.
+-- NOTE: The service role key is stored in plain text in cron.job. Anyone with
+-- DB superuser access can read it. If you rotate the service role key, update
+-- this job (unschedule + re-run this script with the new key).
 
 SELECT cron.schedule(
   'sync-alliance-members',
