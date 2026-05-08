@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import type { Member, RankValue, SquadType } from '../lib/types'
 
+const SYNC_ADMIN_USER_ID = 'edac282d-fd53-4353-8af8-c6b7c3f7480d'
+
 interface MemberManagerProps {
   members: Member[]
   onRefresh: () => void
@@ -145,14 +147,17 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
     try {
       const { data, error } = await supabase.functions.invoke('sync-alliance-members')
       if (error) throw error
-      const { added, updated, removed, errors } = data as {
+      if (!data) throw new Error('No data returned from sync function')
+      const { added = 0, updated = 0, removed = 0, errors = [] } = data as {
         added: number; updated: number; removed: number; errors: string[]
       }
       if (errors.length > 0) {
         setError(`Sync errors: ${errors.join('; ')}`)
+        onRefresh()
       } else {
         setSyncResult(`Synced: +${added} added, ${updated} updated, ${removed} removed`)
         onRefresh()
+        setTimeout(() => setSyncResult(null), 5000)
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sync failed')
@@ -222,7 +227,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-white">Members ({displayed.length} / {members.length})</h2>
-        {syncUserId === 'edac282d-fd53-4353-8af8-c6b7c3f7480d' && (
+        {syncUserId === SYNC_ADMIN_USER_ID && (
           <button
             onClick={handleSync}
             disabled={syncing}
