@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import type { AllianceTechQueueItem } from '../lib/types'
 
@@ -6,9 +6,10 @@ export function useAllianceTech() {
   const [queue, setQueue] = useState<AllianceTechQueueItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const initialized = useRef(false)
 
   const fetchData = useCallback(async () => {
-    setLoading(true)
+    if (!initialized.current) setLoading(true)
     setError(null)
     try {
       const { data, error: fetchError } = await supabase
@@ -22,6 +23,7 @@ export function useAllianceTech() {
       setError((err as { message?: string }).message ?? 'Failed to load tech queue')
     } finally {
       setLoading(false)
+      initialized.current = true
     }
   }, [])
 
@@ -66,5 +68,49 @@ export function useAllianceTech() {
     await fetchData()
   }
 
-  return { queue, loading, error, addItem, completeTop, moveUp, moveDown, refresh: fetchData }
+  async function demoteCurrent(): Promise<void> {
+    if (queue.length < 2) return
+    const a = queue[0]
+    const b = queue[1]
+    const { error: err1 } = await supabase
+      .from('alliance_tech_queue')
+      .update({ position: b.position })
+      .eq('id', a.id)
+    if (err1) throw err1
+    const { error: err2 } = await supabase
+      .from('alliance_tech_queue')
+      .update({ position: a.position })
+      .eq('id', b.id)
+    if (err2) throw err2
+    await fetchData()
+  }
+
+  async function reorderUpcoming(orderedIds: string[]): Promise<void> {
+    if (queue.length < 2) return
+    const basePosition = queue[0].position
+    const results = await Promise.all(
+      orderedIds.map((id, i) =>
+        supabase
+          .from('alliance_tech_queue')
+          .update({ position: basePosition + i + 1 })
+          .eq('id', id)
+      )
+    )
+    const failed = results.find(r => r.error)
+    if (failed?.error) throw failed.error
+    await fetchData()
+  }
+
+  return {
+    queue,
+    loading,
+    error,
+    addItem,
+    completeTop,
+    moveUp,
+    moveDown,
+    demoteCurrent,
+    reorderUpcoming,
+    refresh: fetchData,
+  }
 }
