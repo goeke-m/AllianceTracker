@@ -50,24 +50,6 @@ export function useAllianceTech() {
     await fetchData()
   }
 
-  async function moveUp(index: number): Promise<void> {
-    if (index === 0) return
-    const a = queue[index - 1]
-    const b = queue[index]
-    await supabase.from('alliance_tech_queue').update({ position: b.position }).eq('id', a.id)
-    await supabase.from('alliance_tech_queue').update({ position: a.position }).eq('id', b.id)
-    await fetchData()
-  }
-
-  async function moveDown(index: number): Promise<void> {
-    if (index === queue.length - 1) return
-    const a = queue[index]
-    const b = queue[index + 1]
-    await supabase.from('alliance_tech_queue').update({ position: b.position }).eq('id', a.id)
-    await supabase.from('alliance_tech_queue').update({ position: a.position }).eq('id', b.id)
-    await fetchData()
-  }
-
   async function demoteCurrent(): Promise<void> {
     if (queue.length < 2) return
     const a = queue[0]
@@ -107,8 +89,6 @@ export function useAllianceTech() {
     error,
     addItem,
     completeTop,
-    moveUp,
-    moveDown,
     demoteCurrent,
     reorderUpcoming,
     refresh: fetchData,
