@@ -1,6 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from '@dnd-kit/core'
+import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable'
 import { useAllianceTech } from '../hooks/useAllianceTech'
 import { useAuth } from '../hooks/useAuth'
+import { SortableTechRow } from '../components/SortableTechRow'
+import type { AllianceTechQueueItem } from '../lib/types'
 
 // ─── Static tech lists ────────────────────────────────────────────────────────
 
@@ -53,11 +64,18 @@ interface PickerState {
 
 export function AllianceTech() {
   const { isAdmin } = useAuth()
-  const { queue, loading, error, addItem, completeTop, moveUp, moveDown } = useAllianceTech()
+  const { queue, loading, error, addItem, completeTop, demoteCurrent, reorderUpcoming } = useAllianceTech()
   const [picker, setPicker] = useState<PickerState | null>(null)
   const [saving, setSaving] = useState(false)
   const [completing, setCompleting] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
+  const [localUpcoming, setLocalUpcoming] = useState<AllianceTechQueueItem[] | null>(null)
+
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }))
+
+  useEffect(() => {
+    setLocalUpcoming(null)
+  }, [queue])
 
   async function handleSelect(techName: string, category: 'development' | 'war') {
     setSaving(true)
@@ -84,11 +102,11 @@ export function AllianceTech() {
     }
   }
 
-  async function handleMove(index: number, dir: 'up' | 'down') {
+  async function handleDemote() {
     setSaving(true)
+    setSaveError(null)
     try {
-      if (dir === 'up') await moveUp(index)
-      else await moveDown(index)
+      await demoteCurrent()
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Reorder failed')
     } finally {
@@ -123,7 +141,28 @@ export function AllianceTech() {
     ? filteredTechs.filter(t => t.toLowerCase().includes(picker.search.toLowerCase()))
     : filteredTechs
 
-  const [current, ...upcoming] = queue
+  const [current, ...rest] = queue
+  const upcoming = localUpcoming ?? rest
+
+  async function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event
+    if (!over || active.id === over.id) return
+
+    const oldIndex = upcoming.findIndex(item => item.id === active.id)
+    const newIndex = upcoming.findIndex(item => item.id === over.id)
+    if (oldIndex === -1 || newIndex === -1) return
+
+    const reordered = arrayMove(upcoming, oldIndex, newIndex)
+    setLocalUpcoming(reordered)
+    setSaveError(null)
+
+    try {
+      await reorderUpcoming(reordered.map(item => item.id))
+    } catch (err) {
+      setLocalUpcoming(null)
+      setSaveError((err as { message?: string }).message ?? 'Reorder failed')
+    }
+  }
 
   return (
     <div className="p-4 pb-24">
@@ -164,7 +203,7 @@ export function AllianceTech() {
                       >▲</button>
                       <button
                         disabled={saving || queue.length < 2}
-                        onClick={() => handleMove(0, 'down')}
+                        onClick={handleDemote}
                         className="w-6 h-5 flex items-center justify-center text-gray-400 hover:text-white rounded text-xs transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                       >▼</button>
                     </div>
@@ -188,40 +227,15 @@ export function AllianceTech() {
               <div className="px-4 py-2 border-b border-game-accent/20">
                 <p className="text-xs font-bold uppercase tracking-widest text-gray-500">Up Next</p>
               </div>
-              <div className="divide-y divide-game-accent/10">
-                {upcoming.map((item, i) => {
-                  const idx = i + 1 // actual index in queue array
-                  return (
-                    <div key={item.id} className="flex items-center gap-3 px-4 py-3">
-                      <span className="text-xs text-gray-600 w-5 text-right shrink-0">{idx + 1}</span>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-sm text-white">{item.tech_name}</span>
-                        <span className={`ml-2 text-xs px-1.5 py-0.5 rounded capitalize ${
-                          item.category === 'war'
-                            ? 'bg-game-highlight/20 text-game-highlight'
-                            : 'bg-game-standard/20 text-game-standard'
-                        }`}>
-                          {item.category}
-                        </span>
-                      </div>
-                      {isAdmin && (
-                        <div className="flex flex-col gap-0.5 shrink-0">
-                          <button
-                            disabled={saving}
-                            onClick={() => handleMove(idx, 'up')}
-                            className="w-6 h-5 flex items-center justify-center text-gray-400 hover:text-white rounded text-xs transition-colors disabled:opacity-30"
-                          >▲</button>
-                          <button
-                            disabled={saving || idx === queue.length - 1}
-                            onClick={() => handleMove(idx, 'down')}
-                            className="w-6 h-5 flex items-center justify-center text-gray-400 hover:text-white rounded text-xs transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-                          >▼</button>
-                        </div>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
+              <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+                <SortableContext items={upcoming.map(item => item.id)} strategy={verticalListSortingStrategy}>
+                  <div className="divide-y divide-game-accent/10">
+                    {upcoming.map((item, i) => (
+                      <SortableTechRow key={item.id} item={item} displayNumber={i + 2} isAdmin={isAdmin} />
+                    ))}
+                  </div>
+                </SortableContext>
+              </DndContext>
             </div>
           )}
         </div>
