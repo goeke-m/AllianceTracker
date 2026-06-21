@@ -12,7 +12,7 @@ export interface Member {
   S2_Power?: number;
   S2_Type?: SquadType;
   Strike_Team?: boolean;
-  Availability?: string;
+  Timezone?: string;
   created_at: string;
   updated_at: string;
 }

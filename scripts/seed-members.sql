@@ -4,7 +4,7 @@
 -- If you don't have a unique constraint on name, change to ON CONFLICT DO NOTHING
 -- or just use plain INSERT.
 
-INSERT INTO members (id, name, "Rank", "THP", "S1_Power", "S1_Type", "S2_Power", "S2_Type", "Strike_Team", "Availability", created_at, updated_at)
+INSERT INTO members (id, name, "Rank", "THP", "S1_Power", "S1_Type", "S2_Power", "S2_Type", "Strike_Team", "Timezone", created_at, updated_at)
 VALUES
   (gen_random_uuid(), 'Ruthless cajun',       'R4', 146.6,  45800000, 'Air',  38500000, 'Tank', false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'Gigiyy',               'R3', 147.4,  44400000, 'Tank', NULL,     NULL,   false, NULL, NOW(), NOW()),

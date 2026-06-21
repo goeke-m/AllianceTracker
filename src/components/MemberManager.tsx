@@ -12,6 +12,28 @@ interface MemberManagerProps {
 
 const RANKS: RankValue[] = ['R1', 'R2', 'R3', 'R4', 'R5']
 const SQUAD_TYPES: SquadType[] = ['Tank', 'Air', 'Missile']
+const TIMEZONES: string[] = [
+  'Hawaii (UTC-10)',
+  'Alaska (UTC-9)',
+  'Pacific (UTC-8)',
+  'Mountain (UTC-7)',
+  'Central (UTC-6)',
+  'Eastern (UTC-5)',
+  'Atlantic (UTC-4)',
+  'Brazil (UTC-3)',
+  'UTC',
+  'Central Europe (UTC+1)',
+  'Eastern Europe (UTC+2)',
+  'Moscow (UTC+3)',
+  'Gulf (UTC+4)',
+  'India (UTC+5:30)',
+  'Bangladesh (UTC+6)',
+  'Indochina (UTC+7)',
+  'China/Singapore (UTC+8)',
+  'Japan/Korea (UTC+9)',
+  'Australia East (UTC+10)',
+  'New Zealand (UTC+12)',
+]
 
 const RANK_COLORS: Record<RankValue, string> = {
   R1: 'bg-gray-600',
@@ -41,7 +63,7 @@ interface EditState {
   S2_Power: string
   S2_Type: SquadType | ''
   Strike_Team: boolean
-  Availability: string
+  Timezone: string
 }
 
 function memberToEditState(m: Member): EditState {
@@ -54,7 +76,7 @@ function memberToEditState(m: Member): EditState {
     S2_Power: m.S2_Power != null ? String(m.S2_Power) : '',
     S2_Type: m.S2_Type ?? '',
     Strike_Team: m.Strike_Team ?? false,
-    Availability: m.Availability ?? '',
+    Timezone: m.Timezone ?? '',
   }
 }
 
@@ -211,7 +233,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       S2_Power: editState.S2_Power !== '' ? Number(editState.S2_Power) : null,
       S2_Type: editState.S2_Type || null,
       Strike_Team: editState.Strike_Team,
-      Availability: editState.Availability || null,
+      Timezone: editState.Timezone || null,
     }).eq('id', id)
     setEditingId(null)
     setEditState(null)
@@ -340,7 +362,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
               <th className={`${thCls} text-right`} onClick={() => handleSort('avg_vs')}>
                 Avg VS <SortIcon col="avg_vs" sortKey={sortKey} sortDir={sortDir} />
               </th>
-              <th className={thCls}>Availability</th>
+              <th className={thCls}>Timezone</th>
               <th className="px-3 py-2"></th>
             </tr>
           </thead>
@@ -389,7 +411,10 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                     {avgVsMap[m.id] != null ? avgVsMap[m.id].toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—'}
                   </td>
                   <td className="px-2 py-1.5">
-                    <input type="text" value={editState.Availability} onChange={(e) => set('Availability', e.target.value)} placeholder="Availability" className={inputCls} />
+                    <select value={editState.Timezone} onChange={(e) => set('Timezone', e.target.value)} className={inputCls}>
+                      <option value="">—</option>
+                      {TIMEZONES.map((tz) => <option key={tz} value={tz}>{tz}</option>)}
+                    </select>
                   </td>
                   <td className="px-2 py-1.5">
                     <div className="flex gap-1">
@@ -417,7 +442,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                   <td className="px-3 py-2 text-right text-gray-300">
                     {avgVsMap[m.id] != null ? avgVsMap[m.id].toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—'}
                   </td>
-                  <td className="px-3 py-2 text-gray-300 max-w-[160px] truncate" title={m.Availability ?? undefined}>{m.Availability ?? '—'}</td>
+                  <td className="px-3 py-2 text-gray-300 max-w-[160px] truncate" title={m.Timezone ?? undefined}>{m.Timezone ?? '—'}</td>
                   <td className="px-3 py-2">
                     <div className="flex gap-1">
                       <button
