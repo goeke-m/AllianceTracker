@@ -54,11 +54,13 @@ interface EditState {
 export function TrainSchedule() {
   const { isAdmin } = useAuth()
   const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule()
-  const { weekMode } = useScheduleSettings()
+  const { weekMode, setWeekMode } = useScheduleSettings()
   const [editState, setEditState] = useState<EditState | null>(null)
   const [showR4Info, setShowR4Info] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
+  const [modeSaving, setModeSaving] = useState(false)
+  const [modeError, setModeError] = useState<string | null>(null)
 
   const now = new Date()
   const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
@@ -113,6 +115,19 @@ export function TrainSchedule() {
     return members.find(m => m.id === id)?.name ?? '—'
   }
 
+  async function handleWeekModeChange(mode: WeekMode) {
+    if (mode === weekMode || modeSaving) return
+    setModeSaving(true)
+    setModeError(null)
+    try {
+      await setWeekMode(mode)
+    } catch (err) {
+      setModeError(err instanceof Error ? err.message : 'Failed to update week mode')
+    } finally {
+      setModeSaving(false)
+    }
+  }
+
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
@@ -131,17 +146,43 @@ export function TrainSchedule() {
 
   return (
     <div className="p-4 pb-24">
-      <div className="flex items-start justify-between mb-1">
+      <div className="flex items-start justify-between mb-1 gap-2">
         <h1 className="text-xl font-bold text-game-gold">Voyage Schedule</h1>
-        <button
-          onClick={() => setShowR4Info(true)}
-          className="text-game-standard hover:text-white transition-colors text-sm flex items-center gap-1"
-          title="View R4 rotation list"
-        >
-          <span>R4 Rotation</span>
-          <span>ⓘ</span>
-        </button>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center rounded-full border border-game-accent overflow-hidden text-xs">
+            {(['push', 'save'] as const).map(mode => {
+              const active = mode === weekMode
+              const label = mode === 'push' ? 'Push Week' : 'Save Week'
+              const baseClass = `px-2 py-1 font-semibold transition-colors ${
+                active ? 'bg-game-gold text-game-dark' : 'text-gray-400'
+              }`
+              if (!isAdmin) {
+                return <span key={mode} className={baseClass}>{label}</span>
+              }
+              return (
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => handleWeekModeChange(mode)}
+                  disabled={active || modeSaving}
+                  className={`${baseClass} ${!active ? 'hover:text-white' : ''} disabled:cursor-default`}
+                >
+                  {label}
+                </button>
+              )
+            })}
+          </div>
+          <button
+            onClick={() => setShowR4Info(true)}
+            className="text-game-standard hover:text-white transition-colors text-sm flex items-center gap-1"
+            title="View R4 rotation list"
+          >
+            <span>R4 Rotation</span>
+            <span>ⓘ</span>
+          </button>
+        </div>
       </div>
+      {modeError && <p className="text-game-highlight text-xs mb-1">{modeError}</p>}
       <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · Sun–Sun view</p>
 
       <div className="space-y-2">
