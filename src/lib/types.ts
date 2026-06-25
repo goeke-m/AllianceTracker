@@ -43,6 +43,8 @@ export interface MemberWithWAD {
   isStrategicCore: boolean;
 }
 
+export type WeekMode = 'push' | 'save';
+
 export interface TrainEntry {
   id: string;
   date: string; // YYYY-MM-DD
