@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useTrainSchedule } from '../hooks/useTrainSchedule'
+import { useScheduleSettings } from '../hooks/useScheduleSettings'
 import { useAuth } from '../hooks/useAuth'
-import type { TrainEntry } from '../lib/types'
+import type { TrainEntry, WeekMode } from '../lib/types'
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
@@ -19,14 +20,17 @@ const R4_ROTATION = [
   'ShadowMohawk',
 ]
 
-const DOW_SOURCES: Record<string, { captain: string; firstMate: string }> = {
-  Sun: { captain: 'Weekly top VS scorer', firstMate: 'Top VS scorer (Sat)' },
-  Mon: { captain: 'Alliance MVP', firstMate: 'DS top scorer' },
-  Tue: { captain: 'Highest donator', firstMate: 'Top VS scorer (Mon)' },
-  Wed: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Tue)' },
-  Thu: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Wed)' },
-  Fri: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Thu)' },
-  Sat: { captain: 'R4 rotation', firstMate: 'Top VS scorer (Fri)' },
+function buildDowSources(mode: WeekMode): Record<string, { captain: string; firstMate: string }> {
+  const metric = mode === 'push' ? 'VS scorer' : 'donator'
+  return {
+    Sun: { captain: `Weekly top ${metric}`, firstMate: `Top ${metric} (Sat)` },
+    Mon: { captain: 'DS top scorer', firstMate: 'Canyon top scorer' },
+    Tue: { captain: 'Alliance MVP', firstMate: `Top ${metric} (Mon)` },
+    Wed: { captain: 'R4 rotation', firstMate: `Top ${metric} (Tue)` },
+    Thu: { captain: 'R4 rotation', firstMate: `Top ${metric} (Wed)` },
+    Fri: { captain: 'R4 rotation', firstMate: `Top ${metric} (Thu)` },
+    Sat: { captain: 'R4 rotation', firstMate: `Top ${metric} (Fri)` },
+  }
 }
 
 function formatDate(iso: string): string {
@@ -50,6 +54,7 @@ interface EditState {
 export function TrainSchedule() {
   const { isAdmin } = useAuth()
   const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule()
+  const { weekMode } = useScheduleSettings()
   const [editState, setEditState] = useState<EditState | null>(null)
   const [showR4Info, setShowR4Info] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -62,6 +67,8 @@ export function TrainSchedule() {
   for (const e of entries) {
     entryByDate.set(e.date, e)
   }
+
+  const dowSources = buildDowSources(weekMode)
 
   function openEdit(date: string) {
     const existing = entryByDate.get(date)
@@ -141,7 +148,7 @@ export function TrainSchedule() {
         {weekDates.map(date => {
           const entry = entryByDate.get(date)
           const isToday = date === todayStr
-          const sources = DOW_SOURCES[getDow(date)]
+          const sources = dowSources[getDow(date)]
 
           return (
             <div
