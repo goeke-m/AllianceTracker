@@ -123,3 +123,12 @@ export interface JsonImportEntry {
   date?: string;
   event_date?: string;
 }
+
+export interface ErrorLogEntry {
+  id: string;
+  context: string;
+  message: string;
+  user_id: string | null;
+  user_email: string | null;
+  created_at: string;
+}
