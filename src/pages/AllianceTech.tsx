@@ -11,6 +11,7 @@ import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-ki
 import { useAllianceTech } from '../hooks/useAllianceTech'
 import { useAuth } from '../hooks/useAuth'
 import { SortableTechRow } from '../components/SortableTechRow'
+import { logError } from '../lib/errorLog'
 import type { AllianceTechQueueItem } from '../lib/types'
 
 // ─── Static tech lists ────────────────────────────────────────────────────────
@@ -85,6 +86,7 @@ export function AllianceTech() {
       setPicker(null)
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Save failed')
+      logError('AllianceTech.handleSelect', err)
     } finally {
       setSaving(false)
     }
@@ -97,6 +99,7 @@ export function AllianceTech() {
       await completeTop()
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Failed to complete')
+      logError('AllianceTech.handleComplete', err)
     } finally {
       setCompleting(false)
     }
@@ -109,6 +112,7 @@ export function AllianceTech() {
       await demoteCurrent()
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Reorder failed')
+      logError('AllianceTech.handleDemote', err)
     } finally {
       setSaving(false)
     }
@@ -161,6 +165,7 @@ export function AllianceTech() {
     } catch (err) {
       setLocalUpcoming(null)
       setSaveError((err as { message?: string }).message ?? 'Reorder failed')
+      logError('AllianceTech.handleDragEnd', err)
     }
   }
 

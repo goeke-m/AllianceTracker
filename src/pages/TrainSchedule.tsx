@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTrainSchedule } from '../hooks/useTrainSchedule'
 import { useScheduleSettings } from '../hooks/useScheduleSettings'
 import { useAuth } from '../hooks/useAuth'
+import { logError } from '../lib/errorLog'
 import type { TrainEntry, WeekMode } from '../lib/types'
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -93,6 +94,7 @@ export function TrainSchedule() {
       setEditState(null)
     } catch (err) {
       setSaveError(err instanceof Error ? err.message : 'Save failed')
+      logError('TrainSchedule.handleSave', err)
     } finally {
       setSaving(false)
     }
@@ -106,6 +108,7 @@ export function TrainSchedule() {
       setEditState(null)
     } catch (err) {
       setSaveError(err instanceof Error ? err.message : 'Delete failed')
+      logError('TrainSchedule.handleDelete', err)
     } finally {
       setSaving(false)
     }
@@ -123,6 +126,7 @@ export function TrainSchedule() {
       await setWeekMode(mode)
     } catch (err) {
       setModeError(err instanceof Error ? err.message : 'Failed to update week mode')
+      logError('TrainSchedule.handleWeekModeChange', err)
     } finally {
       setModeSaving(false)
     }

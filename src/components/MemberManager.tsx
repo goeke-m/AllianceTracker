@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
 import { OWNER_USER_ID } from '../lib/constants'
+import { logError } from '../lib/errorLog'
 import type { Member, RankValue, SquadType } from '../lib/types'
 
 interface MemberManagerProps {
@@ -182,6 +183,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sync failed')
+      logError('MemberManager.handleSync', err)
     } finally {
       setSyncing(false)
     }
@@ -200,6 +202,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       onRefresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to add member')
+      logError('MemberManager.handleAdd', err)
     }
     setAdding(false)
   }
@@ -217,6 +220,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       onRefresh()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to delete member')
+      logError('MemberManager.handleDelete', err)
     }
     setDeletingId(null)
   }

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { useOoto } from '../hooks/useOoto'
 import { useAuth } from '../hooks/useAuth'
+import { logError } from '../lib/errorLog'
 import type { OotoEntry } from '../lib/types'
 
 function today(): string {
@@ -72,6 +73,7 @@ export function Out() {
       setEditState(null)
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Save failed')
+      logError('Out.handleSave', err)
     } finally {
       setSaving(false)
     }
@@ -85,6 +87,7 @@ export function Out() {
       setEditState(null)
     } catch (err) {
       setSaveError((err as { message?: string }).message ?? 'Delete failed')
+      logError('Out.handleDelete', err)
     } finally {
       setSaving(false)
     }

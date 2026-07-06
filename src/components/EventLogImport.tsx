@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { Member, JsonImportEntry } from '../lib/types'
 
 interface EventLogImportProps {
@@ -76,6 +77,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
         if (error) throw error
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Import failed')
+        logError('EventLogImport.handleImport', err)
         setLoading(false)
         return
       }
