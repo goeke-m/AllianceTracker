@@ -15,7 +15,7 @@ ALTER TABLE error_logs ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Authenticated users can insert error_logs"
   ON error_logs FOR INSERT
   TO authenticated
-  WITH CHECK (true);
+  WITH CHECK (user_id IS NULL OR auth.uid() = user_id);
 
 CREATE POLICY "Admins can read error_logs"
   ON error_logs FOR SELECT
