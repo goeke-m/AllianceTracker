@@ -117,8 +117,9 @@ Add one `logError('<context>', err)` call immediately next to the existing `setE
 | `src/components/EventLogImport.tsx` | `'EventLogImport.handleImport'` |
 | `src/pages/AllianceTech.tsx` | one per existing catch block (4 total), named for the action each guards |
 | `src/pages/Out.tsx` | one per existing catch block (2 total), named for the action each guards |
+| `src/pages/TrainSchedule.tsx` | one per existing catch block (3 total: save, delete, week-mode change) |
 
-Exact context strings for `AllianceTech.tsx`/`Out.tsx`/`useTrainSchedule.ts` are chosen during implementation to match the action each catch block actually guards (visible once reading the surrounding function names).
+Exact context strings for `AllianceTech.tsx`/`Out.tsx`/`TrainSchedule.tsx`/`useTrainSchedule.ts` are chosen during implementation to match the action each catch block actually guards (visible once reading the surrounding function names).
 
 ## 6. Viewer
 
