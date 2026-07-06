@@ -1133,3 +1133,243 @@ Then confirm owner-only gating: temporarily edit `src/lib/constants.ts` to a dif
 git add src/components/ErrorLogManager.tsx src/pages/AdminPanel.tsx
 git commit -m "feat: add owner-only error log viewer to Captain's Quarters"
 ```
+
+---
+
+### Task 7: Extend `logError` into destructured-error write paths
+
+**Added after the final whole-branch review of Tasks 1-6** flagged that 4 files use a `const { error } = await supabase...; if (error) setError(...)` pattern (rather than try/catch) for their existing error banners, and were missed by Task 5's file list. The user confirmed these should be wired in too, matching the feature's goal of persisting every failure that already surfaces as a UI error banner.
+
+**Files:**
+- Modify: `src/components/DemeritManager.tsx:90-110` (`handleSave`)
+- Modify: `src/components/VsPointManager.tsx:111-128` (`handleSave`), `src/components/VsPointManager.tsx:160-174` (`handleFileChange`'s import insert)
+- Modify: `src/pages/FriendsList.tsx:78-101` (`handleSave`)
+- Modify: `src/pages/KillList.tsx:78-101` (`handleSave`)
+
+**Interfaces:**
+- Consumes: `logError` from `src/lib/errorLog.ts` (Task 3).
+- Produces: none consumed by later tasks — this is the final task.
+
+- [ ] **Step 1: `DemeritManager.tsx`**
+
+Change the import block:
+
+```ts
+import { useState, useEffect, useMemo } from 'react'
+import { supabase } from '../lib/supabase'
+import type { Member, Demerit } from '../lib/types'
+```
+
+to:
+
+```ts
+import { useState, useEffect, useMemo } from 'react'
+import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
+import type { Member, Demerit } from '../lib/types'
+```
+
+Change:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+to:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+      logError('DemeritManager.handleSave', error)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+- [ ] **Step 2: `VsPointManager.tsx`**
+
+Change the import block:
+
+```ts
+import { useState, useEffect, useMemo, useRef } from 'react'
+import { supabase } from '../lib/supabase'
+import type { Member, VsPoint } from '../lib/types'
+```
+
+to:
+
+```ts
+import { useState, useEffect, useMemo, useRef } from 'react'
+import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
+import type { Member, VsPoint } from '../lib/types'
+```
+
+Change:
+
+```ts
+    setSaving(false)
+    if (error) setError(error.message)
+    else { setForm(null); load() }
+  }
+```
+
+to:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+      logError('VsPointManager.handleSave', error)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+Change:
+
+```ts
+        setImporting(true)
+        const { error } = await supabase.from('vs_points').insert(inserts)
+        setImporting(false)
+        if (error) { setImportError(error.message); return }
+```
+
+to:
+
+```ts
+        setImporting(true)
+        const { error } = await supabase.from('vs_points').insert(inserts)
+        setImporting(false)
+        if (error) {
+          setImportError(error.message)
+          logError('VsPointManager.handleFileChange', error)
+          return
+        }
+```
+
+- [ ] **Step 3: `FriendsList.tsx`**
+
+Change the import block:
+
+```ts
+import { useState, useEffect, useMemo } from 'react'
+import { supabase } from '../lib/supabase'
+import type { FriendsListEntry } from '../lib/types'
+```
+
+to:
+
+```ts
+import { useState, useEffect, useMemo } from 'react'
+import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
+import type { FriendsListEntry } from '../lib/types'
+```
+
+Change:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+to:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+      logError('FriendsList.handleSave', error)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+- [ ] **Step 4: `KillList.tsx`**
+
+Change the import block:
+
+```ts
+import { useState, useEffect, useMemo } from 'react'
+import { supabase } from '../lib/supabase'
+import type { KillListEntry } from '../lib/types'
+```
+
+to:
+
+```ts
+import { useState, useEffect, useMemo } from 'react'
+import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
+import type { KillListEntry } from '../lib/types'
+```
+
+Change:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+to:
+
+```ts
+    setSaving(false)
+    if (error) {
+      setError(error.message)
+      logError('KillList.handleSave', error)
+    } else {
+      setForm(null)
+      load()
+    }
+  }
+```
+
+- [ ] **Step 5: Type-check**
+
+Run: `npm run build`
+Expected: completes with no TypeScript errors.
+
+- [ ] **Step 6: Manual verification**
+
+Prerequisite: Task 1's migration applied. Run: `npm run dev`, log in as an admin.
+
+Force one write failure end-to-end as a spot check: on the Kill List or Friends List page, temporarily rename the target table in `handleSave`'s insert/update call (e.g. `.from('kill_list_nonexistent')`), attempt to save an entry, and confirm:
+- The existing red error banner still appears (unchanged behavior).
+- A new row appears in `error_logs` with the matching context string (e.g. `KillList.handleSave`).
+
+Revert the temporary change afterward — confirm with `git diff` that it shows no leftover changes beyond the intended `logError` wiring.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add src/components/DemeritManager.tsx src/components/VsPointManager.tsx src/pages/FriendsList.tsx src/pages/KillList.tsx
+git commit -m "feat: extend error logging to demerits/vs-points/friends/kill-list write paths"
+```
