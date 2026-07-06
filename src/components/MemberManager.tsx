@@ -1,8 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
+import { OWNER_USER_ID } from '../lib/constants'
 import type { Member, RankValue, SquadType } from '../lib/types'
-
-const SYNC_ADMIN_USER_ID = 'edac282d-fd53-4353-8af8-c6b7c3f7480d'
 
 interface MemberManagerProps {
   members: Member[]
@@ -251,7 +250,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-white">Members ({displayed.length} / {members.length})</h2>
-        {syncUserId === SYNC_ADMIN_USER_ID && (
+        {syncUserId === OWNER_USER_ID && (
           <button
             onClick={handleSync}
             disabled={syncing}
