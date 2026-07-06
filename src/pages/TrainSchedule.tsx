@@ -8,14 +8,14 @@ const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 const R4_ROTATION = [
   'Ruthless Cajun',
-  'BeBetter',
-  'Deezzz420',
   'skibidi rizz toilet5',
-  'BaconALcH3MiST',
   'PAINisthebestTeacher',
   'Dhilldo',
+  '50 Cal Diplomacy',
+  'Tricky100original',
+  'CatWoman',
+  'Buccaneer Blaidd',
   'Saucy808',
-  'BeastMachine',
   'WapitiDreaming',
   'ShadowMohawk',
 ]
