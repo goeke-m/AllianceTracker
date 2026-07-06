@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { Member, VsPoint } from '../lib/types'
 
 interface VsPointManagerProps {
@@ -123,8 +124,13 @@ export function VsPointManager({ members }: VsPointManagerProps) {
       points: pts,
     })
     setSaving(false)
-    if (error) setError(error.message)
-    else { setForm(null); load() }
+    if (error) {
+      setError(error.message)
+      logError('VsPointManager.handleSave', error)
+    } else {
+      setForm(null)
+      load()
+    }
   }
 
   async function handleDelete(id: string) {
@@ -165,7 +171,11 @@ export function VsPointManager({ members }: VsPointManagerProps) {
         setImporting(true)
         const { error } = await supabase.from('vs_points').insert(inserts)
         setImporting(false)
-        if (error) { setImportError(error.message); return }
+        if (error) {
+          setImportError(error.message)
+          logError('VsPointManager.handleFileChange', error)
+          return
+        }
         setImportSuccess(`Imported ${inserts.length} row(s).${skipped.length ? ` Skipped: ${skipped.join(', ')}` : ''}`)
         load()
       } catch {

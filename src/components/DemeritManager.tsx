@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { Member, Demerit } from '../lib/types'
 
 interface DemeritManagerProps {
@@ -103,6 +104,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
     setSaving(false)
     if (error) {
       setError(error.message)
+      logError('DemeritManager.handleSave', error)
     } else {
       setForm(null)
       load()

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { KillListEntry } from '../lib/types'
 
 interface KillListProps {
@@ -94,6 +95,7 @@ export function KillList({ isAdmin }: KillListProps) {
     setSaving(false)
     if (error) {
       setError(error.message)
+      logError('KillList.handleSave', error)
     } else {
       setForm(null)
       load()

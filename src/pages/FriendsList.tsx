@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { FriendsListEntry } from '../lib/types'
 
 interface FriendsListProps {
@@ -94,6 +95,7 @@ export function FriendsList({ isAdmin }: FriendsListProps) {
     setSaving(false)
     if (error) {
       setError(error.message)
+      logError('FriendsList.handleSave', error)
     } else {
       setForm(null)
       load()
