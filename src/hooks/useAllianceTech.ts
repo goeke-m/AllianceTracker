@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { AllianceTechQueueItem } from '../lib/types'
 
 export function useAllianceTech() {
@@ -21,6 +22,7 @@ export function useAllianceTech() {
       setQueue((data ?? []) as AllianceTechQueueItem[])
     } catch (err) {
       setError((err as { message?: string }).message ?? 'Failed to load tech queue')
+      logError('useAllianceTech.fetchData', err)
     } finally {
       setLoading(false)
       initialized.current = true

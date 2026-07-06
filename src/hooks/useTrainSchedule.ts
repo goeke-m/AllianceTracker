@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { Member, TrainEntry } from '../lib/types'
 
 function getWeekDates(): string[] {
@@ -53,6 +54,7 @@ export function useTrainSchedule() {
       )
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load schedule')
+      logError('useTrainSchedule.fetchData', err)
     } finally {
       setLoading(false)
     }

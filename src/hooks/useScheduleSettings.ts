@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { WeekMode } from '../lib/types'
 
 export function useScheduleSettings() {
@@ -20,6 +21,7 @@ export function useScheduleSettings() {
       setWeekModeState((data?.mode as WeekMode) ?? 'push')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load schedule settings')
+      logError('useScheduleSettings.fetchData', err)
     } finally {
       setLoading(false)
     }

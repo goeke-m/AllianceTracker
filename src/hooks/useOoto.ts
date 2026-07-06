@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { logError } from '../lib/errorLog'
 import type { Member, OotoEntry } from '../lib/types'
 
 export function useOoto() {
@@ -23,6 +24,7 @@ export function useOoto() {
       setEntries((ootoRecords ?? []) as OotoEntry[])
     } catch (err) {
       setError((err as { message?: string }).message ?? 'Failed to load OOTO data')
+      logError('useOoto.fetchData', err)
     } finally {
       setLoading(false)
     }

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { assignRingPositions } from '../lib/wad'
+import { logError } from '../lib/errorLog'
 import type { Member, DamageLog, MemberWithWAD } from '../lib/types'
 
 export function useMarshallData() {
@@ -29,6 +30,7 @@ export function useMarshallData() {
       setPositions(assignRingPositions(members, logs))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load data')
+      logError('useMarshallData.fetchData', err)
     } finally {
       setLoading(false)
       initialized.current = true
