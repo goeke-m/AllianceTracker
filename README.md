@@ -110,6 +110,14 @@ Replace `<PROJECT_REF>` with your Supabase project reference ID and `<SERVICE_RO
 
 Verify: `SELECT * FROM cron.job;` should show the `sync-alliance-members` job.
 
+### Setting an admin user
+
+After a full DB wipe, run this in the Supabase Dashboard → SQL Editor, replacing the UUID with the target user's auth.users UUID:
+
+```sql
+UPDATE public.members SET is_admin = true WHERE game_uid = '<USER_UUID>';
+```
+
 ### Production Build
 
 ```bash
@@ -119,7 +127,12 @@ npm run preview  # Test production build locally
 
 ## Deployment
 
-The app deploys as a static site. Connect the repository to [Vercel](https://vercel.com) for automatic deploys on push. Set the environment variables in your Vercel project settings.
+Deploys automatically via GitHub Actions on push to `main`. The pipeline runs `supabase db push` to apply pending migrations, then builds the Vite app and publishes to GitHub Pages.
+
+**GitHub setup (one-time):**
+1. Settings → Pages → Source: "GitHub Actions"
+2. Settings → Secrets → Add: `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`
+3. Settings → Variables → Add: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
 
 ## Project Structure
 
