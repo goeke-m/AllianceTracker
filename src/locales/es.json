@@ -206,5 +206,20 @@
     "modalTitleAdd": "Agregar Amonestación",
     "notePlaceholder": "Motivo / detalles",
     "validationRequired": "Se requieren miembro, fecha y nota."
+  },
+  "vsPoints": {
+    "heading": "Puntos VS ({{count}})",
+    "importButton": "↑ Importar JSON",
+    "importNoValidRows": "No se encontraron filas válidas.",
+    "importSkippedSuffix": "Omitidas: ",
+    "importSuccess": "Se importaron {{count}} fila(s).",
+    "invalidJsonFile": "Archivo JSON inválido.",
+    "jsonFormatLabel": "Formato JSON: ",
+    "colWeekEnding": "Fin de Semana",
+    "colPoints": "Puntos",
+    "emptyNone": "No hay puntos VS registrados.",
+    "modalTitleAdd": "Agregar Puntos VS",
+    "pointsPlaceholder": "ej. 5000",
+    "validationRequired": "Se requieren miembro, fin de semana y puntos."
   }
 }

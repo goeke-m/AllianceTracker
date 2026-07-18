@@ -206,5 +206,20 @@
     "modalTitleAdd": "Add Demerit",
     "notePlaceholder": "Reason / details",
     "validationRequired": "Member, date, and note are required."
+  },
+  "vsPoints": {
+    "heading": "VS Points ({{count}})",
+    "importButton": "↑ Import JSON",
+    "importNoValidRows": "No valid rows found.",
+    "importSkippedSuffix": "Skipped: ",
+    "importSuccess": "Imported {{count}} row(s).",
+    "invalidJsonFile": "Invalid JSON file.",
+    "jsonFormatLabel": "JSON format: ",
+    "colWeekEnding": "Week Ending",
+    "colPoints": "Points",
+    "emptyNone": "No VS points recorded.",
+    "modalTitleAdd": "Add VS Points",
+    "pointsPlaceholder": "e.g. 5000",
+    "validationRequired": "Member, week ending, and points are required."
   }
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
 import type { Member, VsPoint } from '../lib/types'
@@ -46,6 +47,7 @@ interface JsonRow {
 }
 
 export function VsPointManager({ members }: VsPointManagerProps) {
+  const { t } = useTranslation()
   const [rows, setRows] = useState<VsPoint[]>([])
   const [loading, setLoading] = useState(true)
   const [form, setForm] = useState<FormState | null>(null)
@@ -114,7 +116,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
     if (!form) return
     const pts = Number(form.points)
     if (!form.memberId || !form.weekEnding || isNaN(pts)) {
-      setError('Member, week ending, and points are required.')
+      setError(t('vsPoints.validationRequired'))
       return
     }
     setSaving(true)
@@ -165,7 +167,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
         }
 
         if (inserts.length === 0) {
-          setImportError(`No valid rows found.${skipped.length ? ` Skipped: ${skipped.join(', ')}` : ''}`)
+          setImportError(`${t('vsPoints.importNoValidRows')}${skipped.length ? ` ${t('vsPoints.importSkippedSuffix')}${skipped.join(', ')}` : ''}`)
           return
         }
 
@@ -177,10 +179,10 @@ export function VsPointManager({ members }: VsPointManagerProps) {
           logError('VsPointManager.handleFileChange', error)
           return
         }
-        setImportSuccess(`Imported ${inserts.length} row(s).${skipped.length ? ` Skipped: ${skipped.join(', ')}` : ''}`)
+        setImportSuccess(`${t('vsPoints.importSuccess', { count: inserts.length })}${skipped.length ? ` ${t('vsPoints.importSkippedSuffix')}${skipped.join(', ')}` : ''}`)
         load()
       } catch {
-        setImportError('Invalid JSON file.')
+        setImportError(t('vsPoints.invalidJsonFile'))
       }
     }
     reader.readAsText(file)
@@ -193,7 +195,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
     <div className="space-y-3">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-white">
-          VS Points ({displayed.length}{displayed.length !== rows.length ? ` / ${rows.length}` : ''})
+          {t('vsPoints.heading', { count: `${displayed.length}${displayed.length !== rows.length ? ` / ${rows.length}` : ''}` })}
         </h2>
         <div className="flex gap-2">
           <button
@@ -201,14 +203,14 @@ export function VsPointManager({ members }: VsPointManagerProps) {
             disabled={importing}
             className="text-xs bg-game-accent text-white font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {importing ? 'Importing...' : '↑ Import JSON'}
+            {importing ? t('common.importing') : t('vsPoints.importButton')}
           </button>
           <input ref={fileRef} type="file" accept=".json" className="hidden" onChange={handleFileChange} />
           <button
             onClick={openAdd}
             className="text-xs bg-game-highlight text-white font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
           >
-            + Add
+            {t('common.addButton')}
           </button>
         </div>
       </div>
@@ -221,7 +223,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
       )}
 
       <div className="text-xs text-gray-500">
-        JSON format: <code className="text-gray-400">[{`{"name":"...", "week_ending":"YYYY-MM-DD", "points": 1234}`}]</code>
+        {t('vsPoints.jsonFormatLabel')}<code className="text-gray-400">[{`{"name":"...", "week_ending":"YYYY-MM-DD", "points": 1234}`}]</code>
       </div>
 
       {/* Filter */}
@@ -229,17 +231,17 @@ export function VsPointManager({ members }: VsPointManagerProps) {
         <input
           value={filterName}
           onChange={e => setFilterName(e.target.value)}
-          placeholder="Search member..."
+          placeholder={t('common.searchMemberPlaceholder')}
           className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-48"
         />
         {filterName && (
           <button onClick={() => setFilterName('')} className="text-xs text-gray-500 hover:text-white transition-colors">
-            Clear
+            {t('common.clear')}
           </button>
         )}
       </div>
 
-      {loading && <p className="text-gray-400 text-sm animate-pulse">Loading...</p>}
+      {loading && <p className="text-gray-400 text-sm animate-pulse">{t('common.loading')}</p>}
 
       {!loading && (
         <div className="overflow-x-auto rounded-lg border border-game-accent">
@@ -247,13 +249,13 @@ export function VsPointManager({ members }: VsPointManagerProps) {
             <thead>
               <tr className="bg-game-card border-b border-game-accent">
                 <th className={thCls} onClick={() => handleSort('member')}>
-                  Member <SortIcon col="member" sortKey={sortKey} sortDir={sortDir} />
+                  {t('common.member')} <SortIcon col="member" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className={thCls} onClick={() => handleSort('week_ending')}>
-                  Week Ending <SortIcon col="week_ending" sortKey={sortKey} sortDir={sortDir} />
+                  {t('vsPoints.colWeekEnding')} <SortIcon col="week_ending" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className={thCls} onClick={() => handleSort('points')}>
-                  Points <SortIcon col="points" sortKey={sortKey} sortDir={sortDir} />
+                  {t('vsPoints.colPoints')} <SortIcon col="points" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className="px-3 py-2" />
               </tr>
@@ -262,7 +264,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
               {displayed.length === 0 && (
                 <tr>
                   <td colSpan={4} className="text-center text-gray-500 py-6 italic">
-                    {rows.length === 0 ? 'No VS points recorded.' : 'No members match the filter.'}
+                    {rows.length === 0 ? t('vsPoints.emptyNone') : t('common.emptyNoMembersMatch')}
                   </td>
                 </tr>
               )}
@@ -277,7 +279,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
                       disabled={deletingId === r.id}
                       className="text-game-highlight text-xs px-2 py-0.5 border border-red-800 rounded hover:bg-red-900/30 disabled:opacity-50 whitespace-nowrap"
                     >
-                      {deletingId === r.id ? '...' : 'Del'}
+                      {deletingId === r.id ? t('common.deletingIndicator') : t('common.deleteShort')}
                     </button>
                   </td>
                 </tr>
@@ -292,7 +294,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">Add VS Points</h2>
+              <h2 className="text-game-gold font-bold">{t('vsPoints.modalTitleAdd')}</h2>
               <button onClick={() => setForm(null)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
               </button>
@@ -300,13 +302,13 @@ export function VsPointManager({ members }: VsPointManagerProps) {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Member</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.member')}</label>
                 <select
                   value={form.memberId}
                   onChange={e => setForm(s => s && ({ ...s, memberId: e.target.value }))}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm"
                 >
-                  <option value="">— Select member —</option>
+                  <option value="">{t('common.selectMemberPlaceholder')}</option>
                   {members.map(m => (
                     <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
@@ -314,7 +316,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Week Ending</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('vsPoints.colWeekEnding')}</label>
                 <input
                   type="date"
                   value={form.weekEnding}
@@ -324,13 +326,13 @@ export function VsPointManager({ members }: VsPointManagerProps) {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Points</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('vsPoints.colPoints')}</label>
                 <input
                   type="number"
                   min="0"
                   value={form.points}
                   onChange={e => setForm(s => s && ({ ...s, points: e.target.value }))}
-                  placeholder="e.g. 5000"
+                  placeholder={t('vsPoints.pointsPlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600"
                 />
               </div>
@@ -344,14 +346,14 @@ export function VsPointManager({ members }: VsPointManagerProps) {
                 disabled={saving}
                 className="flex-1 text-sm text-gray-400 border border-gray-600 rounded-lg py-2 hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 className="flex-1 text-sm bg-game-highlight text-white rounded-lg py-2 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {saving ? 'Saving...' : 'Save'}
+                {saving ? t('common.saving') : t('common.save')}
               </button>
             </div>
           </div>

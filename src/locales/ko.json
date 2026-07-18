@@ -205,5 +205,20 @@
     "modalTitleAdd": "감점 추가",
     "notePlaceholder": "사유 / 세부 사항",
     "validationRequired": "멤버, 날짜, 메모는 필수입니다."
+  },
+  "vsPoints": {
+    "heading": "VS 포인트 ({{count}})",
+    "importButton": "↑ JSON 가져오기",
+    "importNoValidRows": "유효한 행을 찾을 수 없습니다.",
+    "importSkippedSuffix": "건너뜀: ",
+    "importSuccess": "{{count}}개 행을 가져왔습니다.",
+    "invalidJsonFile": "잘못된 JSON 파일입니다.",
+    "jsonFormatLabel": "JSON 형식: ",
+    "colWeekEnding": "주 종료일",
+    "colPoints": "포인트",
+    "emptyNone": "기록된 VS 포인트가 없습니다.",
+    "modalTitleAdd": "VS 포인트 추가",
+    "pointsPlaceholder": "예: 5000",
+    "validationRequired": "멤버, 주 종료일, 포인트는 필수입니다."
   }
 }
