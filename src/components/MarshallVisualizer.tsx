@@ -39,9 +39,10 @@ const COLORS = {
 
 export function MarshallVisualizer({
   positions,
-  marshallName = 'MARSHALL',
+  marshallName,
 }: MarshallVisualizerProps) {
   const { t } = useTranslation()
+  const displayName = marshallName ?? t('map.marshallCellLabel')
   // Sort R4/R5 and standard members by damage rank (slotIndex 0 = rank 1)
   const r45Members = positions
     .filter((p) => p.ring === 1)
@@ -75,7 +76,7 @@ export function MarshallVisualizer({
                 >
                   <span className="text-[7px] opacity-75 leading-none">{t('map.marshallCellLabel')}</span>
                   <span className="text-[10px] leading-tight text-center break-words">
-                    {marshallName.slice(0, 10)}
+                    {displayName.slice(0, 10)}
                   </span>
                 </div>
               )
