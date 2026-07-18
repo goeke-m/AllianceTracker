@@ -136,5 +136,10 @@
     "title": "킬 리스트",
     "emptyNoEntries": "킬 리스트에 항목이 없습니다.",
     "entryTitleSuffix": "킬 리스트 항목"
+  },
+  "friends": {
+    "title": "친구 목록",
+    "emptyNoEntries": "친구 목록에 항목이 없습니다.",
+    "entryTitleSuffix": "친구 목록 항목"
   }
 }

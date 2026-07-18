@@ -136,5 +136,10 @@
     "title": "Lista de Bajas",
     "emptyNoEntries": "No hay entradas en la lista de bajas.",
     "entryTitleSuffix": "Entrada de la Lista de Bajas"
+  },
+  "friends": {
+    "title": "Lista de Amigos",
+    "emptyNoEntries": "No hay entradas en la lista de amigos.",
+    "entryTitleSuffix": "Entrada de la Lista de Amigos"
   }
 }

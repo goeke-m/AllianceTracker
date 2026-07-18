@@ -136,5 +136,10 @@
     "title": "Lista de Abates",
     "emptyNoEntries": "Nenhuma entrada na lista de abates.",
     "entryTitleSuffix": "Entrada da Lista de Abates"
+  },
+  "friends": {
+    "title": "Lista de Amigos",
+    "emptyNoEntries": "Nenhuma entrada na lista de amigos.",
+    "entryTitleSuffix": "Entrada da Lista de Amigos"
   }
 }

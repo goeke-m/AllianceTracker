@@ -136,5 +136,10 @@
     "title": "Kill List",
     "emptyNoEntries": "No entries on the kill list.",
     "entryTitleSuffix": "Kill List Entry"
+  },
+  "friends": {
+    "title": "Friends List",
+    "emptyNoEntries": "No entries on the friends list.",
+    "entryTitleSuffix": "Friends List Entry"
   }
 }
