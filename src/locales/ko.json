@@ -187,6 +187,12 @@
     "timezone": "시간대",
     "emptyState": "현재 필터와 일치하는 멤버가 없습니다.",
     "powerPlaceholder": "전투력",
+    "noSyncData": "동기화 함수에서 데이터가 반환되지 않았습니다",
+    "syncErrorsPrefix": "동기화 오류: {{errors}}",
+    "syncResult": "동기화됨: +{{added}}명 추가, {{updated}}명 업데이트, {{removed}}명 제거",
+    "syncFailed": "동기화 실패",
+    "addFailed": "멤버 추가 실패",
+    "deleteFailed": "멤버 삭제 실패",
     "eventLogImport": {
       "title": "피해 로그 가져오기 (JSON)",
       "invalidJson": "잘못된 JSON입니다. 피해 항목의 JSON 배열을 붙여넣으세요.",
@@ -219,7 +225,8 @@
     "emptyNone": "기록된 VS 포인트가 없습니다.",
     "modalTitleAdd": "VS 포인트 추가",
     "pointsPlaceholder": "예: 5000",
-    "validationRequired": "멤버, 주 종료일, 포인트는 필수입니다."
+    "validationRequired": "멤버, 주 종료일, 포인트는 필수입니다.",
+    "unknownName": "(알 수 없음)"
   },
   "errorLog": {
     "heading": "오류 ({{count}})",

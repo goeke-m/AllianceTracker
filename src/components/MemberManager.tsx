@@ -172,20 +172,20 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
     try {
       const { data, error } = await supabase.functions.invoke('sync-alliance-members')
       if (error) throw error
-      if (!data) throw new Error('No data returned from sync function')
+      if (!data) throw new Error(t('members.noSyncData'))
       const { added = 0, updated = 0, removed = 0, errors = [] } = data as {
         added: number; updated: number; removed: number; errors: string[]
       }
       if (errors.length > 0) {
-        setError(`Sync errors: ${errors.join('; ')}`)
+        setError(t('members.syncErrorsPrefix', { errors: errors.join('; ') }))
         onRefresh()
       } else {
-        setSyncResult(`Synced: +${added} added, ${updated} updated, ${removed} removed`)
+        setSyncResult(t('members.syncResult', { added, updated, removed }))
         onRefresh()
         setTimeout(() => setSyncResult(null), 5000)
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Sync failed')
+      setError(err instanceof Error ? err.message : t('members.syncFailed'))
       logError('MemberManager.handleSync', err)
     } finally {
       setSyncing(false)
@@ -204,7 +204,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       setNewRank('R3')
       onRefresh()
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to add member')
+      setError(err instanceof Error ? err.message : t('members.addFailed'))
       logError('MemberManager.handleAdd', err)
     }
     setAdding(false)
@@ -222,7 +222,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       if (error) throw error
       onRefresh()
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to delete member')
+      setError(err instanceof Error ? err.message : t('members.deleteFailed'))
       logError('MemberManager.handleDelete', err)
     }
     setDeletingId(null)

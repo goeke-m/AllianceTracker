@@ -187,6 +187,12 @@
     "timezone": "Timezone",
     "emptyState": "No members match the current filters.",
     "powerPlaceholder": "Power",
+    "noSyncData": "No data returned from sync function",
+    "syncErrorsPrefix": "Sync errors: {{errors}}",
+    "syncResult": "Synced: +{{added}} added, {{updated}} updated, {{removed}} removed",
+    "syncFailed": "Sync failed",
+    "addFailed": "Failed to add member",
+    "deleteFailed": "Failed to delete member",
     "eventLogImport": {
       "title": "Import Damage Log (JSON)",
       "invalidJson": "Invalid JSON. Paste a JSON array of damage entries.",
@@ -220,7 +226,8 @@
     "emptyNone": "No VS points recorded.",
     "modalTitleAdd": "Add VS Points",
     "pointsPlaceholder": "e.g. 5000",
-    "validationRequired": "Member, week ending, and points are required."
+    "validationRequired": "Member, week ending, and points are required.",
+    "unknownName": "(unknown)"
   },
   "errorLog": {
     "heading": "Errors ({{count}})",

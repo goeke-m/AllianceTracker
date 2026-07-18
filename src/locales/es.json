@@ -187,6 +187,12 @@
     "timezone": "Zona Horaria",
     "emptyState": "Ningún miembro coincide con los filtros actuales.",
     "powerPlaceholder": "Poder",
+    "noSyncData": "No se recibieron datos de la función de sincronización",
+    "syncErrorsPrefix": "Errores de sincronización: {{errors}}",
+    "syncResult": "Sincronizado: +{{added}} agregados, {{updated}} actualizados, {{removed}} eliminados",
+    "syncFailed": "Error de sincronización",
+    "addFailed": "Error al agregar miembro",
+    "deleteFailed": "Error al eliminar miembro",
     "eventLogImport": {
       "title": "Importar Registro de Daño (JSON)",
       "invalidJson": "JSON inválido. Pega un array JSON de entradas de daño.",
@@ -220,7 +226,8 @@
     "emptyNone": "No hay puntos VS registrados.",
     "modalTitleAdd": "Agregar Puntos VS",
     "pointsPlaceholder": "ej. 5000",
-    "validationRequired": "Se requieren miembro, fin de semana y puntos."
+    "validationRequired": "Se requieren miembro, fin de semana y puntos.",
+    "unknownName": "(desconocido)"
   },
   "errorLog": {
     "heading": "Errores ({{count}})",

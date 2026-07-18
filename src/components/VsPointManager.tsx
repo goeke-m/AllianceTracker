@@ -161,7 +161,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
           const rawName = row.name ?? row.member ?? row.player ?? ''
           const rawDate = row.week_ending ?? row.weekEnding ?? row.week ?? ''
           const memberId = findMemberId(rawName)
-          if (!memberId) { skipped.push(rawName || '(unknown)'); continue }
+          if (!memberId) { skipped.push(rawName || t('vsPoints.unknownName')); continue }
           if (!rawDate || isNaN(Number(row.points))) { skipped.push(rawName); continue }
           inserts.push({ member_id: memberId, week_ending: rawDate, points: Number(row.points) })
         }
