@@ -197,5 +197,13 @@
       "skippedSuffix": " 건너뜀 (일치 항목 없음): {{list}}",
       "placeholderIntro": "여기에 Gemini JSON 출력을 붙여넣으세요, 예:"
     }
+  },
+  "demerits": {
+    "heading": "감점 ({{count}})",
+    "colNote": "메모",
+    "emptyNone": "기록된 감점이 없습니다.",
+    "modalTitleAdd": "감점 추가",
+    "notePlaceholder": "사유 / 세부 사항",
+    "validationRequired": "멤버, 날짜, 메모는 필수입니다."
   }
 }

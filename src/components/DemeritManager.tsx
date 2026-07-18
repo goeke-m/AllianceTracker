@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
 import type { Member, Demerit } from '../lib/types'
@@ -31,6 +32,7 @@ function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; s
 }
 
 export function DemeritManager({ members }: DemeritManagerProps) {
+  const { t } = useTranslation()
   const [demerits, setDemerits] = useState<Demerit[]>([])
   const [loading, setLoading] = useState(true)
   const [form, setForm] = useState<FormState | null>(null)
@@ -91,7 +93,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
   async function handleSave() {
     if (!form) return
     if (!form.memberId || !form.date || !form.note.trim()) {
-      setError('Member, date, and note are required.')
+      setError(t('demerits.validationRequired'))
       return
     }
     setSaving(true)
@@ -123,12 +125,12 @@ export function DemeritManager({ members }: DemeritManagerProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-white">Demerits ({displayed.length}{displayed.length !== demerits.length ? ` / ${demerits.length}` : ''})</h2>
+        <h2 className="text-lg font-bold text-white">{t('demerits.heading', { count: `${displayed.length}${displayed.length !== demerits.length ? ` / ${demerits.length}` : ''}` })}</h2>
         <button
           onClick={openAdd}
           className="text-xs bg-game-highlight text-white font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
         >
-          + Add
+          {t('common.addButton')}
         </button>
       </div>
 
@@ -137,17 +139,17 @@ export function DemeritManager({ members }: DemeritManagerProps) {
         <input
           value={filterName}
           onChange={e => setFilterName(e.target.value)}
-          placeholder="Search member..."
+          placeholder={t('common.searchMemberPlaceholder')}
           className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-48"
         />
         {filterName && (
           <button onClick={() => setFilterName('')} className="text-xs text-gray-500 hover:text-white transition-colors">
-            Clear
+            {t('common.clear')}
           </button>
         )}
       </div>
 
-      {loading && <p className="text-gray-400 text-sm animate-pulse">Loading...</p>}
+      {loading && <p className="text-gray-400 text-sm animate-pulse">{t('common.loading')}</p>}
 
       {!loading && (
         <div className="overflow-x-auto rounded-lg border border-game-accent">
@@ -155,13 +157,13 @@ export function DemeritManager({ members }: DemeritManagerProps) {
             <thead>
               <tr className="bg-game-card border-b border-game-accent">
                 <th className={thCls} onClick={() => handleSort('member')}>
-                  Member <SortIcon col="member" sortKey={sortKey} sortDir={sortDir} />
+                  {t('common.member')} <SortIcon col="member" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className={thCls} onClick={() => handleSort('date')}>
-                  Date <SortIcon col="date" sortKey={sortKey} sortDir={sortDir} />
+                  {t('common.date')} <SortIcon col="date" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className={thCls} onClick={() => handleSort('note')}>
-                  Note <SortIcon col="note" sortKey={sortKey} sortDir={sortDir} />
+                  {t('demerits.colNote')} <SortIcon col="note" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className="px-3 py-2" />
               </tr>
@@ -170,7 +172,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
               {displayed.length === 0 && (
                 <tr>
                   <td colSpan={4} className="text-center text-gray-500 py-6 italic">
-                    {demerits.length === 0 ? 'No demerits recorded.' : 'No members match the filter.'}
+                    {demerits.length === 0 ? t('demerits.emptyNone') : t('common.emptyNoMembersMatch')}
                   </td>
                 </tr>
               )}
@@ -185,7 +187,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
                       disabled={deletingId === d.id}
                       className="text-game-highlight text-xs px-2 py-0.5 border border-red-800 rounded hover:bg-red-900/30 disabled:opacity-50 whitespace-nowrap"
                     >
-                      {deletingId === d.id ? '...' : 'Del'}
+                      {deletingId === d.id ? t('common.deletingIndicator') : t('common.deleteShort')}
                     </button>
                   </td>
                 </tr>
@@ -200,7 +202,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">Add Demerit</h2>
+              <h2 className="text-game-gold font-bold">{t('demerits.modalTitleAdd')}</h2>
               <button onClick={() => setForm(null)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
               </button>
@@ -208,13 +210,13 @@ export function DemeritManager({ members }: DemeritManagerProps) {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Member</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.member')}</label>
                 <select
                   value={form.memberId}
                   onChange={e => setForm(s => s && ({ ...s, memberId: e.target.value }))}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm"
                 >
-                  <option value="">— Select member —</option>
+                  <option value="">{t('common.selectMemberPlaceholder')}</option>
                   {members.map(m => (
                     <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
@@ -222,7 +224,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Date</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.date')}</label>
                 <input
                   type="date"
                   value={form.date}
@@ -232,12 +234,12 @@ export function DemeritManager({ members }: DemeritManagerProps) {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Note</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('demerits.colNote')}</label>
                 <input
                   type="text"
                   value={form.note}
                   onChange={e => setForm(s => s && ({ ...s, note: e.target.value }))}
-                  placeholder="Reason / details"
+                  placeholder={t('demerits.notePlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600"
                 />
               </div>
@@ -251,14 +253,14 @@ export function DemeritManager({ members }: DemeritManagerProps) {
                 disabled={saving}
                 className="flex-1 text-sm text-gray-400 border border-gray-600 rounded-lg py-2 hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 className="flex-1 text-sm bg-game-highlight text-white rounded-lg py-2 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {saving ? 'Saving...' : 'Save'}
+                {saving ? t('common.saving') : t('common.save')}
               </button>
             </div>
           </div>

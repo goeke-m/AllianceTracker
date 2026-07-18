@@ -198,5 +198,13 @@
       "skippedSuffix": " Omitidos (sin coincidencia): {{list}}",
       "placeholderIntro": "Pega aquí la salida JSON de Gemini, por ejemplo:"
     }
+  },
+  "demerits": {
+    "heading": "Amonestaciones ({{count}})",
+    "colNote": "Nota",
+    "emptyNone": "No hay amonestaciones registradas.",
+    "modalTitleAdd": "Agregar Amonestación",
+    "notePlaceholder": "Motivo / detalles",
+    "validationRequired": "Se requieren miembro, fecha y nota."
   }
 }

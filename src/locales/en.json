@@ -198,5 +198,13 @@
       "skippedSuffix": " Skipped (no match): {{list}}",
       "placeholderIntro": "Paste Gemini JSON output here, e.g.:"
     }
+  },
+  "demerits": {
+    "heading": "Demerits ({{count}})",
+    "colNote": "Note",
+    "emptyNone": "No demerits recorded.",
+    "modalTitleAdd": "Add Demerit",
+    "notePlaceholder": "Reason / details",
+    "validationRequired": "Member, date, and note are required."
   }
 }

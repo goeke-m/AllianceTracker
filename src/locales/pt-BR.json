@@ -198,5 +198,13 @@
       "skippedSuffix": " Ignorados (sem correspondência): {{list}}",
       "placeholderIntro": "Cole a saída JSON do Gemini aqui, ex.:"
     }
+  },
+  "demerits": {
+    "heading": "Advertências ({{count}})",
+    "colNote": "Nota",
+    "emptyNone": "Nenhuma advertência registrada.",
+    "modalTitleAdd": "Adicionar Advertência",
+    "notePlaceholder": "Motivo / detalhes",
+    "validationRequired": "Membro, data e nota são obrigatórios."
   }
 }
