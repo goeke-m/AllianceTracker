@@ -220,5 +220,15 @@
     "modalTitleAdd": "VS 포인트 추가",
     "pointsPlaceholder": "예: 5000",
     "validationRequired": "멤버, 주 종료일, 포인트는 필수입니다."
+  },
+  "errorLog": {
+    "heading": "오류 ({{count}})",
+    "refreshButton": "새로고침",
+    "colWhen": "시간",
+    "colUser": "사용자",
+    "colContext": "컨텍스트",
+    "colMessage": "메시지",
+    "emptyNone": "기록된 오류가 없습니다.",
+    "unknownUser": "알 수 없음"
   }
 }

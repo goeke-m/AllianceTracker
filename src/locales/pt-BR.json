@@ -221,5 +221,15 @@
     "modalTitleAdd": "Adicionar Pontos VS",
     "pointsPlaceholder": "ex.: 5000",
     "validationRequired": "Membro, fim da semana e pontos são obrigatórios."
+  },
+  "errorLog": {
+    "heading": "Erros ({{count}})",
+    "refreshButton": "Atualizar",
+    "colWhen": "Quando",
+    "colUser": "Usuário",
+    "colContext": "Contexto",
+    "colMessage": "Mensagem",
+    "emptyNone": "Nenhum erro registrado.",
+    "unknownUser": "desconhecido"
   }
 }

@@ -221,5 +221,15 @@
     "modalTitleAdd": "Add VS Points",
     "pointsPlaceholder": "e.g. 5000",
     "validationRequired": "Member, week ending, and points are required."
+  },
+  "errorLog": {
+    "heading": "Errors ({{count}})",
+    "refreshButton": "Refresh",
+    "colWhen": "When",
+    "colUser": "User",
+    "colContext": "Context",
+    "colMessage": "Message",
+    "emptyNone": "No errors logged.",
+    "unknownUser": "unknown"
   }
 }
