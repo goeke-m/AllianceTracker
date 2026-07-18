@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
 import type { Member, JsonImportEntry } from '../lib/types'
@@ -9,6 +10,7 @@ interface EventLogImportProps {
 }
 
 export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
+  const { t } = useTranslation()
   const [json, setJson] = useState('')
   const [status, setStatus] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -28,7 +30,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
       const parsed = JSON.parse(json)
       entries = Array.isArray(parsed) ? parsed : [parsed]
     } catch {
-      setError('Invalid JSON. Paste a JSON array of damage entries.')
+      setError(t('members.eventLogImport.invalidJson'))
       setLoading(false)
       return
     }
@@ -40,7 +42,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
     for (const entry of entries) {
       const name = resolveName(entry)
       if (!name) {
-        skipped.push('(unnamed entry)')
+        skipped.push(t('members.eventLogImport.unnamedEntry'))
         continue
       }
       const memberId = memberMap.get(name.toLowerCase())
@@ -49,7 +51,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
         continue
       }
       if (typeof entry.damage !== 'number' || entry.damage < 0) {
-        skipped.push(`${name} (invalid damage)`)
+        skipped.push(t('members.eventLogImport.invalidDamageSuffix', { name }))
         continue
       }
       const rawDate = entry.date ?? entry.event_date
@@ -76,16 +78,17 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
         const { error } = await supabase.from('damage_logs').insert(logs)
         if (error) throw error
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Import failed')
+        setError(err instanceof Error ? err.message : t('members.eventLogImport.importFailedFallback'))
         logError('EventLogImport.handleImport', err)
         setLoading(false)
         return
       }
     }
 
-    let msg = `Imported ${logs.length} damage log${logs.length !== 1 ? 's' : ''}.`
+    let msg = t('members.eventLogImport.importedCount', { count: logs.length })
     if (skipped.length > 0) {
-      msg += ` Skipped (no match): ${skipped.slice(0, 5).join(', ')}${skipped.length > 5 ? '…' : ''}`
+      const list = `${skipped.slice(0, 5).join(', ')}${skipped.length > 5 ? '…' : ''}`
+      msg += t('members.eventLogImport.skippedSuffix', { list })
     }
     setStatus(msg)
     setJson('')
@@ -93,7 +96,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
     onSuccess()
   }
 
-  const placeholder = `Paste Gemini JSON output here, e.g.:
+  const placeholder = `${t('members.eventLogImport.placeholderIntro')}
 [
   { "name": "PlayerOne", "damage": 12500000 },
   { "name": "PlayerTwo", "damage": 8300000, "date": "2024-03-01" }
@@ -101,7 +104,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
 
   return (
     <div className="space-y-3">
-      <h2 className="text-lg font-bold text-white">Import Damage Log (JSON)</h2>
+      <h2 className="text-lg font-bold text-white">{t('members.eventLogImport.title')}</h2>
 
       <textarea
         value={json}
@@ -127,7 +130,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
         disabled={loading || !json.trim()}
         className="w-full bg-game-gold text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
       >
-        {loading ? 'Importing...' : 'Import'}
+        {loading ? t('common.importing') : t('common.import')}
       </button>
     </div>
   )

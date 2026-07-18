@@ -186,6 +186,17 @@
     "avgVs": "Avg VS",
     "timezone": "Timezone",
     "emptyState": "No members match the current filters.",
-    "powerPlaceholder": "Power"
+    "powerPlaceholder": "Power",
+    "eventLogImport": {
+      "title": "Import Damage Log (JSON)",
+      "invalidJson": "Invalid JSON. Paste a JSON array of damage entries.",
+      "unnamedEntry": "(unnamed entry)",
+      "invalidDamageSuffix": "{{name}} (invalid damage)",
+      "importFailedFallback": "Import failed",
+      "importedCount_one": "Imported {{count}} damage log.",
+      "importedCount_other": "Imported {{count}} damage logs.",
+      "skippedSuffix": " Skipped (no match): {{list}}",
+      "placeholderIntro": "Paste Gemini JSON output here, e.g.:"
+    }
   }
 }

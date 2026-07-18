@@ -186,6 +186,16 @@
     "avgVs": "평균 VS",
     "timezone": "시간대",
     "emptyState": "현재 필터와 일치하는 멤버가 없습니다.",
-    "powerPlaceholder": "전투력"
+    "powerPlaceholder": "전투력",
+    "eventLogImport": {
+      "title": "피해 로그 가져오기 (JSON)",
+      "invalidJson": "잘못된 JSON입니다. 피해 항목의 JSON 배열을 붙여넣으세요.",
+      "unnamedEntry": "(이름 없는 항목)",
+      "invalidDamageSuffix": "{{name}} (잘못된 피해량)",
+      "importFailedFallback": "가져오기 실패",
+      "importedCount_other": "피해 로그 {{count}}건을 가져왔습니다.",
+      "skippedSuffix": " 건너뜀 (일치 항목 없음): {{list}}",
+      "placeholderIntro": "여기에 Gemini JSON 출력을 붙여넣으세요, 예:"
+    }
   }
 }

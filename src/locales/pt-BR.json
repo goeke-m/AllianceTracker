@@ -186,6 +186,17 @@
     "avgVs": "VS Médio",
     "timezone": "Fuso Horário",
     "emptyState": "Nenhum membro corresponde aos filtros atuais.",
-    "powerPlaceholder": "Poder"
+    "powerPlaceholder": "Poder",
+    "eventLogImport": {
+      "title": "Importar Registro de Dano (JSON)",
+      "invalidJson": "JSON inválido. Cole um array JSON de entradas de dano.",
+      "unnamedEntry": "(entrada sem nome)",
+      "invalidDamageSuffix": "{{name}} (dano inválido)",
+      "importFailedFallback": "Falha na importação",
+      "importedCount_one": "{{count}} registro de dano importado.",
+      "importedCount_other": "{{count}} registros de dano importados.",
+      "skippedSuffix": " Ignorados (sem correspondência): {{list}}",
+      "placeholderIntro": "Cole a saída JSON do Gemini aqui, ex.:"
+    }
   }
 }
