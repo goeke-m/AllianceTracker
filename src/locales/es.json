@@ -162,5 +162,12 @@
     "badgeActive": "FUERA",
     "badgeUpcoming": "PRONTO",
     "badgePast": "HECHO"
+  },
+  "admin": {
+    "title": "☠️ Camarote del Capitán",
+    "tabMembers": "Miembros",
+    "tabDemerits": "Amonestaciones",
+    "tabVsPoints": "Puntos VS",
+    "tabErrors": "Errores"
   }
 }

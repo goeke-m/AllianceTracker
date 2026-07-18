@@ -162,5 +162,12 @@
     "badgeActive": "OUT",
     "badgeUpcoming": "SOON",
     "badgePast": "DONE"
+  },
+  "admin": {
+    "title": "☠️ Captain's Quarters",
+    "tabMembers": "Members",
+    "tabDemerits": "Demerits",
+    "tabVsPoints": "VS Points",
+    "tabErrors": "Errors"
   }
 }
