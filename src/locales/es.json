@@ -131,5 +131,10 @@
     "searchPlaceholder": "Buscar...",
     "noResults": "Sin resultados",
     "dragToReorder": "Arrastra para reordenar"
+  },
+  "kills": {
+    "title": "Lista de Bajas",
+    "emptyNoEntries": "No hay entradas en la lista de bajas.",
+    "entryTitleSuffix": "Entrada de la Lista de Bajas"
   }
 }

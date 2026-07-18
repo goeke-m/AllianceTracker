@@ -131,5 +131,10 @@
     "searchPlaceholder": "Pesquisar...",
     "noResults": "Nenhum resultado",
     "dragToReorder": "Arraste para reordenar"
+  },
+  "kills": {
+    "title": "Lista de Abates",
+    "emptyNoEntries": "Nenhuma entrada na lista de abates.",
+    "entryTitleSuffix": "Entrada da Lista de Abates"
   }
 }

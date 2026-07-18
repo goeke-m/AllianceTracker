@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
 import type { KillListEntry } from '../lib/types'
@@ -23,6 +24,7 @@ function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; s
 }
 
 export function KillList({ isAdmin }: KillListProps) {
+  const { t } = useTranslation()
   const [entries, setEntries] = useState<KillListEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [form, setForm] = useState<FormState | null>(null)
@@ -79,7 +81,7 @@ export function KillList({ isAdmin }: KillListProps) {
   async function handleSave() {
     if (!form) return
     if (!form.name.trim() || !form.server.trim()) {
-      setError('Name and server are required.')
+      setError(t('common.nameServerRequired'))
       return
     }
     setSaving(true)
@@ -115,14 +117,14 @@ export function KillList({ isAdmin }: KillListProps) {
     <div className="p-4 pb-24 space-y-3">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold text-game-highlight">
-          ⚔️ Kill List ({displayed.length}{displayed.length !== entries.length ? ` / ${entries.length}` : ''})
+          ⚔️ {t('kills.title')} ({displayed.length}{displayed.length !== entries.length ? ` / ${entries.length}` : ''})
         </h1>
         {isAdmin && (
           <button
             onClick={openAdd}
             className="text-xs bg-game-highlight text-white font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
           >
-            + Add
+            {t('common.addButton')}
           </button>
         )}
       </div>
@@ -131,17 +133,17 @@ export function KillList({ isAdmin }: KillListProps) {
         <input
           value={filterText}
           onChange={e => setFilterText(e.target.value)}
-          placeholder="Search name or server..."
+          placeholder={t('common.searchNameOrServerPlaceholder')}
           className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-56"
         />
         {filterText && (
           <button onClick={() => setFilterText('')} className="text-xs text-gray-500 hover:text-white transition-colors">
-            Clear
+            {t('common.clear')}
           </button>
         )}
       </div>
 
-      {loading && <p className="text-gray-400 text-sm animate-pulse">Loading...</p>}
+      {loading && <p className="text-gray-400 text-sm animate-pulse">{t('common.loading')}</p>}
 
       {!loading && (
         <div className="overflow-x-auto rounded-lg border border-game-accent">
@@ -149,13 +151,13 @@ export function KillList({ isAdmin }: KillListProps) {
             <thead>
               <tr className="bg-game-card border-b border-game-accent">
                 <th className={thCls} onClick={() => handleSort('name')}>
-                  Name <SortIcon col="name" sortKey={sortKey} sortDir={sortDir} />
+                  {t('common.name')} <SortIcon col="name" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className={thCls} onClick={() => handleSort('server')}>
-                  Server <SortIcon col="server" sortKey={sortKey} sortDir={sortDir} />
+                  {t('common.server')} <SortIcon col="server" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 <th className={thCls} onClick={() => handleSort('reason')}>
-                  Reason <SortIcon col="reason" sortKey={sortKey} sortDir={sortDir} />
+                  {t('common.reason')} <SortIcon col="reason" sortKey={sortKey} sortDir={sortDir} />
                 </th>
                 {isAdmin && <th className="px-3 py-2" />}
               </tr>
@@ -164,7 +166,7 @@ export function KillList({ isAdmin }: KillListProps) {
               {displayed.length === 0 && (
                 <tr>
                   <td colSpan={isAdmin ? 4 : 3} className="text-center text-gray-500 py-6 italic">
-                    {entries.length === 0 ? 'No entries on the kill list.' : 'No entries match the filter.'}
+                    {entries.length === 0 ? t('kills.emptyNoEntries') : t('common.emptyNoMatch')}
                   </td>
                 </tr>
               )}
@@ -179,14 +181,14 @@ export function KillList({ isAdmin }: KillListProps) {
                         onClick={() => openEdit(e)}
                         className="text-xs px-2 py-0.5 border border-game-accent rounded hover:bg-game-card/80 whitespace-nowrap"
                       >
-                        Edit
+                        {t('common.edit')}
                       </button>
                       <button
                         onClick={() => handleDelete(e.id)}
                         disabled={deletingId === e.id}
                         className="text-game-highlight text-xs px-2 py-0.5 border border-red-800 rounded hover:bg-red-900/30 disabled:opacity-50 whitespace-nowrap"
                       >
-                        {deletingId === e.id ? '...' : 'Del'}
+                        {deletingId === e.id ? t('common.deletingIndicator') : t('common.deleteShort')}
                       </button>
                     </td>
                   )}
@@ -201,38 +203,38 @@ export function KillList({ isAdmin }: KillListProps) {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-highlight font-bold">{form.id ? 'Edit' : 'Add'} Kill List Entry</h2>
+              <h2 className="text-game-highlight font-bold">{form.id ? t('common.edit') : t('common.add')} {t('kills.entryTitleSuffix')}</h2>
               <button onClick={() => setForm(null)} className="text-gray-400 hover:text-white text-xl leading-none">×</button>
             </div>
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Name *</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.nameRequiredLabel')}</label>
                 <input
                   type="text"
                   value={form.name}
                   onChange={e => setForm(s => s && ({ ...s, name: e.target.value }))}
-                  placeholder="Player name"
+                  placeholder={t('common.playerNamePlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-gold"
                 />
               </div>
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Server *</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.serverRequiredLabel')}</label>
                 <input
                   type="text"
                   value={form.server}
                   onChange={e => setForm(s => s && ({ ...s, server: e.target.value }))}
-                  placeholder="Server name"
+                  placeholder={t('common.serverNamePlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-gold"
                 />
               </div>
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Reason</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.reason')}</label>
                 <input
                   type="text"
                   value={form.reason}
                   onChange={e => setForm(s => s && ({ ...s, reason: e.target.value }))}
-                  placeholder="Optional reason"
+                  placeholder={t('common.optionalReasonPlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-gold"
                 />
               </div>
@@ -246,14 +248,14 @@ export function KillList({ isAdmin }: KillListProps) {
                 disabled={saving}
                 className="flex-1 text-sm text-gray-400 border border-gray-600 rounded-lg py-2 hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 className="flex-1 text-sm bg-game-highlight text-white rounded-lg py-2 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {saving ? 'Saving...' : 'Save'}
+                {saving ? t('common.saving') : t('common.save')}
               </button>
             </div>
           </div>

@@ -131,5 +131,10 @@
     "searchPlaceholder": "Search...",
     "noResults": "No results",
     "dragToReorder": "Drag to reorder"
+  },
+  "kills": {
+    "title": "Kill List",
+    "emptyNoEntries": "No entries on the kill list.",
+    "entryTitleSuffix": "Kill List Entry"
   }
 }

@@ -131,5 +131,10 @@
     "searchPlaceholder": "검색...",
     "noResults": "결과 없음",
     "dragToReorder": "드래그하여 순서 변경"
+  },
+  "kills": {
+    "title": "킬 리스트",
+    "emptyNoEntries": "킬 리스트에 항목이 없습니다.",
+    "entryTitleSuffix": "킬 리스트 항목"
   }
 }
