@@ -34,38 +34,81 @@ cd OPNzTracker
 npm install
 ```
 
-### Environment Setup
+## Local Development
 
-Copy the example env file and fill in your Supabase credentials:
+### Prerequisites
 
-```bash
-cp .env.example .env
-```
+- [Supabase CLI](https://supabase.com/docs/guides/cli)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (running)
 
-```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-```
-
-### Database Setup
-
-Run the SQL scripts in `/scripts/` against your Supabase project in this order:
-
-1. `rls-policies.sql` — Row-Level Security policies
-2. `seed-members.sql` — Initial member data (optional)
-3. `demerits-migration.sql`
-4. `alliance-tech-migration.sql`
-5. `alliance-tech-queue-migration.sql`
-6. `vs-points-migration.sql`
-7. `set-admin.sql` — Grant admin role to your user
-
-### Development
+### First-time setup
 
 ```bash
+npx supabase link --project-ref YOUR_PROJECT_REF   # links CLI to production
+cp .env.local.example .env.local
+npx supabase start                                  # starts local Supabase
+npx supabase status                                 # copy anon key → paste into .env.local
+npx supabase db reset                               # applies migrations + seed data
+npm install
 npm run dev
-# Runs at http://localhost:5173
-# Email/password login is available in dev mode
 ```
+
+Open http://localhost:5173 for the app, http://localhost:54323 for Supabase Studio.
+
+### Daily workflow
+
+| Command | Effect |
+|---|---|
+| `npx supabase start` | Start local Supabase instance |
+| `npx supabase stop` | Stop local Supabase instance |
+| `npx supabase db reset` | Wipe local DB and re-apply all migrations + seed |
+| `npx supabase migration new <name>` | Create a new migration file |
+| `npx supabase db push` | Push pending migrations to production (CI does this automatically) |
+
+### Adding a migration
+
+```bash
+npx supabase migration new add_my_column
+# Edit supabase/migrations/<timestamp>_add_my_column.sql
+npx supabase db reset   # verify locally
+git add supabase/migrations/
+git commit -m "chore: add migration for my column"
+git push            # CI applies it to production automatically
+```
+
+Never edit an existing migration file after it has been pushed to production.
+
+## pg_cron (alliance member sync)
+
+The `sync-alliance-members` Edge Function runs on a pg_cron schedule (MWF at 10:00 UTC). This is a **manual setup step** — it is not run automatically by migrations.
+
+To set it up after a fresh database:
+
+1. Enable the `pg_cron` and `pg_net` extensions: Supabase Dashboard → Database → Extensions
+2. Deploy the Edge Function: `npx supabase functions deploy sync-alliance-members`
+3. Open the Supabase SQL Editor and run the following, replacing the placeholders:
+
+```sql
+SELECT cron.schedule(
+  'sync-alliance-members',
+  '0 10 * * 1,3,5',
+  $$
+  SELECT
+    net.http_post(
+      url     := 'https://<PROJECT_REF>.supabase.co/functions/v1/sync-alliance-members',
+      headers := jsonb_build_object(
+        'Content-Type',  'application/json',
+        'Authorization', 'Bearer <SERVICE_ROLE_KEY>'
+      ),
+      body    := '{}'::jsonb
+    ) AS request_id;
+  $$
+);
+```
+
+Replace `<PROJECT_REF>` with your Supabase project reference ID and `<SERVICE_ROLE_KEY>` with your service role key (Project Settings → API → service_role key).
+
+Verify: `SELECT * FROM cron.job;` should show the `sync-alliance-members` job.
 
 ### Production Build
 
