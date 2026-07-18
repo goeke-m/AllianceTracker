@@ -9,6 +9,8 @@ import { AdminPanel } from './pages/AdminPanel'
 import { AllianceTech } from './pages/AllianceTech'
 import { KillList } from './pages/KillList'
 import { FriendsList } from './pages/FriendsList'
+import { DesertStorm } from './pages/DesertStorm'
+import { CanyonStorm } from './pages/CanyonStorm'
 import type { Page } from './lib/types'
 
 const SUPABASE_CONFIGURED =
@@ -75,6 +77,8 @@ export function App() {
         {safePage === 'friends' && <FriendsList isAdmin={isAdmin} />}
         {safePage === 'out' && isAdmin && <Out />}
         {safePage === 'admin' && isAdmin && <AdminPanel />}
+        {safePage === 'ds' && <DesertStorm />}
+        {safePage === 'canyon' && <CanyonStorm />}
       </div>
 
       <NavBar

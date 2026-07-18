@@ -13,6 +13,8 @@ const tabs: { id: Page; label: string; icon: string; adminOnly?: boolean }[] = [
   { id: 'tech', label: 'Ship Upgrades', icon: '⚔️' },
   { id: 'kills', label: 'Kill List', icon: '⚔️' },
   { id: 'friends', label: 'Friends', icon: '🤝' },
+  { id: 'ds', label: 'Desert Storm', icon: '🏜️' },
+  { id: 'canyon', label: 'Canyon Storm', icon: '🏔️' },
   { id: 'out', label: 'Shore Leave', icon: '🏝️', adminOnly: true },
   { id: 'admin', label: 'Captain', icon: '☠️', adminOnly: true },
 ]
