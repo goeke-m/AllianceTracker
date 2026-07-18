@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from './hooks/useAuth'
 import { LoginPage } from './components/LoginPage'
 import { NavBar } from './components/NavBar'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { MarshallMap } from './pages/MarshallMap'
 import { TrainSchedule } from './pages/TrainSchedule'
 import { Out } from './pages/Out'
@@ -59,11 +60,14 @@ export function App() {
       {/* Profile badge */}
       <div className="fixed top-0 left-0 right-0 bg-game-card border-b border-game-accent px-4 py-2 flex items-center justify-between z-40">
         <span className="text-xs text-gray-400 truncate">{user.email}</span>
-        {isAdmin && (
-          <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
-            CAPTAIN
-          </span>
-        )}
+        <div className="flex items-center gap-2">
+          {isAdmin && (
+            <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
+              CAPTAIN
+            </span>
+          )}
+          <LanguageSwitcher />
+        </div>
       </div>
 
       {/* Page content with top/bottom padding for fixed bars */}
