@@ -141,5 +141,26 @@
     "title": "Lista de Amigos",
     "emptyNoEntries": "No hay entradas en la lista de amigos.",
     "entryTitleSuffix": "Entrada de la Lista de Amigos"
+  },
+  "out": {
+    "validationRequired": "Se requieren miembro, fecha de inicio y fecha de fin.",
+    "validationEndBeforeStart": "La fecha de fin debe ser igual o posterior a la fecha de inicio.",
+    "title": "Permiso",
+    "subtitle": "Miembros actualmente desconectados o inaccesibles",
+    "sectionActive": "Actualmente de Permiso",
+    "emptyActive": "Nadie de permiso en este momento",
+    "sectionUpcoming": "Próximos",
+    "hidePast": "▾ Ocultar pasados",
+    "showPast": "▸ Mostrar pasados ({{count}})",
+    "modalEditTitle": "Editar Entrada",
+    "modalAddTitle": "Agregar Entrada",
+    "startDateLabel": "Fecha de Inicio",
+    "endDateLabel": "Fecha de Fin",
+    "notesLabel": "Notas",
+    "optionalHint": "(opcional)",
+    "notesPlaceholder": "Motivo / detalles (opcional)",
+    "badgeActive": "FUERA",
+    "badgeUpcoming": "PRONTO",
+    "badgePast": "HECHO"
   }
 }

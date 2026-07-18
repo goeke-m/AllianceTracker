@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useOoto } from '../hooks/useOoto'
 import { useAuth } from '../hooks/useAuth'
 import { logError } from '../lib/errorLog'
@@ -15,9 +16,9 @@ function formatDate(iso: string): string {
 }
 
 function getStatus(entry: OotoEntry): 'active' | 'upcoming' | 'past' {
-  const t = today()
-  if (entry.end_date < t) return 'past'
-  if (entry.start_date <= t) return 'active'
+  const now = today()
+  if (entry.end_date < now) return 'past'
+  if (entry.start_date <= now) return 'active'
   return 'upcoming'
 }
 
@@ -30,6 +31,7 @@ interface EditState {
 }
 
 export function Out() {
+  const { t } = useTranslation()
   const { isAdmin } = useAuth()
   const { members, entries, loading, error, saveEntry, deleteEntry } = useOoto()
   const [editState, setEditState] = useState<EditState | null>(null)
@@ -59,11 +61,11 @@ export function Out() {
 
   async function handleSave() {
     if (!editState || !editState.memberId || !editState.startDate || !editState.endDate) {
-      setSaveError('Member, start date, and end date are required.')
+      setSaveError(t('out.validationRequired'))
       return
     }
     if (editState.endDate < editState.startDate) {
-      setSaveError('End date must be on or after start date.')
+      setSaveError(t('out.validationEndBeforeStart'))
       return
     }
     setSaving(true)
@@ -72,7 +74,7 @@ export function Out() {
       await saveEntry(editState.memberId, editState.startDate, editState.endDate, editState.notes, editState.existingId)
       setEditState(null)
     } catch (err) {
-      setSaveError((err as { message?: string }).message ?? 'Save failed')
+      setSaveError((err as { message?: string }).message ?? t('common.saveFailed'))
       logError('Out.handleSave', err)
     } finally {
       setSaving(false)
@@ -86,7 +88,7 @@ export function Out() {
       await deleteEntry(editState.existingId)
       setEditState(null)
     } catch (err) {
-      setSaveError((err as { message?: string }).message ?? 'Delete failed')
+      setSaveError((err as { message?: string }).message ?? t('common.deleteFailed'))
       logError('Out.handleDelete', err)
     } finally {
       setSaving(false)
@@ -96,7 +98,7 @@ export function Out() {
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">Loading...</p>
+        <p className="text-gray-400 animate-pulse">{t('common.loading')}</p>
       </div>
     )
   }
@@ -116,22 +118,22 @@ export function Out() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-gold">Out</h1>
+        <h1 className="text-xl font-bold text-game-gold">{t('out.title')}</h1>
         {isAdmin && (
           <button
             onClick={openAdd}
             className="text-xs bg-game-standard text-white font-semibold px-3 py-1.5 rounded-lg hover:opacity-90 transition-opacity"
           >
-            + Add
+            {t('common.addButton')}
           </button>
         )}
       </div>
-      <p className="text-gray-400 text-xs mb-4">Members currently offline or inaccessible</p>
+      <p className="text-gray-400 text-xs mb-4">{t('out.subtitle')}</p>
 
       {/* Active */}
-      <Section label="Currently Out" accent="border-game-highlight">
+      <Section label={t('out.sectionActive')} accent="border-game-highlight">
         {active.length === 0 ? (
-          <p className="text-gray-600 text-sm italic">Nobody out right now</p>
+          <p className="text-gray-600 text-sm italic">{t('out.emptyActive')}</p>
         ) : (
           active.map(e => (
             <EntryCard
@@ -148,7 +150,7 @@ export function Out() {
 
       {/* Upcoming */}
       {upcoming.length > 0 && (
-        <Section label="Upcoming" accent="border-game-standard">
+        <Section label={t('out.sectionUpcoming')} accent="border-game-standard">
           {upcoming.map(e => (
             <EntryCard
               key={e.id}
@@ -169,7 +171,7 @@ export function Out() {
             onClick={() => setShowPast(p => !p)}
             className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
           >
-            {showPast ? '▾ Hide past' : `▸ Show past (${past.length})`}
+            {showPast ? t('out.hidePast') : t('out.showPast', { count: past.length })}
           </button>
           {showPast && (
             <div className="mt-2 space-y-2">
@@ -194,7 +196,7 @@ export function Out() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-game-gold font-bold">
-                {editState.existingId ? 'Edit Entry' : 'Add Entry'}
+                {editState.existingId ? t('out.modalEditTitle') : t('out.modalAddTitle')}
               </h2>
               <button onClick={() => setEditState(null)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
@@ -203,13 +205,13 @@ export function Out() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Member</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('common.member')}</label>
                 <select
                   value={editState.memberId}
                   onChange={e => setEditState(s => s && ({ ...s, memberId: e.target.value }))}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm"
                 >
-                  <option value="">— Select member —</option>
+                  <option value="">{t('common.selectMemberPlaceholder')}</option>
                   {members.map(m => (
                     <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
@@ -218,7 +220,7 @@ export function Out() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Start Date</label>
+                  <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('out.startDateLabel')}</label>
                   <input
                     type="date"
                     value={editState.startDate}
@@ -227,7 +229,7 @@ export function Out() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">End Date</label>
+                  <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('out.endDateLabel')}</label>
                   <input
                     type="date"
                     value={editState.endDate}
@@ -238,12 +240,12 @@ export function Out() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Notes <span className="normal-case text-gray-600">(optional)</span></label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('out.notesLabel')} <span className="normal-case text-gray-600">{t('out.optionalHint')}</span></label>
                 <input
                   type="text"
                   value={editState.notes}
                   onChange={e => setEditState(s => s && ({ ...s, notes: e.target.value }))}
-                  placeholder="Reason / details (optional)"
+                  placeholder={t('out.notesPlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600"
                 />
               </div>
@@ -258,7 +260,7 @@ export function Out() {
                   disabled={saving}
                   className="flex-none text-sm text-game-highlight border border-game-highlight rounded-lg px-3 py-2 hover:bg-game-highlight hover:text-white transition-colors disabled:opacity-50"
                 >
-                  Delete
+                  {t('common.delete')}
                 </button>
               )}
               <button
@@ -266,14 +268,14 @@ export function Out() {
                 disabled={saving}
                 className="flex-1 text-sm text-gray-400 border border-gray-600 rounded-lg py-2 hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 className="flex-1 text-sm bg-game-standard text-white rounded-lg py-2 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {saving ? 'Saving...' : 'Save'}
+                {saving ? t('common.saving') : t('common.save')}
               </button>
             </div>
           </div>
@@ -315,6 +317,7 @@ function EntryCard({
   isAdmin: boolean
   onEdit: () => void
 }) {
+  const { t } = useTranslation()
   const borderColor =
     status === 'active' ? 'border-game-highlight' :
     status === 'upcoming' ? 'border-game-standard' :
@@ -332,7 +335,7 @@ function EntryCard({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 min-w-0">
           <span className={`text-xs font-bold px-1.5 py-0.5 rounded shrink-0 ${badgeStyle}`}>
-            {status === 'active' ? 'OUT' : status === 'upcoming' ? 'SOON' : 'DONE'}
+            {status === 'active' ? t('out.badgeActive') : status === 'upcoming' ? t('out.badgeUpcoming') : t('out.badgePast')}
           </span>
           <span className="font-semibold text-white truncate">{name}</span>
         </div>
@@ -341,7 +344,7 @@ function EntryCard({
             onClick={onEdit}
             className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors shrink-0 ml-2"
           >
-            Edit
+            {t('common.edit')}
           </button>
         )}
       </div>

@@ -141,5 +141,26 @@
     "title": "Friends List",
     "emptyNoEntries": "No entries on the friends list.",
     "entryTitleSuffix": "Friends List Entry"
+  },
+  "out": {
+    "validationRequired": "Member, start date, and end date are required.",
+    "validationEndBeforeStart": "End date must be on or after start date.",
+    "title": "Out",
+    "subtitle": "Members currently offline or inaccessible",
+    "sectionActive": "Currently Out",
+    "emptyActive": "Nobody out right now",
+    "sectionUpcoming": "Upcoming",
+    "hidePast": "▾ Hide past",
+    "showPast": "▸ Show past ({{count}})",
+    "modalEditTitle": "Edit Entry",
+    "modalAddTitle": "Add Entry",
+    "startDateLabel": "Start Date",
+    "endDateLabel": "End Date",
+    "notesLabel": "Notes",
+    "optionalHint": "(optional)",
+    "notesPlaceholder": "Reason / details (optional)",
+    "badgeActive": "OUT",
+    "badgeUpcoming": "SOON",
+    "badgePast": "DONE"
   }
 }
