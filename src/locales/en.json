@@ -169,5 +169,23 @@
     "tabDemerits": "Demerits",
     "tabVsPoints": "VS Points",
     "tabErrors": "Errors"
+  },
+  "members": {
+    "title": "Members ({{displayed}} / {{total}})",
+    "syncButton": "Sync Now",
+    "syncingLabel": "Syncing…",
+    "searchPlaceholder": "Search name...",
+    "strikeTeamButton": "Strike Team",
+    "clearFiltersButton": "Clear filters",
+    "thp": "THP",
+    "sq1Power": "Sq1 Power",
+    "sq1Type": "Sq1 Type",
+    "sq2Power": "Sq2 Power",
+    "sq2Type": "Sq2 Type",
+    "strike": "Strike",
+    "avgVs": "Avg VS",
+    "timezone": "Timezone",
+    "emptyState": "No members match the current filters.",
+    "powerPlaceholder": "Power"
   }
 }

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { OWNER_USER_ID } from '../lib/constants'
 import { logError } from '../lib/errorLog'
@@ -91,6 +92,7 @@ function rankNum(r: RankValue): number {
 }
 
 export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerProps) {
+  const { t } = useTranslation()
   const [avgVsMap, setAvgVsMap] = useState<Record<string, number>>({})
 
   useEffect(() => {
@@ -254,14 +256,14 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-white">Members ({displayed.length} / {members.length})</h2>
+        <h2 className="text-lg font-bold text-white">{t('members.title', { displayed: displayed.length, total: members.length })}</h2>
         {syncUserId === OWNER_USER_ID && (
           <button
             onClick={handleSync}
             disabled={syncing}
             className="bg-game-card border border-game-accent text-gray-300 font-semibold px-4 py-1.5 rounded-lg text-sm hover:border-game-gold hover:text-white transition-colors disabled:opacity-50"
           >
-            {syncing ? 'Syncing…' : 'Sync Now'}
+            {syncing ? t('members.syncingLabel') : t('members.syncButton')}
           </button>
         )}
       </div>
@@ -271,7 +273,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Player name"
+          placeholder={t('common.playerNamePlaceholder')}
           required
           className="flex-1 bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-game-gold"
         />
@@ -287,7 +289,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           disabled={adding}
           className="bg-game-gold text-game-dark font-bold px-4 py-2 rounded-lg text-sm hover:bg-yellow-400 transition-colors disabled:opacity-50"
         >
-          Add
+          {t('common.add')}
         </button>
       </form>
 
@@ -300,7 +302,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
         <input
           value={filterName}
           onChange={(e) => setFilterName(e.target.value)}
-          placeholder="Search name..."
+          placeholder={t('members.searchPlaceholder')}
           className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-44"
         />
         <div className="flex gap-1">
@@ -326,14 +328,14 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
               : 'border-game-accent text-gray-400 hover:text-white'
           }`}
         >
-          Strike Team
+          {t('members.strikeTeamButton')}
         </button>
         {(filterName || filterRanks.length > 0 || filterStrike !== null) && (
           <button
             onClick={() => { setFilterName(''); setFilterRanks([]); setFilterStrike(null) }}
             className="text-xs text-gray-500 hover:text-white transition-colors"
           >
-            Clear filters
+            {t('members.clearFiltersButton')}
           </button>
         )}
       </div>
@@ -344,36 +346,36 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           <thead>
             <tr className="bg-game-card border-b border-game-accent">
               <th className={thCls} onClick={() => handleSort('Rank')}>
-                Rank <SortIcon col="Rank" sortKey={sortKey} sortDir={sortDir} />
+                {t('common.rank')} <SortIcon col="Rank" sortKey={sortKey} sortDir={sortDir} />
               </th>
               <th className={thCls} onClick={() => handleSort('name')}>
-                Member <SortIcon col="name" sortKey={sortKey} sortDir={sortDir} />
+                {t('common.member')} <SortIcon col="name" sortKey={sortKey} sortDir={sortDir} />
               </th>
               <th className={`${thCls} text-right`} onClick={() => handleSort('THP')}>
-                THP <SortIcon col="THP" sortKey={sortKey} sortDir={sortDir} />
+                {t('members.thp')} <SortIcon col="THP" sortKey={sortKey} sortDir={sortDir} />
               </th>
               <th className={`${thCls} text-right`} onClick={() => handleSort('S1_Power')}>
-                Sq1 Power <SortIcon col="S1_Power" sortKey={sortKey} sortDir={sortDir} />
+                {t('members.sq1Power')} <SortIcon col="S1_Power" sortKey={sortKey} sortDir={sortDir} />
               </th>
-              <th className={thCls}>Sq1 Type</th>
+              <th className={thCls}>{t('members.sq1Type')}</th>
               <th className={`${thCls} text-right`} onClick={() => handleSort('S2_Power')}>
-                Sq2 Power <SortIcon col="S2_Power" sortKey={sortKey} sortDir={sortDir} />
+                {t('members.sq2Power')} <SortIcon col="S2_Power" sortKey={sortKey} sortDir={sortDir} />
               </th>
-              <th className={thCls}>Sq2 Type</th>
+              <th className={thCls}>{t('members.sq2Type')}</th>
               <th className={`${thCls} text-center`} onClick={() => handleSort('Strike_Team')}>
-                Strike <SortIcon col="Strike_Team" sortKey={sortKey} sortDir={sortDir} />
+                {t('members.strike')} <SortIcon col="Strike_Team" sortKey={sortKey} sortDir={sortDir} />
               </th>
               <th className={`${thCls} text-right`} onClick={() => handleSort('avg_vs')}>
-                Avg VS <SortIcon col="avg_vs" sortKey={sortKey} sortDir={sortDir} />
+                {t('members.avgVs')} <SortIcon col="avg_vs" sortKey={sortKey} sortDir={sortDir} />
               </th>
-              <th className={thCls}>Timezone</th>
+              <th className={thCls}>{t('members.timezone')}</th>
               <th className="px-3 py-2"></th>
             </tr>
           </thead>
           <tbody>
             {displayed.length === 0 && (
               <tr>
-                <td colSpan={11} className="text-center text-gray-500 py-6">No members match the current filters.</td>
+                <td colSpan={11} className="text-center text-gray-500 py-6">{t('members.emptyState')}</td>
               </tr>
             )}
             {displayed.map((m) => (
@@ -385,27 +387,27 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                     </select>
                   </td>
                   <td className="px-2 py-1.5">
-                    <input type="text" value={editState.name} onChange={(e) => set('name', e.target.value)} placeholder="Name" required className={inputCls} />
+                    <input type="text" value={editState.name} onChange={(e) => set('name', e.target.value)} placeholder={t('common.name')} required className={inputCls} />
                   </td>
                   <td className="px-2 py-1.5">
-                    <input type="number" value={editState.THP} onChange={(e) => set('THP', e.target.value)} placeholder="THP" className={inputCls} />
+                    <input type="number" value={editState.THP} onChange={(e) => set('THP', e.target.value)} placeholder={t('members.thp')} className={inputCls} />
                   </td>
                   <td className="px-2 py-1.5">
-                    <input type="number" value={editState.S1_Power} onChange={(e) => set('S1_Power', e.target.value)} placeholder="Power" className={inputCls} />
+                    <input type="number" value={editState.S1_Power} onChange={(e) => set('S1_Power', e.target.value)} placeholder={t('members.powerPlaceholder')} className={inputCls} />
                   </td>
                   <td className="px-2 py-1.5">
                     <select value={editState.S1_Type} onChange={(e) => set('S1_Type', e.target.value)} className={inputCls}>
                       <option value="">—</option>
-                      {SQUAD_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+                      {SQUAD_TYPES.map((st) => <option key={st} value={st}>{st}</option>)}
                     </select>
                   </td>
                   <td className="px-2 py-1.5">
-                    <input type="number" value={editState.S2_Power} onChange={(e) => set('S2_Power', e.target.value)} placeholder="Power" className={inputCls} />
+                    <input type="number" value={editState.S2_Power} onChange={(e) => set('S2_Power', e.target.value)} placeholder={t('members.powerPlaceholder')} className={inputCls} />
                   </td>
                   <td className="px-2 py-1.5">
                     <select value={editState.S2_Type} onChange={(e) => set('S2_Type', e.target.value)} className={inputCls}>
                       <option value="">—</option>
-                      {SQUAD_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+                      {SQUAD_TYPES.map((st) => <option key={st} value={st}>{st}</option>)}
                     </select>
                   </td>
                   <td className="px-2 py-1.5 text-center">
@@ -422,8 +424,8 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                   </td>
                   <td className="px-2 py-1.5">
                     <div className="flex gap-1">
-                      <button onClick={() => handleSave(m.id)} className="text-green-400 text-xs px-2 py-0.5 border border-green-700 rounded hover:bg-green-900/30 whitespace-nowrap">Save</button>
-                      <button onClick={() => { setEditingId(null); setEditState(null) }} className="text-gray-400 text-xs px-2 py-0.5 border border-gray-700 rounded hover:bg-gray-800 whitespace-nowrap">Cancel</button>
+                      <button onClick={() => handleSave(m.id)} className="text-green-400 text-xs px-2 py-0.5 border border-green-700 rounded hover:bg-green-900/30 whitespace-nowrap">{t('common.save')}</button>
+                      <button onClick={() => { setEditingId(null); setEditState(null) }} className="text-gray-400 text-xs px-2 py-0.5 border border-gray-700 rounded hover:bg-gray-800 whitespace-nowrap">{t('common.cancel')}</button>
                     </div>
                   </td>
                 </tr>
@@ -453,14 +455,14 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                         onClick={() => { setEditingId(m.id); setEditState(memberToEditState(m)) }}
                         className="text-gray-400 text-xs px-2 py-0.5 border border-gray-700 rounded hover:bg-gray-800 hover:text-white whitespace-nowrap"
                       >
-                        Edit
+                        {t('common.edit')}
                       </button>
                       <button
                         onClick={() => handleDelete(m.id)}
                         disabled={deletingId === m.id}
                         className="text-game-highlight text-xs px-2 py-0.5 border border-red-800 rounded hover:bg-red-900/30 disabled:opacity-50 whitespace-nowrap"
                       >
-                        {deletingId === m.id ? '...' : 'Del'}
+                        {deletingId === m.id ? t('common.deletingIndicator') : t('common.deleteShort')}
                       </button>
                     </div>
                   </td>

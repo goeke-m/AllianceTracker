@@ -169,5 +169,23 @@
     "tabDemerits": "감점",
     "tabVsPoints": "VS 포인트",
     "tabErrors": "오류"
+  },
+  "members": {
+    "title": "멤버 ({{displayed}} / {{total}})",
+    "syncButton": "지금 동기화",
+    "syncingLabel": "동기화 중…",
+    "searchPlaceholder": "이름 검색...",
+    "strikeTeamButton": "타격대",
+    "clearFiltersButton": "필터 지우기",
+    "thp": "THP",
+    "sq1Power": "편대1 전투력",
+    "sq1Type": "편대1 유형",
+    "sq2Power": "편대2 전투력",
+    "sq2Type": "편대2 유형",
+    "strike": "타격대",
+    "avgVs": "평균 VS",
+    "timezone": "시간대",
+    "emptyState": "현재 필터와 일치하는 멤버가 없습니다.",
+    "powerPlaceholder": "전투력"
   }
 }

@@ -169,5 +169,23 @@
     "tabDemerits": "Amonestaciones",
     "tabVsPoints": "Puntos VS",
     "tabErrors": "Errores"
+  },
+  "members": {
+    "title": "Miembros ({{displayed}} / {{total}})",
+    "syncButton": "Sincronizar Ahora",
+    "syncingLabel": "Sincronizando…",
+    "searchPlaceholder": "Buscar nombre...",
+    "strikeTeamButton": "Equipo de Ataque",
+    "clearFiltersButton": "Limpiar filtros",
+    "thp": "THP",
+    "sq1Power": "Poder Esc1",
+    "sq1Type": "Tipo Esc1",
+    "sq2Power": "Poder Esc2",
+    "sq2Type": "Tipo Esc2",
+    "strike": "Ataque",
+    "avgVs": "VS Promedio",
+    "timezone": "Zona Horaria",
+    "emptyState": "Ningún miembro coincide con los filtros actuales.",
+    "powerPlaceholder": "Poder"
   }
 }
