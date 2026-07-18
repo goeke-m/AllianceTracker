@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS storm_roster (
   team        text NOT NULL CHECK (team IN ('A', 'B')),
   role        text NOT NULL CHECK (role IN ('participant', 'substitute')),
   attendance  text CHECK (attendance IN ('present', 'no_show', 'subbed_in')),
-  created_at  timestamptz NOT NULL DEFAULT now()
+  created_at  timestamptz NOT NULL DEFAULT now(),
+  UNIQUE (event_id, member_id)
 );
 
 ALTER TABLE storm_events ENABLE ROW LEVEL SECURITY;

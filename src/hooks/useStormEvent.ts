@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
-import type { Member, StormConfig, StormEvent, StormRosterEntry } from '../lib/types'
+import type { AttendanceStatus, Member, StormConfig, StormEvent, StormRosterEntry } from '../lib/types'
 
 function getSundayDate(offsetWeeks = 0): string {
   const today = new Date()
@@ -19,7 +19,7 @@ interface StormData {
   historicEvents: Array<{ event: StormEvent; roster: StormRosterEntry[] }>
 }
 
-export function useStormEvent(config: StormConfig, isAdmin: boolean) {
+export function useStormEvent(config: StormConfig) {
   const [weekOffset, setWeekOffset] = useState(0)
   const [data, setData] = useState<StormData>({
     event: null,
@@ -147,7 +147,7 @@ export function useStormEvent(config: StormConfig, isAdmin: boolean) {
 
   async function updateAttendance(
     rosterId: string,
-    attendance: string | null
+    attendance: AttendanceStatus | null
   ): Promise<void> {
     const { error } = await supabase
       .from('storm_roster')
@@ -161,7 +161,7 @@ export function useStormEvent(config: StormConfig, isAdmin: boolean) {
   const teamPower = { A: 0, B: 0 }
   for (const entry of data.roster) {
     const member = data.members.find(m => m.id === entry.member_id)
-    if (member?.THP) {
+    if (member && member.THP != null) {
       if (entry.team === 'A') teamPower.A += member.THP
       else teamPower.B += member.THP
     }
