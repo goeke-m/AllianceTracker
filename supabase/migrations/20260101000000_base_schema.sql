@@ -288,9 +288,6 @@ ALTER TABLE ONLY "public"."members"
     ADD CONSTRAINT "members_game_uid_key" UNIQUE ("game_uid");
 
 
-ALTER TABLE ONLY "public"."members"
-    ADD CONSTRAINT "members_name_key" UNIQUE ("name");
-
 
 ALTER TABLE ONLY "public"."members"
     ADD CONSTRAINT "members_pkey" PRIMARY KEY ("id");
