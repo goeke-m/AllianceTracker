@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import type { ErrorLogEntry } from '../lib/types'
+import { formatDateTime } from '../lib/locale'
 
 function formatTimestamp(iso: string): string {
-  return new Date(iso).toLocaleString(undefined, {
+  return formatDateTime(iso, {
     month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
   })
 }

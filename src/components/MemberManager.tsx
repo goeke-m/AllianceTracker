@@ -3,6 +3,7 @@ import { supabase } from '../lib/supabase'
 import { OWNER_USER_ID } from '../lib/constants'
 import { logError } from '../lib/errorLog'
 import type { Member, RankValue, SquadType } from '../lib/types'
+import { formatNumber } from '../lib/locale'
 
 interface MemberManagerProps {
   members: Member[]
@@ -411,7 +412,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                     <input type="checkbox" checked={editState.Strike_Team} onChange={(e) => set('Strike_Team', e.target.checked)} className="accent-game-gold" />
                   </td>
                   <td className="px-3 py-1.5 text-right text-gray-500">
-                    {avgVsMap[m.id] != null ? avgVsMap[m.id].toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—'}
+                    {avgVsMap[m.id] != null ? formatNumber(avgVsMap[m.id], { maximumFractionDigits: 0 }) : '—'}
                   </td>
                   <td className="px-2 py-1.5">
                     <select value={editState.Timezone} onChange={(e) => set('Timezone', e.target.value)} className={inputCls}>
@@ -443,7 +444,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                     {m.Strike_Team ? <span className="text-game-gold font-bold">✓</span> : <span className="text-gray-600">—</span>}
                   </td>
                   <td className="px-3 py-2 text-right text-gray-300">
-                    {avgVsMap[m.id] != null ? avgVsMap[m.id].toLocaleString(undefined, { maximumFractionDigits: 0 }) : '—'}
+                    {avgVsMap[m.id] != null ? formatNumber(avgVsMap[m.id], { maximumFractionDigits: 0 }) : '—'}
                   </td>
                   <td className="px-3 py-2 text-gray-300 max-w-[160px] truncate" title={m.Timezone ?? undefined}>{m.Timezone ?? '—'}</td>
                   <td className="px-3 py-2">

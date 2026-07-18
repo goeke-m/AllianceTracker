@@ -4,6 +4,7 @@ import { EventLogImport } from '../components/EventLogImport'
 import { useMarshallData } from '../hooks/useMarshallData'
 import { formatNumber } from '../lib/wad'
 import { supabase } from '../lib/supabase'
+import { formatDate } from '../lib/locale'
 
 interface MarshallMapProps {
   isAdmin?: boolean
@@ -227,7 +228,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
                     <div className="space-y-1">
                       {logs.slice(0, 5).map((log, i) => (
                         <div key={log.id} className="flex justify-between text-xs text-gray-400">
-                          <span>#{i + 1} {new Date(log.event_date).toLocaleDateString()}</span>
+                          <span>#{i + 1} {formatDate(log.event_date)}</span>
                           <span className="font-mono text-white">{formatNumber(log.damage)}</span>
                         </div>
                       ))}

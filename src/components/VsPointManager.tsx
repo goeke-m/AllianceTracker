@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
 import type { Member, VsPoint } from '../lib/types'
+import { formatNumber } from '../lib/locale'
 
 interface VsPointManagerProps {
   members: Member[]
@@ -269,7 +270,7 @@ export function VsPointManager({ members }: VsPointManagerProps) {
                 <tr key={r.id} className="border-b border-game-accent hover:bg-game-card/50 transition-colors">
                   <td className="px-3 py-2 font-semibold text-white whitespace-nowrap">{getMemberName(r.member_id)}</td>
                   <td className="px-3 py-2 text-gray-300 whitespace-nowrap">{formatDate(r.week_ending)}</td>
-                  <td className="px-3 py-2 text-gray-300">{r.points.toLocaleString()}</td>
+                  <td className="px-3 py-2 text-gray-300">{formatNumber(r.points)}</td>
                   <td className="px-3 py-2">
                     <button
                       onClick={() => handleDelete(r.id)}
