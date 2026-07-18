@@ -58,5 +58,34 @@
   "profileBar": {
     "loadingText": "Trazando el rumbo...",
     "captainBadge": "CAPITÁN"
+  },
+  "schedule": {
+    "dow": { "Sun": "Dom", "Mon": "Lun", "Tue": "Mar", "Wed": "Mié", "Thu": "Jue", "Fri": "Vie", "Sat": "Sáb" },
+    "metricVsScorer": "anotador de VS",
+    "metricDonator": "donador",
+    "sourceWeeklyTop": "Mejor {{metric}} de la semana",
+    "sourceTopSat": "Mejor {{metric}} (Sáb)",
+    "sourceDsTopScorer": "Mejor anotador DS",
+    "sourceCanyonTopScorer": "Mejor anotador del Cañón",
+    "sourceAllianceMvp": "MVP de la Alianza",
+    "sourceTopMon": "Mejor {{metric}} (Lun)",
+    "sourceR4Rotation": "Rotación R4",
+    "sourceTopTue": "Mejor {{metric}} (Mar)",
+    "sourceTopWed": "Mejor {{metric}} (Mié)",
+    "sourceTopThu": "Mejor {{metric}} (Jue)",
+    "sourceTopFri": "Mejor {{metric}} (Vie)",
+    "weekModeUpdateFailed": "Error al actualizar el modo semanal",
+    "title": "Horario de Viaje",
+    "pushWeek": "Avanzar Semana",
+    "saveWeek": "Guardar Semana",
+    "r4RotationTitleAttr": "Ver lista de rotación R4",
+    "r4RotationLabel": "Rotación R4",
+    "subtitle": "El viaje diario zarpa ~1:00 EST · Vista Dom–Dom",
+    "today": "HOY",
+    "setEntry": "+ Definir",
+    "captainColumnLabel": "Capitán",
+    "firstMateColumnLabel": "Primer Oficial",
+    "captainsLogLabel": "Diario del Capitán",
+    "notesPlaceholder": "ej. R4/VS día anterior"
   }
 }

@@ -58,5 +58,34 @@
   "profileBar": {
     "loadingText": "항해 준비 중...",
     "captainBadge": "선장"
+  },
+  "schedule": {
+    "dow": { "Sun": "일", "Mon": "월", "Tue": "화", "Wed": "수", "Thu": "목", "Fri": "금", "Sat": "토" },
+    "metricVsScorer": "VS 득점자",
+    "metricDonator": "기부자",
+    "sourceWeeklyTop": "주간 최고 {{metric}}",
+    "sourceTopSat": "최고 {{metric}} (토)",
+    "sourceDsTopScorer": "DS 최고 득점자",
+    "sourceCanyonTopScorer": "캐년 최고 득점자",
+    "sourceAllianceMvp": "연맹 MVP",
+    "sourceTopMon": "최고 {{metric}} (월)",
+    "sourceR4Rotation": "R4 순환",
+    "sourceTopTue": "최고 {{metric}} (화)",
+    "sourceTopWed": "최고 {{metric}} (수)",
+    "sourceTopThu": "최고 {{metric}} (목)",
+    "sourceTopFri": "최고 {{metric}} (금)",
+    "weekModeUpdateFailed": "주간 모드 업데이트 실패",
+    "title": "항해 일정",
+    "pushWeek": "주간 밀기",
+    "saveWeek": "주간 저장",
+    "r4RotationTitleAttr": "R4 순환 목록 보기",
+    "r4RotationLabel": "R4 순환",
+    "subtitle": "매일 오후 1시(EST)경 출항 · 일–일 보기",
+    "today": "오늘",
+    "setEntry": "+ 설정",
+    "captainColumnLabel": "선장",
+    "firstMateColumnLabel": "1등 항해사",
+    "captainsLogLabel": "선장 일지",
+    "notesPlaceholder": "예: R4/VS 전날"
   }
 }

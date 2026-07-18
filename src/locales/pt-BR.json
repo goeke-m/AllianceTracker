@@ -58,5 +58,34 @@
   "profileBar": {
     "loadingText": "Traçando o rumo...",
     "captainBadge": "CAPITÃO"
+  },
+  "schedule": {
+    "dow": { "Sun": "Dom", "Mon": "Seg", "Tue": "Ter", "Wed": "Qua", "Thu": "Qui", "Fri": "Sex", "Sat": "Sáb" },
+    "metricVsScorer": "pontuador de VS",
+    "metricDonator": "doador",
+    "sourceWeeklyTop": "Melhor {{metric}} da semana",
+    "sourceTopSat": "Melhor {{metric}} (Sáb)",
+    "sourceDsTopScorer": "Melhor pontuador DS",
+    "sourceCanyonTopScorer": "Melhor pontuador do Cânion",
+    "sourceAllianceMvp": "MVP da Aliança",
+    "sourceTopMon": "Melhor {{metric}} (Seg)",
+    "sourceR4Rotation": "Rodízio R4",
+    "sourceTopTue": "Melhor {{metric}} (Ter)",
+    "sourceTopWed": "Melhor {{metric}} (Qua)",
+    "sourceTopThu": "Melhor {{metric}} (Qui)",
+    "sourceTopFri": "Melhor {{metric}} (Sex)",
+    "weekModeUpdateFailed": "Falha ao atualizar o modo semanal",
+    "title": "Cronograma de Viagem",
+    "pushWeek": "Avançar Semana",
+    "saveWeek": "Salvar Semana",
+    "r4RotationTitleAttr": "Ver lista de rodízio R4",
+    "r4RotationLabel": "Rodízio R4",
+    "subtitle": "Viagem diária parte por volta de 1h (EST) · Visualização Dom–Dom",
+    "today": "HOJE",
+    "setEntry": "+ Definir",
+    "captainColumnLabel": "Capitão",
+    "firstMateColumnLabel": "Imediato",
+    "captainsLogLabel": "Diário do Capitão",
+    "notesPlaceholder": "ex.: R4/VS dia anterior"
   }
 }

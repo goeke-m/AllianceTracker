@@ -58,5 +58,34 @@
   "profileBar": {
     "loadingText": "Charting the seas...",
     "captainBadge": "CAPTAIN"
+  },
+  "schedule": {
+    "dow": { "Sun": "Sun", "Mon": "Mon", "Tue": "Tue", "Wed": "Wed", "Thu": "Thu", "Fri": "Fri", "Sat": "Sat" },
+    "metricVsScorer": "VS scorer",
+    "metricDonator": "donator",
+    "sourceWeeklyTop": "Weekly top {{metric}}",
+    "sourceTopSat": "Top {{metric}} (Sat)",
+    "sourceDsTopScorer": "DS top scorer",
+    "sourceCanyonTopScorer": "Canyon top scorer",
+    "sourceAllianceMvp": "Alliance MVP",
+    "sourceTopMon": "Top {{metric}} (Mon)",
+    "sourceR4Rotation": "R4 rotation",
+    "sourceTopTue": "Top {{metric}} (Tue)",
+    "sourceTopWed": "Top {{metric}} (Wed)",
+    "sourceTopThu": "Top {{metric}} (Thu)",
+    "sourceTopFri": "Top {{metric}} (Fri)",
+    "weekModeUpdateFailed": "Failed to update week mode",
+    "title": "Voyage Schedule",
+    "pushWeek": "Push Week",
+    "saveWeek": "Save Week",
+    "r4RotationTitleAttr": "View R4 rotation list",
+    "r4RotationLabel": "R4 Rotation",
+    "subtitle": "Daily voyage departs ~1:00 EST · Sun–Sun view",
+    "today": "TODAY",
+    "setEntry": "+ Set",
+    "captainColumnLabel": "Captain",
+    "firstMateColumnLabel": "First Mate",
+    "captainsLogLabel": "Captain's Log",
+    "notesPlaceholder": "e.g. R4/VS Previous Day"
   }
 }

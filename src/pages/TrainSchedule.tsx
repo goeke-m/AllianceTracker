@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 import { useTrainSchedule } from '../hooks/useTrainSchedule'
 import { useScheduleSettings } from '../hooks/useScheduleSettings'
 import { useAuth } from '../hooks/useAuth'
@@ -21,16 +23,16 @@ const R4_ROTATION = [
   'ShadowMohawk',
 ]
 
-function buildDowSources(mode: WeekMode): Record<string, { captain: string; firstMate: string }> {
-  const metric = mode === 'push' ? 'VS scorer' : 'donator'
+function buildDowSources(mode: WeekMode, t: TFunction): Record<string, { captain: string; firstMate: string }> {
+  const metric = mode === 'push' ? t('schedule.metricVsScorer') : t('schedule.metricDonator')
   return {
-    Sun: { captain: `Weekly top ${metric}`, firstMate: `Top ${metric} (Sat)` },
-    Mon: { captain: 'DS top scorer', firstMate: 'Canyon top scorer' },
-    Tue: { captain: 'Alliance MVP', firstMate: `Top ${metric} (Mon)` },
-    Wed: { captain: 'R4 rotation', firstMate: `Top ${metric} (Tue)` },
-    Thu: { captain: 'R4 rotation', firstMate: `Top ${metric} (Wed)` },
-    Fri: { captain: 'R4 rotation', firstMate: `Top ${metric} (Thu)` },
-    Sat: { captain: 'R4 rotation', firstMate: `Top ${metric} (Fri)` },
+    Sun: { captain: t('schedule.sourceWeeklyTop', { metric }), firstMate: t('schedule.sourceTopSat', { metric }) },
+    Mon: { captain: t('schedule.sourceDsTopScorer'), firstMate: t('schedule.sourceCanyonTopScorer') },
+    Tue: { captain: t('schedule.sourceAllianceMvp'), firstMate: t('schedule.sourceTopMon', { metric }) },
+    Wed: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopTue', { metric }) },
+    Thu: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopWed', { metric }) },
+    Fri: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopThu', { metric }) },
+    Sat: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopFri', { metric }) },
   }
 }
 
@@ -53,6 +55,7 @@ interface EditState {
 }
 
 export function TrainSchedule() {
+  const { t } = useTranslation()
   const { isAdmin } = useAuth()
   const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule()
   const { weekMode, setWeekMode } = useScheduleSettings()
@@ -71,7 +74,7 @@ export function TrainSchedule() {
     entryByDate.set(e.date, e)
   }
 
-  const dowSources = buildDowSources(weekMode)
+  const dowSources = buildDowSources(weekMode, t)
 
   function openEdit(date: string) {
     const existing = entryByDate.get(date)
@@ -93,7 +96,7 @@ export function TrainSchedule() {
       await saveEntry(editState.date, editState.conductorId, editState.vipId, editState.notes, editState.existingId)
       setEditState(null)
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : 'Save failed')
+      setSaveError(err instanceof Error ? err.message : t('common.saveFailed'))
       logError('TrainSchedule.handleSave', err)
     } finally {
       setSaving(false)
@@ -107,7 +110,7 @@ export function TrainSchedule() {
       await deleteEntry(editState.existingId)
       setEditState(null)
     } catch (err) {
-      setSaveError(err instanceof Error ? err.message : 'Delete failed')
+      setSaveError(err instanceof Error ? err.message : t('common.deleteFailed'))
       logError('TrainSchedule.handleDelete', err)
     } finally {
       setSaving(false)
@@ -125,7 +128,7 @@ export function TrainSchedule() {
     try {
       await setWeekMode(mode)
     } catch (err) {
-      setModeError(err instanceof Error ? err.message : 'Failed to update week mode')
+      setModeError(err instanceof Error ? err.message : t('schedule.weekModeUpdateFailed'))
       logError('TrainSchedule.handleWeekModeChange', err)
     } finally {
       setModeSaving(false)
@@ -135,7 +138,7 @@ export function TrainSchedule() {
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">Charting the seas...</p>
+        <p className="text-gray-400 animate-pulse">{t('profileBar.loadingText')}</p>
       </div>
     )
   }
@@ -151,12 +154,12 @@ export function TrainSchedule() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-start justify-between mb-1 gap-2">
-        <h1 className="text-xl font-bold text-game-gold">Voyage Schedule</h1>
+        <h1 className="text-xl font-bold text-game-gold">{t('schedule.title')}</h1>
         <div className="flex items-center gap-3">
           <div className="flex items-center rounded-full border border-game-accent overflow-hidden text-xs">
             {(['push', 'save'] as const).map(mode => {
               const active = mode === weekMode
-              const label = mode === 'push' ? 'Push Week' : 'Save Week'
+              const label = mode === 'push' ? t('schedule.pushWeek') : t('schedule.saveWeek')
               const baseClass = `px-2 py-1 font-semibold transition-colors ${
                 active ? 'bg-game-gold text-game-dark' : 'text-gray-400'
               }`
@@ -179,15 +182,15 @@ export function TrainSchedule() {
           <button
             onClick={() => setShowR4Info(true)}
             className="text-game-standard hover:text-white transition-colors text-sm flex items-center gap-1"
-            title="View R4 rotation list"
+            title={t('schedule.r4RotationTitleAttr')}
           >
-            <span>R4 Rotation</span>
+            <span>{t('schedule.r4RotationLabel')}</span>
             <span>ⓘ</span>
           </button>
         </div>
       </div>
       {modeError && <p className="text-game-highlight text-xs mb-1">{modeError}</p>}
-      <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · Sun–Sun view</p>
+      <p className="text-gray-400 text-xs mb-4">{t('schedule.subtitle')}</p>
 
       <div className="space-y-2">
         {weekDates.map(date => {
@@ -203,11 +206,11 @@ export function TrainSchedule() {
               {/* Date header */}
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-game-gold font-bold text-sm w-8">{getDow(date)}</span>
+                  <span className="text-game-gold font-bold text-sm w-8">{t(`schedule.dow.${getDow(date)}`)}</span>
                   <span className="text-gray-300 text-sm">{formatDate(date)}</span>
                   {isToday && (
                     <span className="text-xs bg-game-gold text-game-dark font-bold px-1.5 py-0.5 rounded">
-                      TODAY
+                      {t('schedule.today')}
                     </span>
                   )}
                 </div>
@@ -216,7 +219,7 @@ export function TrainSchedule() {
                     onClick={() => openEdit(date)}
                     className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors"
                   >
-                    {entry ? 'Edit' : '+ Set'}
+                    {entry ? t('common.edit') : t('schedule.setEntry')}
                   </button>
                 )}
               </div>
@@ -224,18 +227,18 @@ export function TrainSchedule() {
               {/* Entry content */}
               <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
-                  <span className="text-gray-500 text-xs uppercase tracking-wide">Captain</span>
+                  <span className="text-gray-500 text-xs uppercase tracking-wide">{t('schedule.captainColumnLabel')}</span>
                   <p className="text-gray-400 text-xs italic">{sources.captain}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>}
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs uppercase tracking-wide">First Mate</span>
+                  <span className="text-gray-500 text-xs uppercase tracking-wide">{t('schedule.firstMateColumnLabel')}</span>
                   <p className="text-gray-400 text-xs italic">{sources.firstMate}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.vip)}</p>}
                 </div>
                 {entry?.notes && (
                   <div className="col-span-2 mt-1">
-                    <span className="text-gray-500 text-xs uppercase tracking-wide">Captain's Log</span>
+                    <span className="text-gray-500 text-xs uppercase tracking-wide">{t('schedule.captainsLogLabel')}</span>
                     <p className="text-gray-300 text-xs">{entry.notes}</p>
                   </div>
                 )}
@@ -250,7 +253,7 @@ export function TrainSchedule() {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-xs p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">R4 Rotation</h2>
+              <h2 className="text-game-gold font-bold">{t('schedule.r4RotationLabel')}</h2>
               <button onClick={() => setShowR4Info(false)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
               </button>
@@ -273,7 +276,7 @@ export function TrainSchedule() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-game-gold font-bold">
-                {getDow(editState.date)} {formatDate(editState.date)}
+                {t(`schedule.dow.${getDow(editState.date)}`)} {formatDate(editState.date)}
               </h2>
               <button onClick={() => setEditState(null)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
@@ -282,13 +285,13 @@ export function TrainSchedule() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Captain</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('schedule.captainColumnLabel')}</label>
                 <select
                   value={editState.conductorId}
                   onChange={e => setEditState(s => s && ({ ...s, conductorId: e.target.value }))}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm"
                 >
-                  <option value="">— Select member —</option>
+                  <option value="">{t('common.selectMemberPlaceholder')}</option>
                   {members.map(m => (
                     <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
@@ -296,13 +299,13 @@ export function TrainSchedule() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">First Mate</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('schedule.firstMateColumnLabel')}</label>
                 <select
                   value={editState.vipId}
                   onChange={e => setEditState(s => s && ({ ...s, vipId: e.target.value }))}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm"
                 >
-                  <option value="">— Select member —</option>
+                  <option value="">{t('common.selectMemberPlaceholder')}</option>
                   {members.map(m => (
                     <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
                   ))}
@@ -310,12 +313,12 @@ export function TrainSchedule() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Captain's Log</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('schedule.captainsLogLabel')}</label>
                 <input
                   type="text"
                   value={editState.notes}
                   onChange={e => setEditState(s => s && ({ ...s, notes: e.target.value }))}
-                  placeholder="e.g. R4/VS Previous Day"
+                  placeholder={t('schedule.notesPlaceholder')}
                   className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600"
                 />
               </div>
@@ -330,7 +333,7 @@ export function TrainSchedule() {
                   disabled={saving}
                   className="flex-none text-sm text-game-highlight border border-game-highlight rounded-lg px-3 py-2 hover:bg-game-highlight hover:text-white transition-colors disabled:opacity-50"
                 >
-                  Delete
+                  {t('common.delete')}
                 </button>
               )}
               <button
@@ -338,14 +341,14 @@ export function TrainSchedule() {
                 disabled={saving}
                 className="flex-1 text-sm text-gray-400 border border-gray-600 rounded-lg py-2 hover:bg-gray-700 transition-colors disabled:opacity-50"
               >
-                Cancel
+                {t('common.cancel')}
               </button>
               <button
                 onClick={handleSave}
                 disabled={saving}
                 className="flex-1 text-sm bg-game-standard text-white rounded-lg py-2 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {saving ? 'Saving...' : 'Save'}
+                {saving ? t('common.saving') : t('common.save')}
               </button>
             </div>
           </div>
