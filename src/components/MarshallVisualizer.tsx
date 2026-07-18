@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { MemberWithWAD } from '../lib/types'
 
 interface MarshallVisualizerProps {
@@ -40,6 +41,7 @@ export function MarshallVisualizer({
   positions,
   marshallName = 'MARSHALL',
 }: MarshallVisualizerProps) {
+  const { t } = useTranslation()
   // Sort R4/R5 and standard members by damage rank (slotIndex 0 = rank 1)
   const r45Members = positions
     .filter((p) => p.ring === 1)
@@ -71,7 +73,7 @@ export function MarshallVisualizer({
                   style={{ backgroundColor: COLORS.mg, aspectRatio: '1' }}
                   className="flex flex-col items-center justify-center text-white font-bold rounded-sm p-0.5"
                 >
-                  <span className="text-[7px] opacity-75 leading-none">MARSHALL</span>
+                  <span className="text-[7px] opacity-75 leading-none">{t('map.marshallCellLabel')}</span>
                   <span className="text-[10px] leading-tight text-center break-words">
                     {marshallName.slice(0, 10)}
                   </span>
@@ -117,15 +119,15 @@ export function MarshallVisualizer({
       <div className="flex flex-wrap gap-3 mt-3 text-xs text-gray-400">
         <span className="flex items-center gap-1">
           <span className="w-3 h-3 rounded-sm inline-block" style={{ backgroundColor: COLORS.r45 }} />
-          R4/R5
+          {t('map.legendR45')}
         </span>
         <span className="flex items-center gap-1">
           <span className="w-3 h-3 rounded-sm inline-block" style={{ backgroundColor: COLORS.stdInner }} />
-          Inner (ranks 1–13)
+          {t('map.legendInner')}
         </span>
         <span className="flex items-center gap-1">
           <span className="w-3 h-3 rounded-sm inline-block" style={{ backgroundColor: COLORS.stdOuter }} />
-          Outer (ranks 14+)
+          {t('map.legendOuter')}
         </span>
       </div>
     </div>

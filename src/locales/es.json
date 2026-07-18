@@ -87,5 +87,30 @@
     "firstMateColumnLabel": "Primer Oficial",
     "captainsLogLabel": "Diario del Capitán",
     "notesPlaceholder": "ej. R4/VS día anterior"
+  },
+  "map": {
+    "loadingMap": "Cargando mapa...",
+    "retry": "Reintentar",
+    "title": "Mapa del Mariscal",
+    "refresh": "Actualizar",
+    "emptyState": "Aún no hay miembros. Pide a tu administrador que agregue miembros e importe datos de daño.",
+    "ring3Heading": "Anillo 3+ ({{count}} miembros)",
+    "colRankLabel": "Rango",
+    "colWad": "WAD",
+    "ring1Label": "Anillo 1",
+    "ring2Label": "Anillo 2",
+    "ring3Label": "Anillo 3+",
+    "adminBadge": "ADMIN",
+    "dataManagement": "Gestión de Datos",
+    "tabImport": "Importar",
+    "tabLogs": "Registros",
+    "damageLogsHeading": "Registros de Daño ({{count}} entradas)",
+    "clearFilter": "Limpiar filtro",
+    "moreLogsCount": "+{{count}} más",
+    "noDamageLogs": "No hay registros de daño. Usa la pestaña Importar para agregar datos.",
+    "marshallCellLabel": "MARISCAL",
+    "legendR45": "R4/R5",
+    "legendInner": "Interior (rangos 1–13)",
+    "legendOuter": "Exterior (rangos 14+)"
   }
 }

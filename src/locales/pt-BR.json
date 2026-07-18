@@ -87,5 +87,30 @@
     "firstMateColumnLabel": "Imediato",
     "captainsLogLabel": "Diário do Capitão",
     "notesPlaceholder": "ex.: R4/VS dia anterior"
+  },
+  "map": {
+    "loadingMap": "Carregando mapa...",
+    "retry": "Tentar novamente",
+    "title": "Mapa do Marechal",
+    "refresh": "Atualizar",
+    "emptyState": "Ainda não há membros. Peça ao administrador para adicionar membros e importar dados de dano.",
+    "ring3Heading": "Anel 3+ ({{count}} membros)",
+    "colRankLabel": "Posição",
+    "colWad": "WAD",
+    "ring1Label": "Anel 1",
+    "ring2Label": "Anel 2",
+    "ring3Label": "Anel 3+",
+    "adminBadge": "ADMIN",
+    "dataManagement": "Gerenciamento de Dados",
+    "tabImport": "Importar",
+    "tabLogs": "Registros",
+    "damageLogsHeading": "Registros de Dano ({{count}} entradas)",
+    "clearFilter": "Limpar filtro",
+    "moreLogsCount": "+{{count}} mais",
+    "noDamageLogs": "Nenhum registro de dano. Use a aba Importar para adicionar dados.",
+    "marshallCellLabel": "MARECHAL",
+    "legendR45": "R4/R5",
+    "legendInner": "Interno (posições 1–13)",
+    "legendOuter": "Externo (posições 14+)"
   }
 }

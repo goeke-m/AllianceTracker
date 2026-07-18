@@ -87,5 +87,30 @@
     "firstMateColumnLabel": "First Mate",
     "captainsLogLabel": "Captain's Log",
     "notesPlaceholder": "e.g. R4/VS Previous Day"
+  },
+  "map": {
+    "loadingMap": "Loading map...",
+    "retry": "Retry",
+    "title": "Marshall Map",
+    "refresh": "Refresh",
+    "emptyState": "No members yet. Ask your admin to add members and import damage data.",
+    "ring3Heading": "Ring 3+ ({{count}} members)",
+    "colRankLabel": "Rank",
+    "colWad": "WAD",
+    "ring1Label": "Ring 1",
+    "ring2Label": "Ring 2",
+    "ring3Label": "Ring 3+",
+    "adminBadge": "ADMIN",
+    "dataManagement": "Data Management",
+    "tabImport": "Import",
+    "tabLogs": "Logs",
+    "damageLogsHeading": "Damage Logs ({{count}} entries)",
+    "clearFilter": "Clear filter",
+    "moreLogsCount": "+{{count}} more",
+    "noDamageLogs": "No damage logs. Use the Import tab to add data.",
+    "marshallCellLabel": "MARSHALL",
+    "legendR45": "R4/R5",
+    "legendInner": "Inner (ranks 1–13)",
+    "legendOuter": "Outer (ranks 14+)"
   }
 }

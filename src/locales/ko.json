@@ -87,5 +87,30 @@
     "firstMateColumnLabel": "1등 항해사",
     "captainsLogLabel": "선장 일지",
     "notesPlaceholder": "예: R4/VS 전날"
+  },
+  "map": {
+    "loadingMap": "지도 불러오는 중...",
+    "retry": "다시 시도",
+    "title": "원수 지도",
+    "refresh": "새로고침",
+    "emptyState": "아직 멤버가 없습니다. 관리자에게 멤버 추가와 피해량 데이터 가져오기를 요청하세요.",
+    "ring3Heading": "링 3+ ({{count}}명)",
+    "colRankLabel": "순위",
+    "colWad": "WAD",
+    "ring1Label": "링 1",
+    "ring2Label": "링 2",
+    "ring3Label": "링 3+",
+    "adminBadge": "관리자",
+    "dataManagement": "데이터 관리",
+    "tabImport": "가져오기",
+    "tabLogs": "로그",
+    "damageLogsHeading": "피해 로그 ({{count}}건)",
+    "clearFilter": "필터 지우기",
+    "moreLogsCount": "+{{count}}개 더보기",
+    "noDamageLogs": "피해 로그가 없습니다. 가져오기 탭에서 데이터를 추가하세요.",
+    "marshallCellLabel": "원수",
+    "legendR45": "R4/R5",
+    "legendInner": "내부 (순위 1–13)",
+    "legendOuter": "외부 (순위 14+)"
   }
 }
