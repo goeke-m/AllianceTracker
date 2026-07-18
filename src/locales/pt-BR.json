@@ -112,5 +112,24 @@
     "legendR45": "R4/R5",
     "legendInner": "Interno (posições 1–13)",
     "legendOuter": "Externo (posições 14+)"
+  },
+  "tech": {
+    "saveFailedDefault": "Falha ao salvar",
+    "completeFailedDefault": "Falha ao concluir",
+    "reorderFailedDefault": "Falha ao reordenar",
+    "subtitle": "Melhorias planejadas do navio, em ordem",
+    "emptyQueue": "Nenhuma tecnologia na fila",
+    "currentlyUpgrading": "Em Andamento",
+    "markComplete": "Marcar como concluído",
+    "upNext": "A Seguir",
+    "addToQueue": "Adicionar à Fila",
+    "chooseCategory": "Escolha a categoria:",
+    "development": "Desenvolvimento",
+    "technologiesCount": "{{count}} tecnologias",
+    "war": "Guerra",
+    "back": "← Voltar",
+    "searchPlaceholder": "Pesquisar...",
+    "noResults": "Nenhum resultado",
+    "dragToReorder": "Arraste para reordenar"
   }
 }

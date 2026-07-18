@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   DndContext,
   closestCenter,
@@ -64,6 +65,7 @@ interface PickerState {
 }
 
 export function AllianceTech() {
+  const { t } = useTranslation()
   const { isAdmin } = useAuth()
   const { queue, loading, error, addItem, completeTop, demoteCurrent, reorderUpcoming } = useAllianceTech()
   const [picker, setPicker] = useState<PickerState | null>(null)
@@ -85,7 +87,7 @@ export function AllianceTech() {
       await addItem(techName, category)
       setPicker(null)
     } catch (err) {
-      setSaveError((err as { message?: string }).message ?? 'Save failed')
+      setSaveError((err as { message?: string }).message ?? t('tech.saveFailedDefault'))
       logError('AllianceTech.handleSelect', err)
     } finally {
       setSaving(false)
@@ -98,7 +100,7 @@ export function AllianceTech() {
     try {
       await completeTop()
     } catch (err) {
-      setSaveError((err as { message?: string }).message ?? 'Failed to complete')
+      setSaveError((err as { message?: string }).message ?? t('tech.completeFailedDefault'))
       logError('AllianceTech.handleComplete', err)
     } finally {
       setCompleting(false)
@@ -111,7 +113,7 @@ export function AllianceTech() {
     try {
       await demoteCurrent()
     } catch (err) {
-      setSaveError((err as { message?: string }).message ?? 'Reorder failed')
+      setSaveError((err as { message?: string }).message ?? t('tech.reorderFailedDefault'))
       logError('AllianceTech.handleDemote', err)
     } finally {
       setSaving(false)
@@ -121,7 +123,7 @@ export function AllianceTech() {
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">Loading...</p>
+        <p className="text-gray-400 animate-pulse">{t('common.loading')}</p>
       </div>
     )
   }
@@ -142,7 +144,7 @@ export function AllianceTech() {
       : []
 
   const displayTechs = picker?.search
-    ? filteredTechs.filter(t => t.toLowerCase().includes(picker.search.toLowerCase()))
+    ? filteredTechs.filter(techName => techName.toLowerCase().includes(picker.search.toLowerCase()))
     : filteredTechs
 
   const [current, ...rest] = queue
@@ -164,7 +166,7 @@ export function AllianceTech() {
       await reorderUpcoming(reordered.map(item => item.id))
     } catch (err) {
       setLocalUpcoming(null)
-      setSaveError((err as { message?: string }).message ?? 'Reorder failed')
+      setSaveError((err as { message?: string }).message ?? t('tech.reorderFailedDefault'))
       logError('AllianceTech.handleDragEnd', err)
     }
   }
@@ -172,27 +174,27 @@ export function AllianceTech() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-gold">Ship Upgrades</h1>
+        <h1 className="text-xl font-bold text-game-gold">{t('nav.tech')}</h1>
         {isAdmin && (
           <button
             onClick={() => { setPicker({ category: null, search: '' }); setSaveError(null) }}
             className="text-xs text-game-standard border border-game-standard rounded px-3 py-1 hover:bg-game-standard hover:text-white transition-colors"
           >
-            + Add
+            {t('common.addButton')}
           </button>
         )}
       </div>
-      <p className="text-gray-400 text-xs mb-6">Planned ship improvements in order</p>
+      <p className="text-gray-400 text-xs mb-6">{t('tech.subtitle')}</p>
 
       {queue.length === 0 ? (
-        <p className="text-gray-500 italic text-sm text-center py-8">No techs queued</p>
+        <p className="text-gray-500 italic text-sm text-center py-8">{t('tech.emptyQueue')}</p>
       ) : (
         <div className="space-y-3">
           {/* Currently upgrading */}
           <div className="bg-game-card border-l-4 border-game-standard rounded-xl p-4">
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Currently Upgrading</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">{t('tech.currentlyUpgrading')}</p>
                 <p className="text-lg font-bold text-white leading-tight">{current.tech_name}</p>
                 <span className="inline-block mt-1.5 text-xs font-semibold px-2 py-0.5 rounded capitalize bg-game-standard text-white">
                   {current.category}
@@ -216,7 +218,7 @@ export function AllianceTech() {
                       onClick={handleComplete}
                       disabled={completing}
                       className="w-8 h-8 rounded-full border-2 border-green-500 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-white transition-colors disabled:opacity-50"
-                      title="Mark complete"
+                      title={t('tech.markComplete')}
                     >
                       ✓
                     </button>
@@ -230,7 +232,7 @@ export function AllianceTech() {
           {upcoming.length > 0 && (
             <div className="bg-game-card border border-game-accent/30 rounded-xl overflow-hidden">
               <div className="px-4 py-2 border-b border-game-accent/20">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500">Up Next</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-500">{t('tech.upNext')}</p>
               </div>
               <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
                 <SortableContext items={upcoming.map(item => item.id)} strategy={verticalListSortingStrategy}>
@@ -256,7 +258,7 @@ export function AllianceTech() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-lg flex flex-col max-h-[85vh]">
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5 pb-3 shrink-0">
-              <h2 className="text-game-gold font-bold">Add to Queue</h2>
+              <h2 className="text-game-gold font-bold">{t('tech.addToQueue')}</h2>
               <button
                 onClick={() => setPicker(null)}
                 className="text-gray-400 hover:text-white text-xl leading-none"
@@ -267,7 +269,7 @@ export function AllianceTech() {
 
             {!picker.category ? (
               <div className="px-5 pb-6 space-y-3">
-                <p className="text-xs text-gray-400">Choose category:</p>
+                <p className="text-xs text-gray-400">{t('tech.chooseCategory')}</p>
                 <button
                   onClick={() => setPicker(p => p && ({ ...p, category: 'development' }))}
                   className="w-full bg-game-dark border border-game-accent rounded-xl p-4 text-left hover:border-game-standard transition-colors"
@@ -275,8 +277,8 @@ export function AllianceTech() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">⚙️</span>
                     <div>
-                      <div className="font-semibold text-white">Development</div>
-                      <div className="text-xs text-gray-400">{DEVELOPMENT_TECHS.length} technologies</div>
+                      <div className="font-semibold text-white">{t('tech.development')}</div>
+                      <div className="text-xs text-gray-400">{t('tech.technologiesCount', { count: DEVELOPMENT_TECHS.length })}</div>
                     </div>
                   </div>
                 </button>
@@ -287,8 +289,8 @@ export function AllianceTech() {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">⚔️</span>
                     <div>
-                      <div className="font-semibold text-white">War</div>
-                      <div className="text-xs text-gray-400">{WAR_TECHS.length} technologies</div>
+                      <div className="font-semibold text-white">{t('tech.war')}</div>
+                      <div className="text-xs text-gray-400">{t('tech.technologiesCount', { count: WAR_TECHS.length })}</div>
                     </div>
                   </div>
                 </button>
@@ -301,13 +303,13 @@ export function AllianceTech() {
                       onClick={() => setPicker(p => p && ({ ...p, category: null, search: '' }))}
                       className="text-xs text-gray-400 hover:text-white transition-colors"
                     >
-                      ← Back
+                      {t('tech.back')}
                     </button>
                     <span className="text-xs text-gray-500 capitalize">{picker.category}</span>
                   </div>
                   <input
                     type="text"
-                    placeholder="Search..."
+                    placeholder={t('tech.searchPlaceholder')}
                     value={picker.search}
                     onChange={e => setPicker(p => p && ({ ...p, search: e.target.value }))}
                     className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600"
@@ -316,7 +318,7 @@ export function AllianceTech() {
                 </div>
                 <div className="overflow-y-auto px-5 pb-5 space-y-1">
                   {displayTechs.length === 0 ? (
-                    <p className="text-gray-500 text-sm italic py-4 text-center">No results</p>
+                    <p className="text-gray-500 text-sm italic py-4 text-center">{t('tech.noResults')}</p>
                   ) : (
                     displayTechs.map(tech => (
                       <button

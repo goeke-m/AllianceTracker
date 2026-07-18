@@ -112,5 +112,24 @@
     "legendR45": "R4/R5",
     "legendInner": "내부 (순위 1–13)",
     "legendOuter": "외부 (순위 14+)"
+  },
+  "tech": {
+    "saveFailedDefault": "저장 실패",
+    "completeFailedDefault": "완료 처리 실패",
+    "reorderFailedDefault": "순서 변경 실패",
+    "subtitle": "계획된 함선 개선 순서",
+    "emptyQueue": "대기 중인 기술 없음",
+    "currentlyUpgrading": "업그레이드 중",
+    "markComplete": "완료 표시",
+    "upNext": "다음 순서",
+    "addToQueue": "대기열에 추가",
+    "chooseCategory": "카테고리 선택:",
+    "development": "개발",
+    "technologiesCount": "기술 {{count}}개",
+    "war": "전쟁",
+    "back": "← 뒤로",
+    "searchPlaceholder": "검색...",
+    "noResults": "결과 없음",
+    "dragToReorder": "드래그하여 순서 변경"
   }
 }

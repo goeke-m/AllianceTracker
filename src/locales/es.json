@@ -112,5 +112,24 @@
     "legendR45": "R4/R5",
     "legendInner": "Interior (rangos 1–13)",
     "legendOuter": "Exterior (rangos 14+)"
+  },
+  "tech": {
+    "saveFailedDefault": "Error al guardar",
+    "completeFailedDefault": "Error al completar",
+    "reorderFailedDefault": "Error al reordenar",
+    "subtitle": "Mejoras planificadas del barco, en orden",
+    "emptyQueue": "No hay tecnologías en cola",
+    "currentlyUpgrading": "En Progreso",
+    "markComplete": "Marcar como completado",
+    "upNext": "Siguiente",
+    "addToQueue": "Agregar a la Cola",
+    "chooseCategory": "Elige categoría:",
+    "development": "Desarrollo",
+    "technologiesCount": "{{count}} tecnologías",
+    "war": "Guerra",
+    "back": "← Atrás",
+    "searchPlaceholder": "Buscar...",
+    "noResults": "Sin resultados",
+    "dragToReorder": "Arrastra para reordenar"
   }
 }

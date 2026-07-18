@@ -112,5 +112,24 @@
     "legendR45": "R4/R5",
     "legendInner": "Inner (ranks 1–13)",
     "legendOuter": "Outer (ranks 14+)"
+  },
+  "tech": {
+    "saveFailedDefault": "Save failed",
+    "completeFailedDefault": "Failed to complete",
+    "reorderFailedDefault": "Reorder failed",
+    "subtitle": "Planned ship improvements in order",
+    "emptyQueue": "No techs queued",
+    "currentlyUpgrading": "Currently Upgrading",
+    "markComplete": "Mark complete",
+    "upNext": "Up Next",
+    "addToQueue": "Add to Queue",
+    "chooseCategory": "Choose category:",
+    "development": "Development",
+    "technologiesCount": "{{count}} technologies",
+    "war": "War",
+    "back": "← Back",
+    "searchPlaceholder": "Search...",
+    "noResults": "No results",
+    "dragToReorder": "Drag to reorder"
   }
 }

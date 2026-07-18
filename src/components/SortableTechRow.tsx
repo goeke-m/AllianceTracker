@@ -1,5 +1,6 @@
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
+import { useTranslation } from 'react-i18next'
 import type { AllianceTechQueueItem } from '../lib/types'
 
 interface SortableTechRowProps {
@@ -9,6 +10,7 @@ interface SortableTechRowProps {
 }
 
 export function SortableTechRow({ item, displayNumber, isAdmin }: SortableTechRowProps) {
+  const { t } = useTranslation()
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: item.id })
 
   const style = {
@@ -38,7 +40,7 @@ export function SortableTechRow({ item, displayNumber, isAdmin }: SortableTechRo
         <button
           {...attributes}
           {...listeners}
-          aria-label="Drag to reorder"
+          aria-label={t('tech.dragToReorder')}
           className="shrink-0 w-6 h-6 flex items-center justify-center text-gray-500 hover:text-white cursor-grab active:cursor-grabbing touch-none"
         >
           ⠿
