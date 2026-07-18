@@ -1,1 +1,62 @@
-{}
+{
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "saving": "Salvando...",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "deleteShort": "Exc",
+    "deletingIndicator": "...",
+    "loading": "Carregando...",
+    "clear": "Limpar",
+    "selectMemberPlaceholder": "— Selecionar membro —",
+    "member": "Membro",
+    "name": "Nome",
+    "server": "Servidor",
+    "reason": "Motivo",
+    "date": "Data",
+    "add": "Adicionar",
+    "addButton": "+ Adicionar",
+    "rank": "Posição",
+    "import": "Importar",
+    "importing": "Importando...",
+    "saveFailed": "Falha ao salvar",
+    "deleteFailed": "Falha ao excluir",
+    "searchMemberPlaceholder": "Buscar membro...",
+    "emptyNoMembersMatch": "Nenhum membro corresponde ao filtro.",
+    "nameServerRequired": "Nome e servidor são obrigatórios.",
+    "emptyNoMatch": "Nenhuma entrada corresponde ao filtro.",
+    "playerNamePlaceholder": "Nome do jogador",
+    "serverNamePlaceholder": "Nome do servidor",
+    "optionalReasonPlaceholder": "Motivo opcional",
+    "nameRequiredLabel": "Nome *",
+    "serverRequiredLabel": "Servidor *",
+    "searchNameOrServerPlaceholder": "Buscar nome ou servidor..."
+  },
+  "nav": {
+    "schedule": "Diário de Bordo",
+    "map": "Mapa do Tesouro",
+    "tech": "Melhorias do Navio",
+    "kills": "Lista de Abates",
+    "friends": "Amigos",
+    "out": "Licença",
+    "admin": "Capitão",
+    "signOut": "Abandonar o Navio"
+  },
+  "login": {
+    "tagline": "Piratas dos Sete Mares",
+    "settingSail": "Zarpando...",
+    "googleButton": "Embarcar com Google",
+    "discordButton": "Embarcar com Discord",
+    "orDivider": "ou",
+    "emailLabel": "Endereço do Pirata",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Código Secreto",
+    "passwordPlaceholder": "••••••••",
+    "submitButton": "Embarcar no Navio"
+  },
+  "profileBar": {
+    "loadingText": "Traçando o rumo...",
+    "captainBadge": "CAPITÃO"
+  }
+}

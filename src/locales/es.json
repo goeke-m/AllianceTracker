@@ -1,1 +1,62 @@
-{}
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "saving": "Guardando...",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "deleteShort": "Elim",
+    "deletingIndicator": "...",
+    "loading": "Cargando...",
+    "clear": "Limpiar",
+    "selectMemberPlaceholder": "— Seleccionar miembro —",
+    "member": "Miembro",
+    "name": "Nombre",
+    "server": "Servidor",
+    "reason": "Motivo",
+    "date": "Fecha",
+    "add": "Agregar",
+    "addButton": "+ Agregar",
+    "rank": "Rango",
+    "import": "Importar",
+    "importing": "Importando...",
+    "saveFailed": "Error al guardar",
+    "deleteFailed": "Error al eliminar",
+    "searchMemberPlaceholder": "Buscar miembro...",
+    "emptyNoMembersMatch": "Ningún miembro coincide con el filtro.",
+    "nameServerRequired": "El nombre y el servidor son obligatorios.",
+    "emptyNoMatch": "Ninguna entrada coincide con el filtro.",
+    "playerNamePlaceholder": "Nombre del jugador",
+    "serverNamePlaceholder": "Nombre del servidor",
+    "optionalReasonPlaceholder": "Motivo opcional",
+    "nameRequiredLabel": "Nombre *",
+    "serverRequiredLabel": "Servidor *",
+    "searchNameOrServerPlaceholder": "Buscar nombre o servidor..."
+  },
+  "nav": {
+    "schedule": "Registro de Viaje",
+    "map": "Mapa del Tesoro",
+    "tech": "Mejoras del Barco",
+    "kills": "Lista de Bajas",
+    "friends": "Amigos",
+    "out": "Permiso",
+    "admin": "Capitán",
+    "signOut": "Abandonar el Barco"
+  },
+  "login": {
+    "tagline": "Piratas de los Siete Mares",
+    "settingSail": "Zarpando...",
+    "googleButton": "Abordar con Google",
+    "discordButton": "Abordar con Discord",
+    "orDivider": "o",
+    "emailLabel": "Dirección del Pirata",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Código Secreto",
+    "passwordPlaceholder": "••••••••",
+    "submitButton": "Abordar el Barco"
+  },
+  "profileBar": {
+    "loadingText": "Trazando el rumbo...",
+    "captainBadge": "CAPITÁN"
+  }
+}

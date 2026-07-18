@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import type { Page } from '../lib/types'
 
 interface NavBarProps {
@@ -7,18 +8,19 @@ interface NavBarProps {
   onSignOut: () => void
 }
 
-const tabs: { id: Page; label: string; icon: string; adminOnly?: boolean }[] = [
-  { id: 'schedule', label: 'Voyage Log', icon: '⚓' },
-  { id: 'map', label: 'Treasure Map', icon: '🗺' },
-  { id: 'tech', label: 'Ship Upgrades', icon: '⚔️' },
-  { id: 'kills', label: 'Kill List', icon: '⚔️' },
-  { id: 'friends', label: 'Friends', icon: '🤝' },
-  { id: 'out', label: 'Shore Leave', icon: '🏝️', adminOnly: true },
-  { id: 'admin', label: 'Captain', icon: '☠️', adminOnly: true },
+const tabs: { id: Page; icon: string; adminOnly?: boolean }[] = [
+  { id: 'schedule', icon: '⚓' },
+  { id: 'map', icon: '🗺' },
+  { id: 'tech', icon: '⚔️' },
+  { id: 'kills', icon: '⚔️' },
+  { id: 'friends', icon: '🤝' },
+  { id: 'out', icon: '🏝️', adminOnly: true },
+  { id: 'admin', icon: '☠️', adminOnly: true },
 ]
 
 export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps) {
-  const visibleTabs = isAdmin ? tabs : tabs.filter((t) => !t.adminOnly)
+  const { t } = useTranslation()
+  const visibleTabs = isAdmin ? tabs : tabs.filter((tab) => !tab.adminOnly)
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-game-card border-t border-game-accent z-50">
@@ -34,7 +36,7 @@ export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps)
             }`}
           >
             <span className="text-lg mb-0.5">{tab.icon}</span>
-            <span>{tab.label}</span>
+            <span>{t(`nav.${tab.id}`)}</span>
           </button>
         ))}
         <button
@@ -42,7 +44,7 @@ export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps)
           className="flex-1 flex flex-col items-center py-3 text-xs font-medium text-gray-400 hover:text-game-highlight transition-colors"
         >
           <span className="text-lg mb-0.5">🏴‍☠️</span>
-          <span>Abandon Ship</span>
+          <span>{t('nav.signOut')}</span>
         </button>
       </div>
     </nav>

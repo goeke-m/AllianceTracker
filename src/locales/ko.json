@@ -1,1 +1,62 @@
-{}
+{
+  "common": {
+    "save": "저장",
+    "cancel": "취소",
+    "saving": "저장 중...",
+    "edit": "수정",
+    "delete": "삭제",
+    "deleteShort": "삭제",
+    "deletingIndicator": "...",
+    "loading": "로딩 중...",
+    "clear": "지우기",
+    "selectMemberPlaceholder": "— 멤버 선택 —",
+    "member": "멤버",
+    "name": "이름",
+    "server": "서버",
+    "reason": "사유",
+    "date": "날짜",
+    "add": "추가",
+    "addButton": "+ 추가",
+    "rank": "순위",
+    "import": "가져오기",
+    "importing": "가져오는 중...",
+    "saveFailed": "저장 실패",
+    "deleteFailed": "삭제 실패",
+    "searchMemberPlaceholder": "멤버 검색...",
+    "emptyNoMembersMatch": "필터와 일치하는 멤버가 없습니다.",
+    "nameServerRequired": "이름과 서버는 필수입니다.",
+    "emptyNoMatch": "필터와 일치하는 항목이 없습니다.",
+    "playerNamePlaceholder": "플레이어 이름",
+    "serverNamePlaceholder": "서버 이름",
+    "optionalReasonPlaceholder": "사유 (선택 사항)",
+    "nameRequiredLabel": "이름 *",
+    "serverRequiredLabel": "서버 *",
+    "searchNameOrServerPlaceholder": "이름 또는 서버 검색..."
+  },
+  "nav": {
+    "schedule": "항해 일지",
+    "map": "보물 지도",
+    "tech": "함선 업그레이드",
+    "kills": "킬 리스트",
+    "friends": "친구 목록",
+    "out": "휴가",
+    "admin": "선장",
+    "signOut": "배 버리기"
+  },
+  "login": {
+    "tagline": "칠대양의 해적",
+    "settingSail": "출항 중...",
+    "googleButton": "Google로 승선",
+    "discordButton": "Discord로 승선",
+    "orDivider": "또는",
+    "emailLabel": "해적의 주소",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "비밀 암호",
+    "passwordPlaceholder": "••••••••",
+    "submitButton": "승선하기"
+  },
+  "profileBar": {
+    "loadingText": "항해 준비 중...",
+    "captainBadge": "선장"
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from './hooks/useAuth'
 import { LoginPage } from './components/LoginPage'
 import { NavBar } from './components/NavBar'
@@ -19,6 +20,7 @@ const SUPABASE_CONFIGURED =
 export function App() {
   const { user, isAdmin, loading, signIn, signInWithOAuth, signOut } = useAuth()
   const [page, setPage] = useState<Page>('schedule')
+  const { t } = useTranslation()
 
   if (!SUPABASE_CONFIGURED) {
     return (
@@ -43,7 +45,7 @@ export function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-game-dark flex items-center justify-center">
-        <p className="text-game-gold animate-pulse">Charting the seas...</p>
+        <p className="text-game-gold animate-pulse">{t('profileBar.loadingText')}</p>
       </div>
     )
   }
@@ -63,7 +65,7 @@ export function App() {
         <div className="flex items-center gap-2">
           {isAdmin && (
             <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
-              CAPTAIN
+              {t('profileBar.captainBadge')}
             </span>
           )}
           <LanguageSwitcher />

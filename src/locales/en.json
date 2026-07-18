@@ -1,1 +1,62 @@
-{}
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteShort": "Del",
+    "deletingIndicator": "...",
+    "loading": "Loading...",
+    "clear": "Clear",
+    "selectMemberPlaceholder": "— Select member —",
+    "member": "Member",
+    "name": "Name",
+    "server": "Server",
+    "reason": "Reason",
+    "date": "Date",
+    "add": "Add",
+    "addButton": "+ Add",
+    "rank": "Rank",
+    "import": "Import",
+    "importing": "Importing...",
+    "saveFailed": "Save failed",
+    "deleteFailed": "Delete failed",
+    "searchMemberPlaceholder": "Search member...",
+    "emptyNoMembersMatch": "No members match the filter.",
+    "nameServerRequired": "Name and server are required.",
+    "emptyNoMatch": "No entries match the filter.",
+    "playerNamePlaceholder": "Player name",
+    "serverNamePlaceholder": "Server name",
+    "optionalReasonPlaceholder": "Optional reason",
+    "nameRequiredLabel": "Name *",
+    "serverRequiredLabel": "Server *",
+    "searchNameOrServerPlaceholder": "Search name or server..."
+  },
+  "nav": {
+    "schedule": "Voyage Log",
+    "map": "Treasure Map",
+    "tech": "Ship Upgrades",
+    "kills": "Kill List",
+    "friends": "Friends",
+    "out": "Shore Leave",
+    "admin": "Captain",
+    "signOut": "Abandon Ship"
+  },
+  "login": {
+    "tagline": "Pirates of the Seven Seas",
+    "settingSail": "Setting sail...",
+    "googleButton": "Board with Google",
+    "discordButton": "Board with Discord",
+    "orDivider": "or",
+    "emailLabel": "Pirate's Address",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Secret Code",
+    "passwordPlaceholder": "••••••••",
+    "submitButton": "Board the Ship"
+  },
+  "profileBar": {
+    "loadingText": "Charting the seas...",
+    "captainBadge": "CAPTAIN"
+  }
+}
