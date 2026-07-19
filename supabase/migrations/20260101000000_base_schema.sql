@@ -168,27 +168,6 @@ CREATE TABLE IF NOT EXISTS "public"."members" (
 ALTER TABLE "public"."members" OWNER TO "postgres";
 
 
-CREATE TABLE IF NOT EXISTS "public"."members_duplicate" (
-    "id" "uuid" DEFAULT "gen_random_uuid"() NOT NULL,
-    "name" "text" NOT NULL,
-    "Rank" "text" NOT NULL,
-    "THP" bigint,
-    "S1_Power" bigint,
-    "S1_Type" "text",
-    "S2_Power" bigint,
-    "S2_Type" "text",
-    "Strike_Team" boolean DEFAULT false,
-    "Availability" "text",
-    "created_at" timestamp with time zone DEFAULT "now"(),
-    "updated_at" timestamp with time zone DEFAULT "now"()
-);
-
-
-ALTER TABLE "public"."members_duplicate" OWNER TO "postgres";
-
-
-COMMENT ON TABLE "public"."members_duplicate" IS 'This is a duplicate of members';
-
 
 
 CREATE TABLE IF NOT EXISTS "public"."ooto" (
@@ -277,10 +256,6 @@ ALTER TABLE ONLY "public"."friends_list"
 ALTER TABLE ONLY "public"."kill_list"
     ADD CONSTRAINT "kill_list_pkey" PRIMARY KEY ("id");
 
-
-
-ALTER TABLE ONLY "public"."members_duplicate"
-    ADD CONSTRAINT "members_duplicate_pkey" PRIMARY KEY ("id");
 
 
 
@@ -541,8 +516,6 @@ CREATE POLICY "kill_list_update" ON "public"."kill_list" FOR UPDATE TO "authenti
 ALTER TABLE "public"."members" ENABLE ROW LEVEL SECURITY;
 
 
-ALTER TABLE "public"."members_duplicate" ENABLE ROW LEVEL SECURITY;
-
 
 ALTER TABLE "public"."ooto" ENABLE ROW LEVEL SECURITY;
 
@@ -617,9 +590,6 @@ GRANT ALL ON TABLE "public"."members" TO "service_role";
 
 
 
-GRANT REFERENCES,TRIGGER,TRUNCATE,MAINTAIN ON TABLE "public"."members_duplicate" TO "anon";
-GRANT REFERENCES,TRIGGER,TRUNCATE,MAINTAIN ON TABLE "public"."members_duplicate" TO "authenticated";
-GRANT REFERENCES,TRIGGER,TRUNCATE,MAINTAIN ON TABLE "public"."members_duplicate" TO "service_role";
 
 
 
