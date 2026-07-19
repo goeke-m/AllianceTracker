@@ -247,7 +247,7 @@ export function StormPage({ config }: StormPageProps) {
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">Charting the seas...</p>
+        <p className="text-gray-400 animate-pulse">Standing by...</p>
       </div>
     )
   }

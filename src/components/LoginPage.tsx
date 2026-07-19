@@ -113,7 +113,7 @@ export function LoginPage({ onSignIn, onSignInWithOAuth }: LoginPageProps) {
                 <button
                   type="submit"
                   disabled={loading || oauthLoading !== null}
-                  className="w-full bg-game-primary text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
+                  className="w-full bg-game-primary text-game-dark font-bold py-2.5 rounded-lg hover:bg-sky-400 transition-colors disabled:opacity-50"
                 >
                   {loading ? 'Deploying...' : 'Sign In'}
                 </button>

@@ -125,7 +125,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
       <button
         onClick={handleImport}
         disabled={loading || !json.trim()}
-        className="w-full bg-game-primary text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
+        className="w-full bg-game-primary text-game-dark font-bold py-2.5 rounded-lg hover:bg-sky-400 transition-colors disabled:opacity-50"
       >
         {loading ? 'Importing...' : 'Import'}
       </button>

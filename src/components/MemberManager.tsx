@@ -284,7 +284,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
         <button
           type="submit"
           disabled={adding}
-          className="bg-game-primary text-game-dark font-bold px-4 py-2 rounded-lg text-sm hover:bg-yellow-400 transition-colors disabled:opacity-50"
+          className="bg-game-primary text-game-dark font-bold px-4 py-2 rounded-lg text-sm hover:bg-sky-400 transition-colors disabled:opacity-50"
         >
           Add
         </button>
