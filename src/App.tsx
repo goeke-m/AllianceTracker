@@ -44,7 +44,7 @@ export function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-game-dark flex items-center justify-center">
-        <p className="text-game-primary animate-pulse">Charting the seas...</p>
+        <p className="text-game-primary animate-pulse">Standing by...</p>
       </div>
     )
   }
@@ -63,7 +63,7 @@ export function App() {
         <span className="text-xs text-gray-400 truncate">{user.email}</span>
         {isAdmin && (
           <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
-            CAPTAIN
+            COMMAND
           </span>
         )}
       </div>
