@@ -1,6 +1,58 @@
 # Changelog
 
-All notable changes to OPNz Tracker are documented here.
+All notable changes to WPNZ Tracker (formerly OPNz Tracker) are documented here.
+
+## 2026-07-18
+
+### Added
+- **WPNZ Tactical Theme Rebrand** — Full UI rebrand from the pirate theme to a tactical/military theme matching the new "WPNZ Weaponz — Forged in War" logo:
+  - Recolored the Tailwind palette to steel-blue/silver/cyan and renamed the `game-gold` color token to `game-primary`
+  - Added the Rajdhani display font for headings and nav labels
+  - New logo, favicon, and browser tab title ("WPNZ Tracker")
+  - Rewrote pirate-flavored copy across the app: Voyage Schedule → Train Schedule, Treasure Map → Tactical Map, Ship Upgrades → Armory, Captain's Quarters → Command Center, Captain/First Mate → Conductor/VIP, Board the Ship → Sign In, Abandon Ship → Sign Out, and more
+- **Desert Storm & Canyon Storm Event Tracking** — Two new pages for managing weekly Desert Storm and Canyon Storm event rosters, sharing a config-driven architecture (`storm_events`/`storm_roster` tables, `useStormEvent` hook, shared `StormPage` component):
+  - Admins build two-team rosters (participants + substitutes for Desert Storm; participants only for Canyon Storm), record per-member attendance (present/no-show/subbed-in), and view a rolling 6-event no-show count per member
+  - All users can view current and historical rosters read-only; history view shows Total Team Power and attendance summaries per past week
+- **Custom Domain** — App is now served at `wpnz.duckdns.org`
+
+### Changed
+- **Supabase CLI Migrations** — Replaced the manual `scripts/*.sql` workflow with Supabase CLI-managed, versioned migrations under `supabase/migrations/`, applied automatically in CI on push to `main` via `supabase db push`. Local dev now uses `supabase start`/`supabase db reset` for a full local Postgres instance. Deployment moved from Vercel to GitHub Actions → GitHub Pages.
+- **CI Node Version** — Bumped the build pipeline's Node.js version to 24.
+
+## 2026-07-06
+
+### Added
+- **Error Logging** — Failed user-triggered actions (Supabase save/delete/fetch errors already shown as red banners) are now persisted to a new `error_logs` table via a shared `logError` helper, wired into every existing catch block across the app. A read-only "Errors" tab in Command Center (formerly Captain's Quarters), visible only to the site owner account, lists timestamp/user/context/message for each logged failure.
+
+## 2026-06-24
+
+### Added
+- **Train Schedule Week Mode Toggle** — Admins can toggle the Train Schedule (formerly Voyage Schedule) between "Push Week" and "Save Week" rulesets from a header control; the setting is shared/persisted server-side and changes the displayed Conductor/VIP (formerly Captain/First Mate) source-attribution wording (e.g. "VS scorer" vs. "donator") for the relevant days.
+
+## 2026-06-21
+
+### Changed
+- **Member Timezone Field** — Replaced the unused free-text `Availability` field on the member list with a `Timezone` field backed by a fixed dropdown of 20 labeled UTC offsets covering the alliance's global member spread.
+
+## 2026-06-10
+
+### Changed
+- **Alliance Tech Queue Drag-and-Drop Reorder** — Replaced the ▲▼ up/down buttons on the Armory's (formerly Ship Upgrades) "Up Next" queue with a drag-and-drop reorder interaction (via `@dnd-kit`), including touch support and live-updating position numbers. The pinned "Currently Upgrading" card is unchanged.
+
+## 2026-05-20
+
+### Fixed
+- **Alliance Member Sync API** — Switched to the direct alliance-members endpoint after lastwar.tools removed the `/queue/submit` endpoint the sync relied on.
+
+## 2026-05-08
+
+### Added
+- **Alliance Member Auto-Sync** — Members now sync automatically from the lastwar.tools API on a Mon/Wed/Fri morning schedule (pg_cron), matched by a stable `game_uid` so name changes don't create duplicates. An admin-only "Sync Now" button in the Member Manager triggers an on-demand sync and shows an added/updated/removed summary.
+
+## 2026-04-29
+
+### Fixed
+- **Member Deletion FK Cleanup** — Deleting a member now clears any `train_schedule` foreign-key references (Conductor/VIP assignments) to that member first, preventing an orphaned-reference failure.
 
 ## 2026-04-16
 
