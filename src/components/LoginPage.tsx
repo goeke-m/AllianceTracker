@@ -33,7 +33,7 @@ export function LoginPage({ onSignIn, onSignInWithOAuth }: LoginPageProps) {
     <div className="min-h-screen bg-game-dark flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-game-gold">☠️ OPNz ☠️</h1>
+          <h1 className="text-3xl font-bold text-game-primary">☠️ OPNz ☠️</h1>
           <p className="text-gray-400 mt-2">Pirates of the Seven Seas</p>
         </div>
 
@@ -85,7 +85,7 @@ export function LoginPage({ onSignIn, onSignInWithOAuth }: LoginPageProps) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-gold"
+                    className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-primary"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -99,7 +99,7 @@ export function LoginPage({ onSignIn, onSignInWithOAuth }: LoginPageProps) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-gold"
+                    className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white focus:outline-none focus:border-game-primary"
                     placeholder="••••••••"
                   />
                 </div>
@@ -113,7 +113,7 @@ export function LoginPage({ onSignIn, onSignInWithOAuth }: LoginPageProps) {
                 <button
                   type="submit"
                   disabled={loading || oauthLoading !== null}
-                  className="w-full bg-game-gold text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
+                  className="w-full bg-game-primary text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
                 >
                   {loading ? 'Setting sail...' : 'Board the Ship'}
                 </button>

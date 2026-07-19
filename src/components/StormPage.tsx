@@ -117,7 +117,7 @@ function TeamPanel({
     <div className="bg-game-card border border-game-accent rounded-xl p-3 mb-3">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <h2 className="text-game-gold font-bold">Team {team}</h2>
+          <h2 className="text-game-primary font-bold">Team {team}</h2>
           <span className="text-gray-400 text-xs">
             {participants.length}/{config.participantCap}
             {config.substituteCap > 0 && ` · ${substitutes.length}/${config.substituteCap} subs`}
@@ -274,12 +274,12 @@ export function StormPage({ config }: StormPageProps) {
             </button>
           )}
           <div>
-            <h1 className="text-xl font-bold text-game-gold">{config.label}</h1>
+            <h1 className="text-xl font-bold text-game-primary">{config.label}</h1>
             {!showHistory && (
               <p className="text-xs text-gray-400">
                 Week of {formatWeekStart(weekStart)}
                 {weekOffset === 0 && (
-                  <span className="ml-1 text-game-gold font-semibold">· Current</span>
+                  <span className="ml-1 text-game-primary font-semibold">· Current</span>
                 )}
                 {isPastWeek && <span className="ml-1 text-gray-500">(past)</span>}
               </p>
@@ -299,7 +299,7 @@ export function StormPage({ config }: StormPageProps) {
           onClick={handleToggleHistory}
           className={`text-xs border rounded px-2 py-1 transition-colors ${
             showHistory
-              ? 'border-game-gold text-game-gold'
+              ? 'border-game-primary text-game-primary'
               : 'border-gray-600 text-gray-400 hover:text-white'
           }`}
         >
@@ -346,7 +346,7 @@ export function StormPage({ config }: StormPageProps) {
                   className="w-full p-3 text-left"
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-game-gold font-semibold text-sm">
+                    <span className="text-game-primary font-semibold text-sm">
                       Week of {formatWeekStart(ev.week_start)}
                     </span>
                     <span className="text-gray-500 text-xs">{isExpanded ? '▲' : '▼'}</span>
@@ -370,7 +370,7 @@ export function StormPage({ config }: StormPageProps) {
                       const tRoster = evRoster.filter(r => r.team === t)
                       return (
                         <div key={t}>
-                          <p className="text-xs text-game-gold font-semibold mb-1">Team {t}</p>
+                          <p className="text-xs text-game-primary font-semibold mb-1">Team {t}</p>
                           {tRoster.length === 0 ? (
                             <p className="text-gray-600 text-xs italic">No members recorded</p>
                           ) : (
@@ -444,7 +444,7 @@ export function StormPage({ config }: StormPageProps) {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md flex flex-col max-h-[80vh]">
             <div className="flex items-center justify-between p-4 border-b border-game-accent">
-              <h2 className="text-game-gold font-bold text-sm">
+              <h2 className="text-game-primary font-bold text-sm">
                 Add to Team {addingTo.team} —{' '}
                 {addingTo.role === 'participant' ? 'Participant' : 'Substitute'}
               </h2>

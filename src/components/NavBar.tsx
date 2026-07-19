@@ -31,7 +31,7 @@ export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps)
             onClick={() => onNavigate(tab.id)}
             className={`flex-1 flex flex-col items-center py-3 text-xs font-medium transition-colors ${
               current === tab.id
-                ? 'text-game-gold border-t-2 border-game-gold -mt-px'
+                ? 'text-game-primary border-t-2 border-game-primary -mt-px'
                 : 'text-gray-400 hover:text-white'
             }`}
           >

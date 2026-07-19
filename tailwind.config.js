@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        'game-gold': '#f4c430',
-        'game-silver': '#C0C0C0',
-        'game-dark': '#0a0f12',
-        'game-card': '#1a1209',
-        'game-accent': '#3d2b1a',
-        'game-highlight': '#cc2200',
-        'game-leadership': '#c9a227',
-        'game-standard': '#1a7a8a',
+        'game-primary': '#2fb6f5',
+        'game-silver': '#b8c4cc',
+        'game-dark': '#0a0e14',
+        'game-card': '#131a22',
+        'game-accent': '#2c3a48',
+        'game-highlight': '#dc2626',
+        'game-leadership': '#e0a938',
+        'game-standard': '#2f8fae',
       },
     },
   },

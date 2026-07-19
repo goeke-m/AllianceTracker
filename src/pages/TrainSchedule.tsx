@@ -151,14 +151,14 @@ export function TrainSchedule() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-start justify-between mb-1 gap-2">
-        <h1 className="text-xl font-bold text-game-gold">Voyage Schedule</h1>
+        <h1 className="text-xl font-bold text-game-primary">Voyage Schedule</h1>
         <div className="flex items-center gap-3">
           <div className="flex items-center rounded-full border border-game-accent overflow-hidden text-xs">
             {(['push', 'save'] as const).map(mode => {
               const active = mode === weekMode
               const label = mode === 'push' ? 'Push Week' : 'Save Week'
               const baseClass = `px-2 py-1 font-semibold transition-colors ${
-                active ? 'bg-game-gold text-game-dark' : 'text-gray-400'
+                active ? 'bg-game-primary text-game-dark' : 'text-gray-400'
               }`
               if (!isAdmin) {
                 return <span key={mode} className={baseClass}>{label}</span>
@@ -198,15 +198,15 @@ export function TrainSchedule() {
           return (
             <div
               key={date}
-              className={`bg-game-card border rounded-xl p-3 ${isToday ? 'border-game-gold' : 'border-game-accent'}`}
+              className={`bg-game-card border rounded-xl p-3 ${isToday ? 'border-game-primary' : 'border-game-accent'}`}
             >
               {/* Date header */}
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-game-gold font-bold text-sm w-8">{getDow(date)}</span>
+                  <span className="text-game-primary font-bold text-sm w-8">{getDow(date)}</span>
                   <span className="text-gray-300 text-sm">{formatDate(date)}</span>
                   {isToday && (
-                    <span className="text-xs bg-game-gold text-game-dark font-bold px-1.5 py-0.5 rounded">
+                    <span className="text-xs bg-game-primary text-game-dark font-bold px-1.5 py-0.5 rounded">
                       TODAY
                     </span>
                   )}
@@ -250,7 +250,7 @@ export function TrainSchedule() {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-xs p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">R4 Rotation</h2>
+              <h2 className="text-game-primary font-bold">R4 Rotation</h2>
               <button onClick={() => setShowR4Info(false)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
               </button>
@@ -258,7 +258,7 @@ export function TrainSchedule() {
             <ol className="space-y-1">
               {R4_ROTATION.map((name, i) => (
                 <li key={name} className="flex items-center gap-2 text-sm">
-                  <span className="text-game-gold font-bold w-5 text-right shrink-0">{i + 1}.</span>
+                  <span className="text-game-primary font-bold w-5 text-right shrink-0">{i + 1}.</span>
                   <span className="text-white">{name}</span>
                 </li>
               ))}
@@ -272,7 +272,7 @@ export function TrainSchedule() {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">
+              <h2 className="text-game-primary font-bold">
                 {getDow(editState.date)} {formatDate(editState.date)}
               </h2>
               <button onClick={() => setEditState(null)} className="text-gray-400 hover:text-white text-xl leading-none">
