@@ -172,7 +172,7 @@ export function AllianceTech() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-primary">Ship Upgrades</h1>
+        <h1 className="text-xl font-bold text-game-primary">Armory</h1>
         {isAdmin && (
           <button
             onClick={() => { setPicker({ category: null, search: '' }); setSaveError(null) }}
@@ -182,7 +182,7 @@ export function AllianceTech() {
           </button>
         )}
       </div>
-      <p className="text-gray-400 text-xs mb-6">Planned ship improvements in order</p>
+      <p className="text-gray-400 text-xs mb-6">Planned armory upgrades in order</p>
 
       {queue.length === 0 ? (
         <p className="text-gray-500 italic text-sm text-center py-8">No techs queued</p>
