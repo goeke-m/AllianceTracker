@@ -25,12 +25,12 @@ export function App() {
     return (
       <div className="min-h-screen bg-game-dark flex items-center justify-center p-6">
         <div className="max-w-sm w-full bg-game-card border border-game-accent rounded-xl p-6 space-y-3">
-          <h1 className="text-xl font-bold text-game-gold">Setup Required</h1>
+          <h1 className="text-xl font-bold text-game-primary">Setup Required</h1>
           <p className="text-gray-300 text-sm">
-            Copy <code className="text-game-gold">.env.example</code> to{' '}
-            <code className="text-game-gold">.env</code> and set{' '}
-            <code className="text-game-gold">VITE_SUPABASE_URL</code> and{' '}
-            <code className="text-game-gold">VITE_SUPABASE_ANON_KEY</code>,
+            Copy <code className="text-game-primary">.env.example</code> to{' '}
+            <code className="text-game-primary">.env</code> and set{' '}
+            <code className="text-game-primary">VITE_SUPABASE_URL</code> and{' '}
+            <code className="text-game-primary">VITE_SUPABASE_ANON_KEY</code>,
             then restart the dev server.
           </p>
           <div className="bg-game-dark rounded-lg p-3 font-mono text-xs text-green-400">
@@ -44,7 +44,7 @@ export function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-game-dark flex items-center justify-center">
-        <p className="text-game-gold animate-pulse">Charting the seas...</p>
+        <p className="text-game-primary animate-pulse">Standing by...</p>
       </div>
     )
   }
@@ -63,7 +63,7 @@ export function App() {
         <span className="text-xs text-gray-400 truncate">{user.email}</span>
         {isAdmin && (
           <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
-            CAPTAIN
+            COMMAND
           </span>
         )}
       </div>

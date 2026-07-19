@@ -8,15 +8,15 @@ interface NavBarProps {
 }
 
 const tabs: { id: Page; label: string; icon: string; adminOnly?: boolean }[] = [
-  { id: 'schedule', label: 'Voyage Log', icon: '⚓' },
-  { id: 'map', label: 'Treasure Map', icon: '🗺' },
-  { id: 'tech', label: 'Ship Upgrades', icon: '⚔️' },
+  { id: 'schedule', label: 'Ops Log', icon: '📋' },
+  { id: 'map', label: 'Tactical Map', icon: '🗺️' },
+  { id: 'tech', label: 'Armory', icon: '🔧' },
   { id: 'kills', label: 'Kill List', icon: '⚔️' },
   { id: 'friends', label: 'Friends', icon: '🤝' },
   { id: 'ds', label: 'Desert Storm', icon: '🏜️' },
   { id: 'canyon', label: 'Canyon Storm', icon: '🏔️' },
-  { id: 'out', label: 'Shore Leave', icon: '🏝️', adminOnly: true },
-  { id: 'admin', label: 'Captain', icon: '☠️', adminOnly: true },
+  { id: 'out', label: 'Stand Down', icon: '🎖️', adminOnly: true },
+  { id: 'admin', label: 'Command', icon: '🎯', adminOnly: true },
 ]
 
 export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps) {
@@ -31,20 +31,20 @@ export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps)
             onClick={() => onNavigate(tab.id)}
             className={`flex-1 flex flex-col items-center py-3 text-xs font-medium transition-colors ${
               current === tab.id
-                ? 'text-game-gold border-t-2 border-game-gold -mt-px'
+                ? 'text-game-primary border-t-2 border-game-primary -mt-px'
                 : 'text-gray-400 hover:text-white'
             }`}
           >
             <span className="text-lg mb-0.5">{tab.icon}</span>
-            <span>{tab.label}</span>
+            <span className="font-display">{tab.label}</span>
           </button>
         ))}
         <button
           onClick={onSignOut}
           className="flex-1 flex flex-col items-center py-3 text-xs font-medium text-gray-400 hover:text-game-highlight transition-colors"
         >
-          <span className="text-lg mb-0.5">🏴‍☠️</span>
-          <span>Abandon Ship</span>
+          <span className="text-lg mb-0.5">🚪</span>
+          <span className="font-display">Sign Out</span>
         </button>
       </div>
     </nav>

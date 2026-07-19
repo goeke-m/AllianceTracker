@@ -172,7 +172,7 @@ export function AllianceTech() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-gold">Ship Upgrades</h1>
+        <h1 className="text-xl font-bold text-game-primary">Armory</h1>
         {isAdmin && (
           <button
             onClick={() => { setPicker({ category: null, search: '' }); setSaveError(null) }}
@@ -182,7 +182,7 @@ export function AllianceTech() {
           </button>
         )}
       </div>
-      <p className="text-gray-400 text-xs mb-6">Planned ship improvements in order</p>
+      <p className="text-gray-400 text-xs mb-6">Planned armory upgrades in order</p>
 
       {queue.length === 0 ? (
         <p className="text-gray-500 italic text-sm text-center py-8">No techs queued</p>
@@ -256,7 +256,7 @@ export function AllianceTech() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-lg flex flex-col max-h-[85vh]">
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5 pb-3 shrink-0">
-              <h2 className="text-game-gold font-bold">Add to Queue</h2>
+              <h2 className="text-game-primary font-bold">Add to Queue</h2>
               <button
                 onClick={() => setPicker(null)}
                 className="text-gray-400 hover:text-white text-xl leading-none"

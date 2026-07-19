@@ -16,10 +16,10 @@ export function AdminPanel() {
 
   return (
     <div className="p-4 pb-24 space-y-4">
-      <h1 className="text-xl font-bold text-game-gold">☠️ Captain's Quarters</h1>
+      <h1 className="text-xl font-bold text-game-primary">🎯 Command Center</h1>
 
       {loading && (
-        <div className="text-center py-8 text-game-gold animate-pulse">Loading...</div>
+        <div className="text-center py-8 text-game-primary animate-pulse">Loading...</div>
       )}
 
       {error && (
@@ -39,7 +39,7 @@ export function AdminPanel() {
                   onClick={() => setTab(t)}
                   className={`px-4 py-2 text-sm font-semibold capitalize transition-colors border-b-2 -mb-px ${
                     tab === t
-                      ? 'border-game-gold text-game-gold'
+                      ? 'border-game-primary text-game-primary'
                       : 'border-transparent text-gray-500 hover:text-gray-300'
                   }`}
                 >
