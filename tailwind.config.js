@@ -16,6 +16,9 @@ export default {
         'game-leadership': '#e0a938',
         'game-standard': '#2f8fae',
       },
+      fontFamily: {
+        display: ['Rajdhani', 'sans-serif'],
+      },
     },
   },
   plugins: [],
