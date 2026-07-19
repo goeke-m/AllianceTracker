@@ -1,17 +1,19 @@
-# OPNz Tracker
+# WPNZ Tracker
 
-An alliance management web app for coordinating strategy in Navy Pirates of New Zealand. Tracks member power rankings, training schedules, tech research queues, absences, and more — all backed by Supabase with Google and Discord OAuth.
+An alliance management web app for coordinating strategy for WPNZ Weaponz. Tracks member power rankings, training schedules, tech research queues, absences, and more — all backed by Supabase with Google and Discord OAuth.
 
 ## Features
 
 - **Marshall Map** — 7×7 visual grid ranking members by Weighted Average Damage (WAD), with R4/R5 highlighted for strategic positions
-- **Voyage Schedule** — Weekly captain/first mate assignment tracker with R4 rotation and source attribution
-- **Member Manager** — Full CRUD for alliance members including rank, THP, squad type, and VS scores
-- **Alliance Tech Queue** — Ordered research queue with drag-to-reorder and Dev/War categorization
-- **Shore Leave Tracker** — Member absence tracking with date ranges and status badges
+- **Train Schedule** — Weekly conductor/VIP assignment tracker with R4 rotation, a push/save week-mode toggle, and source attribution
+- **Member Manager** — Full CRUD for alliance members including rank, THP, squad type, timezone, and VS scores; automatic member sync from the lastwar.tools API on a Mon/Wed/Fri schedule, plus an admin-only manual sync button
+- **Alliance Tech Queue (Armory)** — Ordered research queue with drag-to-reorder and Dev/War categorization
+- **Desert Storm & Canyon Storm** — Weekly two-team roster builder with attendance tracking, rolling no-show counts, and event history
+- **Stand Down Tracker** — Member absence tracking with date ranges and status badges
 - **Demerits Tracker** — Log and review member infractions
 - **Kill List & Friends List** — Track enemies and allies by server with notes
 - **VS Points** — Weekly competition score import and averages
+- **Error Log Viewer** — Owner-only view of persisted application errors for debugging
 
 ## Tech Stack
 
@@ -23,14 +25,14 @@ An alliance management web app for coordinating strategy in Navy Pirates of New 
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 24+ (matches the CI build pipeline)
 - A [Supabase](https://supabase.com) project
 
 ### Installation
 
 ```bash
-git clone https://github.com/goeke-m/OPNzTracker.git
-cd OPNzTracker
+git clone https://github.com/goeke-m/AllianceTracker.git
+cd AllianceTracker
 npm install
 ```
 
@@ -112,11 +114,15 @@ Verify: `SELECT * FROM cron.job;` should show the `sync-alliance-members` job.
 
 ### Setting an admin user
 
-After a full DB wipe, run this in the Supabase Dashboard → SQL Editor, replacing the UUID with the target user's auth.users UUID:
+Admin status is read from the user's Supabase Auth metadata (`auth.jwt() -> 'user_metadata' ->> 'is_admin'`), not from the `members` table. After a full DB wipe (or for a new user), run this in the Supabase Dashboard → SQL Editor, replacing the UUID with the target user's `auth.users` UUID (Authentication → Users):
 
 ```sql
-UPDATE public.members SET is_admin = true WHERE game_uid = '<USER_UUID>';
+UPDATE auth.users
+SET raw_user_meta_data = raw_user_meta_data || '{"is_admin": true}'::jsonb
+WHERE id = '<USER_UUID>';
 ```
+
+The user needs to sign out and back in (or otherwise refresh their session) for the updated claim to appear in their JWT.
 
 ### Production Build
 
@@ -142,12 +148,15 @@ src/
 ├── pages/          # Full page views (MarshallMap, TrainSchedule, AllianceTech, etc.)
 ├── hooks/          # Custom React hooks for data fetching
 └── lib/            # Supabase client, WAD algorithm, shared types
-scripts/            # Supabase SQL migrations and seed data
+supabase/
+├── migrations/     # Versioned Supabase CLI migrations (schema + RLS policies)
+├── seed.sql        # Local-dev-only seed data (member rows, default settings)
+└── functions/      # Supabase Edge Functions (e.g. sync-alliance-members)
 ```
 
 ## Admin Access
 
-Admin features (damage log import, member management, demerits) are gated behind an `is_admin` flag set in Supabase user metadata. Run `scripts/set-admin.sql` to grant admin access to a user.
+Admin features (damage log import, member management, demerits) are gated behind an `is_admin` flag set in Supabase user metadata. See "Setting an admin user" above to grant admin access to a user.
 
 ## WAD Algorithm
 
