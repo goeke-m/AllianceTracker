@@ -151,7 +151,7 @@ export function TrainSchedule() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-start justify-between mb-1 gap-2">
-        <h1 className="text-xl font-bold text-game-primary">Voyage Schedule</h1>
+        <h1 className="text-xl font-bold text-game-primary">Train Schedule</h1>
         <div className="flex items-center gap-3">
           <div className="flex items-center rounded-full border border-game-accent overflow-hidden text-xs">
             {(['push', 'save'] as const).map(mode => {
@@ -187,7 +187,6 @@ export function TrainSchedule() {
         </div>
       </div>
       {modeError && <p className="text-game-highlight text-xs mb-1">{modeError}</p>}
-      <p className="text-gray-400 text-xs mb-4">Daily voyage departs ~1:00 EST · Sun–Sun view</p>
 
       <div className="space-y-2">
         {weekDates.map(date => {
@@ -224,18 +223,18 @@ export function TrainSchedule() {
               {/* Entry content */}
               <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
-                  <span className="text-gray-500 text-xs uppercase tracking-wide">Captain</span>
+                  <span className="text-gray-500 text-xs uppercase tracking-wide">Conductor</span>
                   <p className="text-gray-400 text-xs italic">{sources.captain}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>}
                 </div>
                 <div>
-                  <span className="text-gray-500 text-xs uppercase tracking-wide">First Mate</span>
+                  <span className="text-gray-500 text-xs uppercase tracking-wide">VIP</span>
                   <p className="text-gray-400 text-xs italic">{sources.firstMate}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.vip)}</p>}
                 </div>
                 {entry?.notes && (
                   <div className="col-span-2 mt-1">
-                    <span className="text-gray-500 text-xs uppercase tracking-wide">Captain's Log</span>
+                    <span className="text-gray-500 text-xs uppercase tracking-wide">Mission Notes</span>
                     <p className="text-gray-300 text-xs">{entry.notes}</p>
                   </div>
                 )}
@@ -282,7 +281,7 @@ export function TrainSchedule() {
 
             <div className="space-y-3">
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Captain</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Conductor</label>
                 <select
                   value={editState.conductorId}
                   onChange={e => setEditState(s => s && ({ ...s, conductorId: e.target.value }))}
@@ -296,7 +295,7 @@ export function TrainSchedule() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">First Mate</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">VIP</label>
                 <select
                   value={editState.vipId}
                   onChange={e => setEditState(s => s && ({ ...s, vipId: e.target.value }))}
@@ -310,7 +309,7 @@ export function TrainSchedule() {
               </div>
 
               <div>
-                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Captain's Log</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">Mission Notes</label>
                 <input
                   type="text"
                   value={editState.notes}
