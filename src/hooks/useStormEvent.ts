@@ -134,9 +134,10 @@ export function useStormEvent(config: StormConfig) {
       if (error) throw error
       eventId = newEvent.id
     }
+    const initialAttendance: AttendanceStatus | null = role === 'participant' ? 'present' : null
     const { error } = await supabase
       .from('storm_roster')
-      .insert({ event_id: eventId, member_id: memberId, team, role, attendance: null })
+      .insert({ event_id: eventId, member_id: memberId, team, role, attendance: initialAttendance })
     if (error) throw error
     await fetchData()
   }
