@@ -222,8 +222,17 @@ export function StormPage({ config }: StormPageProps) {
   const [addingTo, setAddingTo] = useState<AddingTo | null>(null)
   const [actionError, setActionError] = useState<string | null>(null)
   const [expandedWeek, setExpandedWeek] = useState<string | null>(null)
+  const [memberSearch, setMemberSearch] = useState('')
 
   const assignedMemberIds = new Set(roster.map(r => r.member_id))
+  const filteredMembers = members.filter(m =>
+    m.name.toLowerCase().includes(memberSearch.trim().toLowerCase())
+  )
+
+  function handleOpenAdd(to: AddingTo) {
+    setAddingTo(to)
+    setMemberSearch('')
+  }
 
   async function handleAddMember(memberId: string) {
     if (!addingTo) return
@@ -450,7 +459,7 @@ export function StormPage({ config }: StormPageProps) {
               isAdmin={isAdmin}
               isPastWeek={isPastWeek}
               actionError={actionError}
-              onAdd={setAddingTo}
+              onAdd={handleOpenAdd}
               onRemove={handleRemoveMember}
               onCycleAttendance={handleCycleAttendance}
             />
@@ -476,38 +485,52 @@ export function StormPage({ config }: StormPageProps) {
                 ×
               </button>
             </div>
+            <div className="p-2 border-b border-game-accent">
+              <input
+                type="text"
+                value={memberSearch}
+                onChange={e => setMemberSearch(e.target.value)}
+                placeholder={t('storm.searchMembersPlaceholder')}
+                autoFocus
+                className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-game-primary"
+              />
+            </div>
             <div className="overflow-y-auto flex-1 p-2">
-              {members.map(m => {
-                const alreadyAssigned = assignedMemberIds.has(m.id)
-                const noShows = noShowCounts.get(m.id) ?? 0
-                return (
-                  <button
-                    key={m.id}
-                    onClick={() => !alreadyAssigned && handleAddMember(m.id)}
-                    disabled={alreadyAssigned}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-left transition-colors ${
-                      alreadyAssigned
-                        ? 'opacity-40 cursor-default'
-                        : 'hover:bg-game-dark cursor-pointer'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="text-white text-sm font-medium truncate">{m.name}</span>
-                      <span className="text-gray-400 text-xs shrink-0">{m.Rank}</span>
-                      {m.THP != null && (
-                        <span className="text-gray-400 text-xs shrink-0">
-                          {formatNumber(m.THP)}
+              {filteredMembers.length === 0 ? (
+                <p className="text-gray-600 text-xs italic text-center py-4">{t('storm.noMembersFound')}</p>
+              ) : (
+                filteredMembers.map(m => {
+                  const alreadyAssigned = assignedMemberIds.has(m.id)
+                  const noShows = noShowCounts.get(m.id) ?? 0
+                  return (
+                    <button
+                      key={m.id}
+                      onClick={() => !alreadyAssigned && handleAddMember(m.id)}
+                      disabled={alreadyAssigned}
+                      className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-left transition-colors ${
+                        alreadyAssigned
+                          ? 'opacity-40 cursor-default'
+                          : 'hover:bg-game-dark cursor-pointer'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-white text-sm font-medium truncate">{m.name}</span>
+                        <span className="text-gray-400 text-xs shrink-0">{m.Rank}</span>
+                        {m.THP != null && (
+                          <span className="text-gray-400 text-xs shrink-0">
+                            {formatNumber(m.THP)}
+                          </span>
+                        )}
+                      </div>
+                      {noShows > 0 && (
+                        <span className="text-xs bg-red-900 text-red-300 px-1.5 py-0.5 rounded shrink-0 ml-2">
+                          {t('storm.noShowCount', { count: noShows })}
                         </span>
                       )}
-                    </div>
-                    {noShows > 0 && (
-                      <span className="text-xs bg-red-900 text-red-300 px-1.5 py-0.5 rounded shrink-0 ml-2">
-                        {t('storm.noShowCount', { count: noShows })}
-                      </span>
-                    )}
-                  </button>
-                )
-              })}
+                    </button>
+                  )
+                })
+              )}
             </div>
           </div>
         </div>
