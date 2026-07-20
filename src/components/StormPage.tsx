@@ -118,7 +118,7 @@ function TeamPanel({
   }
 
   return (
-    <div className="bg-game-card border border-game-accent rounded-xl p-3 mb-3">
+    <div className="bg-game-card border border-game-accent rounded-xl p-3">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
           <h2 className="text-game-primary font-bold">{t('storm.teamLabel', { team })}</h2>
@@ -423,8 +423,8 @@ export function StormPage({ config }: StormPageProps) {
           })}
         </div>
       ) : (
-        /* Current week view — Team A and Team B panels */
-        <>
+        /* Current week view — Team A and Team B panels, side by side */
+        <div className="grid grid-cols-2 gap-3">
           {(['A', 'B'] as const).map(team => (
             <TeamPanel
               key={team}
@@ -441,7 +441,7 @@ export function StormPage({ config }: StormPageProps) {
               onCycleAttendance={handleCycleAttendance}
             />
           ))}
-        </>
+        </div>
       )}
 
       {/* Member picker modal */}
