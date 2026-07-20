@@ -62,7 +62,8 @@
     "captainBadge": "COMMAND"
   },
   "schedule": {
-    "dow": { "Sun": "Sun", "Mon": "Mon", "Tue": "Tue", "Wed": "Wed", "Thu": "Thu", "Fri": "Fri", "Sat": "Sat" },
+    "vsDay": "VS Day {{n}}",
+    "vsRestDay": "VS Rest Day",
     "sourceRotation": "Rotation",
     "sourceVsRank": "VS #{{n}}",
     "sourceDonationRank": "Donation #{{n}}",

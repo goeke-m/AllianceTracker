@@ -62,7 +62,8 @@
     "captainBadge": "COMANDO"
   },
   "schedule": {
-    "dow": { "Sun": "Dom", "Mon": "Seg", "Tue": "Ter", "Wed": "Qua", "Thu": "Qui", "Fri": "Sex", "Sat": "Sáb" },
+    "vsDay": "VS Day {{n}}",
+    "vsRestDay": "VS Rest Day",
     "sourceRotation": "Rodízio",
     "sourceVsRank": "VS #{{n}}",
     "sourceDonationRank": "Doação #{{n}}",

@@ -63,6 +63,11 @@ function getDow(iso: string): string {
   return DOW[new Date(y, m - 1, d).getDay()]
 }
 
+function getVsDayLabel(index: number, t: TFunction): string {
+  const cycleIndex = index % 7
+  return cycleIndex === 6 ? t('schedule.vsRestDay') : t('schedule.vsDay', { n: cycleIndex + 1 })
+}
+
 interface EditState {
   date: string
   existingId?: string
@@ -209,7 +214,7 @@ export function TrainSchedule() {
       {modeError && <p className="text-game-highlight text-xs mb-1">{modeError}</p>}
 
       <div className="space-y-2">
-        {weekDates.map(date => {
+        {weekDates.map((date, index) => {
           const entry = entryByDate.get(date)
           const isToday = date === todayStr
           const sources = dowSources[getDow(date)]
@@ -222,7 +227,7 @@ export function TrainSchedule() {
               {/* Date header */}
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-game-primary font-bold text-sm w-8">{t(`schedule.dow.${getDow(date)}`)}</span>
+                  <span className="text-game-primary font-bold text-sm">{getVsDayLabel(index, t)}</span>
                   <span className="text-gray-300 text-sm">{formatDate(date)}</span>
                   {isToday && (
                     <span className="text-xs bg-game-primary text-game-dark font-bold px-1.5 py-0.5 rounded">
@@ -292,7 +297,7 @@ export function TrainSchedule() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-game-primary font-bold">
-                {t(`schedule.dow.${getDow(editState.date)}`)} {formatDate(editState.date)}
+                {getVsDayLabel(weekDates.indexOf(editState.date), t)} {formatDate(editState.date)}
               </h2>
               <button onClick={() => setEditState(null)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×

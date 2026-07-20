@@ -62,7 +62,8 @@
     "captainBadge": "지휘관"
   },
   "schedule": {
-    "dow": { "Sun": "일", "Mon": "월", "Tue": "화", "Wed": "수", "Thu": "목", "Fri": "금", "Sat": "토" },
+    "vsDay": "VS Day {{n}}",
+    "vsRestDay": "VS Rest Day",
     "sourceRotation": "순환",
     "sourceVsRank": "VS #{{n}}",
     "sourceDonationRank": "기부 #{{n}}",
