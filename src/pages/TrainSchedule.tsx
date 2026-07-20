@@ -27,15 +27,29 @@ const R4_ROTATION = [
 ]
 
 function buildDowSources(mode: WeekMode, t: TFunction): Record<string, { captain: string; firstMate: string }> {
-  const metric = mode === 'push' ? t('schedule.metricVsScorer') : t('schedule.metricDonator')
+  const rotation = t('schedule.sourceRotation')
+  const rank = (n: number) =>
+    mode === 'push' ? t('schedule.sourceVsRank', { n }) : t('schedule.sourceDonationRank', { n })
+
+  if (mode === 'push') {
+    return {
+      Sun: { captain: rotation, firstMate: rank(4) },
+      Mon: { captain: rotation, firstMate: rank(5) },
+      Tue: { captain: rotation, firstMate: rank(6) },
+      Wed: { captain: rotation, firstMate: rank(7) },
+      Thu: { captain: rank(1), firstMate: rank(8) },
+      Fri: { captain: rank(2), firstMate: rank(9) },
+      Sat: { captain: rank(3), firstMate: rank(10) },
+    }
+  }
   return {
-    Sun: { captain: t('schedule.sourceWeeklyTop', { metric }), firstMate: t('schedule.sourceTopSat', { metric }) },
-    Mon: { captain: t('schedule.sourceDsTopScorer'), firstMate: t('schedule.sourceCanyonTopScorer') },
-    Tue: { captain: t('schedule.sourceAllianceMvp'), firstMate: t('schedule.sourceTopMon', { metric }) },
-    Wed: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopTue', { metric }) },
-    Thu: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopWed', { metric }) },
-    Fri: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopThu', { metric }) },
-    Sat: { captain: t('schedule.sourceR4Rotation'), firstMate: t('schedule.sourceTopFri', { metric }) },
+    Sun: { captain: rotation, firstMate: rank(2) },
+    Mon: { captain: rotation, firstMate: rank(3) },
+    Tue: { captain: rotation, firstMate: rank(4) },
+    Wed: { captain: rotation, firstMate: rank(5) },
+    Thu: { captain: rotation, firstMate: rank(6) },
+    Fri: { captain: rotation, firstMate: rank(7) },
+    Sat: { captain: rank(1), firstMate: rank(8) },
   }
 }
 
