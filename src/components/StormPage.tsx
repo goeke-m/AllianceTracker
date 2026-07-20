@@ -40,6 +40,16 @@ function attendanceLabel(attendance: AttendanceStatus | null, t: TFunction): str
   }
 }
 
+function rankNum(rank: string | undefined): number {
+  return rank ? parseInt(rank.slice(1), 10) : 0
+}
+
+function compareMembersByRankThenName(a: Member | undefined, b: Member | undefined): number {
+  const rankDiff = rankNum(b?.Rank) - rankNum(a?.Rank)
+  if (rankDiff !== 0) return rankDiff
+  return (a?.name ?? '').localeCompare(b?.name ?? '')
+}
+
 interface AddingTo {
   team: 'A' | 'B'
   role: 'participant' | 'substitute'
@@ -65,8 +75,12 @@ function TeamPanel({
   onAdd, onRemove, onCycleAttendance,
 }: TeamPanelProps) {
   const { t } = useTranslation()
-  const participants = roster.filter(r => r.team === team && r.role === 'participant')
-  const substitutes = roster.filter(r => r.team === team && r.role === 'substitute')
+  const participants = roster
+    .filter(r => r.team === team && r.role === 'participant')
+    .sort((a, b) => compareMembersByRankThenName(getMember(a.member_id), getMember(b.member_id)))
+  const substitutes = roster
+    .filter(r => r.team === team && r.role === 'substitute')
+    .sort((a, b) => compareMembersByRankThenName(getMember(a.member_id), getMember(b.member_id)))
 
   function getMember(memberId: string): Member | undefined {
     return members.find(m => m.id === memberId)
