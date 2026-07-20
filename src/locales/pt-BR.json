@@ -34,30 +34,32 @@
     "searchNameOrServerPlaceholder": "Buscar nome ou servidor..."
   },
   "nav": {
-    "schedule": "Diário de Bordo",
-    "map": "Mapa do Tesouro",
-    "tech": "Melhorias do Navio",
+    "schedule": "Diário de Operações",
+    "map": "Mapa Tático",
+    "tech": "Arsenal",
     "kills": "Lista de Abates",
     "friends": "Amigos",
-    "out": "Licença",
-    "admin": "Capitão",
-    "signOut": "Abandonar o Navio"
+    "out": "Dispensa",
+    "admin": "Comando",
+    "signOut": "Sair",
+    "ds": "Desert Storm",
+    "canyon": "Canyon Storm"
   },
   "login": {
-    "tagline": "Piratas dos Sete Mares",
-    "settingSail": "Zarpando...",
-    "googleButton": "Embarcar com Google",
-    "discordButton": "Embarcar com Discord",
+    "tagline": "Forjados na Guerra",
+    "settingSail": "Implantando...",
+    "googleButton": "Entrar com Google",
+    "discordButton": "Entrar com Discord",
     "orDivider": "ou",
-    "emailLabel": "Endereço do Pirata",
+    "emailLabel": "E-mail",
     "emailPlaceholder": "your@email.com",
-    "passwordLabel": "Código Secreto",
+    "passwordLabel": "Senha",
     "passwordPlaceholder": "••••••••",
-    "submitButton": "Embarcar no Navio"
+    "submitButton": "Entrar"
   },
   "profileBar": {
-    "loadingText": "Traçando o rumo...",
-    "captainBadge": "CAPITÃO"
+    "loadingText": "Aguardando...",
+    "captainBadge": "COMANDO"
   },
   "schedule": {
     "dow": { "Sun": "Dom", "Mon": "Seg", "Tue": "Ter", "Wed": "Qua", "Thu": "Qui", "Fri": "Sex", "Sat": "Sáb" },
@@ -75,17 +77,16 @@
     "sourceTopThu": "Melhor {{metric}} (Qui)",
     "sourceTopFri": "Melhor {{metric}} (Sex)",
     "weekModeUpdateFailed": "Falha ao atualizar o modo semanal",
-    "title": "Cronograma de Viagem",
+    "title": "Cronograma de Treinamento",
     "pushWeek": "Avançar Semana",
     "saveWeek": "Salvar Semana",
     "r4RotationTitleAttr": "Ver lista de rodízio R4",
     "r4RotationLabel": "Rodízio R4",
-    "subtitle": "Viagem diária parte por volta de 1h (EST) · Visualização Dom–Dom",
     "today": "HOJE",
     "setEntry": "+ Definir",
-    "captainColumnLabel": "Capitão",
-    "firstMateColumnLabel": "Imediato",
-    "captainsLogLabel": "Diário do Capitão",
+    "captainColumnLabel": "Condutor",
+    "firstMateColumnLabel": "VIP",
+    "captainsLogLabel": "Notas da Missão",
     "notesPlaceholder": "ex.: R4/VS dia anterior"
   },
   "map": {
@@ -117,7 +118,7 @@
     "saveFailedDefault": "Falha ao salvar",
     "completeFailedDefault": "Falha ao concluir",
     "reorderFailedDefault": "Falha ao reordenar",
-    "subtitle": "Melhorias planejadas do navio, em ordem",
+    "subtitle": "Melhorias planejadas do arsenal, em ordem",
     "emptyQueue": "Nenhuma tecnologia na fila",
     "currentlyUpgrading": "Em Andamento",
     "markComplete": "Marcar como concluído",
@@ -164,7 +165,7 @@
     "badgePast": "CONCLUÍDO"
   },
   "admin": {
-    "title": "☠️ Camarote do Capitão",
+    "title": "🎯 Centro de Comando",
     "tabMembers": "Membros",
     "tabDemerits": "Advertências",
     "tabVsPoints": "Pontos VS",
@@ -238,5 +239,36 @@
     "colMessage": "Mensagem",
     "emptyNone": "Nenhum erro registrado.",
     "unknownUser": "desconhecido"
+  },
+  "storm": {
+    "failedToLoad": "Falha ao carregar dados da tempestade",
+    "removeMemberAriaLabel": "Remover membro",
+    "teamLabel": "Equipe {{team}}",
+    "subsCountSuffix": " · {{count}}/{{cap}} reservas",
+    "thpUnit": "THP",
+    "participantsLabel": "Participantes",
+    "substitutesLabel": "Reservas",
+    "noParticipantsAssigned": "Nenhum participante atribuído",
+    "noSubstitutesAssigned": "Nenhuma reserva atribuída",
+    "addMemberFailed": "Falha ao adicionar membro",
+    "removeMemberFailed": "Falha ao remover membro",
+    "updateAttendanceFailed": "Falha ao atualizar presença",
+    "currentWeekButton": "Semana Atual",
+    "historyButton": "Histórico",
+    "weekOf": "Semana de {{date}}",
+    "currentLabel": "· Atual",
+    "pastLabel": "(passada)",
+    "noPastEvents": "Nenhum evento passado registrado ainda.",
+    "assignedSummary": "{{count}} atribuídos · {{present}} presentes · {{noShow}} ausências",
+    "noMembersRecorded": "Nenhum membro registrado",
+    "subBadge": "Res",
+    "addToTeamTitle": "Adicionar à Equipe {{team}} — {{role}}",
+    "participantRole": "Participante",
+    "substituteRole": "Reserva",
+    "noShowCount_one": "{{count}} ausência",
+    "noShowCount_other": "{{count}} ausências",
+    "present": "Presente",
+    "noShow": "Ausente",
+    "subbedIn": "Substituído"
   }
 }

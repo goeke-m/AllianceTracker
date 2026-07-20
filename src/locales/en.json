@@ -34,30 +34,32 @@
     "searchNameOrServerPlaceholder": "Search name or server..."
   },
   "nav": {
-    "schedule": "Voyage Log",
-    "map": "Treasure Map",
-    "tech": "Ship Upgrades",
+    "schedule": "Ops Log",
+    "map": "Tactical Map",
+    "tech": "Armory",
     "kills": "Kill List",
     "friends": "Friends",
-    "out": "Shore Leave",
-    "admin": "Captain",
-    "signOut": "Abandon Ship"
+    "out": "Stand Down",
+    "admin": "Command",
+    "signOut": "Sign Out",
+    "ds": "Desert Storm",
+    "canyon": "Canyon Storm"
   },
   "login": {
-    "tagline": "Pirates of the Seven Seas",
-    "settingSail": "Setting sail...",
-    "googleButton": "Board with Google",
-    "discordButton": "Board with Discord",
+    "tagline": "Forged in War",
+    "settingSail": "Deploying...",
+    "googleButton": "Sign In with Google",
+    "discordButton": "Sign In with Discord",
     "orDivider": "or",
-    "emailLabel": "Pirate's Address",
+    "emailLabel": "Email",
     "emailPlaceholder": "your@email.com",
-    "passwordLabel": "Secret Code",
+    "passwordLabel": "Password",
     "passwordPlaceholder": "••••••••",
-    "submitButton": "Board the Ship"
+    "submitButton": "Sign In"
   },
   "profileBar": {
-    "loadingText": "Charting the seas...",
-    "captainBadge": "CAPTAIN"
+    "loadingText": "Standing by...",
+    "captainBadge": "COMMAND"
   },
   "schedule": {
     "dow": { "Sun": "Sun", "Mon": "Mon", "Tue": "Tue", "Wed": "Wed", "Thu": "Thu", "Fri": "Fri", "Sat": "Sat" },
@@ -75,17 +77,16 @@
     "sourceTopThu": "Top {{metric}} (Thu)",
     "sourceTopFri": "Top {{metric}} (Fri)",
     "weekModeUpdateFailed": "Failed to update week mode",
-    "title": "Voyage Schedule",
+    "title": "Train Schedule",
     "pushWeek": "Push Week",
     "saveWeek": "Save Week",
     "r4RotationTitleAttr": "View R4 rotation list",
     "r4RotationLabel": "R4 Rotation",
-    "subtitle": "Daily voyage departs ~1:00 EST · Sun–Sun view",
     "today": "TODAY",
     "setEntry": "+ Set",
-    "captainColumnLabel": "Captain",
-    "firstMateColumnLabel": "First Mate",
-    "captainsLogLabel": "Captain's Log",
+    "captainColumnLabel": "Conductor",
+    "firstMateColumnLabel": "VIP",
+    "captainsLogLabel": "Mission Notes",
     "notesPlaceholder": "e.g. R4/VS Previous Day"
   },
   "map": {
@@ -117,7 +118,7 @@
     "saveFailedDefault": "Save failed",
     "completeFailedDefault": "Failed to complete",
     "reorderFailedDefault": "Reorder failed",
-    "subtitle": "Planned ship improvements in order",
+    "subtitle": "Planned armory upgrades in order",
     "emptyQueue": "No techs queued",
     "currentlyUpgrading": "Currently Upgrading",
     "markComplete": "Mark complete",
@@ -164,7 +165,7 @@
     "badgePast": "DONE"
   },
   "admin": {
-    "title": "☠️ Captain's Quarters",
+    "title": "🎯 Command Center",
     "tabMembers": "Members",
     "tabDemerits": "Demerits",
     "tabVsPoints": "VS Points",
@@ -238,5 +239,36 @@
     "colMessage": "Message",
     "emptyNone": "No errors logged.",
     "unknownUser": "unknown"
+  },
+  "storm": {
+    "failedToLoad": "Failed to load storm data",
+    "removeMemberAriaLabel": "Remove member",
+    "teamLabel": "Team {{team}}",
+    "subsCountSuffix": " · {{count}}/{{cap}} subs",
+    "thpUnit": "THP",
+    "participantsLabel": "Participants",
+    "substitutesLabel": "Substitutes",
+    "noParticipantsAssigned": "No participants assigned",
+    "noSubstitutesAssigned": "No substitutes assigned",
+    "addMemberFailed": "Failed to add member",
+    "removeMemberFailed": "Failed to remove member",
+    "updateAttendanceFailed": "Failed to update attendance",
+    "currentWeekButton": "Current Week",
+    "historyButton": "History",
+    "weekOf": "Week of {{date}}",
+    "currentLabel": "· Current",
+    "pastLabel": "(past)",
+    "noPastEvents": "No past events recorded yet.",
+    "assignedSummary": "{{count}} assigned · {{present}} present · {{noShow}} no-shows",
+    "noMembersRecorded": "No members recorded",
+    "subBadge": "Sub",
+    "addToTeamTitle": "Add to Team {{team}} — {{role}}",
+    "participantRole": "Participant",
+    "substituteRole": "Substitute",
+    "noShowCount_one": "{{count}} no-show",
+    "noShowCount_other": "{{count}} no-shows",
+    "present": "Present",
+    "noShow": "No-show",
+    "subbedIn": "Subbed In"
   }
 }

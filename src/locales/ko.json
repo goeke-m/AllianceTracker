@@ -34,30 +34,32 @@
     "searchNameOrServerPlaceholder": "이름 또는 서버 검색..."
   },
   "nav": {
-    "schedule": "항해 일지",
-    "map": "보물 지도",
-    "tech": "함선 업그레이드",
+    "schedule": "작전 일지",
+    "map": "전술 지도",
+    "tech": "무기고",
     "kills": "킬 리스트",
     "friends": "친구 목록",
-    "out": "휴가",
-    "admin": "선장",
-    "signOut": "배 버리기"
+    "out": "대기 해제",
+    "admin": "지휘부",
+    "signOut": "로그아웃",
+    "ds": "Desert Storm",
+    "canyon": "Canyon Storm"
   },
   "login": {
-    "tagline": "칠대양의 해적",
-    "settingSail": "출항 중...",
-    "googleButton": "Google로 승선",
-    "discordButton": "Discord로 승선",
+    "tagline": "전쟁 속에서 단련되다",
+    "settingSail": "배치 중...",
+    "googleButton": "Google로 로그인",
+    "discordButton": "Discord로 로그인",
     "orDivider": "또는",
-    "emailLabel": "해적의 주소",
+    "emailLabel": "이메일",
     "emailPlaceholder": "your@email.com",
-    "passwordLabel": "비밀 암호",
+    "passwordLabel": "비밀번호",
     "passwordPlaceholder": "••••••••",
-    "submitButton": "승선하기"
+    "submitButton": "로그인"
   },
   "profileBar": {
-    "loadingText": "항해 준비 중...",
-    "captainBadge": "선장"
+    "loadingText": "대기 중...",
+    "captainBadge": "지휘관"
   },
   "schedule": {
     "dow": { "Sun": "일", "Mon": "월", "Tue": "화", "Wed": "수", "Thu": "목", "Fri": "금", "Sat": "토" },
@@ -75,17 +77,16 @@
     "sourceTopThu": "최고 {{metric}} (목)",
     "sourceTopFri": "최고 {{metric}} (금)",
     "weekModeUpdateFailed": "주간 모드 업데이트 실패",
-    "title": "항해 일정",
+    "title": "훈련 일정",
     "pushWeek": "주간 밀기",
     "saveWeek": "주간 저장",
     "r4RotationTitleAttr": "R4 순환 목록 보기",
     "r4RotationLabel": "R4 순환",
-    "subtitle": "매일 오후 1시(EST)경 출항 · 일–일 보기",
     "today": "오늘",
     "setEntry": "+ 설정",
-    "captainColumnLabel": "선장",
-    "firstMateColumnLabel": "1등 항해사",
-    "captainsLogLabel": "선장 일지",
+    "captainColumnLabel": "기관사",
+    "firstMateColumnLabel": "VIP",
+    "captainsLogLabel": "임무 메모",
     "notesPlaceholder": "예: R4/VS 전날"
   },
   "map": {
@@ -117,7 +118,7 @@
     "saveFailedDefault": "저장 실패",
     "completeFailedDefault": "완료 처리 실패",
     "reorderFailedDefault": "순서 변경 실패",
-    "subtitle": "계획된 함선 개선 순서",
+    "subtitle": "계획된 무기고 업그레이드 순서",
     "emptyQueue": "대기 중인 기술 없음",
     "currentlyUpgrading": "업그레이드 중",
     "markComplete": "완료 표시",
@@ -164,7 +165,7 @@
     "badgePast": "완료"
   },
   "admin": {
-    "title": "☠️ 선장실",
+    "title": "🎯 지휘 본부",
     "tabMembers": "멤버",
     "tabDemerits": "감점",
     "tabVsPoints": "VS 포인트",
@@ -237,5 +238,35 @@
     "colMessage": "메시지",
     "emptyNone": "기록된 오류가 없습니다.",
     "unknownUser": "알 수 없음"
+  },
+  "storm": {
+    "failedToLoad": "폭풍 데이터를 불러오지 못했습니다",
+    "removeMemberAriaLabel": "멤버 제거",
+    "teamLabel": "{{team}} 팀",
+    "subsCountSuffix": " · 예비 {{count}}/{{cap}}",
+    "thpUnit": "THP",
+    "participantsLabel": "참가자",
+    "substitutesLabel": "예비 인원",
+    "noParticipantsAssigned": "배정된 참가자가 없습니다",
+    "noSubstitutesAssigned": "배정된 예비 인원이 없습니다",
+    "addMemberFailed": "멤버 추가 실패",
+    "removeMemberFailed": "멤버 제거 실패",
+    "updateAttendanceFailed": "출석 업데이트 실패",
+    "currentWeekButton": "이번 주",
+    "historyButton": "기록",
+    "weekOf": "{{date}} 주",
+    "currentLabel": "· 현재",
+    "pastLabel": "(지난 주)",
+    "noPastEvents": "기록된 지난 이벤트가 없습니다.",
+    "assignedSummary": "{{count}}명 배정 · {{present}}명 참석 · {{noShow}}명 불참",
+    "noMembersRecorded": "기록된 멤버가 없습니다",
+    "subBadge": "예비",
+    "addToTeamTitle": "{{team}} 팀에 추가 — {{role}}",
+    "participantRole": "참가자",
+    "substituteRole": "예비 인원",
+    "noShowCount_other": "불참 {{count}}회",
+    "present": "참석",
+    "noShow": "불참",
+    "subbedIn": "교체 투입"
   }
 }
