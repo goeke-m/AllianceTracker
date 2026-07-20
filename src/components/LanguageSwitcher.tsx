@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
                 setOpen(false)
               }}
               className={`block w-full text-left px-3 py-2 text-xs whitespace-nowrap ${
-                language === opt.code ? 'text-game-gold' : 'text-gray-300 hover:text-white'
+                language === opt.code ? 'text-game-primary' : 'text-gray-300 hover:text-white'
               }`}
             >
               {opt.label}
