@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import type { TFunction } from 'i18next'
 import { useAuth } from '../hooks/useAuth'
 import { useStormEvent } from '../hooks/useStormEvent'
 import { logError } from '../lib/errorLog'
+import { formatNumber } from '../lib/locale'
 import type { AttendanceStatus, Member, StormConfig, StormRosterEntry } from '../lib/types'
 
 function formatWeekStart(iso: string): string {
@@ -28,11 +31,11 @@ function attendancePillClass(attendance: AttendanceStatus | null): string {
   }
 }
 
-function attendanceLabel(attendance: AttendanceStatus | null): string {
+function attendanceLabel(attendance: AttendanceStatus | null, t: TFunction): string {
   switch (attendance) {
-    case 'present': return 'Present'
-    case 'no_show': return 'No-show'
-    case 'subbed_in': return 'Subbed In'
+    case 'present': return t('storm.present')
+    case 'no_show': return t('storm.noShow')
+    case 'subbed_in': return t('storm.subbedIn')
     default: return '—'
   }
 }
@@ -61,6 +64,7 @@ function TeamPanel({
   isAdmin, isPastWeek, actionError,
   onAdd, onRemove, onCycleAttendance,
 }: TeamPanelProps) {
+  const { t } = useTranslation()
   const participants = roster.filter(r => r.team === team && r.role === 'participant')
   const substitutes = roster.filter(r => r.team === team && r.role === 'substitute')
 
@@ -80,7 +84,7 @@ function TeamPanel({
           <span className="text-gray-400 text-xs shrink-0">{member?.Rank}</span>
           {member?.THP != null && (
             <span className="text-gray-400 text-xs shrink-0">
-              {member.THP.toLocaleString()}
+              {formatNumber(member.THP)}
             </span>
           )}
         </div>
@@ -90,13 +94,13 @@ function TeamPanel({
               onClick={() => onCycleAttendance(entry.id, entry.attendance)}
               className={`text-xs px-2 py-0.5 rounded font-medium transition-opacity hover:opacity-80 ${attendancePillClass(entry.attendance)}`}
             >
-              {attendanceLabel(entry.attendance)}
+              {attendanceLabel(entry.attendance, t)}
             </button>
             {!isPastWeek && (
               <button
                 onClick={() => onRemove(entry.id)}
                 className="text-gray-500 hover:text-game-highlight text-lg leading-none px-1 transition-colors"
-                aria-label="Remove member"
+                aria-label={t('storm.removeMemberAriaLabel')}
               >
                 ×
               </button>
@@ -105,7 +109,7 @@ function TeamPanel({
         ) : (
           entry.attendance && (
             <span className={`text-xs px-2 py-0.5 rounded font-medium ${attendancePillClass(entry.attendance)}`}>
-              {attendanceLabel(entry.attendance)}
+              {attendanceLabel(entry.attendance, t)}
             </span>
           )
         )}
@@ -117,14 +121,14 @@ function TeamPanel({
     <div className="bg-game-card border border-game-accent rounded-xl p-3 mb-3">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <h2 className="text-game-primary font-bold">Team {team}</h2>
+          <h2 className="text-game-primary font-bold">{t('storm.teamLabel', { team })}</h2>
           <span className="text-gray-400 text-xs">
             {participants.length}/{config.participantCap}
-            {config.substituteCap > 0 && ` · ${substitutes.length}/${config.substituteCap} subs`}
+            {config.substituteCap > 0 && t('storm.subsCountSuffix', { count: substitutes.length, cap: config.substituteCap })}
           </span>
         </div>
         <span className="text-xs text-gray-300">
-          {totalPower > 0 ? `${totalPower.toLocaleString()} THP` : '—'}
+          {totalPower > 0 ? `${formatNumber(totalPower)} ${t('storm.thpUnit')}` : '—'}
         </span>
       </div>
 
@@ -133,18 +137,18 @@ function TeamPanel({
       {/* Participants */}
       <div className="mb-2">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-xs text-gray-500 uppercase tracking-wide">Participants</span>
+          <span className="text-xs text-gray-500 uppercase tracking-wide">{t('storm.participantsLabel')}</span>
           {isAdmin && !isPastWeek && participants.length < config.participantCap && (
             <button
               onClick={() => onAdd({ team, role: 'participant' })}
               className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors"
             >
-              + Add
+              {t('common.addButton')}
             </button>
           )}
         </div>
         {participants.length === 0 ? (
-          <p className="text-gray-600 text-xs italic">No participants assigned</p>
+          <p className="text-gray-600 text-xs italic">{t('storm.noParticipantsAssigned')}</p>
         ) : (
           participants.map(renderRow)
         )}
@@ -154,18 +158,18 @@ function TeamPanel({
       {config.substituteCap > 0 && (
         <div>
           <div className="flex items-center justify-between mb-1">
-            <span className="text-xs text-gray-500 uppercase tracking-wide">Substitutes</span>
+            <span className="text-xs text-gray-500 uppercase tracking-wide">{t('storm.substitutesLabel')}</span>
             {isAdmin && !isPastWeek && substitutes.length < config.substituteCap && (
               <button
                 onClick={() => onAdd({ team, role: 'substitute' })}
                 className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors"
               >
-                + Add
+                {t('common.addButton')}
               </button>
             )}
           </div>
           {substitutes.length === 0 ? (
-            <p className="text-gray-600 text-xs italic">No substitutes assigned</p>
+            <p className="text-gray-600 text-xs italic">{t('storm.noSubstitutesAssigned')}</p>
           ) : (
             substitutes.map(renderRow)
           )}
@@ -180,6 +184,7 @@ interface StormPageProps {
 }
 
 export function StormPage({ config }: StormPageProps) {
+  const { t } = useTranslation()
   const { isAdmin } = useAuth()
   const {
     event: _event,
@@ -213,7 +218,7 @@ export function StormPage({ config }: StormPageProps) {
       await addMember(memberId, addingTo.team, addingTo.role)
       setAddingTo(null)
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : 'Failed to add member')
+      setActionError(err instanceof Error ? err.message : t('storm.addMemberFailed'))
       logError(`StormPage(${config.eventType}).addMember`, err)
     }
   }
@@ -223,7 +228,7 @@ export function StormPage({ config }: StormPageProps) {
     try {
       await removeMember(rosterId)
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : 'Failed to remove member')
+      setActionError(err instanceof Error ? err.message : t('storm.removeMemberFailed'))
       logError(`StormPage(${config.eventType}).removeMember`, err)
     }
   }
@@ -234,7 +239,7 @@ export function StormPage({ config }: StormPageProps) {
     try {
       await updateAttendance(rosterId, next)
     } catch (err) {
-      setActionError(err instanceof Error ? err.message : 'Failed to update attendance')
+      setActionError(err instanceof Error ? err.message : t('storm.updateAttendanceFailed'))
       logError(`StormPage(${config.eventType}).updateAttendance`, err)
     }
   }
@@ -247,7 +252,7 @@ export function StormPage({ config }: StormPageProps) {
   if (loading) {
     return (
       <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">Standing by...</p>
+        <p className="text-gray-400 animate-pulse">{t('profileBar.loadingText')}</p>
       </div>
     )
   }
@@ -277,11 +282,11 @@ export function StormPage({ config }: StormPageProps) {
             <h1 className="text-xl font-bold text-game-primary">{config.label}</h1>
             {!showHistory && (
               <p className="text-xs text-gray-400">
-                Week of {formatWeekStart(weekStart)}
+                {t('storm.weekOf', { date: formatWeekStart(weekStart) })}
                 {weekOffset === 0 && (
-                  <span className="ml-1 text-game-primary font-semibold">· Current</span>
+                  <span className="ml-1 text-game-primary font-semibold">{t('storm.currentLabel')}</span>
                 )}
-                {isPastWeek && <span className="ml-1 text-gray-500">(past)</span>}
+                {isPastWeek && <span className="ml-1 text-gray-500">{t('storm.pastLabel')}</span>}
               </p>
             )}
           </div>
@@ -303,7 +308,7 @@ export function StormPage({ config }: StormPageProps) {
               : 'border-gray-600 text-gray-400 hover:text-white'
           }`}
         >
-          {showHistory ? 'Current Week' : 'History'}
+          {showHistory ? t('storm.currentWeekButton') : t('storm.historyButton')}
         </button>
       </div>
 
@@ -312,24 +317,24 @@ export function StormPage({ config }: StormPageProps) {
         <div className="space-y-2">
           {historicEvents.length === 0 && (
             <p className="text-gray-500 text-sm italic text-center mt-8">
-              No past events recorded yet.
+              {t('storm.noPastEvents')}
             </p>
           )}
           {historicEvents.map(({ event: ev, roster: evRoster }) => {
             const isExpanded = expandedWeek === ev.week_start
 
-            function teamAttendanceSummary(t: 'A' | 'B'): string {
-              const tRoster = evRoster.filter(r => r.team === t)
+            function teamAttendanceSummary(team: 'A' | 'B'): string {
+              const tRoster = evRoster.filter(r => r.team === team)
               const present = tRoster.filter(
                 r => r.attendance === 'present' || r.attendance === 'subbed_in'
               ).length
               const noShow = tRoster.filter(r => r.attendance === 'no_show').length
-              return `${tRoster.length} assigned · ${present} present · ${noShow} no-shows`
+              return t('storm.assignedSummary', { count: tRoster.length, present, noShow })
             }
 
-            function teamPowerFor(t: 'A' | 'B'): number {
+            function teamPowerFor(team: 'A' | 'B'): number {
               return evRoster
-                .filter(r => r.team === t)
+                .filter(r => r.team === team)
                 .reduce((sum, r) => {
                   const m = members.find(mb => mb.id === r.member_id)
                   return sum + (m?.THP ?? 0)
@@ -347,17 +352,17 @@ export function StormPage({ config }: StormPageProps) {
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-game-primary font-semibold text-sm">
-                      Week of {formatWeekStart(ev.week_start)}
+                      {t('storm.weekOf', { date: formatWeekStart(ev.week_start) })}
                     </span>
                     <span className="text-gray-500 text-xs">{isExpanded ? '▲' : '▼'}</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
-                    {(['A', 'B'] as const).map(t => (
-                      <div key={t}>
-                        <p className="text-xs text-gray-500 font-semibold">Team {t}</p>
-                        <p className="text-xs text-gray-300">{teamAttendanceSummary(t)}</p>
+                    {(['A', 'B'] as const).map(team => (
+                      <div key={team}>
+                        <p className="text-xs text-gray-500 font-semibold">{t('storm.teamLabel', { team })}</p>
+                        <p className="text-xs text-gray-300">{teamAttendanceSummary(team)}</p>
                         <p className="text-xs text-gray-400">
-                          {teamPowerFor(t).toLocaleString()} THP
+                          {formatNumber(teamPowerFor(team))} {t('storm.thpUnit')}
                         </p>
                       </div>
                     ))}
@@ -366,13 +371,13 @@ export function StormPage({ config }: StormPageProps) {
 
                 {isExpanded && (
                   <div className="border-t border-game-accent px-3 pb-3 pt-2 space-y-3">
-                    {(['A', 'B'] as const).map(t => {
-                      const tRoster = evRoster.filter(r => r.team === t)
+                    {(['A', 'B'] as const).map(team => {
+                      const tRoster = evRoster.filter(r => r.team === team)
                       return (
-                        <div key={t}>
-                          <p className="text-xs text-game-primary font-semibold mb-1">Team {t}</p>
+                        <div key={team}>
+                          <p className="text-xs text-game-primary font-semibold mb-1">{t('storm.teamLabel', { team })}</p>
                           {tRoster.length === 0 ? (
-                            <p className="text-gray-600 text-xs italic">No members recorded</p>
+                            <p className="text-gray-600 text-xs italic">{t('storm.noMembersRecorded')}</p>
                           ) : (
                             tRoster.map(entry => {
                               const m = members.find(mb => mb.id === entry.member_id)
@@ -390,18 +395,18 @@ export function StormPage({ config }: StormPageProps) {
                                     </span>
                                     {m?.THP != null && (
                                       <span className="text-gray-400 text-xs shrink-0">
-                                        {m.THP.toLocaleString()}
+                                        {formatNumber(m.THP)}
                                       </span>
                                     )}
                                     {entry.role === 'substitute' && (
-                                      <span className="text-gray-500 text-xs shrink-0">Sub</span>
+                                      <span className="text-gray-500 text-xs shrink-0">{t('storm.subBadge')}</span>
                                     )}
                                   </div>
                                   {entry.attendance && (
                                     <span
                                       className={`text-xs px-2 py-0.5 rounded font-medium shrink-0 ${attendancePillClass(entry.attendance)}`}
                                     >
-                                      {attendanceLabel(entry.attendance)}
+                                      {attendanceLabel(entry.attendance, t)}
                                     </span>
                                   )}
                                 </div>
@@ -445,8 +450,10 @@ export function StormPage({ config }: StormPageProps) {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md flex flex-col max-h-[80vh]">
             <div className="flex items-center justify-between p-4 border-b border-game-accent">
               <h2 className="text-game-primary font-bold text-sm">
-                Add to Team {addingTo.team} —{' '}
-                {addingTo.role === 'participant' ? 'Participant' : 'Substitute'}
+                {t('storm.addToTeamTitle', {
+                  team: addingTo.team,
+                  role: addingTo.role === 'participant' ? t('storm.participantRole') : t('storm.substituteRole'),
+                })}
               </h2>
               <button
                 onClick={() => setAddingTo(null)}
@@ -475,13 +482,13 @@ export function StormPage({ config }: StormPageProps) {
                       <span className="text-gray-400 text-xs shrink-0">{m.Rank}</span>
                       {m.THP != null && (
                         <span className="text-gray-400 text-xs shrink-0">
-                          {m.THP.toLocaleString()}
+                          {formatNumber(m.THP)}
                         </span>
                       )}
                     </div>
                     {noShows > 0 && (
                       <span className="text-xs bg-red-900 text-red-300 px-1.5 py-0.5 rounded shrink-0 ml-2">
-                        {noShows} no-show{noShows !== 1 ? 's' : ''}
+                        {t('storm.noShowCount', { count: noShows })}
                       </span>
                     )}
                   </button>

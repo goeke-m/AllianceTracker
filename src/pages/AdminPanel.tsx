@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { MemberManager } from '../components/MemberManager'
 import { DemeritManager } from '../components/DemeritManager'
 import { VsPointManager } from '../components/VsPointManager'
@@ -9,17 +10,25 @@ import { OWNER_USER_ID } from '../lib/constants'
 
 type AdminTab = 'members' | 'demerits' | 'vs points' | 'errors'
 
+const TAB_LABEL_KEYS: Record<AdminTab, string> = {
+  members: 'admin.tabMembers',
+  demerits: 'admin.tabDemerits',
+  'vs points': 'admin.tabVsPoints',
+  errors: 'admin.tabErrors',
+}
+
 export function AdminPanel() {
+  const { t } = useTranslation()
   const { members, loading, error, refresh } = useMarshallData()
   const { user } = useAuth()
   const [tab, setTab] = useState<AdminTab>('members')
 
   return (
     <div className="p-4 pb-24 space-y-4">
-      <h1 className="text-xl font-bold text-game-primary">🎯 Command Center</h1>
+      <h1 className="text-xl font-bold text-game-primary">{t('admin.title')}</h1>
 
       {loading && (
-        <div className="text-center py-8 text-game-primary animate-pulse">Loading...</div>
+        <div className="text-center py-8 text-game-primary animate-pulse">{t('common.loading')}</div>
       )}
 
       {error && (
@@ -33,17 +42,17 @@ export function AdminPanel() {
           <div className="flex gap-1 border-b border-game-accent">
             {(['members', 'demerits', 'vs points'] as AdminTab[])
               .concat(user?.id === OWNER_USER_ID ? ['errors'] : [])
-              .map((t) => (
+              .map((tabId) => (
                 <button
-                  key={t}
-                  onClick={() => setTab(t)}
-                  className={`px-4 py-2 text-sm font-semibold capitalize transition-colors border-b-2 -mb-px ${
-                    tab === t
+                  key={tabId}
+                  onClick={() => setTab(tabId)}
+                  className={`px-4 py-2 text-sm font-semibold transition-colors border-b-2 -mb-px ${
+                    tab === tabId
                       ? 'border-game-primary text-game-primary'
                       : 'border-transparent text-gray-500 hover:text-gray-300'
                   }`}
                 >
-                  {t}
+                  {t(TAB_LABEL_KEYS[tabId])}
                 </button>
               ))}
           </div>

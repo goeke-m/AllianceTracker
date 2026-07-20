@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from './hooks/useAuth'
 import { LoginPage } from './components/LoginPage'
 import { NavBar } from './components/NavBar'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { MarshallMap } from './pages/MarshallMap'
 import { TrainSchedule } from './pages/TrainSchedule'
 import { Out } from './pages/Out'
@@ -20,6 +22,7 @@ const SUPABASE_CONFIGURED =
 export function App() {
   const { user, isAdmin, loading, signIn, signInWithOAuth, signOut } = useAuth()
   const [page, setPage] = useState<Page>('schedule')
+  const { t } = useTranslation()
 
   if (!SUPABASE_CONFIGURED) {
     return (
@@ -44,7 +47,7 @@ export function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-game-dark flex items-center justify-center">
-        <p className="text-game-primary animate-pulse">Standing by...</p>
+        <p className="text-game-primary animate-pulse">{t('profileBar.loadingText')}</p>
       </div>
     )
   }
@@ -61,11 +64,14 @@ export function App() {
       {/* Profile badge */}
       <div className="fixed top-0 left-0 right-0 bg-game-card border-b border-game-accent px-4 py-2 flex items-center justify-between z-40">
         <span className="text-xs text-gray-400 truncate">{user.email}</span>
-        {isAdmin && (
-          <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
-            COMMAND
-          </span>
-        )}
+        <div className="flex items-center gap-2">
+          {isAdmin && (
+            <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
+              {t('profileBar.captainBadge')}
+            </span>
+          )}
+          <LanguageSwitcher />
+        </div>
       </div>
 
       {/* Page content with top/bottom padding for fixed bars */}

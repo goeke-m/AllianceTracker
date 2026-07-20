@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { MarshallVisualizer } from '../components/MarshallVisualizer'
 import { EventLogImport } from '../components/EventLogImport'
 import { useMarshallData } from '../hooks/useMarshallData'
 import { formatNumber } from '../lib/wad'
 import { supabase } from '../lib/supabase'
+import { formatDate } from '../lib/locale'
 
 interface MarshallMapProps {
   isAdmin?: boolean
@@ -12,6 +14,7 @@ interface MarshallMapProps {
 type AdminTab = 'import' | 'logs'
 
 export function MarshallMap({ isAdmin }: MarshallMapProps) {
+  const { t } = useTranslation()
   const { positions, members, damageLogs, loading, error, refresh } = useMarshallData()
   const [adminTab, setAdminTab] = useState<AdminTab>('import')
   const [clearingMemberId, setClearingMemberId] = useState<string | null>(null)
@@ -36,7 +39,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-game-primary animate-pulse text-lg">Loading map...</div>
+        <div className="text-game-primary animate-pulse text-lg">{t('map.loadingMap')}</div>
       </div>
     )
   }
@@ -51,7 +54,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
           onClick={refresh}
           className="mt-3 text-sm text-game-primary underline"
         >
-          Retry
+          {t('map.retry')}
         </button>
       </div>
     )
@@ -64,19 +67,19 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
   return (
     <div className="p-4 pb-24 space-y-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold text-game-primary">Marshall Map</h1>
+        <h1 className="text-xl font-bold text-game-primary">{t('map.title')}</h1>
         <button
           onClick={refresh}
           className="text-xs text-gray-400 hover:text-white border border-game-accent px-2 py-1 rounded"
         >
-          Refresh
+          {t('map.refresh')}
         </button>
       </div>
 
       {positions.length === 0 ? (
         <div className="text-center py-12 text-gray-500">
           <p className="text-4xl mb-3">🗺</p>
-          <p>No members yet. Ask your admin to add members and import damage data.</p>
+          <p>{t('map.emptyState')}</p>
         </div>
       ) : (
         <>
@@ -86,16 +89,16 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
           {ring3.length > 0 && (
             <div className="mt-4">
               <h2 className="text-sm font-semibold text-gray-400 mb-2">
-                Ring 3+ ({ring3.length} members)
+                {t('map.ring3Heading', { count: ring3.length })}
               </h2>
               <div className="bg-game-card border border-game-accent rounded-xl overflow-hidden">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-game-accent text-gray-400 text-xs">
                       <th className="text-left px-3 py-2">#</th>
-                      <th className="text-left px-3 py-2">Name</th>
-                      <th className="text-left px-3 py-2">Rank</th>
-                      <th className="text-right px-3 py-2">WAD</th>
+                      <th className="text-left px-3 py-2">{t('common.name')}</th>
+                      <th className="text-left px-3 py-2">{t('map.colRankLabel')}</th>
+                      <th className="text-right px-3 py-2">{t('map.colWad')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -118,9 +121,9 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
           {/* Summary stats */}
           <div className="grid grid-cols-3 gap-2 mt-2">
             {[
-              { label: 'Ring 1', count: ring1.length, color: 'text-game-leadership' },
-              { label: 'Ring 2', count: ring2.length, color: 'text-game-standard' },
-              { label: 'Ring 3+', count: ring3.length, color: 'text-gray-400' },
+              { label: t('map.ring1Label'), count: ring1.length, color: 'text-game-leadership' },
+              { label: t('map.ring2Label'), count: ring2.length, color: 'text-game-standard' },
+              { label: t('map.ring3Label'), count: ring3.length, color: 'text-gray-400' },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -139,24 +142,24 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
         <div className="mt-6 border-t border-game-accent pt-4 space-y-3">
           <div className="flex items-center gap-2">
             <span className="text-xs bg-game-leadership text-game-dark font-bold px-2 py-0.5 rounded">
-              ADMIN
+              {t('map.adminBadge')}
             </span>
-            <span className="text-sm font-semibold text-gray-300">Data Management</span>
+            <span className="text-sm font-semibold text-gray-300">{t('map.dataManagement')}</span>
           </div>
 
           {/* Sub-tabs */}
           <div className="flex bg-game-dark border border-game-accent rounded-lg p-1 gap-1">
-            {(['import', 'logs'] as AdminTab[]).map((t) => (
+            {(['import', 'logs'] as AdminTab[]).map((tab) => (
               <button
-                key={t}
-                onClick={() => setAdminTab(t)}
+                key={tab}
+                onClick={() => setAdminTab(tab)}
                 className={`flex-1 py-1.5 rounded text-sm font-medium capitalize transition-colors ${
-                  adminTab === t
+                  adminTab === tab
                     ? 'bg-game-accent text-game-primary'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
-                {t === 'import' ? 'Import' : 'Logs'}
+                {tab === 'import' ? t('common.import') : t('map.tabLogs')}
               </button>
             ))}
           </div>
@@ -169,14 +172,14 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-bold text-white">
-                  Damage Logs ({damageLogs.length} entries)
+                  {t('map.damageLogsHeading', { count: damageLogs.length })}
                 </h2>
                 {logFilter.size > 0 && (
                   <button
                     onClick={() => setLogFilter(new Set())}
                     className="text-xs text-gray-400 hover:text-white border border-game-accent px-2 py-0.5 rounded"
                   >
-                    Clear filter
+                    {t('map.clearFilter')}
                   </button>
                 )}
               </div>
@@ -221,18 +224,18 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
                         disabled={clearingMemberId === m.id}
                         className="text-xs text-game-highlight border border-red-800 px-2 py-0.5 rounded hover:bg-red-900/30 disabled:opacity-50"
                       >
-                        {clearingMemberId === m.id ? '...' : 'Clear'}
+                        {clearingMemberId === m.id ? t('common.deletingIndicator') : t('common.clear')}
                       </button>
                     </div>
                     <div className="space-y-1">
                       {logs.slice(0, 5).map((log, i) => (
                         <div key={log.id} className="flex justify-between text-xs text-gray-400">
-                          <span>#{i + 1} {new Date(log.event_date).toLocaleDateString()}</span>
+                          <span>#{i + 1} {formatDate(log.event_date)}</span>
                           <span className="font-mono text-white">{formatNumber(log.damage)}</span>
                         </div>
                       ))}
                       {logs.length > 5 && (
-                        <p className="text-xs text-gray-600">+{logs.length - 5} more</p>
+                        <p className="text-xs text-gray-600">{t('map.moreLogsCount', { count: logs.length - 5 })}</p>
                       )}
                     </div>
                   </div>
@@ -241,7 +244,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
 
               {damageLogs.length === 0 && (
                 <p className="text-gray-500 text-sm text-center py-8">
-                  No damage logs. Use the Import tab to add data.
+                  {t('map.noDamageLogs')}
                 </p>
               )}
             </div>

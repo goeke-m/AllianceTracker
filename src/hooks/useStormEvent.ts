@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
 import type { AttendanceStatus, Member, StormConfig, StormEvent, StormRosterEntry } from '../lib/types'
@@ -20,6 +21,7 @@ interface StormData {
 }
 
 export function useStormEvent(config: StormConfig) {
+  const { t } = useTranslation()
   const [weekOffset, setWeekOffset] = useState(0)
   const [data, setData] = useState<StormData>({
     event: null,
@@ -106,7 +108,7 @@ export function useStormEvent(config: StormConfig) {
 
       setData({ event, roster, members, noShowCounts, historicEvents })
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load storm data')
+      setError(err instanceof Error ? err.message : t('storm.failedToLoad'))
       logError(`useStormEvent(${config.eventType}).fetchData`, err)
     } finally {
       setLoading(false)

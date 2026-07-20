@@ -13,8 +13,10 @@
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
     "@supabase/supabase-js": "^2.98.0",
+    "i18next": "^26.3.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-i18next": "^17.0.10"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
