@@ -263,6 +263,8 @@
     "noMembersRecorded": "Nenhum membro registrado",
     "subBadge": "Res",
     "addToTeamTitle": "Adicionar à Equipe {{team}} — {{role}}",
+    "searchMembersPlaceholder": "Buscar membros…",
+    "noMembersFound": "Nenhum membro encontrado",
     "participantRole": "Participante",
     "substituteRole": "Reserva",
     "noShowCount_one": "{{count}} ausência",

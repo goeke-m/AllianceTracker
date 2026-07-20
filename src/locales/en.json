@@ -263,6 +263,8 @@
     "noMembersRecorded": "No members recorded",
     "subBadge": "Sub",
     "addToTeamTitle": "Add to Team {{team}} — {{role}}",
+    "searchMembersPlaceholder": "Search members…",
+    "noMembersFound": "No members found",
     "participantRole": "Participant",
     "substituteRole": "Substitute",
     "noShowCount_one": "{{count}} no-show",
