@@ -68,6 +68,33 @@ function getVsDayLabel(index: number, t: TFunction): string {
   return cycleIndex === 6 ? t('schedule.vsRestDay') : t('schedule.vsDay', { n: cycleIndex + 1 })
 }
 
+// VS days roll over at 10pm (22:00) US Eastern, not at local midnight —
+// so "today" for schedule purposes lags the calendar date until that reset.
+const VS_RESET_HOUR_ET = 22
+
+function getActiveVsDateStr(): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    hour12: false,
+  }).formatToParts(new Date())
+  const get = (type: string) => parts.find(p => p.type === type)?.value ?? ''
+  const rawHour = get('hour')
+  const hour = rawHour === '24' ? 0 : Number(rawHour)
+
+  const etDate = new Date(Date.UTC(Number(get('year')), Number(get('month')) - 1, Number(get('day'))))
+  if (hour < VS_RESET_HOUR_ET) {
+    etDate.setUTCDate(etDate.getUTCDate() - 1)
+  }
+  const y = etDate.getUTCFullYear()
+  const m = String(etDate.getUTCMonth() + 1).padStart(2, '0')
+  const d = String(etDate.getUTCDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
 interface EditState {
   date: string
   existingId?: string
@@ -88,8 +115,7 @@ export function TrainSchedule() {
   const [modeSaving, setModeSaving] = useState(false)
   const [modeError, setModeError] = useState<string | null>(null)
 
-  const now = new Date()
-  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
+  const todayStr = getActiveVsDateStr()
 
   const entryByDate = new Map<string, TrainEntry>()
   for (const e of entries) {
