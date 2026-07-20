@@ -9,13 +9,15 @@ interface NavBarProps {
 }
 
 const tabs: { id: Page; icon: string; adminOnly?: boolean }[] = [
-  { id: 'schedule', icon: '⚓' },
-  { id: 'map', icon: '🗺' },
-  { id: 'tech', icon: '⚔️' },
+  { id: 'schedule', icon: '📋' },
+  { id: 'map', icon: '🗺️' },
+  { id: 'tech', icon: '🔧' },
   { id: 'kills', icon: '⚔️' },
   { id: 'friends', icon: '🤝' },
-  { id: 'out', icon: '🏝️', adminOnly: true },
-  { id: 'admin', icon: '☠️', adminOnly: true },
+  { id: 'ds', icon: '🏜️' },
+  { id: 'canyon', icon: '🏔️' },
+  { id: 'out', icon: '🎖️', adminOnly: true },
+  { id: 'admin', icon: '🎯', adminOnly: true },
 ]
 
 export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps) {
@@ -31,20 +33,20 @@ export function NavBar({ current, isAdmin, onNavigate, onSignOut }: NavBarProps)
             onClick={() => onNavigate(tab.id)}
             className={`flex-1 flex flex-col items-center py-3 text-xs font-medium transition-colors ${
               current === tab.id
-                ? 'text-game-gold border-t-2 border-game-gold -mt-px'
+                ? 'text-game-primary border-t-2 border-game-primary -mt-px'
                 : 'text-gray-400 hover:text-white'
             }`}
           >
             <span className="text-lg mb-0.5">{tab.icon}</span>
-            <span>{t(`nav.${tab.id}`)}</span>
+            <span className="font-display">{t(`nav.${tab.id}`)}</span>
           </button>
         ))}
         <button
           onClick={onSignOut}
           className="flex-1 flex flex-col items-center py-3 text-xs font-medium text-gray-400 hover:text-game-highlight transition-colors"
         >
-          <span className="text-lg mb-0.5">🏴‍☠️</span>
-          <span>{t('nav.signOut')}</span>
+          <span className="text-lg mb-0.5">🚪</span>
+          <span className="font-display">{t('nav.signOut')}</span>
         </button>
       </div>
     </nav>

@@ -8,3 +8,8 @@ dist-ssr
 
 # Superpowers brainstorming sessions
 .superpowers/
+
+# Supabase local dev state
+supabase/.branches
+supabase/.temp
+supabase/.env

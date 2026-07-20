@@ -111,7 +111,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
         onChange={(e) => setJson(e.target.value)}
         placeholder={placeholder}
         rows={10}
-        className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-game-gold resize-none"
+        className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-game-primary resize-none"
       />
 
       {error && (
@@ -128,7 +128,7 @@ export function EventLogImport({ members, onSuccess }: EventLogImportProps) {
       <button
         onClick={handleImport}
         disabled={loading || !json.trim()}
-        className="w-full bg-game-gold text-game-dark font-bold py-2.5 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50"
+        className="w-full bg-game-primary text-game-dark font-bold py-2.5 rounded-lg hover:bg-sky-400 transition-colors disabled:opacity-50"
       >
         {loading ? t('common.importing') : t('common.import')}
       </button>

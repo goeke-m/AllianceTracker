@@ -118,7 +118,7 @@ export function Out() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-gold">{t('out.title')}</h1>
+        <h1 className="text-xl font-bold text-game-primary">{t('out.title')}</h1>
         {isAdmin && (
           <button
             onClick={openAdd}
@@ -195,7 +195,7 @@ export function Out() {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">
+              <h2 className="text-game-primary font-bold">
                 {editState.existingId ? t('out.modalEditTitle') : t('out.modalAddTitle')}
               </h2>
               <button onClick={() => setEditState(null)} className="text-gray-400 hover:text-white text-xl leading-none">

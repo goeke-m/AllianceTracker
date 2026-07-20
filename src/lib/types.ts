@@ -65,7 +65,7 @@ export interface OotoEntry {
   updated_at: string;
 }
 
-export type Page = 'map' | 'schedule' | 'out' | 'admin' | 'tech' | 'kills' | 'friends';
+export type Page = 'map' | 'schedule' | 'out' | 'admin' | 'tech' | 'kills' | 'friends' | 'ds' | 'canyon';
 
 export interface KillListEntry {
   id: string;
@@ -131,4 +131,33 @@ export interface ErrorLogEntry {
   user_id: string | null;
   user_email: string | null;
   created_at: string;
+}
+
+export type StormEventType = 'ds' | 'canyon'
+export type AttendanceStatus = 'present' | 'no_show' | 'subbed_in'
+
+export interface StormConfig {
+  eventType: StormEventType
+  label: string
+  participantCap: number
+  substituteCap: number
+  attendanceStatuses: AttendanceStatus[]
+}
+
+export interface StormEvent {
+  id: string
+  event_type: StormEventType
+  week_start: string // YYYY-MM-DD (Sunday — resets at 00:00 server time)
+  notes?: string
+  created_at: string
+}
+
+export interface StormRosterEntry {
+  id: string
+  event_id: string
+  member_id: string
+  team: 'A' | 'B'
+  role: 'participant' | 'substitute'
+  attendance: AttendanceStatus | null
+  created_at: string
 }

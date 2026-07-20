@@ -39,7 +39,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-game-gold animate-pulse text-lg">{t('map.loadingMap')}</div>
+        <div className="text-game-primary animate-pulse text-lg">{t('map.loadingMap')}</div>
       </div>
     )
   }
@@ -52,7 +52,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
         </div>
         <button
           onClick={refresh}
-          className="mt-3 text-sm text-game-gold underline"
+          className="mt-3 text-sm text-game-primary underline"
         >
           {t('map.retry')}
         </button>
@@ -67,7 +67,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
   return (
     <div className="p-4 pb-24 space-y-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold text-game-gold">{t('map.title')}</h1>
+        <h1 className="text-xl font-bold text-game-primary">{t('map.title')}</h1>
         <button
           onClick={refresh}
           className="text-xs text-gray-400 hover:text-white border border-game-accent px-2 py-1 rounded"
@@ -155,7 +155,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
                 onClick={() => setAdminTab(tab)}
                 className={`flex-1 py-1.5 rounded text-sm font-medium capitalize transition-colors ${
                   adminTab === tab
-                    ? 'bg-game-accent text-game-gold'
+                    ? 'bg-game-accent text-game-primary'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -195,7 +195,7 @@ export function MarshallMap({ isAdmin }: MarshallMapProps) {
                         onClick={() => toggleLogFilter(m.id)}
                         className={`text-xs px-2 py-0.5 rounded-full border transition-colors ${
                           logFilter.has(m.id)
-                            ? 'bg-game-gold text-game-dark border-game-gold font-semibold'
+                            ? 'bg-game-primary text-game-dark border-game-primary font-semibold'
                             : 'border-game-accent text-gray-400 hover:text-white hover:border-gray-400'
                         }`}
                       >

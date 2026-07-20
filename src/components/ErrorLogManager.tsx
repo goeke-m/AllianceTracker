@@ -39,7 +39,7 @@ export function ErrorLogManager() {
         <h2 className="text-lg font-bold text-white">{t('errorLog.heading', { count: logs.length })}</h2>
         <button
           onClick={load}
-          className="text-xs bg-game-card border border-game-accent text-gray-300 font-semibold px-3 py-1.5 rounded-lg hover:border-game-gold hover:text-white transition-colors"
+          className="text-xs bg-game-card border border-game-accent text-gray-300 font-semibold px-3 py-1.5 rounded-lg hover:border-game-primary hover:text-white transition-colors"
         >
           {t('errorLog.refreshButton')}
         </button>

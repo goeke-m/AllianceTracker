@@ -174,7 +174,7 @@ export function AllianceTech() {
   return (
     <div className="p-4 pb-24">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-bold text-game-gold">{t('nav.tech')}</h1>
+        <h1 className="text-xl font-bold text-game-primary">{t('nav.tech')}</h1>
         {isAdmin && (
           <button
             onClick={() => { setPicker({ category: null, search: '' }); setSaveError(null) }}
@@ -258,7 +258,7 @@ export function AllianceTech() {
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-lg flex flex-col max-h-[85vh]">
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5 pb-3 shrink-0">
-              <h2 className="text-game-gold font-bold">{t('tech.addToQueue')}</h2>
+              <h2 className="text-game-primary font-bold">{t('tech.addToQueue')}</h2>
               <button
                 onClick={() => setPicker(null)}
                 className="text-gray-400 hover:text-white text-xl leading-none"

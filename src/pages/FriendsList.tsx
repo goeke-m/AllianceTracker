@@ -20,7 +20,7 @@ type SortDir = 'asc' | 'desc'
 
 function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; sortDir: SortDir }) {
   if (col !== sortKey) return <span className="text-gray-600 ml-1">↕</span>
-  return <span className="text-game-gold ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
+  return <span className="text-game-primary ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
 }
 
 export function FriendsList({ isAdmin }: FriendsListProps) {
@@ -134,7 +134,7 @@ export function FriendsList({ isAdmin }: FriendsListProps) {
           value={filterText}
           onChange={e => setFilterText(e.target.value)}
           placeholder={t('common.searchNameOrServerPlaceholder')}
-          className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-56"
+          className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-primary w-56"
         />
         {filterText && (
           <button onClick={() => setFilterText('')} className="text-xs text-gray-500 hover:text-white transition-colors">
@@ -215,7 +215,7 @@ export function FriendsList({ isAdmin }: FriendsListProps) {
                   value={form.name}
                   onChange={e => setForm(s => s && ({ ...s, name: e.target.value }))}
                   placeholder={t('common.playerNamePlaceholder')}
-                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-gold"
+                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-primary"
                 />
               </div>
               <div>
@@ -225,7 +225,7 @@ export function FriendsList({ isAdmin }: FriendsListProps) {
                   value={form.server}
                   onChange={e => setForm(s => s && ({ ...s, server: e.target.value }))}
                   placeholder={t('common.serverNamePlaceholder')}
-                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-gold"
+                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-primary"
                 />
               </div>
               <div>
@@ -235,7 +235,7 @@ export function FriendsList({ isAdmin }: FriendsListProps) {
                   value={form.reason}
                   onChange={e => setForm(s => s && ({ ...s, reason: e.target.value }))}
                   placeholder={t('common.optionalReasonPlaceholder')}
-                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-gold"
+                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-game-primary"
                 />
               </div>
             </div>

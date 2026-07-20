@@ -84,7 +84,7 @@ function memberToEditState(m: Member): EditState {
 
 function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; sortDir: SortDir }) {
   if (col !== sortKey) return <span className="text-gray-600 ml-1">↕</span>
-  return <span className="text-game-gold ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
+  return <span className="text-game-primary ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
 }
 
 function rankNum(r: RankValue): number {
@@ -251,7 +251,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
   }
 
   const thCls = 'text-left px-3 py-2 font-semibold text-gray-300 whitespace-nowrap select-none cursor-pointer hover:text-white'
-  const inputCls = 'bg-game-card border border-game-accent rounded px-1.5 py-0.5 text-white text-xs w-full focus:outline-none focus:border-game-gold'
+  const inputCls = 'bg-game-card border border-game-accent rounded px-1.5 py-0.5 text-white text-xs w-full focus:outline-none focus:border-game-primary'
 
   return (
     <div className="space-y-4">
@@ -261,7 +261,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           <button
             onClick={handleSync}
             disabled={syncing}
-            className="bg-game-card border border-game-accent text-gray-300 font-semibold px-4 py-1.5 rounded-lg text-sm hover:border-game-gold hover:text-white transition-colors disabled:opacity-50"
+            className="bg-game-card border border-game-accent text-gray-300 font-semibold px-4 py-1.5 rounded-lg text-sm hover:border-game-primary hover:text-white transition-colors disabled:opacity-50"
           >
             {syncing ? t('members.syncingLabel') : t('members.syncButton')}
           </button>
@@ -275,19 +275,19 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           onChange={(e) => setName(e.target.value)}
           placeholder={t('common.playerNamePlaceholder')}
           required
-          className="flex-1 bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-game-gold"
+          className="flex-1 bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-game-primary"
         />
         <select
           value={newRank}
           onChange={(e) => setNewRank(e.target.value as RankValue)}
-          className="bg-game-dark border border-game-accent rounded-lg px-2 py-2 text-white text-sm focus:outline-none focus:border-game-gold"
+          className="bg-game-dark border border-game-accent rounded-lg px-2 py-2 text-white text-sm focus:outline-none focus:border-game-primary"
         >
           {RANKS.map((r) => <option key={r} value={r}>{r}</option>)}
         </select>
         <button
           type="submit"
           disabled={adding}
-          className="bg-game-gold text-game-dark font-bold px-4 py-2 rounded-lg text-sm hover:bg-yellow-400 transition-colors disabled:opacity-50"
+          className="bg-game-primary text-game-dark font-bold px-4 py-2 rounded-lg text-sm hover:bg-sky-400 transition-colors disabled:opacity-50"
         >
           {t('common.add')}
         </button>
@@ -303,7 +303,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           value={filterName}
           onChange={(e) => setFilterName(e.target.value)}
           placeholder={t('members.searchPlaceholder')}
-          className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-44"
+          className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-primary w-44"
         />
         <div className="flex gap-1">
           {RANKS.map((r) => (
@@ -312,7 +312,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
               onClick={() => toggleRankFilter(r)}
               className={`text-xs font-bold px-2 py-1 rounded transition-colors ${
                 filterRanks.includes(r)
-                  ? `${RANK_COLORS[r]} text-white ring-2 ring-game-gold`
+                  ? `${RANK_COLORS[r]} text-white ring-2 ring-game-primary`
                   : `${RANK_COLORS[r]} text-white opacity-40 hover:opacity-70`
               }`}
             >
@@ -324,7 +324,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
           onClick={() => setFilterStrike(filterStrike === true ? null : true)}
           className={`text-xs px-3 py-1 rounded border transition-colors ${
             filterStrike === true
-              ? 'border-game-gold text-game-gold bg-game-gold/10'
+              ? 'border-game-primary text-game-primary bg-game-primary/10'
               : 'border-game-accent text-gray-400 hover:text-white'
           }`}
         >
@@ -411,7 +411,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                     </select>
                   </td>
                   <td className="px-2 py-1.5 text-center">
-                    <input type="checkbox" checked={editState.Strike_Team} onChange={(e) => set('Strike_Team', e.target.checked)} className="accent-game-gold" />
+                    <input type="checkbox" checked={editState.Strike_Team} onChange={(e) => set('Strike_Team', e.target.checked)} className="accent-game-primary" />
                   </td>
                   <td className="px-3 py-1.5 text-right text-gray-500">
                     {avgVsMap[m.id] != null ? formatNumber(avgVsMap[m.id], { maximumFractionDigits: 0 }) : '—'}
@@ -443,7 +443,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
                   <td className="px-3 py-2 text-right text-gray-300">{formatPower(m.S2_Power)}</td>
                   <td className="px-3 py-2 text-gray-300">{m.S2_Type ?? '—'}</td>
                   <td className="px-3 py-2 text-center">
-                    {m.Strike_Team ? <span className="text-game-gold font-bold">✓</span> : <span className="text-gray-600">—</span>}
+                    {m.Strike_Team ? <span className="text-game-primary font-bold">✓</span> : <span className="text-gray-600">—</span>}
                   </td>
                   <td className="px-3 py-2 text-right text-gray-300">
                     {avgVsMap[m.id] != null ? formatNumber(avgVsMap[m.id], { maximumFractionDigits: 0 }) : '—'}

@@ -28,7 +28,7 @@ type SortDir = 'asc' | 'desc'
 
 function SortIcon({ col, sortKey, sortDir }: { col: SortKey; sortKey: SortKey; sortDir: SortDir }) {
   if (col !== sortKey) return <span className="text-gray-600 ml-1">↕</span>
-  return <span className="text-game-gold ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
+  return <span className="text-game-primary ml-1">{sortDir === 'asc' ? '↑' : '↓'}</span>
 }
 
 export function DemeritManager({ members }: DemeritManagerProps) {
@@ -140,7 +140,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
           value={filterName}
           onChange={e => setFilterName(e.target.value)}
           placeholder={t('common.searchMemberPlaceholder')}
-          className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-gold w-48"
+          className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm focus:outline-none focus:border-game-primary w-48"
         />
         {filterName && (
           <button onClick={() => setFilterName('')} className="text-xs text-gray-500 hover:text-white transition-colors">
@@ -202,7 +202,7 @@ export function DemeritManager({ members }: DemeritManagerProps) {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-md p-5 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-gold font-bold">{t('demerits.modalTitleAdd')}</h2>
+              <h2 className="text-game-primary font-bold">{t('demerits.modalTitleAdd')}</h2>
               <button onClick={() => setForm(null)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
               </button>

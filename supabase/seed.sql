@@ -1,10 +1,7 @@
--- Seed members for Supabase
--- Run in the Supabase SQL editor or via psql
--- Uses INSERT ... ON CONFLICT (name) DO UPDATE to upsert by name.
--- If you don't have a unique constraint on name, change to ON CONFLICT DO NOTHING
--- or just use plain INSERT.
-
-INSERT INTO members (id, name, "Rank", "THP", "S1_Power", "S1_Type", "S2_Power", "S2_Type", "Strike_Team", "Timezone", created_at, updated_at)
+-- Member seed data
+-- Applied by: supabase db reset (local dev only)
+-- ON CONFLICT: upsert by name — updates stats if member already exists
+INSERT INTO "public"."members" (id, name, "Rank", "THP", "S1_Power", "S1_Type", "S2_Power", "S2_Type", "Strike_Team", "Timezone", created_at, updated_at)
 VALUES
   (gen_random_uuid(), 'Ruthless cajun',       'R4', 146.6,  45800000, 'Air',  38500000, 'Tank', false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'Gigiyy',               'R3', 147.4,  44400000, 'Tank', NULL,     NULL,   false, NULL, NOW(), NOW()),
@@ -44,7 +41,6 @@ VALUES
   (gen_random_uuid(), 'Argus III',             'R3',  82.9,  27000000, NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'BeastMachine',          'R3',  83.4,  26900000, NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'JU STARS',              'R3',  24.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
-  -- Members with no squad data (THP = 0)
   (gen_random_uuid(), 'Acid Hologram',         'R3',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'Amélie POulain',        'R3',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'DazMiq',                'R3',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
@@ -88,7 +84,6 @@ VALUES
   (gen_random_uuid(), 'XMEIGA',                'R3',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'XxX Bradley XxX',       'R3',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'XxX Sparky XxX',        'R3',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
-  -- R2 members
   (gen_random_uuid(), 'AustinPOwers',          'R2',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'ChessM',                'R2',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'Comandante Pico',       'R2',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
@@ -98,7 +93,6 @@ VALUES
   (gen_random_uuid(), 'Martin 2525',           'R2',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'Michdab',               'R2',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'Slapya',                'R2',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
-  -- R1 members
   (gen_random_uuid(), '11daniella',            'R1',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), '4dr13L',                'R1',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
   (gen_random_uuid(), 'DAN140296',             'R1',   0.0,  NULL,     NULL,   NULL,     NULL,   false, NULL, NOW(), NOW()),
@@ -118,3 +112,8 @@ ON CONFLICT (name) DO UPDATE SET
   "S2_Type"     = EXCLUDED."S2_Type",
   "Strike_Team" = EXCLUDED."Strike_Team",
   updated_at    = NOW();
+
+-- Train schedule settings default row
+INSERT INTO "public"."train_schedule_settings" (key, mode)
+VALUES ('week_mode', 'push')
+ON CONFLICT (key) DO NOTHING;
