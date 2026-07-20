@@ -11,16 +11,19 @@ const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 const R4_ROTATION = [
   'Ruthless Cajun',
-  'skibidi rizz toilet5',
-  'PAINisthebestTeacher',
-  'Dhilldo',
-  '50 Cal Diplomacy',
-  'Tricky100original',
-  'CatWoman',
-  'Buccaneer Blaidd',
-  'Saucy808',
-  'WapitiDreaming',
+  '순금이 FOREVER',
   'ShadowMohawk',
+  'Gigiyy',
+  '나능야 Elly',
+  'Tricky100original',
+  'PAINisthebestTEACHER',
+  '왕우이야 king',
+  '나능 강채해 Dia',
+  'Saucy808',
+  '산현Sanhyeon',
+  'CatWomanᵂᴾᴺᶻ',
+  '가이아Gaiavoid',
+  'Gilletparballes',
 ]
 
 function buildDowSources(mode: WeekMode, t: TFunction): Record<string, { captain: string; firstMate: string }> {
