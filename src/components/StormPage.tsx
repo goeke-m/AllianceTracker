@@ -278,7 +278,11 @@ export function StormPage({ config }: StormPageProps) {
   const [expandedWeek, setExpandedWeek] = useState<string | null>(null)
   const [memberSearch, setMemberSearch] = useState('')
 
-  const assignedMemberIds = new Set(roster.map(r => r.member_id))
+  const assignedMemberIds = new Set(
+    roster
+      .filter(r => (addingTo?.role === 'requested' ? true : r.role !== 'requested'))
+      .map(r => r.member_id)
+  )
   const filteredMembers = members.filter(m =>
     m.name.toLowerCase().includes(memberSearch.trim().toLowerCase())
   )
