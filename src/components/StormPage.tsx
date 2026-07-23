@@ -216,7 +216,7 @@ export function StormPage({ config }: StormPageProps) {
     addMember,
     removeMember,
     updateAttendance,
-  } = useStormEvent(config)
+  } = useStormEvent(config, isAdmin)
 
   const [showHistory, setShowHistory] = useState(false)
   const [addingTo, setAddingTo] = useState<AddingTo | null>(null)

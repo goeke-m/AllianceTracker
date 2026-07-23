@@ -20,7 +20,7 @@ interface StormData {
   historicEvents: Array<{ event: StormEvent; roster: StormRosterEntry[] }>
 }
 
-export function useStormEvent(config: StormConfig) {
+export function useStormEvent(config: StormConfig, isAdmin: boolean) {
   const { t } = useTranslation()
   const [weekOffset, setWeekOffset] = useState(0)
   const [data, setData] = useState<StormData>({
@@ -122,7 +122,7 @@ export function useStormEvent(config: StormConfig) {
   async function addMember(
     memberId: string,
     team: 'A' | 'B',
-    role: 'participant' | 'substitute'
+    role: 'participant' | 'substitute' | 'requested'
   ): Promise<void> {
     let eventId = data.event?.id
     if (!eventId) {
@@ -135,10 +135,21 @@ export function useStormEvent(config: StormConfig) {
       eventId = newEvent.id
     }
     const initialAttendance: AttendanceStatus | null = role === 'participant' ? 'present' : null
-    const { error } = await supabase
-      .from('storm_roster')
-      .insert({ event_id: eventId, member_id: memberId, team, role, attendance: initialAttendance })
-    if (error) throw error
+    const existingRequest = data.roster.find(
+      r => r.member_id === memberId && r.role === 'requested'
+    )
+    if (existingRequest) {
+      const { error } = await supabase
+        .from('storm_roster')
+        .update({ team, role, attendance: initialAttendance })
+        .eq('id', existingRequest.id)
+      if (error) throw error
+    } else {
+      const { error } = await supabase
+        .from('storm_roster')
+        .insert({ event_id: eventId, member_id: memberId, team, role, attendance: initialAttendance })
+      if (error) throw error
+    }
     await fetchData()
   }
 
@@ -160,9 +171,10 @@ export function useStormEvent(config: StormConfig) {
     await fetchData()
   }
 
-  // Compute team power from current week's roster
+  // Compute team power from current week's roster (excludes not-yet-selected 'requested' rows)
   const teamPower = { A: 0, B: 0 }
   for (const entry of data.roster) {
+    if (entry.role === 'requested') continue
     const member = data.members.find(m => m.id === entry.member_id)
     if (member && member.THP != null) {
       if (entry.team === 'A') teamPower.A += member.THP
