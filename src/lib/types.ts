@@ -157,7 +157,7 @@ export interface StormRosterEntry {
   event_id: string
   member_id: string
   team: 'A' | 'B'
-  role: 'participant' | 'substitute'
+  role: 'participant' | 'substitute' | 'requested'
   attendance: AttendanceStatus | null
   created_at: string
 }
