@@ -405,7 +405,7 @@ export function StormPage({ config }: StormPageProps) {
             const isExpanded = expandedWeek === ev.week_start
 
             function teamAttendanceSummary(team: 'A' | 'B'): string {
-              const tRoster = evRoster.filter(r => r.team === team)
+              const tRoster = evRoster.filter(r => r.team === team && r.role !== 'requested')
               const present = tRoster.filter(
                 r => r.attendance === 'present' || r.attendance === 'subbed_in'
               ).length
@@ -415,11 +415,16 @@ export function StormPage({ config }: StormPageProps) {
 
             function teamPowerFor(team: 'A' | 'B'): number {
               return evRoster
-                .filter(r => r.team === team)
+                .filter(r => r.team === team && r.role !== 'requested')
                 .reduce((sum, r) => {
                   const m = members.find(mb => mb.id === r.member_id)
                   return sum + (m?.THP ?? 0)
                 }, 0)
+            }
+
+            function teamRequestedSummary(team: 'A' | 'B'): string {
+              const count = evRoster.filter(r => r.team === team && r.role === 'requested').length
+              return t('storm.requestedNotSelectedCount', { count })
             }
 
             return (
@@ -445,6 +450,9 @@ export function StormPage({ config }: StormPageProps) {
                         <p className="text-xs text-gray-400">
                           {formatNumber(teamPowerFor(team))} {t('storm.thpUnit')}
                         </p>
+                        {evRoster.some(r => r.team === team && r.role === 'requested') && (
+                          <p className="text-xs text-gray-500">{teamRequestedSummary(team)}</p>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -453,7 +461,8 @@ export function StormPage({ config }: StormPageProps) {
                 {isExpanded && (
                   <div className="border-t border-game-accent px-3 pb-3 pt-2 space-y-3">
                     {(['A', 'B'] as const).map(team => {
-                      const tRoster = evRoster.filter(r => r.team === team)
+                      const tRoster = evRoster.filter(r => r.team === team && r.role !== 'requested')
+                      const tRequested = evRoster.filter(r => r.team === team && r.role === 'requested')
                       return (
                         <div key={team}>
                           <p className="text-xs text-game-primary font-semibold mb-1">{t('storm.teamLabel', { team })}</p>
@@ -493,6 +502,28 @@ export function StormPage({ config }: StormPageProps) {
                                 </div>
                               )
                             })
+                          )}
+                          {tRequested.length > 0 && (
+                            <div className="mt-2">
+                              <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{t('storm.requestedLabel')}</p>
+                              {tRequested.map(entry => {
+                                const m = members.find(mb => mb.id === entry.member_id)
+                                return (
+                                  <div
+                                    key={entry.id}
+                                    className="flex items-center gap-2 py-1 border-b border-game-accent last:border-0 min-w-0"
+                                  >
+                                    <span className="text-white text-sm truncate">{m?.name ?? '—'}</span>
+                                    <span className="text-gray-400 text-xs shrink-0">{m?.Rank}</span>
+                                    {m?.THP != null && (
+                                      <span className="text-gray-400 text-xs shrink-0">
+                                        {formatNumber(m.THP)}
+                                      </span>
+                                    )}
+                                  </div>
+                                )
+                              })}
+                            </div>
                           )}
                         </div>
                       )

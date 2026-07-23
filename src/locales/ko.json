@@ -250,6 +250,7 @@
     "pastLabel": "(지난 주)",
     "noPastEvents": "기록된 지난 이벤트가 없습니다.",
     "assignedSummary": "{{count}}명 배정 · {{present}}명 참석 · {{noShow}}명 불참",
+    "requestedNotSelectedCount": "{{count}}명 요청, 미선택",
     "noMembersRecorded": "기록된 멤버가 없습니다",
     "subBadge": "예비",
     "addToTeamTitle": "{{team}} 팀에 추가 — {{role}}",

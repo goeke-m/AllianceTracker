@@ -251,6 +251,7 @@
     "pastLabel": "(passada)",
     "noPastEvents": "Nenhum evento passado registrado ainda.",
     "assignedSummary": "{{count}} atribuídos · {{present}} presentes · {{noShow}} ausências",
+    "requestedNotSelectedCount": "{{count}} solicitados, não selecionados",
     "noMembersRecorded": "Nenhum membro registrado",
     "subBadge": "Res",
     "addToTeamTitle": "Adicionar à Equipe {{team}} — {{role}}",
