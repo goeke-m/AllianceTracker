@@ -52,7 +52,7 @@ function compareMembersByRankThenName(a: Member | undefined, b: Member | undefin
 
 interface AddingTo {
   team: 'A' | 'B'
-  role: 'participant' | 'substitute'
+  role: 'participant' | 'substitute' | 'requested'
 }
 
 interface TeamPanelProps {
@@ -80,6 +80,9 @@ function TeamPanel({
     .sort((a, b) => compareMembersByRankThenName(getMember(a.member_id), getMember(b.member_id)))
   const substitutes = roster
     .filter(r => r.team === team && r.role === 'substitute')
+    .sort((a, b) => compareMembersByRankThenName(getMember(a.member_id), getMember(b.member_id)))
+  const requested = roster
+    .filter(r => r.team === team && r.role === 'requested')
     .sort((a, b) => compareMembersByRankThenName(getMember(a.member_id), getMember(b.member_id)))
 
   function getMember(memberId: string): Member | undefined {
@@ -126,6 +129,35 @@ function TeamPanel({
               {attendanceLabel(entry.attendance, t)}
             </span>
           )
+        )}
+      </div>
+    )
+  }
+
+  function renderRequestedRow(entry: StormRosterEntry) {
+    const member = getMember(entry.member_id)
+    return (
+      <div
+        key={entry.id}
+        className="flex items-center justify-between py-1.5 border-b border-game-accent last:border-0"
+      >
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-white text-sm font-medium truncate">{member?.name ?? '—'}</span>
+          <span className="text-gray-400 text-xs shrink-0">{member?.Rank}</span>
+          {member?.THP != null && (
+            <span className="text-gray-400 text-xs shrink-0">
+              {formatNumber(member.THP)}
+            </span>
+          )}
+        </div>
+        {isAdmin && !isPastWeek && (
+          <button
+            onClick={() => onRemove(entry.id)}
+            className="text-gray-500 hover:text-game-highlight text-lg leading-none px-1 transition-colors shrink-0"
+            aria-label={t('storm.removeMemberAriaLabel')}
+          >
+            ×
+          </button>
         )}
       </div>
     )
@@ -186,6 +218,28 @@ function TeamPanel({
             <p className="text-gray-600 text-xs italic">{t('storm.noSubstitutesAssigned')}</p>
           ) : (
             substitutes.map(renderRow)
+          )}
+        </div>
+      )}
+
+      {/* Requested, not selected — uncapped; hidden entirely for non-admins when empty */}
+      {(isAdmin || requested.length > 0) && (
+        <div className="mt-2">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-xs text-gray-500 uppercase tracking-wide">{t('storm.requestedLabel')}</span>
+            {isAdmin && !isPastWeek && (
+              <button
+                onClick={() => onAdd({ team, role: 'requested' })}
+                className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors"
+              >
+                {t('common.addButton')}
+              </button>
+            )}
+          </div>
+          {requested.length === 0 ? (
+            isAdmin && <p className="text-gray-600 text-xs italic">{t('storm.noRequestsRecorded')}</p>
+          ) : (
+            requested.map(renderRequestedRow)
           )}
         </div>
       )}
@@ -475,7 +529,12 @@ export function StormPage({ config }: StormPageProps) {
               <h2 className="text-game-primary font-bold text-sm">
                 {t('storm.addToTeamTitle', {
                   team: addingTo.team,
-                  role: addingTo.role === 'participant' ? t('storm.participantRole') : t('storm.substituteRole'),
+                  role:
+                    addingTo.role === 'participant'
+                      ? t('storm.participantRole')
+                      : addingTo.role === 'substitute'
+                        ? t('storm.substituteRole')
+                        : t('storm.requestedRole'),
                 })}
               </h2>
               <button
