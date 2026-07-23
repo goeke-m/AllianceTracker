@@ -12,6 +12,12 @@ function getSundayDate(offsetWeeks = 0): string {
   return sunday.toISOString().slice(0, 10)
 }
 
+function addDays(iso: string, days: number): string {
+  const d = new Date(`${iso}T00:00:00Z`)
+  d.setUTCDate(d.getUTCDate() + days)
+  return d.toISOString().slice(0, 10)
+}
+
 interface StormData {
   event: StormEvent | null
   roster: StormRosterEntry[]
@@ -20,7 +26,7 @@ interface StormData {
   historicEvents: Array<{ event: StormEvent; roster: StormRosterEntry[] }>
 }
 
-export function useStormEvent(config: StormConfig) {
+export function useStormEvent(config: StormConfig, isAdmin: boolean) {
   const { t } = useTranslation()
   const [weekOffset, setWeekOffset] = useState(0)
   const [data, setData] = useState<StormData>({
@@ -66,8 +72,52 @@ export function useStormEvent(config: StormConfig) {
       if (historicError) throw historicError
 
       const members = (membersData ?? []) as Member[]
-      const event = eventData as StormEvent | null
+      let event = eventData as StormEvent | null
       const historicEventList = (historicEventsData ?? []) as StormEvent[]
+
+      // Carry forward last week's not-selected requesters into this week, once,
+      // the first time this (still-eventless) current week is loaded by an admin.
+      if (!event && weekOffset === 0 && isAdmin) {
+        const prevWeekStart = addDays(weekStart, -7)
+        const { data: prevEventData, error: prevEventError } = await supabase
+          .from('storm_events')
+          .select('*')
+          .eq('event_type', config.eventType)
+          .eq('week_start', prevWeekStart)
+          .maybeSingle()
+        if (prevEventError) throw prevEventError
+
+        if (prevEventData) {
+          const { data: prevRosterData, error: prevRosterError } = await supabase
+            .from('storm_roster')
+            .select('*')
+            .eq('event_id', prevEventData.id)
+            .eq('role', 'requested')
+          if (prevRosterError) throw prevRosterError
+
+          const notSelected = (prevRosterData ?? []) as StormRosterEntry[]
+          if (notSelected.length > 0) {
+            const { data: newEvent, error: newEventError } = await supabase
+              .from('storm_events')
+              .insert({ event_type: config.eventType, week_start: weekStart })
+              .select('*')
+              .single()
+            if (newEventError) throw newEventError
+            event = newEvent as StormEvent
+
+            const { error: carryError } = await supabase.from('storm_roster').insert(
+              notSelected.map(r => ({
+                event_id: event!.id,
+                member_id: r.member_id,
+                team: r.team,
+                role: 'requested',
+                attendance: null,
+              }))
+            )
+            if (carryError) throw carryError
+          }
+        }
+      }
 
       // Fetch current week's roster (only if event exists)
       let roster: StormRosterEntry[] = []
@@ -113,7 +163,7 @@ export function useStormEvent(config: StormConfig) {
     } finally {
       setLoading(false)
     }
-  }, [config.eventType, weekStart])
+  }, [config.eventType, weekStart, weekOffset, isAdmin])
 
   useEffect(() => {
     fetchData()
@@ -122,7 +172,7 @@ export function useStormEvent(config: StormConfig) {
   async function addMember(
     memberId: string,
     team: 'A' | 'B',
-    role: 'participant' | 'substitute'
+    role: 'participant' | 'substitute' | 'requested'
   ): Promise<void> {
     let eventId = data.event?.id
     if (!eventId) {
@@ -135,10 +185,21 @@ export function useStormEvent(config: StormConfig) {
       eventId = newEvent.id
     }
     const initialAttendance: AttendanceStatus | null = role === 'participant' ? 'present' : null
-    const { error } = await supabase
-      .from('storm_roster')
-      .insert({ event_id: eventId, member_id: memberId, team, role, attendance: initialAttendance })
-    if (error) throw error
+    const existingRequest = data.roster.find(
+      r => r.member_id === memberId && r.role === 'requested'
+    )
+    if (existingRequest) {
+      const { error } = await supabase
+        .from('storm_roster')
+        .update({ team, role, attendance: initialAttendance })
+        .eq('id', existingRequest.id)
+      if (error) throw error
+    } else {
+      const { error } = await supabase
+        .from('storm_roster')
+        .insert({ event_id: eventId, member_id: memberId, team, role, attendance: initialAttendance })
+      if (error) throw error
+    }
     await fetchData()
   }
 
@@ -160,9 +221,10 @@ export function useStormEvent(config: StormConfig) {
     await fetchData()
   }
 
-  // Compute team power from current week's roster
+  // Compute team power from current week's roster (excludes not-yet-selected 'requested' rows)
   const teamPower = { A: 0, B: 0 }
   for (const entry of data.roster) {
+    if (entry.role === 'requested') continue
     const member = data.members.find(m => m.id === entry.member_id)
     if (member && member.THP != null) {
       if (entry.team === 'A') teamPower.A += member.THP
