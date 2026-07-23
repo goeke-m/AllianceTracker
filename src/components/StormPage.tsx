@@ -280,7 +280,7 @@ export function StormPage({ config }: StormPageProps) {
 
   const assignedMemberIds = new Set(
     roster
-      .filter(r => (addingTo?.role === 'requested' ? true : r.role !== 'requested'))
+      .filter(r => addingTo?.role === 'requested' || r.role !== 'requested')
       .map(r => r.member_id)
   )
   const filteredMembers = members.filter(m =>
@@ -466,9 +466,10 @@ export function StormPage({ config }: StormPageProps) {
                       return (
                         <div key={team}>
                           <p className="text-xs text-game-primary font-semibold mb-1">{t('storm.teamLabel', { team })}</p>
-                          {tRoster.length === 0 ? (
+                          {tRoster.length === 0 && tRequested.length === 0 && (
                             <p className="text-gray-600 text-xs italic">{t('storm.noMembersRecorded')}</p>
-                          ) : (
+                          )}
+                          {tRoster.length > 0 &&
                             tRoster.map(entry => {
                               const m = members.find(mb => mb.id === entry.member_id)
                               return (
@@ -501,8 +502,7 @@ export function StormPage({ config }: StormPageProps) {
                                   )}
                                 </div>
                               )
-                            })
-                          )}
+                            })}
                           {tRequested.length > 0 && (
                             <div className="mt-2">
                               <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{t('storm.requestedLabel')}</p>
