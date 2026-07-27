@@ -78,7 +78,10 @@
     "captainColumnLabel": "Conductor",
     "firstMateColumnLabel": "VIP",
     "captainsLogLabel": "Notas de la Misión",
-    "notesPlaceholder": "ej. R4/VS día anterior"
+    "notesPlaceholder": "ej. R4/VS día anterior",
+    "boardingTimeLabel": "Hora de Abordaje",
+    "boardingTimeUnsetOption": "Sin hora definida",
+    "boardingTimeDisplay": "Aborda: {{time}} (Hora del Servidor)"
   },
   "map": {
     "loadingMap": "Cargando mapa...",
