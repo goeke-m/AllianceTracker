@@ -50,6 +50,7 @@ export function useTrainSchedule() {
           date: (e as unknown as Record<string, string>)['Date']?.slice(0, 10) ?? '',
           conductor: (e as unknown as Record<string, string>)['Conductor'] ?? '',
           vip: (e as unknown as Record<string, string>)['VIP'] ?? '',
+          boardingHour: (e as unknown as Record<string, number | null>)['boarding_hour'] ?? null,
         }))
       )
     } catch (err) {
@@ -69,9 +70,10 @@ export function useTrainSchedule() {
     conductorId: string,
     vipId: string,
     notes: string,
+    boardingHour: number | null,
     existingId?: string
   ): Promise<void> {
-    const data = { Date: date, Conductor: conductorId || null, VIP: vipId || null, notes }
+    const data = { Date: date, Conductor: conductorId || null, VIP: vipId || null, notes, boarding_hour: boardingHour }
     if (existingId) {
       const { error } = await supabase.from('train_schedule').update(data).eq('id', existingId)
       if (error) throw error
