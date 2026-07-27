@@ -18,7 +18,7 @@ const R4_ROTATION = [
   '나능야 Elly',
   'Tricky100original',
   'PAINisthebestTEACHER',
-  '왕우이야 king',
+  'Buccaneer Blaidd',
   '나능 강채해 Dia',
   'Saucy808',
   '산현Sanhyeon',
