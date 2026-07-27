@@ -51,6 +51,7 @@ export interface TrainEntry {
   conductor: string; // member id
   vip: string; // member id
   notes?: string;
+  boardingHour: number | null; // 0-23, server-time hour block; null = not set
   created_at: string;
   updated_at: string;
 }
