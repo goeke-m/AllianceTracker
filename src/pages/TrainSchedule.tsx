@@ -8,6 +8,7 @@ import { logError } from '../lib/errorLog'
 import type { TrainEntry, WeekMode } from '../lib/types'
 
 const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const HOUR_OPTIONS = Array.from({ length: 24 }, (_, i) => i)
 
 const R4_ROTATION = [
   'Ruthless Cajun',
@@ -101,6 +102,7 @@ interface EditState {
   conductorId: string
   vipId: string
   notes: string
+  boardingHour: number | null
 }
 
 export function TrainSchedule() {
@@ -132,6 +134,7 @@ export function TrainSchedule() {
       conductorId: existing?.conductor ?? '',
       vipId: existing?.vip ?? '',
       notes: existing?.notes ?? '',
+      boardingHour: existing?.boardingHour ?? null,
     })
     setSaveError(null)
   }
@@ -141,7 +144,7 @@ export function TrainSchedule() {
     setSaving(true)
     setSaveError(null)
     try {
-      await saveEntry(editState.date, editState.conductorId, editState.vipId, editState.notes, editState.existingId)
+      await saveEntry(editState.date, editState.conductorId, editState.vipId, editState.notes, editState.boardingHour, editState.existingId)
       setEditState(null)
     } catch (err) {
       setSaveError(err instanceof Error ? err.message : t('common.saveFailed'))
@@ -283,6 +286,13 @@ export function TrainSchedule() {
                   <p className="text-gray-400 text-xs italic">{sources.firstMate}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.vip)}</p>}
                 </div>
+                {typeof entry?.boardingHour === 'number' && (
+                  <div className="col-span-2 mt-1">
+                    <span className="text-gray-300 text-xs">
+                      {t('schedule.boardingTimeDisplay', { time: `${String(entry.boardingHour).padStart(2, '0')}:00` })}
+                    </span>
+                  </div>
+                )}
                 {entry?.notes && (
                   <div className="col-span-2 mt-1">
                     <span className="text-gray-500 text-xs uppercase tracking-wide">{t('schedule.captainsLogLabel')}</span>
@@ -355,6 +365,20 @@ export function TrainSchedule() {
                   <option value="">{t('common.selectMemberPlaceholder')}</option>
                   {members.map(m => (
                     <option key={m.id} value={m.id}>{m.name} ({m.Rank})</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs text-gray-400 uppercase tracking-wide block mb-1">{t('schedule.boardingTimeLabel')}</label>
+                <select
+                  value={editState.boardingHour === null ? '' : String(editState.boardingHour)}
+                  onChange={e => setEditState(s => s && ({ ...s, boardingHour: e.target.value === '' ? null : Number(e.target.value) }))}
+                  className="w-full bg-game-dark border border-game-accent rounded-lg px-3 py-2 text-white text-sm"
+                >
+                  <option value="">{t('schedule.boardingTimeUnsetOption')}</option>
+                  {HOUR_OPTIONS.map(h => (
+                    <option key={h} value={h}>{String(h).padStart(2, '0')}:00</option>
                   ))}
                 </select>
               </div>

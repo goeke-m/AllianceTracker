@@ -78,7 +78,10 @@
     "captainColumnLabel": "기관사",
     "firstMateColumnLabel": "VIP",
     "captainsLogLabel": "임무 메모",
-    "notesPlaceholder": "예: R4/VS 전날"
+    "notesPlaceholder": "예: R4/VS 전날",
+    "boardingTimeLabel": "탑승 시간",
+    "boardingTimeUnsetOption": "시간 미설정",
+    "boardingTimeDisplay": "탑승: {{time}} (서버 시간)"
   },
   "map": {
     "loadingMap": "지도 불러오는 중...",

@@ -78,7 +78,10 @@
     "captainColumnLabel": "Conductor",
     "firstMateColumnLabel": "VIP",
     "captainsLogLabel": "Mission Notes",
-    "notesPlaceholder": "e.g. R4/VS Previous Day"
+    "notesPlaceholder": "e.g. R4/VS Previous Day",
+    "boardingTimeLabel": "Boarding Time",
+    "boardingTimeUnsetOption": "No time set",
+    "boardingTimeDisplay": "Boards: {{time}} (Server Time)"
   },
   "map": {
     "loadingMap": "Loading map...",
