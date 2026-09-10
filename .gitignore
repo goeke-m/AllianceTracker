@@ -13,3 +13,7 @@ dist-ssr
 supabase/.branches
 supabase/.temp
 supabase/.env
+
+# Graphify
+graphify-out/**/cost.json
+graphify-out/cache/*
