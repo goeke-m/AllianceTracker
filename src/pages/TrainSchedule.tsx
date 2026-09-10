@@ -231,7 +231,7 @@ export function TrainSchedule() {
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-game-primary font-bold text-sm">{getVsDayLabel(index, t)}</span>
-                  <span className="text-gray-300 text-sm">{formatDate(date)}</span>
+                  {/* <span className="text-gray-300 text-sm">{formatDate(date)}</span> */}
                   {isToday && (
                     <span className="text-xs bg-game-primary text-game-dark font-bold px-1.5 py-0.5 rounded">
                       {t('schedule.today')}
