@@ -1,21 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
+import { getWeekDates } from '../lib/vsDate'
 import type { Member, TrainEntry } from '../lib/types'
-
-function getWeekDates(): string[] {
-  const dates: string[] = []
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  const sunday = new Date(today)
-  sunday.setDate(today.getDate() - today.getDay()) // rewind to Sunday
-  for (let i = 0; i <= 7; i++) {
-    const d = new Date(sunday)
-    d.setDate(sunday.getDate() + i)
-    dates.push(d.toISOString().slice(0, 10))
-  }
-  return dates
-}
 
 export function useTrainSchedule() {
   const [members, setMembers] = useState<Member[]>([])
