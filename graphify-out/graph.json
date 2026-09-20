@@ -698,8 +698,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_demeritmanager_demeritmanagerprops",
-      "community": 4,
-      "community_name": "StormPage.tsx",
+      "community": 6,
+      "community_name": "DemeritManager.tsx",
       "norm_label": "demeritmanagerprops"
     },
     {
@@ -831,7 +831,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_eventlogimport",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "eventlogimport.tsx"
     },
@@ -844,8 +844,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_eventlogimport_eventlogimportprops",
-      "community": 0,
-      "community_name": "logError",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "eventlogimportprops"
     },
     {
@@ -856,7 +856,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_eventlogimport_eventlogimport",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "eventlogimport()"
     },
@@ -937,8 +937,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_marshallvisualizer",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "marshallvisualizer.tsx"
     },
     {
@@ -950,8 +950,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_marshallvisualizerprops",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "marshallvisualizerprops"
     },
     {
@@ -963,8 +963,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_celldef",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "celldef"
     },
     {
@@ -975,8 +975,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_s",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "s()"
     },
     {
@@ -987,8 +987,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_r",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "r()"
     },
     {
@@ -998,8 +998,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_mg",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "mg"
     },
     {
@@ -1009,8 +1009,8 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_grid_layout",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "grid_layout"
     },
     {
@@ -1020,8 +1020,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_colors",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "colors"
     },
     {
@@ -1032,8 +1032,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_marshallvisualizer_marshallvisualizer",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "marshallvisualizer()"
     },
     {
@@ -1044,7 +1044,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "membermanager.tsx"
     },
     {
@@ -1056,8 +1056,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membermanagerprops",
-      "community": 4,
-      "community_name": "StormPage.tsx",
+      "community": 82,
+      "community_name": "MemberManager.tsx",
       "norm_label": "membermanagerprops"
     },
     {
@@ -1068,7 +1068,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_ranks",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "ranks"
     },
     {
@@ -1079,7 +1079,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_squad_types",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "squad_types"
     },
     {
@@ -1090,7 +1090,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_timezones",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "timezones"
     },
     {
@@ -1101,7 +1101,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_rank_colors",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "rank_colors"
     },
     {
@@ -1113,7 +1113,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_formatpower",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatpower()"
     },
     {
@@ -1126,7 +1126,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_sortkey",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortkey"
     },
     {
@@ -1139,7 +1139,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_sortdir",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortdir"
     },
     {
@@ -1152,7 +1152,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_editstate",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "editstate"
     },
     {
@@ -1164,7 +1164,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_membertoeditstate",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "membertoeditstate()"
     },
     {
@@ -1176,7 +1176,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_sorticon",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sorticon()"
     },
     {
@@ -1188,7 +1188,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_ranknum",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "ranknum()"
     },
     {
@@ -1200,7 +1200,7 @@
       "_origin": "ast",
       "id": "src_components_membermanager_membermanager",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "membermanager()"
     },
     {
@@ -1251,6 +1251,93 @@
       "norm_label": "navbar()"
     },
     {
+      "label": "SeasonStatsManager.tsx",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonstatsmanager.tsx"
+    },
+    {
+      "label": "SeasonStatsManagerProps",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L11",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager_seasonstatsmanagerprops",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonstatsmanagerprops"
+    },
+    {
+      "label": "SortKey",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L15",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager_sortkey",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "sortkey"
+    },
+    {
+      "label": "SortDir",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L16",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager_sortdir",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "sortdir"
+    },
+    {
+      "label": "Field",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L17",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager_field",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "field"
+    },
+    {
+      "label": "SortIcon()",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L19",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager_sorticon",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "sorticon()"
+    },
+    {
+      "label": "SeasonStatsManager()",
+      "file_type": "code",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L24",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_components_seasonstatsmanager_seasonstatsmanager",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonstatsmanager()"
+    },
+    {
       "label": "SortableTechRow.tsx",
       "file_type": "code",
       "source_file": "src/components/SortableTechRow.tsx",
@@ -1294,142 +1381,118 @@
       "_origin": "ast",
       "id": "src_components_stormpage",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormpage.tsx"
     },
     {
       "label": "formatWeekStart()",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_stormpage_formatweekstart",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "formatweekstart()"
     },
     {
       "label": "nextAttendance()",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_stormpage_nextattendance",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "nextattendance()"
     },
     {
       "label": "attendancePillClass()",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_stormpage_attendancepillclass",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "attendancepillclass()"
     },
     {
       "label": "attendanceLabel()",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L34",
+      "source_location": "L35",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_stormpage_attendancelabel",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "attendancelabel()"
-    },
-    {
-      "label": "rankNum()",
-      "file_type": "code",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L43",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_stormpage_ranknum",
-      "community": 4,
-      "community_name": "StormPage.tsx",
-      "norm_label": "ranknum()"
-    },
-    {
-      "label": "compareMembersByRankThenName()",
-      "file_type": "code",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L47",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_components_stormpage_comparemembersbyrankthenname",
-      "community": 4,
-      "community_name": "StormPage.tsx",
-      "norm_label": "comparemembersbyrankthenname()"
     },
     {
       "label": "AddingTo",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L53",
+      "source_location": "L44",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_stormpage_addingto",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "addingto"
     },
     {
       "label": "TeamPanelProps",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L58",
+      "source_location": "L49",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_stormpage_teampanelprops",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "teampanelprops"
     },
     {
       "label": "TeamPanel()",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L72",
+      "source_location": "L63",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_stormpage_teampanel",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "teampanel()"
     },
     {
       "label": "StormPageProps",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L250",
+      "source_location": "L241",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_stormpage_stormpageprops",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormpageprops"
     },
     {
       "label": "StormPage()",
       "file_type": "code",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L254",
+      "source_location": "L245",
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_stormpage_stormpage",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormpage()"
     },
     {
@@ -1452,8 +1515,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_vspointmanager_vspointmanagerprops",
-      "community": 4,
-      "community_name": "StormPage.tsx",
+      "community": 10,
+      "community_name": "VsPointManager.tsx",
       "norm_label": "vspointmanagerprops"
     },
     {
@@ -1563,7 +1626,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usealliancetech",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "usealliancetech.ts"
     },
@@ -1575,8 +1638,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_usealliancetech_usealliancetech",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "usealliancetech()"
     },
     {
@@ -1645,7 +1708,7 @@
       "_origin": "ast",
       "id": "src_hooks_usemarshalldata",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "usemarshalldata.ts"
     },
     {
@@ -1656,8 +1719,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_usemarshalldata_usemarshalldata",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "usemarshalldata()"
     },
     {
@@ -1667,7 +1730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_useooto",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "useooto.ts"
     },
@@ -1679,8 +1742,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_useooto_useooto",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "useooto()"
     },
     {
@@ -1690,7 +1753,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_useschedulesettings",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "useschedulesettings.ts"
     },
@@ -1703,7 +1766,7 @@
       "_origin": "ast",
       "id": "src_hooks_useschedulesettings_useschedulesettings",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "useschedulesettings()"
     },
     {
@@ -1714,7 +1777,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "usestormevent.ts"
     },
     {
@@ -1726,7 +1789,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_getsundaydate",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "getsundaydate()"
     },
     {
@@ -1738,7 +1801,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_adddays",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "adddays()"
     },
     {
@@ -1751,7 +1814,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_stormdata",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormdata"
     },
     {
@@ -1763,7 +1826,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_usestormevent",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "usestormevent()"
     },
     {
@@ -1774,7 +1837,7 @@
       "_origin": "ast",
       "id": "src_hooks_usetrainschedule",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "usetrainschedule.ts"
     },
     {
@@ -1786,7 +1849,7 @@
       "_origin": "ast",
       "id": "src_hooks_usetrainschedule_usetrainschedule",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "usetrainschedule()"
     },
     {
@@ -1834,13 +1897,24 @@
       "norm_label": "canyon_storm_config"
     },
     {
+      "label": "SEASONS",
+      "file_type": "code",
+      "source_file": "src/lib/constants.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "src_lib_constants_seasons",
+      "community": 3,
+      "community_name": "App.tsx",
+      "norm_label": "seasons"
+    },
+    {
       "label": "errorLog.ts",
       "file_type": "code",
       "source_file": "src/lib/errorLog.ts",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_errorlog",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "errorlog.ts"
     },
@@ -1852,7 +1926,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_lib_errorlog_logerror",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "logerror()"
     },
@@ -1981,9 +2055,152 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_lib_locale_formatnumber",
-      "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "formatnumber()"
+    },
+    {
+      "label": "memberSort.ts",
+      "file_type": "code",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_lib_membersort",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "membersort.ts"
+    },
+    {
+      "label": "rankNum()",
+      "file_type": "code",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_membersort_ranknum",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "ranknum()"
+    },
+    {
+      "label": "compareMembersByRankThenName()",
+      "file_type": "code",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_membersort_comparemembersbyrankthenname",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "comparemembersbyrankthenname()"
+    },
+    {
+      "label": "seasonStats.test.ts",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_test",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonstats.test.ts"
+    },
+    {
+      "label": "member()",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_test_member",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "member()"
+    },
+    {
+      "label": "stat()",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_test_stat",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "stat()"
+    },
+    {
+      "label": "seasonStats.ts",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_lib_seasonstats",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonstats.ts"
+    },
+    {
+      "label": "SeasonEdits",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L4",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_seasonedits",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonedits"
+    },
+    {
+      "label": "SeasonRow",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L6",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_seasonrow",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonrow"
+    },
+    {
+      "label": "parseCount()",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L15",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_parsecount",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "parsecount()"
+    },
+    {
+      "label": "buildRows()",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_buildrows",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "buildrows()"
+    },
+    {
+      "label": "buildUpsertPayload()",
+      "file_type": "code",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L41",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_lib_seasonstats_buildupsertpayload",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "buildupsertpayload()"
     },
     {
       "label": "supabase.ts",
@@ -1992,7 +2209,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_supabase",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "supabase.ts"
     },
@@ -2003,7 +2220,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_lib_supabase_supabaseurl",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "supabaseurl"
     },
@@ -2014,7 +2231,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_lib_supabase_supabaseanonkey",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "supabaseanonkey"
     },
@@ -2025,7 +2242,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_lib_supabase_supabase",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "supabase"
     },
@@ -2036,7 +2253,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_types",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "types.ts"
     },
@@ -2050,7 +2267,7 @@
       "_origin": "ast",
       "id": "src_lib_types_rankvalue",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "rankvalue"
     },
     {
@@ -2063,7 +2280,7 @@
       "_origin": "ast",
       "id": "src_lib_types_squadtype",
       "community": 82,
-      "community_name": "types.ts",
+      "community_name": "MemberManager.tsx",
       "norm_label": "squadtype"
     },
     {
@@ -2076,7 +2293,7 @@
       "_origin": "ast",
       "id": "src_lib_types_member",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "member"
     },
     {
@@ -2089,7 +2306,7 @@
       "_origin": "ast",
       "id": "src_lib_types_damagelog",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "damagelog"
     },
     {
@@ -2101,7 +2318,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_pbuser",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "pbuser"
     },
@@ -2114,8 +2331,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_memberwithwad",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 84,
+      "community_name": "MarshallVisualizer.tsx",
       "norm_label": "memberwithwad"
     },
     {
@@ -2128,7 +2345,7 @@
       "_origin": "ast",
       "id": "src_lib_types_weekmode",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "weekmode"
     },
     {
@@ -2141,7 +2358,7 @@
       "_origin": "ast",
       "id": "src_lib_types_trainentry",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "trainentry"
     },
     {
@@ -2179,7 +2396,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_killlistentry",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "killlistentry"
     },
@@ -2192,8 +2409,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_friendslistentry",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "friendslistentry"
     },
     {
@@ -2205,7 +2422,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_alliancetechstatus",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "alliancetechstatus"
     },
@@ -2257,8 +2474,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_jsonimportentry",
-      "community": 0,
-      "community_name": "logError",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "jsonimportentry"
     },
     {
@@ -2283,7 +2500,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_stormeventtype",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "stormeventtype"
     },
@@ -2297,7 +2514,7 @@
       "_origin": "ast",
       "id": "src_lib_types_attendancestatus",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "attendancestatus"
     },
     {
@@ -2310,7 +2527,7 @@
       "_origin": "ast",
       "id": "src_lib_types_stormconfig",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormconfig"
     },
     {
@@ -2323,7 +2540,7 @@
       "_origin": "ast",
       "id": "src_lib_types_stormevent",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormevent"
     },
     {
@@ -2336,8 +2553,21 @@
       "_origin": "ast",
       "id": "src_lib_types_stormrosterentry",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormrosterentry"
+    },
+    {
+      "label": "SeasonBattleStat",
+      "file_type": "code",
+      "source_file": "src/lib/types.ts",
+      "source_location": "L166",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "src_lib_types_seasonbattlestat",
+      "community": 4,
+      "community_name": "types.ts",
+      "norm_label": "seasonbattlestat"
     },
     {
       "label": "vsDate.test.ts",
@@ -2347,7 +2577,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_test",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "vsdate.test.ts"
     },
     {
@@ -2358,7 +2588,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_test_dirname",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "__dirname"
     },
     {
@@ -2369,7 +2599,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_test_tsxcli",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "tsxcli"
     },
     {
@@ -2380,7 +2610,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_test_harness",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "harness"
     },
     {
@@ -2392,7 +2622,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_test_mocknow",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "mocknow()"
     },
     {
@@ -2403,7 +2633,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_timezone_harness",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "vsdate.timezone-harness.ts"
     },
     {
@@ -2414,7 +2644,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "vsdate.ts"
     },
     {
@@ -2426,7 +2656,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_getactivevsdatestr",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "getactivevsdatestr()"
     },
     {
@@ -2438,7 +2668,7 @@
       "_origin": "ast",
       "id": "src_lib_vsdate_getweekdates",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "getweekdates()"
     },
     {
@@ -2449,7 +2679,7 @@
       "_origin": "ast",
       "id": "src_lib_wad",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "wad.ts"
     },
     {
@@ -2461,7 +2691,7 @@
       "_origin": "ast",
       "id": "src_lib_wad_ranktonum",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "ranktonum()"
     },
     {
@@ -2473,7 +2703,7 @@
       "_origin": "ast",
       "id": "src_lib_wad_calculatewad",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "calculatewad()"
     },
     {
@@ -2485,7 +2715,7 @@
       "_origin": "ast",
       "id": "src_lib_wad_assignringpositions",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "assignringpositions()"
     },
     {
@@ -2497,7 +2727,7 @@
       "_origin": "ast",
       "id": "src_lib_wad_formatnumber",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "formatnumber()"
     },
     {
@@ -2526,7 +2756,7 @@
       "label": "AdminTab",
       "file_type": "code",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
@@ -2539,7 +2769,7 @@
       "label": "TAB_LABEL_KEYS",
       "file_type": "code",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_adminpanel_tab_label_keys",
       "community": 3,
@@ -2550,7 +2780,7 @@
       "label": "AdminPanel()",
       "file_type": "code",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_adminpanel_adminpanel",
@@ -2681,8 +2911,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_friendslist",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "friendslist.tsx"
     },
     {
@@ -2694,8 +2924,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_friendslistprops",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "friendslistprops"
     },
     {
@@ -2707,8 +2937,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_formstate",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "formstate"
     },
     {
@@ -2720,8 +2950,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_sortkey",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "sortkey"
     },
     {
@@ -2733,8 +2963,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_sortdir",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "sortdir"
     },
     {
@@ -2745,8 +2975,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_sorticon",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "sorticon()"
     },
     {
@@ -2757,8 +2987,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_friendslist",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "friendslist()"
     },
     {
@@ -2768,7 +2998,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_killlist",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "killlist.tsx"
     },
@@ -2781,7 +3011,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_killlist_killlistprops",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "killlistprops"
     },
@@ -2794,7 +3024,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_killlist_formstate",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "formstate"
     },
@@ -2807,7 +3037,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_killlist_sortkey",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "sortkey"
     },
@@ -2820,7 +3050,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_killlist_sortdir",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "sortdir"
     },
@@ -2832,7 +3062,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_killlist_sorticon",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "sorticon()"
     },
@@ -2844,7 +3074,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_killlist_killlist",
-      "community": 0,
+      "community": 7,
       "community_name": "logError",
       "norm_label": "killlist()"
     },
@@ -2856,7 +3086,7 @@
       "_origin": "ast",
       "id": "src_pages_marshallmap",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "marshallmap.tsx"
     },
     {
@@ -2869,7 +3099,7 @@
       "_origin": "ast",
       "id": "src_pages_marshallmap_marshallmapprops",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "marshallmapprops"
     },
     {
@@ -2882,7 +3112,7 @@
       "_origin": "ast",
       "id": "src_pages_marshallmap_admintab",
       "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community_name": "logError",
       "norm_label": "admintab"
     },
     {
@@ -2893,8 +3123,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_marshallmap_marshallmap",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "marshallmap()"
     },
     {
@@ -3001,7 +3231,7 @@
       "_origin": "ast",
       "id": "src_pages_trainschedule",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "trainschedule.tsx"
     },
     {
@@ -3012,7 +3242,7 @@
       "_origin": "ast",
       "id": "src_pages_trainschedule_dow",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "dow"
     },
     {
@@ -3023,7 +3253,7 @@
       "_origin": "ast",
       "id": "src_pages_trainschedule_hour_options",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "hour_options"
     },
     {
@@ -3034,80 +3264,80 @@
       "_origin": "ast",
       "id": "src_pages_trainschedule_r4_rotation",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "r4_rotation"
     },
     {
       "label": "buildDowSources()",
       "file_type": "code",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L31",
+      "source_location": "L28",
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_trainschedule_builddowsources",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "builddowsources()"
     },
     {
       "label": "formatDate()",
       "file_type": "code",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L58",
+      "source_location": "L55",
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_trainschedule_formatdate",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "formatdate()"
     },
     {
       "label": "getDow()",
       "file_type": "code",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L63",
+      "source_location": "L60",
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_trainschedule_getdow",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "getdow()"
     },
     {
       "label": "getVsDayLabel()",
       "file_type": "code",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L68",
+      "source_location": "L65",
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_trainschedule_getvsdaylabel",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "getvsdaylabel()"
     },
     {
       "label": "EditState",
       "file_type": "code",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L73",
+      "source_location": "L70",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_trainschedule_editstate",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "editstate"
     },
     {
       "label": "TrainSchedule()",
       "file_type": "code",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L82",
+      "source_location": "L79",
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_trainschedule_trainschedule",
       "community": 0,
-      "community_name": "logError",
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "trainschedule()"
     },
     {
@@ -3618,6 +3848,204 @@
       "community": 81,
       "community_name": "vite.config.ts",
       "norm_label": "vitest.config.ts"
+    },
+    {
+      "label": "2026-09-20-season-participation-tracker.md",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "2026-09-20-season-participation-tracker.md"
+    },
+    {
+      "label": "Season Participation Tracker Implementation Plan",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_season_participation_tracker_implementation_plan",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "season participation tracker implementation plan"
+    },
+    {
+      "label": "Global Constraints",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_global_constraints",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "global constraints"
+    },
+    {
+      "label": "File Structure",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_file_structure",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "file structure"
+    },
+    {
+      "label": "Task 1: Migration, type, and season constant",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_1_migration_type_and_season_constant",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "task 1: migration, type, and season constant"
+    },
+    {
+      "label": "Task 2: Shared member sort + season stats helpers (TDD)",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_2_shared_member_sort_season_stats_helpers_tdd",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "task 2: shared member sort + season stats helpers (tdd)"
+    },
+    {
+      "label": "Task 3: Locale strings",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L320",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_3_locale_strings",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "task 3: locale strings"
+    },
+    {
+      "label": "Task 4: SeasonStatsManager component and admin tab",
+      "file_type": "document",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L415",
+      "_origin": "ast",
+      "id": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_4_seasonstatsmanager_component_and_admin_tab",
+      "community": 85,
+      "community_name": "File Structure",
+      "norm_label": "task 4: seasonstatsmanager component and admin tab"
+    },
+    {
+      "label": "2026-09-20-season-participation-tracker-design.md",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "2026-09-20-season-participation-tracker-design.md"
+    },
+    {
+      "label": "Season Participation Tracker \u2014 Design",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "season participation tracker \u2014 design"
+    },
+    {
+      "label": "Goal",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_goal",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "goal"
+    },
+    {
+      "label": "Data model",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_data_model",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "data model"
+    },
+    {
+      "label": "Seasons",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_seasons",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "seasons"
+    },
+    {
+      "label": "UI",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_ui",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "ui"
+    },
+    {
+      "label": "Code layout",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_code_layout",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "code layout"
+    },
+    {
+      "label": "Error handling",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_error_handling",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "error handling"
+    },
+    {
+      "label": "Testing",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_testing",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "testing"
+    },
+    {
+      "label": "Out of scope",
+      "file_type": "document",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_out_of_scope",
+      "community": 83,
+      "community_name": "Season Participation Tracker \u2014 Design",
+      "norm_label": "out of scope"
     },
     {
       "label": "Deploy GitHub Actions Workflow",
@@ -7296,7 +7724,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -7332,7 +7760,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -8212,6 +8640,336 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_components_seasonstatsmanager_field",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_components_seasonstatsmanager_seasonstatsmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_components_seasonstatsmanager_seasonstatsmanagerprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_components_seasonstatsmanager_sortdir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_components_seasonstatsmanager_sorticon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_components_seasonstatsmanager_sortkey",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_constants",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_constants_seasons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_errorlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_errorlog_logerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_locale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_locale_formatnumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_seasonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_seasonstats_buildrows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_seasonstats_buildupsertpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_seasonstats_parsecount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_seasonstats_seasonedits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_seasonstats_seasonrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_types_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager",
+      "target": "src_lib_types_seasonbattlestat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/AdminPanel.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_adminpanel",
+      "target": "src_components_seasonstatsmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager_seasonstatsmanagerprops",
+      "target": "src_lib_types_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L222",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager_seasonstatsmanager",
+      "target": "src_lib_locale_formatnumber"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/SeasonStatsManager.tsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_seasonstatsmanager_seasonstatsmanager",
+      "target": "src_lib_seasonstats_buildrows"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/AdminPanel.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_pages_adminpanel",
+      "target": "src_components_seasonstatsmanager_seasonstatsmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/components/SortableTechRow.tsx",
       "source_location": "L12",
       "weight": 1.0,
@@ -8295,7 +9053,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L53",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8306,7 +9064,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8317,7 +9075,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8328,18 +9086,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_stormpage",
-      "target": "src_components_stormpage_comparemembersbyrankthenname",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8350,7 +9097,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8361,18 +9108,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L43",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_stormpage",
-      "target": "src_components_stormpage_ranknum",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L254",
+      "source_location": "L245",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8383,7 +9119,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L250",
+      "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8394,7 +9130,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L72",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8405,7 +9141,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L58",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8517,7 +9253,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
-      "target": "src_lib_types",
+      "target": "src_lib_membersort",
       "confidence_score": 1.0
     },
     {
@@ -8526,6 +9262,30 @@
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
       "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_stormpage",
+      "target": "src_lib_membersort_comparemembersbyrankthenname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StormPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_stormpage",
+      "target": "src_lib_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StormPage.tsx",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8537,7 +9297,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8549,7 +9309,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8561,7 +9321,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage",
@@ -8597,7 +9357,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L366",
+      "source_location": "L357",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpage",
@@ -8609,7 +9369,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L498",
+      "source_location": "L489",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpage",
@@ -8621,59 +9381,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L500",
+      "source_location": "L491",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpage",
       "target": "src_components_stormpage_attendancelabel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L48",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_stormpage_comparemembersbyrankthenname",
-      "target": "src_components_stormpage_ranknum",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L80",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_stormpage_teampanel",
-      "target": "src_components_stormpage_comparemembersbyrankthenname",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L69",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_stormpage_teampanelprops",
-      "target": "src_lib_types_attendancestatus",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/StormPage.tsx",
-      "source_location": "L62",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_components_stormpage_teampanelprops",
-      "target": "src_lib_types_member",
       "confidence_score": 1.0
     },
     {
@@ -8685,6 +9397,30 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_teampanelprops",
+      "target": "src_lib_types_attendancestatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StormPage.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_stormpage_teampanelprops",
+      "target": "src_lib_types_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StormPage.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_stormpage_teampanelprops",
       "target": "src_lib_types_stormconfig",
       "confidence_score": 1.0
     },
@@ -8693,7 +9429,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L61",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_teampanelprops",
@@ -8705,7 +9441,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L104",
+      "source_location": "L95",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_teampanel",
@@ -8713,11 +9449,23 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/StormPage.tsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_stormpage_teampanel",
+      "target": "src_lib_membersort_comparemembersbyrankthenname",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L251",
+      "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpageprops",
@@ -8730,7 +9478,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L256",
+      "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpage",
@@ -8742,7 +9490,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L273",
+      "source_location": "L264",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpage",
@@ -8754,7 +9502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/StormPage.tsx",
-      "source_location": "L451",
+      "source_location": "L442",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_stormpage_stormpage",
@@ -9246,7 +9994,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -9294,7 +10042,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -9307,7 +10055,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel_adminpanel",
@@ -9379,7 +10127,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L84",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -9603,7 +10351,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -9651,7 +10399,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -9664,7 +10412,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel_adminpanel",
@@ -9962,7 +10710,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L87",
+      "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -10377,7 +11125,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L86",
+      "source_location": "L83",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -10417,6 +11165,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/constants.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_constants",
+      "target": "src_lib_constants_seasons",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -10445,7 +11204,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -10481,7 +11240,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -10877,6 +11636,297 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_membersort",
+      "target": "src_lib_membersort_comparemembersbyrankthenname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_membersort",
+      "target": "src_lib_membersort_ranknum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_membersort",
+      "target": "src_lib_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_membersort",
+      "target": "src_lib_types_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_membersort",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/memberSort.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_membersort_comparemembersbyrankthenname",
+      "target": "src_lib_membersort_ranknum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_membersort_comparemembersbyrankthenname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_buildrows",
+      "target": "src_lib_membersort_comparemembersbyrankthenname"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_seasonstats",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_seasonstats_buildrows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_seasonstats_buildupsertpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_seasonstats_parsecount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_seasonstats_test_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_seasonstats_test_stat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_types_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats_test",
+      "target": "src_lib_types_seasonbattlestat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_seasonstats_buildrows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_seasonstats_buildupsertpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_seasonstats_parsecount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_seasonstats_seasonedits",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_seasonstats_seasonrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_types_member",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/seasonStats.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_seasonstats",
+      "target": "src_lib_types_seasonbattlestat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/lib/supabase.ts",
       "source_location": "L12",
       "weight": 1.0,
@@ -11142,6 +12192,17 @@
       "_origin": "ast",
       "source": "src_lib_types",
       "target": "src_lib_types_rankvalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/types.ts",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_types",
+      "target": "src_lib_types_seasonbattlestat",
       "confidence_score": 1.0
     },
     {
@@ -11592,7 +12653,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L95",
+      "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -11706,7 +12767,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -11717,7 +12778,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -11728,7 +12789,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/AdminPanel.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_adminpanel",
@@ -12094,7 +13155,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L31",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule",
@@ -12116,7 +13177,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L73",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule",
@@ -12127,7 +13188,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L58",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule",
@@ -12138,7 +13199,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L63",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule",
@@ -12149,7 +13210,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L68",
+      "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule",
@@ -12182,7 +13243,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L82",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule",
@@ -12194,7 +13255,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L102",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12206,7 +13267,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L216",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12218,7 +13279,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L250",
+      "source_location": "L247",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12230,7 +13291,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L260",
+      "source_location": "L257",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12732,6 +13793,182 @@
       "_origin": "ast",
       "source": "vitest_config",
       "target": "vite_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_season_participation_tracker_implementation_plan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker_season_participation_tracker_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_file_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker_season_participation_tracker_implementation_plan",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_global_constraints",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker_file_structure",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_1_migration_type_and_season_constant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker_file_structure",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_2_shared_member_sort_season_stats_helpers_tdd",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L320",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker_file_structure",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_3_locale_strings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/plans/2026-09-20-season-participation-tracker.md",
+      "source_location": "L415",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_plans_2026_09_20_season_participation_tracker_file_structure",
+      "target": "docs_superpowers_plans_2026_09_20_season_participation_tracker_task_4_seasonstatsmanager_component_and_admin_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_code_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_data_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_error_handling",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_goal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_out_of_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_seasons",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_testing",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_season_participation_tracker_design",
+      "target": "docs_superpowers_specs_2026_09_20_season_participation_tracker_design_ui",
       "confidence_score": 1.0
     },
     {
@@ -14189,5 +15426,5 @@
       "source_file": "docs/superpowers/specs/2026-07-18-supabase-migrations-design.md"
     }
   ],
-  "built_at_commit": "4f145006b514048fea0ded664c42ca865eac4de0"
+  "built_at_commit": "87457f3c738eb8fe3074dfb7ddd908596a541edd"
 }
