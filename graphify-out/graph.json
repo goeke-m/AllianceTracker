@@ -8937,7 +8937,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/SeasonStatsManager.tsx",
-      "source_location": "L222",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_seasonstatsmanager_seasonstatsmanager",
@@ -8949,7 +8949,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/SeasonStatsManager.tsx",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_seasonstatsmanager_seasonstatsmanager",
@@ -15426,5 +15426,5 @@
       "source_file": "docs/superpowers/specs/2026-07-18-supabase-migrations-design.md"
     }
   ],
-  "built_at_commit": "87457f3c738eb8fe3074dfb7ddd908596a541edd"
+  "built_at_commit": "2a3af195467c081c916f924539bd465544998fc7"
 }
