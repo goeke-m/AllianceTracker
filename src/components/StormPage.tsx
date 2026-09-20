@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useStormEvent } from '../hooks/useStormEvent'
 import { logError } from '../lib/errorLog'
 import { formatNumber } from '../lib/locale'
+import { compareMembersByRankThenName } from '../lib/memberSort'
 import type { AttendanceStatus, Member, StormConfig, StormRosterEntry } from '../lib/types'
 
 function formatWeekStart(iso: string): string {
@@ -38,16 +39,6 @@ function attendanceLabel(attendance: AttendanceStatus | null, t: TFunction): str
     case 'subbed_in': return t('storm.subbedIn')
     default: return '—'
   }
-}
-
-function rankNum(rank: string | undefined): number {
-  return rank ? parseInt(rank.slice(1), 10) : 0
-}
-
-function compareMembersByRankThenName(a: Member | undefined, b: Member | undefined): number {
-  const rankDiff = rankNum(b?.Rank) - rankNum(a?.Rank)
-  if (rankDiff !== 0) return rankDiff
-  return (a?.name ?? '').localeCompare(b?.name ?? '')
 }
 
 interface AddingTo {
