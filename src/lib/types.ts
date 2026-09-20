@@ -162,3 +162,13 @@ export interface StormRosterEntry {
   attendance: AttendanceStatus | null
   created_at: string
 }
+
+export interface SeasonBattleStat {
+  id: string;
+  season: number;
+  member_id: string;
+  participation: number; // count, e.g. attacks/rounds joined
+  kills: number;
+  created_at: string;
+  updated_at: string;
+}
