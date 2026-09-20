@@ -166,6 +166,7 @@
     "tabMembers": "Members",
     "tabDemerits": "Demerits",
     "tabVsPoints": "VS Points",
+    "tabSeason": "Season",
     "tabErrors": "Errors"
   },
   "members": {
@@ -210,6 +211,16 @@
     "modalTitleAdd": "Add Demerit",
     "notePlaceholder": "Reason / details",
     "validationRequired": "Member, date, and note are required."
+  },
+  "seasonStats": {
+    "heading": "Season Battle Stats",
+    "seasonLabel": "Season",
+    "seasonOption": "Season {{season}}",
+    "colParticipation": "Participation",
+    "colKills": "Kills",
+    "pendingChanges": "{{count}} unsaved change(s)",
+    "saved": "Saved.",
+    "emptyNoMembers": "No members to show."
   },
   "vsPoints": {
     "heading": "VS Points ({{count}})",
