@@ -166,6 +166,7 @@
     "tabMembers": "Membros",
     "tabDemerits": "Advertências",
     "tabVsPoints": "Pontos VS",
+    "tabSeason": "Temporada",
     "tabErrors": "Erros"
   },
   "members": {
@@ -210,6 +211,16 @@
     "modalTitleAdd": "Adicionar Advertência",
     "notePlaceholder": "Motivo / detalhes",
     "validationRequired": "Membro, data e nota são obrigatórios."
+  },
+  "seasonStats": {
+    "heading": "Estatísticas da batalha da temporada",
+    "seasonLabel": "Temporada",
+    "seasonOption": "Temporada {{season}}",
+    "colParticipation": "Participação",
+    "colKills": "Abates",
+    "pendingChanges": "{{count}} alteração(ões) não salva(s)",
+    "saved": "Salvo.",
+    "emptyNoMembers": "Nenhum membro para exibir."
   },
   "vsPoints": {
     "heading": "Pontos VS ({{count}})",

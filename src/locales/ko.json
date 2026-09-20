@@ -166,6 +166,7 @@
     "tabMembers": "멤버",
     "tabDemerits": "감점",
     "tabVsPoints": "VS 포인트",
+    "tabSeason": "시즌",
     "tabErrors": "오류"
   },
   "members": {
@@ -209,6 +210,16 @@
     "modalTitleAdd": "감점 추가",
     "notePlaceholder": "사유 / 세부 사항",
     "validationRequired": "멤버, 날짜, 메모는 필수입니다."
+  },
+  "seasonStats": {
+    "heading": "시즌 전투 기록",
+    "seasonLabel": "시즌",
+    "seasonOption": "시즌 {{season}}",
+    "colParticipation": "참여",
+    "colKills": "처치",
+    "pendingChanges": "저장되지 않은 변경 {{count}}건",
+    "saved": "저장되었습니다.",
+    "emptyNoMembers": "표시할 멤버가 없습니다."
   },
   "vsPoints": {
     "heading": "VS 포인트 ({{count}})",

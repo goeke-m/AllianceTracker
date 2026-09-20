@@ -1,457 +1,507 @@
 {
   ".claude/settings.json": {
-    "mtime": 1786114574.6857069,
+    "mtime": 1789923394.0757918,
     "ast_hash": "433107a0ca9b120201112f53e692138f",
     "semantic_hash": "433107a0ca9b120201112f53e692138f"
   },
   "package.json": {
-    "mtime": 1784560396.794202,
-    "ast_hash": "b0e10863c1a4a5c468f63037b9431ee7",
-    "semantic_hash": "b0e10863c1a4a5c468f63037b9431ee7"
+    "mtime": 1789923394.0844166,
+    "ast_hash": "ed46d55f43b41762606b9ce2a098b9ef",
+    "semantic_hash": ""
   },
   "postcss.config.js": {
-    "mtime": 1784352960.2702374,
+    "mtime": 1789923394.0844166,
     "ast_hash": "ef3ba2a81ba19f8ea5ddf625521e96f0",
     "semantic_hash": "ef3ba2a81ba19f8ea5ddf625521e96f0"
   },
   "src/App.tsx": {
-    "mtime": 1784560396.7958434,
+    "mtime": 1789923394.088539,
     "ast_hash": "8ae912dbfd680785e19197a7edab2c7a",
     "semantic_hash": "8ae912dbfd680785e19197a7edab2c7a"
   },
   "src/components/DemeritManager.tsx": {
-    "mtime": 1784560396.795904,
+    "mtime": 1789923394.08871,
     "ast_hash": "6bc2cd932dbc3a54d461bca930e166a6",
     "semantic_hash": "6bc2cd932dbc3a54d461bca930e166a6"
   },
   "src/components/ErrorLogManager.tsx": {
-    "mtime": 1784560396.7959416,
+    "mtime": 1789923394.088884,
     "ast_hash": "95bddafdcecff7a0be2fe564c3673f1b",
     "semantic_hash": "95bddafdcecff7a0be2fe564c3673f1b"
   },
   "src/components/EventLogImport.tsx": {
-    "mtime": 1784560396.7959821,
+    "mtime": 1789923394.089201,
     "ast_hash": "5351c8277dc32ddf74e864ec18bd4187",
     "semantic_hash": "5351c8277dc32ddf74e864ec18bd4187"
   },
   "src/components/LanguageSwitcher.tsx": {
-    "mtime": 1784560396.7960083,
+    "mtime": 1789923394.08934,
     "ast_hash": "e18879bace33983097c8f324dfb23156",
     "semantic_hash": "e18879bace33983097c8f324dfb23156"
   },
   "src/components/LoginPage.tsx": {
-    "mtime": 1784560396.7960544,
+    "mtime": 1789923394.0894966,
     "ast_hash": "22b4239388eb5aa60c3a7f63ca4be99b",
     "semantic_hash": "22b4239388eb5aa60c3a7f63ca4be99b"
   },
   "src/components/MarshallVisualizer.tsx": {
-    "mtime": 1784560396.7960951,
+    "mtime": 1789923394.0896692,
     "ast_hash": "a45c20d5678e29ec8143579c68a82b49",
     "semantic_hash": "a45c20d5678e29ec8143579c68a82b49"
   },
   "src/components/MemberManager.tsx": {
-    "mtime": 1784560396.7962353,
+    "mtime": 1789923394.0897918,
     "ast_hash": "3563aefebe853a77461b02ff344522ec",
     "semantic_hash": "3563aefebe853a77461b02ff344522ec"
   },
   "src/components/NavBar.tsx": {
-    "mtime": 1784560396.796298,
+    "mtime": 1789923394.089855,
     "ast_hash": "61b05eb8cacb0d4c7930a3b0742e8d34",
     "semantic_hash": "61b05eb8cacb0d4c7930a3b0742e8d34"
   },
   "src/components/SortableTechRow.tsx": {
-    "mtime": 1784560396.796333,
+    "mtime": 1789923394.0899928,
     "ast_hash": "1149fcca4a5940a99a1c9866be79970b",
     "semantic_hash": "1149fcca4a5940a99a1c9866be79970b"
   },
   "src/components/StormPage.tsx": {
-    "mtime": 1785125692.2389574,
-    "ast_hash": "b387ee6615331f031fb82bc8062019ea",
-    "semantic_hash": "b387ee6615331f031fb82bc8062019ea"
+    "mtime": 1789923565.102519,
+    "ast_hash": "22dab2de14515263eb8135a25f1bb45b",
+    "semantic_hash": ""
   },
   "src/components/VsPointManager.tsx": {
-    "mtime": 1784560396.7964776,
+    "mtime": 1789923394.0903053,
     "ast_hash": "788ad8628c31ff11fe95c749a80000ef",
     "semantic_hash": "788ad8628c31ff11fe95c749a80000ef"
   },
   "src/hooks/useAllianceTech.ts": {
-    "mtime": 1784352960.2709053,
+    "mtime": 1789923394.0903053,
     "ast_hash": "77f196b60413b301306a2da0542ff7b2",
     "semantic_hash": "77f196b60413b301306a2da0542ff7b2"
   },
   "src/hooks/useAuth.ts": {
-    "mtime": 1784352960.2711442,
+    "mtime": 1789923394.0903475,
     "ast_hash": "f73f1040f206e957c008c3d0021889d8",
     "semantic_hash": "f73f1040f206e957c008c3d0021889d8"
   },
   "src/hooks/useLanguage.ts": {
-    "mtime": 1784560396.796513,
+    "mtime": 1789923394.0904803,
     "ast_hash": "ecdf6a701be2c642775bbebda79034e6",
     "semantic_hash": "ecdf6a701be2c642775bbebda79034e6"
   },
   "src/hooks/useMarshallData.ts": {
-    "mtime": 1784352960.2711442,
+    "mtime": 1789923394.0905066,
     "ast_hash": "54b5d0986164cacbc8c1eedad5bbdb70",
     "semantic_hash": "54b5d0986164cacbc8c1eedad5bbdb70"
   },
   "src/hooks/useOoto.ts": {
-    "mtime": 1784352960.2711442,
+    "mtime": 1789923394.0905066,
     "ast_hash": "3cecf7d00f0c611f708907b72924d4b6",
     "semantic_hash": "3cecf7d00f0c611f708907b72924d4b6"
   },
   "src/hooks/useScheduleSettings.ts": {
-    "mtime": 1784352960.2711442,
+    "mtime": 1789923394.0905066,
     "ast_hash": "c0ce98174bc61387ff594930f7885aa4",
     "semantic_hash": "c0ce98174bc61387ff594930f7885aa4"
   },
   "src/hooks/useStormEvent.ts": {
-    "mtime": 1785125692.239016,
+    "mtime": 1789923394.0906835,
     "ast_hash": "1eb15685e3a2e129792d5dd4453a1784",
     "semantic_hash": "1eb15685e3a2e129792d5dd4453a1784"
   },
   "src/hooks/useTrainSchedule.ts": {
-    "mtime": 1789045417.7831607,
-    "ast_hash": "f71c9ad75b3720a7678fc26e7a6d534d",
+    "mtime": 1789923394.0907137,
+    "ast_hash": "6bac888c219bd546da4c58cda86ad907",
     "semantic_hash": ""
   },
   "src/lib/constants.ts": {
-    "mtime": 1784560396.7965991,
-    "ast_hash": "504c2e04d743721440343456175c2ee2",
-    "semantic_hash": "504c2e04d743721440343456175c2ee2"
+    "mtime": 1789923443.5430439,
+    "ast_hash": "2a4c2791c738bbabf348c586791ba4dc",
+    "semantic_hash": ""
   },
   "src/lib/errorLog.ts": {
-    "mtime": 1784352960.271239,
+    "mtime": 1789923394.0907545,
     "ast_hash": "e7ed00a03493f00af9deb25a781f5902",
     "semantic_hash": "e7ed00a03493f00af9deb25a781f5902"
   },
   "src/lib/i18n.ts": {
-    "mtime": 1784560396.7966223,
+    "mtime": 1789923394.090919,
     "ast_hash": "bfd6847ea6674fc3ae87f5314a06f9b8",
     "semantic_hash": "bfd6847ea6674fc3ae87f5314a06f9b8"
   },
   "src/lib/locale.ts": {
-    "mtime": 1784560396.796645,
+    "mtime": 1789923394.091042,
     "ast_hash": "844c797d0674222bfa131bc1483b5d4f",
     "semantic_hash": "844c797d0674222bfa131bc1483b5d4f"
   },
   "src/lib/supabase.ts": {
-    "mtime": 1784352960.271239,
+    "mtime": 1789923394.0910544,
     "ast_hash": "7498f75ec49dc9b0626d46fb3c38e934",
     "semantic_hash": "7498f75ec49dc9b0626d46fb3c38e934"
   },
   "src/lib/types.ts": {
-    "mtime": 1785171925.7308416,
-    "ast_hash": "5083bedc9934300278e1f4cdd62948b6",
-    "semantic_hash": "5083bedc9934300278e1f4cdd62948b6"
+    "mtime": 1789923440.6513362,
+    "ast_hash": "f66757583cae0588a98ded63f9a41306",
+    "semantic_hash": ""
   },
   "src/lib/wad.ts": {
-    "mtime": 1784352960.271239,
+    "mtime": 1789923394.091415,
     "ast_hash": "e245f0b2803287368bc2266d2bf60467",
     "semantic_hash": "e245f0b2803287368bc2266d2bf60467"
   },
   "src/locales/en.json": {
-    "mtime": 1785171658.0966682,
-    "ast_hash": "06af550a826ea14942670743c1fab9aa",
-    "semantic_hash": "06af550a826ea14942670743c1fab9aa"
+    "mtime": 1789923745.0558782,
+    "ast_hash": "78a59a59522bff3f20d76ccc7934ab6b",
+    "semantic_hash": ""
   },
   "src/locales/es.json": {
-    "mtime": 1785171658.0967333,
-    "ast_hash": "d5d94848ffe67d1a522d5fc53b526a66",
-    "semantic_hash": "d5d94848ffe67d1a522d5fc53b526a66"
+    "mtime": 1789923749.6738505,
+    "ast_hash": "baabfe3197aec8a2fbc9879b442f04cb",
+    "semantic_hash": ""
   },
   "src/locales/ko.json": {
-    "mtime": 1785171658.0967946,
-    "ast_hash": "c852328f4ee8ee8692047eaf881e0afc",
-    "semantic_hash": "c852328f4ee8ee8692047eaf881e0afc"
+    "mtime": 1789923755.1094933,
+    "ast_hash": "564f990a2f6fd0bc71bcbc15c894d2d4",
+    "semantic_hash": ""
   },
   "src/locales/pt-BR.json": {
-    "mtime": 1785171658.0968559,
-    "ast_hash": "a70e3b2998676b0dc728244005b0c848",
-    "semantic_hash": "a70e3b2998676b0dc728244005b0c848"
+    "mtime": 1789923759.925521,
+    "ast_hash": "30ac937cfe5aedc5c603bc9d887c3c0b",
+    "semantic_hash": ""
   },
   "src/main.tsx": {
-    "mtime": 1784560396.7969222,
+    "mtime": 1789923394.0917969,
     "ast_hash": "322a64413635f0b298ba8851bd955409",
     "semantic_hash": "322a64413635f0b298ba8851bd955409"
   },
   "src/pages/AdminPanel.tsx": {
-    "mtime": 1784560396.7969587,
-    "ast_hash": "c222b1b871f788fd6148e8049d2032b9",
-    "semantic_hash": "c222b1b871f788fd6148e8049d2032b9"
+    "mtime": 1789923856.0568228,
+    "ast_hash": "d6e1d537bc11d53b961dd5708afab058",
+    "semantic_hash": ""
   },
   "src/pages/AllianceTech.tsx": {
-    "mtime": 1784560396.7970192,
+    "mtime": 1789923394.0918698,
     "ast_hash": "54e4099d77f606a1f1e89892684a841c",
     "semantic_hash": "54e4099d77f606a1f1e89892684a841c"
   },
   "src/pages/CanyonStorm.tsx": {
-    "mtime": 1784560396.7970355,
+    "mtime": 1789923394.0919669,
     "ast_hash": "5c3ca2e8f0df4ba19be9cb284576f430",
     "semantic_hash": "5c3ca2e8f0df4ba19be9cb284576f430"
   },
   "src/pages/DesertStorm.tsx": {
-    "mtime": 1784560396.7970355,
+    "mtime": 1789923394.0919669,
     "ast_hash": "f0012d065315cf0db2a4bb6f1496f81d",
     "semantic_hash": "f0012d065315cf0db2a4bb6f1496f81d"
   },
   "src/pages/FriendsList.tsx": {
-    "mtime": 1784560396.7970974,
+    "mtime": 1789923394.092054,
     "ast_hash": "3f4b674460464083b6b3827dd6862f2c",
     "semantic_hash": "3f4b674460464083b6b3827dd6862f2c"
   },
   "src/pages/KillList.tsx": {
-    "mtime": 1784560396.7971487,
+    "mtime": 1789923394.092127,
     "ast_hash": "e57c9e3dc5a7c1d9c060e3a78f81ca5d",
     "semantic_hash": "e57c9e3dc5a7c1d9c060e3a78f81ca5d"
   },
   "src/pages/MarshallMap.tsx": {
-    "mtime": 1784560396.7972016,
+    "mtime": 1789923394.0922081,
     "ast_hash": "5a566026ed013f5189e8266a3443572b",
     "semantic_hash": "5a566026ed013f5189e8266a3443572b"
   },
   "src/pages/Out.tsx": {
-    "mtime": 1784560396.797258,
+    "mtime": 1789923394.0922906,
     "ast_hash": "634dd0698142e82f0843493f708dffe7",
     "semantic_hash": "634dd0698142e82f0843493f708dffe7"
   },
   "src/pages/TrainSchedule.tsx": {
-    "mtime": 1789045411.598112,
-    "ast_hash": "4f67b161b7b871a14e8c92ec200b32fc",
+    "mtime": 1789923394.0923483,
+    "ast_hash": "b97c1cba205446ff24aa670e90eae054",
     "semantic_hash": ""
   },
   "src/vite-env.d.ts": {
-    "mtime": 1784352960.2713697,
+    "mtime": 1789923394.0923483,
     "ast_hash": "0352474ba2918efe13895edbc3780d94",
     "semantic_hash": "0352474ba2918efe13895edbc3780d94"
   },
   "supabase/functions/sync-alliance-members/index.ts": {
-    "mtime": 1784352960.2716236,
+    "mtime": 1789923394.0924587,
     "ast_hash": "0c37c425544e5c990f53b6e700fca9e9",
     "semantic_hash": "0c37c425544e5c990f53b6e700fca9e9"
   },
   "supabase/functions/sync-alliance-members/reconcile.ts": {
-    "mtime": 1784352960.2716725,
+    "mtime": 1789923394.092497,
     "ast_hash": "72a5aa517652422e54f3992f62201b31",
     "semantic_hash": "72a5aa517652422e54f3992f62201b31"
   },
   "supabase/functions/sync-alliance-members/reconcile_test.ts": {
-    "mtime": 1784352960.2716725,
+    "mtime": 1789923394.092497,
     "ast_hash": "39c0b7b85a494331d6b160a8c6ef6f2c",
     "semantic_hash": "39c0b7b85a494331d6b160a8c6ef6f2c"
   },
   "supabase/migrations/20260101000000_base_schema.sql": {
-    "mtime": 1784560396.7973897,
+    "mtime": 1789923394.092497,
     "ast_hash": "d0adf1e38bbb348b04eaa2cd366f2412",
     "semantic_hash": "d0adf1e38bbb348b04eaa2cd366f2412"
   },
   "supabase/migrations/20260718000001_train_schedule_settings_seed.sql": {
-    "mtime": 1784560396.7974615,
+    "mtime": 1789923394.0925987,
     "ast_hash": "55da714c8be4377cd3648ffb2285d57c",
     "semantic_hash": "55da714c8be4377cd3648ffb2285d57c"
   },
   "supabase/migrations/20260723011851_storm_roster_requested_role.sql": {
-    "mtime": 1785125692.2393422,
+    "mtime": 1789923394.0927358,
     "ast_hash": "276288dd8070f645f34091f1cab0986c",
     "semantic_hash": "276288dd8070f645f34091f1cab0986c"
   },
   "supabase/migrations/20260727114548_train_schedule_boarding_hour.sql": {
-    "mtime": 1785171658.0971794,
+    "mtime": 1789923394.0928695,
     "ast_hash": "a1de52347fe2bfa538fdfe44c425905f",
     "semantic_hash": "a1de52347fe2bfa538fdfe44c425905f"
   },
   "supabase/seed.sql": {
-    "mtime": 1784560396.7974927,
+    "mtime": 1789923394.0928998,
     "ast_hash": "891662f78062e8630e74645436a0273c",
     "semantic_hash": "891662f78062e8630e74645436a0273c"
   },
   "tailwind.config.js": {
-    "mtime": 1784560396.7975192,
+    "mtime": 1789923394.0928998,
     "ast_hash": "858a4e034c67e645126a4193a613c1b3",
     "semantic_hash": "858a4e034c67e645126a4193a613c1b3"
   },
   "tsconfig.json": {
-    "mtime": 1784352960.2716725,
+    "mtime": 1789923394.0928998,
     "ast_hash": "0a9cefae5c97b33cc8025897904fd4e1",
     "semantic_hash": "0a9cefae5c97b33cc8025897904fd4e1"
   },
   "tsconfig.node.json": {
-    "mtime": 1784352960.2716725,
+    "mtime": 1789923394.0928998,
     "ast_hash": "767b2e9abe6452170cdc399ca052cfbc",
     "semantic_hash": "767b2e9abe6452170cdc399ca052cfbc"
   },
   "vite.config.ts": {
-    "mtime": 1784560396.7975192,
+    "mtime": 1789923394.0928998,
     "ast_hash": "5172981c6ea5faf53a1cda40ee2df1af",
     "semantic_hash": "5172981c6ea5faf53a1cda40ee2df1af"
   },
   ".github/workflows/deploy.yml": {
-    "mtime": 1784560396.7933264,
-    "ast_hash": "657fe9610453a7f25284ef36554c6cfe",
-    "semantic_hash": "657fe9610453a7f25284ef36554c6cfe"
+    "mtime": 1789923394.0759933,
+    "ast_hash": "929b06cdee89e16b59f35f3ee2158f21",
+    "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1784560396.793423,
+    "mtime": 1789923394.0763502,
     "ast_hash": "504bec0ee6ee0d87cf9be0f2bb92e537",
     "semantic_hash": "504bec0ee6ee0d87cf9be0f2bb92e537"
   },
   "CLAUDE.md": {
-    "mtime": 1786114574.6855545,
+    "mtime": 1789923394.0765064,
     "ast_hash": "82efb97a359f5c7290bf2513d14686be",
     "semantic_hash": "82efb97a359f5c7290bf2513d14686be"
   },
   "README.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.076548,
     "ast_hash": "fb172b6582d6bfb564fbbf6749286478",
     "semantic_hash": "fb172b6582d6bfb564fbbf6749286478"
   },
   "docs/superpowers/plans/2026-05-08-alliance-member-auto-sync.md": {
-    "mtime": 1784352960.2698102,
+    "mtime": 1789923394.0765724,
     "ast_hash": "cd7b5929e857016a3a96faa815dbe75c",
     "semantic_hash": "cd7b5929e857016a3a96faa815dbe75c"
   },
   "docs/superpowers/plans/2026-06-10-tech-queue-drag-reorder.md": {
-    "mtime": 1784352960.2699225,
+    "mtime": 1789923394.0766833,
     "ast_hash": "d295b16bde2ef256f29e13ccc75a0e1f",
     "semantic_hash": "d295b16bde2ef256f29e13ccc75a0e1f"
   },
   "docs/superpowers/plans/2026-06-21-member-timezone-field.md": {
-    "mtime": 1784352960.2699225,
+    "mtime": 1789923394.0766833,
     "ast_hash": "28aeecc738c34782e274589ade278d73",
     "semantic_hash": "28aeecc738c34782e274589ade278d73"
   },
   "docs/superpowers/plans/2026-06-24-train-schedule-week-mode-toggle.md": {
-    "mtime": 1784352960.2699225,
+    "mtime": 1789923394.0766833,
     "ast_hash": "74c86db36bd396aa03884303a5b8fbc6",
     "semantic_hash": "74c86db36bd396aa03884303a5b8fbc6"
   },
   "docs/superpowers/plans/2026-07-06-error-logging.md": {
-    "mtime": 1784352960.2699225,
+    "mtime": 1789923394.0766833,
     "ast_hash": "6ee99f59ce849d93575e56579d435c46",
     "semantic_hash": "6ee99f59ce849d93575e56579d435c46"
   },
   "docs/superpowers/plans/2026-07-18-multi-language-support.md": {
-    "mtime": 1784356179.209366,
+    "mtime": 1789923394.076892,
     "ast_hash": "d2b6f185728a9d12fcead6928eded053",
     "semantic_hash": "d2b6f185728a9d12fcead6928eded053"
   },
   "docs/superpowers/plans/2026-07-18-storm-events-tracking.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.076892,
     "ast_hash": "b0a0fb37f1d1acd8c4182e3f6be28697",
     "semantic_hash": "b0a0fb37f1d1acd8c4182e3f6be28697"
   },
   "docs/superpowers/plans/2026-07-18-supabase-migrations.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.076892,
     "ast_hash": "b1e82e78a63b011508c12f3b0ea0bb4f",
     "semantic_hash": "b1e82e78a63b011508c12f3b0ea0bb4f"
   },
   "docs/superpowers/plans/2026-07-18-wpnz-tactical-theme.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.076892,
     "ast_hash": "dd48d4d04faa83f762b1ae9f7f5b3e3d",
     "semantic_hash": "dd48d4d04faa83f762b1ae9f7f5b3e3d"
   },
   "docs/superpowers/plans/2026-07-20-storm-layout-and-default-attendance.md": {
-    "mtime": 1784567286.9043398,
+    "mtime": 1789923394.076892,
     "ast_hash": "1ae7ac864ad121795b04aa9f787b8f62",
     "semantic_hash": "1ae7ac864ad121795b04aa9f787b8f62"
   },
   "docs/superpowers/plans/2026-07-20-storm-roster-sort-and-member-search.md": {
-    "mtime": 1784567286.9044154,
+    "mtime": 1789923394.076892,
     "ast_hash": "1e5f1659df554cbd0ccf169039616da2",
     "semantic_hash": "1e5f1659df554cbd0ccf169039616da2"
   },
   "docs/superpowers/plans/2026-07-22-storm-requested-not-selected.md": {
-    "mtime": 1785125692.2387764,
+    "mtime": 1789923394.0778918,
     "ast_hash": "09372502873cf5fffaea57a4c43c63bd",
     "semantic_hash": "09372502873cf5fffaea57a4c43c63bd"
   },
   "docs/superpowers/specs/2026-05-08-alliance-member-auto-sync-design.md": {
-    "mtime": 1784352960.2699225,
+    "mtime": 1789923394.0778918,
     "ast_hash": "dd0694203f7d3c5b28a493ce556ef212",
     "semantic_hash": "dd0694203f7d3c5b28a493ce556ef212"
   },
   "docs/superpowers/specs/2026-06-10-tech-queue-drag-reorder-design.md": {
-    "mtime": 1784352960.2702374,
+    "mtime": 1789923394.0787482,
     "ast_hash": "d126ff3e5209b66e28a412d4cadf408e",
     "semantic_hash": "d126ff3e5209b66e28a412d4cadf408e"
   },
   "docs/superpowers/specs/2026-06-21-member-timezone-design.md": {
-    "mtime": 1784352960.2702374,
+    "mtime": 1789923394.0787482,
     "ast_hash": "e841fc19408a6b055850735d014b3dde",
     "semantic_hash": "e841fc19408a6b055850735d014b3dde"
   },
   "docs/superpowers/specs/2026-06-24-train-schedule-week-mode-toggle-design.md": {
-    "mtime": 1784352960.2702374,
+    "mtime": 1789923394.0787482,
     "ast_hash": "5337530c4cb1146503c7d9553c34075b",
     "semantic_hash": "5337530c4cb1146503c7d9553c34075b"
   },
   "docs/superpowers/specs/2026-07-06-error-logging-design.md": {
-    "mtime": 1784352960.2702374,
+    "mtime": 1789923394.0787482,
     "ast_hash": "0aec4c408ca564a56e0df960aae217d4",
     "semantic_hash": "0aec4c408ca564a56e0df960aae217d4"
   },
   "docs/superpowers/specs/2026-07-18-canyon-storm-tracking-design.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.0787482,
     "ast_hash": "7ce87ef568144514f4df45fcda1a342f",
     "semantic_hash": "7ce87ef568144514f4df45fcda1a342f"
   },
   "docs/superpowers/specs/2026-07-18-desert-storm-tracking-design.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.0787482,
     "ast_hash": "685f392052c35a8ced9a9fbc73ce0bcd",
     "semantic_hash": "685f392052c35a8ced9a9fbc73ce0bcd"
   },
   "docs/superpowers/specs/2026-07-18-multi-language-support-design.md": {
-    "mtime": 1784354913.288718,
+    "mtime": 1789923394.0787482,
     "ast_hash": "50fcf9391c207258a71340b37b1bacec",
     "semantic_hash": "50fcf9391c207258a71340b37b1bacec"
   },
   "docs/superpowers/specs/2026-07-18-supabase-migrations-design.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.0787482,
     "ast_hash": "86b22de4e8cd85380ba3c3a9de9f4c4f",
     "semantic_hash": "86b22de4e8cd85380ba3c3a9de9f4c4f"
   },
   "docs/superpowers/specs/2026-07-18-wpnz-tactical-theme-design.md": {
-    "mtime": 1784560396.793474,
+    "mtime": 1789923394.0787482,
     "ast_hash": "1f8b71e92748f1eea9e2174d58dee973",
     "semantic_hash": "1f8b71e92748f1eea9e2174d58dee973"
   },
   "docs/superpowers/specs/2026-07-20-storm-layout-and-default-attendance-design.md": {
-    "mtime": 1784567286.9044654,
+    "mtime": 1789923394.0788918,
     "ast_hash": "0ee96216a49ae4a9fd44f9e806a6cb39",
     "semantic_hash": "0ee96216a49ae4a9fd44f9e806a6cb39"
   },
   "docs/superpowers/specs/2026-07-20-storm-roster-sort-and-member-search-design.md": {
-    "mtime": 1784567286.904513,
+    "mtime": 1789923394.0788918,
     "ast_hash": "b9fed4e1ec4d1ad15c371c1cc3614aeb",
     "semantic_hash": "b9fed4e1ec4d1ad15c371c1cc3614aeb"
   },
   "docs/superpowers/specs/2026-07-22-storm-requested-not-selected-design.md": {
-    "mtime": 1785125692.2388465,
+    "mtime": 1789923394.0788918,
     "ast_hash": "2407c4a8e034b4196790b18770e7e503",
     "semantic_hash": "2407c4a8e034b4196790b18770e7e503"
   },
   "docs/superpowers/specs/2026-07-27-train-schedule-boarding-time-design.md": {
-    "mtime": 1785171658.100747,
+    "mtime": 1789923394.0788918,
     "ast_hash": "f4aee3c52507ebd3db550f576fdbee99",
     "semantic_hash": "f4aee3c52507ebd3db550f576fdbee99"
   },
   "index.html": {
-    "mtime": 1784560396.7938924,
+    "mtime": 1789923394.0837984,
     "ast_hash": "a40eaa37d2ac2af0bb639038df1d4e63",
     "semantic_hash": "a40eaa37d2ac2af0bb639038df1d4e63"
   },
   "req.md": {
-    "mtime": 1784352960.2702374,
+    "mtime": 1789923394.088539,
     "ast_hash": "13e511d653bb06869d7bee6618056e63",
     "semantic_hash": "13e511d653bb06869d7bee6618056e63"
   },
   "public/logo.jpg": {
-    "mtime": 1784560396.795762,
+    "mtime": 1789923394.0884702,
     "ast_hash": "5800aeb3e8875fb3b7803219b57df761",
     "semantic_hash": "5800aeb3e8875fb3b7803219b57df761"
   },
   "src/lib/vsDate.ts": {
-    "mtime": 1789045404.392793,
-    "ast_hash": "2d3feeafa4b56a2c7db9bdd3cf27770b",
+    "mtime": 1789923394.0913897,
+    "ast_hash": "93ab34e4f19afd4c20371f136c781731",
+    "semantic_hash": ""
+  },
+  "src/lib/vsDate.test.ts": {
+    "mtime": 1789923394.0912328,
+    "ast_hash": "24d7916c97f4120d53632bdc546bb2bf",
+    "semantic_hash": ""
+  },
+  "src/lib/vsDate.timezone-harness.ts": {
+    "mtime": 1789923394.0913622,
+    "ast_hash": "c54ebc29ce6b7f4261eaa5a79956e995",
+    "semantic_hash": ""
+  },
+  "vitest.config.ts": {
+    "mtime": 1789923394.0930715,
+    "ast_hash": "414d3521cceff9755cd2c710ef53bfc8",
+    "semantic_hash": ""
+  },
+  "src/components/SeasonStatsManager.tsx": {
+    "mtime": 1789923856.050868,
+    "ast_hash": "fff83c08318c27be3b6301273b144334",
+    "semantic_hash": ""
+  },
+  "src/lib/memberSort.ts": {
+    "mtime": 1789923548.3279572,
+    "ast_hash": "24f181d92f2a42e14c90a12448090029",
+    "semantic_hash": ""
+  },
+  "src/lib/seasonStats.test.ts": {
+    "mtime": 1789923585.6429024,
+    "ast_hash": "127e3a6484b29696c3b04d06c19109f8",
+    "semantic_hash": ""
+  },
+  "src/lib/seasonStats.ts": {
+    "mtime": 1789923595.5281103,
+    "ast_hash": "22ed1b2ddc17185c05089a0f459d36b6",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/20260920000000_season_battle_stats.sql": {
+    "mtime": 1789923437.013303,
+    "ast_hash": "6fc7446d2849fce8bd747f1bbb1ebead",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/plans/2026-09-20-season-participation-tracker.md": {
+    "mtime": 1789923394.0778918,
+    "ast_hash": "21c208edccffd0609e95a171af159c4a",
+    "semantic_hash": ""
+  },
+  "docs/superpowers/specs/2026-09-20-season-participation-tracker-design.md": {
+    "mtime": 1789923394.0788918,
+    "ast_hash": "54ab387720fd2f86c68bde2cfe9ba539",
     "semantic_hash": ""
   }
 }

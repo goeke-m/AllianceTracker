@@ -1,31 +1,31 @@
-# Graph Report - AllianceTracker  (2026-09-10)
+# Graph Report - season-tracker  (2026-09-20)
 
 ## Corpus Check
-- 88 files · ~147,637 words
+- 98 files · ~153,457 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 450 nodes · 685 edges · 83 communities (23 shown, 60 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 41 edges (avg confidence: 0.86)
+- 499 nodes · 771 edges · 86 communities (26 shown, 60 thin omitted)
+- Extraction: 94% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 42 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9c0c0d99`
+- Built from commit: `87457f3c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- logError
+- TrainSchedule.tsx
 - Supabase CLI Migrations — Design Spec
 - Supabase CLI Migrations Implementation Plan
 - App.tsx
 - types.ts
 - dependencies
 - DemeritManager.tsx
-- MarshallMap.tsx
+- logError
 - compilerOptions
 - devDependencies
-- MemberManager.tsx
+- VsPointManager.tsx
 - reconcile.ts
 - useLanguage.ts
 - compilerOptions
@@ -93,19 +93,22 @@
 - Stand Down Tracker feature (README)
 - VS Points feature (README)
 - req.md — Marshall Visualizer Technical Brief
-- AllianceTech.tsx
+- MemberManager.tsx
+- Season Participation Tracker — Design
+- MarshallVisualizer.tsx
+- File Structure
 
 ## God Nodes (most connected - your core abstractions)
-1. `logError()` - 23 edges
-2. `supabase` - 18 edges
-3. `Member` - 17 edges
+1. `logError()` - 24 edges
+2. `Member` - 22 edges
+3. `supabase` - 19 edges
 4. `useAuth()` - 13 edges
 5. `compilerOptions` - 13 edges
-6. `TrainSchedule()` - 10 edges
-7. `StormPage()` - 9 edges
-8. `formatNumber()` - 9 edges
-9. `Supabase CLI Migrations Implementation Plan` - 9 edges
-10. `Error Logging Implementation Plan` - 8 edges
+6. `formatNumber()` - 11 edges
+7. `TrainSchedule()` - 10 edges
+8. `StormPage()` - 9 edges
+9. `Season Participation Tracker — Design` - 9 edges
+10. `Supabase CLI Migrations Implementation Plan` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Infrastructure as Code (Pulumi/Terraform/Supabase CLI)` --semantically_similar_to--> `Supabase CLI Migrations — Design Spec`  [INFERRED] [semantically similar]
@@ -130,11 +133,11 @@
 - **Owner-Only Admin Gating Pattern (single hardcoded owner UUID reused across features)** — docs_superpowers_specs_2026_05_08_alliance_member_auto_sync_design_owner_account, docs_superpowers_specs_2026_05_08_alliance_member_auto_sync_design_sync_now_button, docs_superpowers_specs_2026_07_06_error_logging_design_owner_constant, docs_superpowers_specs_2026_07_06_error_logging_design_viewer [INFERRED 0.85]
 - **Ad-hoc scripts/*.sql to Versioned Supabase Migrations Provenance** — docs_superpowers_specs_2026_07_18_supabase_migrations_design_doc, docs_superpowers_specs_2026_05_08_alliance_member_auto_sync_design_game_uid, docs_superpowers_specs_2026_06_21_member_timezone_design_timezone_field, docs_superpowers_specs_2026_07_06_error_logging_design_table, docs_superpowers_specs_2026_06_24_train_schedule_week_mode_toggle_design_settings_table, docs_superpowers_specs_2026_07_18_desert_storm_tracking_design_events_table [INFERRED 0.85]
 
-## Communities (83 total, 60 thin omitted)
+## Communities (86 total, 60 thin omitted)
 
-### Community 0 - "logError"
-Cohesion: 0.09
-Nodes (31): useScheduleSettings(), getWeekDates(), useTrainSchedule(), logError(), supabase, supabaseAnonKey, supabaseUrl, FriendsListEntry (+23 more)
+### Community 0 - "TrainSchedule.tsx"
+Cohesion: 0.15
+Nodes (18): useScheduleSettings(), useTrainSchedule(), TrainEntry, WeekMode, getActiveVsDateStr(), getWeekDates(), __dirname, harness (+10 more)
 
 ### Community 1 - "Supabase CLI Migrations — Design Spec"
 Cohesion: 0.06
@@ -145,36 +148,36 @@ Cohesion: 0.07
 Nodes (40): Alliance Member Auto-Sync (changelog entry), Alliance Tech Queue Drag-and-Drop Reorder (changelog entry), Desert Storm & Canyon Storm Event Tracking (changelog entry), Error Logging (changelog entry), Member Timezone Field (changelog entry), Supabase CLI Migrations (changelog entry), Train Schedule Week Mode Toggle (changelog entry), WPNZ Tactical Theme Rebrand (changelog entry) (+32 more)
 
 ### Community 3 - "App.tsx"
-Cohesion: 0.10
-Nodes (25): App(), LoginPage(), LoginPageProps, NavBar(), NavBarProps, tabs, useAuth(), useOoto() (+17 more)
+Cohesion: 0.07
+Nodes (33): App(), LoginPage(), LoginPageProps, NavBar(), NavBarProps, tabs, SortableTechRow(), SortableTechRowProps (+25 more)
 
 ### Community 4 - "types.ts"
-Cohesion: 0.15
-Nodes (23): EventLogImportProps, AddingTo, attendanceLabel(), attendancePillClass(), compareMembersByRankThenName(), formatWeekStart(), rankNum(), StormPage() (+15 more)
+Cohesion: 0.09
+Nodes (36): EventLogImportProps, Field, SeasonStatsManager(), SeasonStatsManagerProps, SortDir, SortKey, AddingTo, attendanceLabel() (+28 more)
 
 ### Community 5 - "dependencies"
-Cohesion: 0.08
-Nodes (25): @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities, i18next, dependencies, @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities (+17 more)
+Cohesion: 0.07
+Nodes (26): @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities, i18next, dependencies, @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities (+18 more)
 
 ### Community 6 - "DemeritManager.tsx"
 Cohesion: 0.22
 Nodes (7): DemeritManager(), DemeritManagerProps, formatDate(), FormState, SortDir, SortKey, Demerit
 
-### Community 7 - "MarshallMap.tsx"
-Cohesion: 0.13
-Nodes (17): EventLogImport(), CellDef, COLORS, GRID_LAYOUT, MarshallVisualizer(), MarshallVisualizerProps, MG, useMarshallData() (+9 more)
+### Community 7 - "logError"
+Cohesion: 0.10
+Nodes (26): EventLogImport(), useAllianceTech(), useOoto(), logError(), supabase, supabaseAnonKey, supabaseUrl, DamageLog (+18 more)
 
 ### Community 8 - "compilerOptions"
 Cohesion: 0.10
 Nodes (19): DOM, DOM.Iterable, ES2020, src, compilerOptions, allowImportingTsExtensions, isolatedModules, jsx (+11 more)
 
 ### Community 9 - "devDependencies"
-Cohesion: 0.11
-Nodes (19): autoprefixer, devDependencies, autoprefixer, postcss, supabase, tailwindcss, @types/react, @types/react-dom (+11 more)
+Cohesion: 0.09
+Nodes (23): autoprefixer, devDependencies, autoprefixer, postcss, supabase, tailwindcss, tsx, @types/react (+15 more)
 
-### Community 10 - "MemberManager.tsx"
-Cohesion: 0.08
-Nodes (30): ErrorLogManager(), formatTimestamp(), EditState, formatPower(), MemberManager(), MemberManagerProps, memberToEditState(), RANK_COLORS (+22 more)
+### Community 10 - "VsPointManager.tsx"
+Cohesion: 0.13
+Nodes (15): ErrorLogManager(), formatTimestamp(), formatDate(), FormState, JsonRow, SortDir, SortKey, VsPointManager() (+7 more)
 
 ### Community 11 - "reconcile.ts"
 Cohesion: 0.24
@@ -204,9 +207,21 @@ Nodes (3): CANYON_STORM_CONFIG, DESERT_STORM_CONFIG, StormConfig type
 Cohesion: 0.67
 Nodes (3): build job (npm run build), deploy job (GitHub Pages), migrate job (supabase db push)
 
-### Community 82 - "AllianceTech.tsx"
+### Community 82 - "MemberManager.tsx"
+Cohesion: 0.17
+Nodes (14): EditState, formatPower(), MemberManager(), MemberManagerProps, memberToEditState(), RANK_COLORS, rankNum(), RANKS (+6 more)
+
+### Community 83 - "Season Participation Tracker — Design"
+Cohesion: 0.20
+Nodes (9): Code layout, Data model, Error handling, Goal, Out of scope, Season Participation Tracker — Design, Seasons, Testing (+1 more)
+
+### Community 84 - "MarshallVisualizer.tsx"
+Cohesion: 0.24
+Nodes (7): CellDef, COLORS, GRID_LAYOUT, MarshallVisualizer(), MarshallVisualizerProps, MG, MemberWithWAD
+
+### Community 85 - "File Structure"
 Cohesion: 0.25
-Nodes (8): SortableTechRow(), SortableTechRowProps, useAllianceTech(), AllianceTechQueueItem, AllianceTech(), DEVELOPMENT_TECHS, PickerState, WAR_TECHS
+Nodes (7): File Structure, Global Constraints, Season Participation Tracker Implementation Plan, Task 1: Migration, type, and season constant, Task 2: Shared member sort + season stats helpers (TDD), Task 3: Locale strings, Task 4: SeasonStatsManager component and admin tab
 
 ## Ambiguous Edges - Review These
 - `Multi-Language Support Implementation Plan` → `WPNZ Tactical Theme Rebrand Implementation Plan`  [AMBIGUOUS]
@@ -215,7 +230,7 @@ Nodes (8): SortableTechRow(), SortableTechRowProps, useAllianceTech(), AllianceT
   index.html · relation: references
 
 ## Knowledge Gaps
-- **186 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+181 more)
+- **208 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+203 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **60 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -226,13 +241,13 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: shares_data_with) - confidence is low._
 - **What is the exact relationship between `WPNZ Logo Asset (public/logo.png)` and `index.html (WPNZ Tracker app shell)`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `logError()` connect `logError` to `App.tsx`, `types.ts`, `DemeritManager.tsx`, `MarshallMap.tsx`, `MemberManager.tsx`, `AllianceTech.tsx`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `Member` connect `types.ts` to `logError`, `MemberManager.tsx`, `DemeritManager.tsx`, `MarshallMap.tsx`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `supabase` connect `logError` to `App.tsx`, `types.ts`, `DemeritManager.tsx`, `MarshallMap.tsx`, `MemberManager.tsx`, `useLanguage.ts`?**
+- **Why does `logError()` connect `logError` to `TrainSchedule.tsx`, `App.tsx`, `types.ts`, `DemeritManager.tsx`, `VsPointManager.tsx`, `MemberManager.tsx`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `Member` connect `types.ts` to `TrainSchedule.tsx`, `DemeritManager.tsx`, `logError`, `VsPointManager.tsx`, `MemberManager.tsx`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Why does `supabase` connect `logError` to `TrainSchedule.tsx`, `App.tsx`, `types.ts`, `DemeritManager.tsx`, `VsPointManager.tsx`, `useLanguage.ts`, `MemberManager.tsx`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _186 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `logError` be split into smaller, more focused modules?**
-  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
+  _208 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `TrainSchedule.tsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.14855072463768115 - nodes in this community are weakly interconnected._

@@ -17,3 +17,5 @@ export const CANYON_STORM_CONFIG: StormConfig = {
   substituteCap: 0,
   attendanceStatuses: ['present', 'no_show'],
 }
+
+export const SEASONS: number[] = [5, 6]

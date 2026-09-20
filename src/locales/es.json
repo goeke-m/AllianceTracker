@@ -166,6 +166,7 @@
     "tabMembers": "Miembros",
     "tabDemerits": "Amonestaciones",
     "tabVsPoints": "Puntos VS",
+    "tabSeason": "Temporada",
     "tabErrors": "Errores"
   },
   "members": {
@@ -210,6 +211,16 @@
     "modalTitleAdd": "Agregar Amonestación",
     "notePlaceholder": "Motivo / detalles",
     "validationRequired": "Se requieren miembro, fecha y nota."
+  },
+  "seasonStats": {
+    "heading": "Estadísticas de batalla de temporada",
+    "seasonLabel": "Temporada",
+    "seasonOption": "Temporada {{season}}",
+    "colParticipation": "Participación",
+    "colKills": "Bajas",
+    "pendingChanges": "{{count}} cambio(s) sin guardar",
+    "saved": "Guardado.",
+    "emptyNoMembers": "No hay miembros para mostrar."
   },
   "vsPoints": {
     "heading": "Puntos VS ({{count}})",

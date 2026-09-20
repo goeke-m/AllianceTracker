@@ -3,17 +3,19 @@ import { useTranslation } from 'react-i18next'
 import { MemberManager } from '../components/MemberManager'
 import { DemeritManager } from '../components/DemeritManager'
 import { VsPointManager } from '../components/VsPointManager'
+import { SeasonStatsManager } from '../components/SeasonStatsManager'
 import { ErrorLogManager } from '../components/ErrorLogManager'
 import { useMarshallData } from '../hooks/useMarshallData'
 import { useAuth } from '../hooks/useAuth'
 import { OWNER_USER_ID } from '../lib/constants'
 
-type AdminTab = 'members' | 'demerits' | 'vs points' | 'errors'
+type AdminTab = 'members' | 'demerits' | 'vs points' | 'season' | 'errors'
 
 const TAB_LABEL_KEYS: Record<AdminTab, string> = {
   members: 'admin.tabMembers',
   demerits: 'admin.tabDemerits',
   'vs points': 'admin.tabVsPoints',
+  season: 'admin.tabSeason',
   errors: 'admin.tabErrors',
 }
 
@@ -40,7 +42,7 @@ export function AdminPanel() {
       {!loading && !error && (
         <>
           <div className="flex gap-1 border-b border-game-accent">
-            {(['members', 'demerits', 'vs points'] as AdminTab[])
+            {(['members', 'demerits', 'vs points', 'season'] as AdminTab[])
               .concat(user?.id === OWNER_USER_ID ? ['errors'] : [])
               .map((tabId) => (
                 <button
@@ -60,6 +62,7 @@ export function AdminPanel() {
           {tab === 'members' && <MemberManager members={members} onRefresh={refresh} syncUserId={user?.id} />}
           {tab === 'demerits' && <DemeritManager members={members} />}
           {tab === 'vs points' && <VsPointManager members={members} />}
+          {tab === 'season' && <SeasonStatsManager members={members} />}
           {tab === 'errors' && user?.id === OWNER_USER_ID && <ErrorLogManager />}
         </>
       )}
