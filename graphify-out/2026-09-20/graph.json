@@ -194,21 +194,10 @@
       "norm_label": "preview"
     },
     {
-      "label": "test",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "package_scripts_test",
-      "community": 5,
-      "community_name": "dependencies",
-      "norm_label": "test"
-    },
-    {
       "label": "dependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L12",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "package_dependencies",
       "community": 5,
@@ -219,7 +208,7 @@
       "label": "@dnd-kit/core",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "package_dependencies_dnd_kit_core",
       "community": 5,
@@ -230,7 +219,7 @@
       "label": "@dnd-kit/core",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "dnd_kit_core",
       "community": 5,
@@ -241,7 +230,7 @@
       "label": "@dnd-kit/sortable",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "package_dependencies_dnd_kit_sortable",
       "community": 5,
@@ -252,7 +241,7 @@
       "label": "@dnd-kit/sortable",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "dnd_kit_sortable",
       "community": 5,
@@ -263,7 +252,7 @@
       "label": "@dnd-kit/utilities",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "package_dependencies_dnd_kit_utilities",
       "community": 5,
@@ -274,7 +263,7 @@
       "label": "@dnd-kit/utilities",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "dnd_kit_utilities",
       "community": 5,
@@ -285,7 +274,7 @@
       "label": "@supabase/supabase-js",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "package_dependencies_supabase_supabase_js",
       "community": 5,
@@ -296,7 +285,7 @@
       "label": "@supabase/supabase-js",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "supabase_supabase_js",
       "community": 5,
@@ -307,7 +296,7 @@
       "label": "i18next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "package_dependencies_i18next",
       "community": 5,
@@ -318,7 +307,7 @@
       "label": "i18next",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "i18next",
       "community": 5,
@@ -329,7 +318,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_react",
       "community": 5,
@@ -340,7 +329,7 @@
       "label": "react",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "react",
       "community": 5,
@@ -351,7 +340,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_react_dom",
       "community": 5,
@@ -362,7 +351,7 @@
       "label": "react-dom",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "react_dom",
       "community": 5,
@@ -373,7 +362,7 @@
       "label": "react-i18next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_dependencies_react_i18next",
       "community": 5,
@@ -384,7 +373,7 @@
       "label": "react-i18next",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "react_i18next",
       "community": 5,
@@ -395,7 +384,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 9,
@@ -406,7 +395,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
       "community": 9,
@@ -417,7 +406,7 @@
       "label": "@types/react",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "types_react",
       "community": 9,
@@ -428,7 +417,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
       "community": 9,
@@ -439,7 +428,7 @@
       "label": "@types/react-dom",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "types_react_dom",
       "community": 9,
@@ -450,7 +439,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_devdependencies_vitejs_plugin_react",
       "community": 9,
@@ -461,7 +450,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "vitejs_plugin_react",
       "community": 9,
@@ -472,7 +461,7 @@
       "label": "autoprefixer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_devdependencies_autoprefixer",
       "community": 9,
@@ -483,7 +472,7 @@
       "label": "autoprefixer",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "autoprefixer",
       "community": 9,
@@ -494,7 +483,7 @@
       "label": "postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_devdependencies_postcss",
       "community": 9,
@@ -505,7 +494,7 @@
       "label": "postcss",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "postcss",
       "community": 9,
@@ -516,7 +505,7 @@
       "label": "supabase",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_devdependencies_supabase",
       "community": 9,
@@ -527,7 +516,7 @@
       "label": "supabase",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "supabase",
       "community": 9,
@@ -538,7 +527,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
       "community": 9,
@@ -549,7 +538,7 @@
       "label": "tailwindcss",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "tailwindcss",
       "community": 9,
@@ -557,32 +546,10 @@
       "norm_label": "tailwindcss"
     },
     {
-      "label": "tsx",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "package_devdependencies_tsx",
-      "community": 9,
-      "community_name": "devDependencies",
-      "norm_label": "tsx"
-    },
-    {
-      "label": "tsx",
-      "file_type": "concept",
-      "source_file": "package.json",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "tsx",
-      "community": 9,
-      "community_name": "devDependencies",
-      "norm_label": "tsx"
-    },
-    {
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 9,
@@ -593,7 +560,7 @@
       "label": "typescript",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "typescript",
       "community": 9,
@@ -604,7 +571,7 @@
       "label": "vite",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_devdependencies_vite",
       "community": 9,
@@ -615,34 +582,12 @@
       "label": "vite",
       "file_type": "concept",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "vite",
       "community": 9,
       "community_name": "devDependencies",
       "norm_label": "vite"
-    },
-    {
-      "label": "vitest",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "package_devdependencies_vitest",
-      "community": 9,
-      "community_name": "devDependencies",
-      "norm_label": "vitest"
-    },
-    {
-      "label": "vitest",
-      "file_type": "concept",
-      "source_file": "package.json",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "vitest",
-      "community": 9,
-      "community_name": "devDependencies",
-      "norm_label": "vitest"
     },
     {
       "label": "postcss.config.js",
@@ -698,8 +643,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_demeritmanager_demeritmanagerprops",
-      "community": 4,
-      "community_name": "StormPage.tsx",
+      "community": 6,
+      "community_name": "DemeritManager.tsx",
       "norm_label": "demeritmanagerprops"
     },
     {
@@ -797,7 +742,7 @@
       "_origin": "ast",
       "id": "src_components_errorlogmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "errorlogmanager.tsx"
     },
     {
@@ -809,7 +754,7 @@
       "_origin": "ast",
       "id": "src_components_errorlogmanager_formattimestamp",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formattimestamp()"
     },
     {
@@ -821,7 +766,7 @@
       "_origin": "ast",
       "id": "src_components_errorlogmanager_errorlogmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "errorlogmanager()"
     },
     {
@@ -831,8 +776,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_eventlogimport",
-      "community": 0,
-      "community_name": "logError",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "eventlogimport.tsx"
     },
     {
@@ -844,8 +789,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_eventlogimport_eventlogimportprops",
-      "community": 0,
-      "community_name": "logError",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "eventlogimportprops"
     },
     {
@@ -856,8 +801,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_eventlogimport_eventlogimport",
-      "community": 0,
-      "community_name": "logError",
+      "community": 7,
+      "community_name": "MarshallMap.tsx",
       "norm_label": "eventlogimport()"
     },
     {
@@ -1043,8 +988,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_membermanager",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "membermanager.tsx"
     },
     {
@@ -1056,8 +1001,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membermanagerprops",
-      "community": 4,
-      "community_name": "StormPage.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "membermanagerprops"
     },
     {
@@ -1067,8 +1012,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_membermanager_ranks",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "ranks"
     },
     {
@@ -1078,8 +1023,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_membermanager_squad_types",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "squad_types"
     },
     {
@@ -1089,8 +1034,8 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_components_membermanager_timezones",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "timezones"
     },
     {
@@ -1100,8 +1045,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_components_membermanager_rank_colors",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "rank_colors"
     },
     {
@@ -1112,8 +1057,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_formatpower",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatpower()"
     },
     {
@@ -1125,8 +1070,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_sortkey",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortkey"
     },
     {
@@ -1138,8 +1083,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_sortdir",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortdir"
     },
     {
@@ -1151,8 +1096,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_editstate",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "editstate"
     },
     {
@@ -1163,8 +1108,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membertoeditstate",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "membertoeditstate()"
     },
     {
@@ -1175,8 +1120,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_sorticon",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "sorticon()"
     },
     {
@@ -1187,8 +1132,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_ranknum",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "ranknum()"
     },
     {
@@ -1199,8 +1144,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membermanager",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "membermanager()"
     },
     {
@@ -1257,8 +1202,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_sortabletechrow",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "sortabletechrow.tsx"
     },
     {
@@ -1270,8 +1215,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_sortabletechrow_sortabletechrowprops",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "sortabletechrowprops"
     },
     {
@@ -1282,8 +1227,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_sortabletechrow_sortabletechrow",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "sortabletechrow()"
     },
     {
@@ -1294,7 +1239,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormpage.tsx"
     },
     {
@@ -1306,7 +1251,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_formatweekstart",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "formatweekstart()"
     },
     {
@@ -1318,7 +1263,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_nextattendance",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "nextattendance()"
     },
     {
@@ -1330,7 +1275,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_attendancepillclass",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "attendancepillclass()"
     },
     {
@@ -1342,7 +1287,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_attendancelabel",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "attendancelabel()"
     },
     {
@@ -1354,7 +1299,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_ranknum",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "ranknum()"
     },
     {
@@ -1366,7 +1311,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_comparemembersbyrankthenname",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "comparemembersbyrankthenname()"
     },
     {
@@ -1379,7 +1324,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_addingto",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "addingto"
     },
     {
@@ -1392,7 +1337,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_teampanelprops",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "teampanelprops"
     },
     {
@@ -1404,7 +1349,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_teampanel",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "teampanel()"
     },
     {
@@ -1417,7 +1362,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_stormpageprops",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormpageprops"
     },
     {
@@ -1429,7 +1374,7 @@
       "_origin": "ast",
       "id": "src_components_stormpage_stormpage",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormpage()"
     },
     {
@@ -1440,7 +1385,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspointmanager.tsx"
     },
     {
@@ -1452,8 +1397,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_vspointmanager_vspointmanagerprops",
-      "community": 4,
-      "community_name": "StormPage.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspointmanagerprops"
     },
     {
@@ -1465,7 +1410,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sunday",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sunday()"
     },
     {
@@ -1477,7 +1422,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_formatdate",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatdate()"
     },
     {
@@ -1490,7 +1435,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sortkey",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortkey"
     },
     {
@@ -1503,7 +1448,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sortdir",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortdir"
     },
     {
@@ -1515,7 +1460,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sorticon",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sorticon()"
     },
     {
@@ -1528,7 +1473,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_formstate",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formstate"
     },
     {
@@ -1541,7 +1486,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_jsonrow",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "jsonrow"
     },
     {
@@ -1553,7 +1498,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_vspointmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspointmanager()"
     },
     {
@@ -1575,8 +1520,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_usealliancetech_usealliancetech",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "usealliancetech()"
     },
     {
@@ -1644,8 +1589,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usemarshalldata",
-      "community": 7,
-      "community_name": "MarshallMap.tsx",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "usemarshalldata.ts"
     },
     {
@@ -1714,7 +1659,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "usestormevent.ts"
     },
     {
@@ -1726,7 +1671,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_getsundaydate",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "getsundaydate()"
     },
     {
@@ -1738,7 +1683,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_adddays",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "adddays()"
     },
     {
@@ -1751,7 +1696,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_stormdata",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormdata"
     },
     {
@@ -1763,7 +1708,7 @@
       "_origin": "ast",
       "id": "src_hooks_usestormevent_usestormevent",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "usestormevent()"
     },
     {
@@ -1778,10 +1723,22 @@
       "norm_label": "usetrainschedule.ts"
     },
     {
-      "label": "useTrainSchedule()",
+      "label": "getWeekDates()",
       "file_type": "code",
       "source_file": "src/hooks/useTrainSchedule.ts",
       "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_hooks_usetrainschedule_getweekdates",
+      "community": 0,
+      "community_name": "logError",
+      "norm_label": "getweekdates()"
+    },
+    {
+      "label": "useTrainSchedule()",
+      "file_type": "code",
+      "source_file": "src/hooks/useTrainSchedule.ts",
+      "source_location": "L23",
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_usetrainschedule_usetrainschedule",
@@ -1923,7 +1880,7 @@
       "_origin": "ast",
       "id": "src_lib_locale",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "locale.ts"
     },
     {
@@ -1934,7 +1891,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_locale_tags",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "locale_tags"
     },
     {
@@ -1946,7 +1903,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_activelocaletag",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "activelocaletag()"
     },
     {
@@ -1958,7 +1915,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_formatdate",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatdate()"
     },
     {
@@ -1970,7 +1927,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_formatdatetime",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatdatetime()"
     },
     {
@@ -1982,7 +1939,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_formatnumber",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatnumber()"
     },
     {
@@ -2036,7 +1993,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_types",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "types.ts"
     },
@@ -2049,8 +2006,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_rankvalue",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "rankvalue"
     },
     {
@@ -2062,8 +2019,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_squadtype",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "squadtype"
     },
     {
@@ -2076,7 +2033,7 @@
       "_origin": "ast",
       "id": "src_lib_types_member",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "member"
     },
     {
@@ -2101,8 +2058,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_pbuser",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "pbuser"
     },
     {
@@ -2192,8 +2149,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_friendslistentry",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "friendslistentry"
     },
     {
@@ -2205,7 +2162,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_alliancetechstatus",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "alliancetechstatus"
     },
@@ -2218,8 +2175,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_alliancetechqueueitem",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "alliancetechqueueitem"
     },
     {
@@ -2245,7 +2202,7 @@
       "_origin": "ast",
       "id": "src_lib_types_vspoint",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspoint"
     },
     {
@@ -2257,8 +2214,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_jsonimportentry",
-      "community": 0,
-      "community_name": "logError",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "jsonimportentry"
     },
     {
@@ -2271,7 +2228,7 @@
       "_origin": "ast",
       "id": "src_lib_types_errorlogentry",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "errorlogentry"
     },
     {
@@ -2283,7 +2240,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_stormeventtype",
-      "community": 82,
+      "community": 4,
       "community_name": "types.ts",
       "norm_label": "stormeventtype"
     },
@@ -2297,7 +2254,7 @@
       "_origin": "ast",
       "id": "src_lib_types_attendancestatus",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "attendancestatus"
     },
     {
@@ -2310,7 +2267,7 @@
       "_origin": "ast",
       "id": "src_lib_types_stormconfig",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormconfig"
     },
     {
@@ -2323,7 +2280,7 @@
       "_origin": "ast",
       "id": "src_lib_types_stormevent",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormevent"
     },
     {
@@ -2336,75 +2293,8 @@
       "_origin": "ast",
       "id": "src_lib_types_stormrosterentry",
       "community": 4,
-      "community_name": "StormPage.tsx",
+      "community_name": "types.ts",
       "norm_label": "stormrosterentry"
-    },
-    {
-      "label": "vsDate.test.ts",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_lib_vsdate_test",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "vsdate.test.ts"
-    },
-    {
-      "label": "__dirname",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "src_lib_vsdate_test_dirname",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "__dirname"
-    },
-    {
-      "label": "tsxCli",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "src_lib_vsdate_test_tsxcli",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "tsxcli"
-    },
-    {
-      "label": "harness",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "src_lib_vsdate_test_harness",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "harness"
-    },
-    {
-      "label": "mockNow()",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L12",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_lib_vsdate_test_mocknow",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "mocknow()"
-    },
-    {
-      "label": "vsDate.timezone-harness.ts",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.timezone-harness.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_lib_vsdate_timezone_harness",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "vsdate.timezone-harness.ts"
     },
     {
       "label": "vsDate.ts",
@@ -2428,18 +2318,6 @@
       "community": 0,
       "community_name": "logError",
       "norm_label": "getactivevsdatestr()"
-    },
-    {
-      "label": "getWeekDates()",
-      "file_type": "code",
-      "source_file": "src/lib/vsDate.ts",
-      "source_location": "L32",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "src_lib_vsdate_getweekdates",
-      "community": 0,
-      "community_name": "logError",
-      "norm_label": "getweekdates()"
     },
     {
       "label": "wad.ts",
@@ -2565,8 +2443,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_alliancetech",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "alliancetech.tsx"
     },
     {
@@ -2577,8 +2455,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_alliancetech_levels",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "levels()"
     },
     {
@@ -2588,8 +2466,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_alliancetech_development_techs",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "development_techs"
     },
     {
@@ -2599,8 +2477,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_pages_alliancetech_war_techs",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "war_techs"
     },
     {
@@ -2612,8 +2490,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_alliancetech_pickerstate",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "pickerstate"
     },
     {
@@ -2624,8 +2502,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_alliancetech_alliancetech",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 82,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "alliancetech()"
     },
     {
@@ -2681,8 +2559,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_friendslist",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "friendslist.tsx"
     },
     {
@@ -2694,8 +2572,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_friendslistprops",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "friendslistprops"
     },
     {
@@ -2707,8 +2585,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_formstate",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "formstate"
     },
     {
@@ -2720,8 +2598,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_sortkey",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "sortkey"
     },
     {
@@ -2733,8 +2611,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_sortdir",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "sortdir"
     },
     {
@@ -2745,8 +2623,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_sorticon",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "sorticon()"
     },
     {
@@ -2757,8 +2635,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_friendslist_friendslist",
-      "community": 82,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "logError",
       "norm_label": "friendslist()"
     },
     {
@@ -3607,17 +3485,6 @@
       "community": 81,
       "community_name": "vite.config.ts",
       "norm_label": "vite.config.ts"
-    },
-    {
-      "label": "vitest.config.ts",
-      "file_type": "code",
-      "source_file": "vitest.config.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "vitest_config",
-      "community": 81,
-      "community_name": "vite.config.ts",
-      "norm_label": "vitest.config.ts"
     },
     {
       "label": "Deploy GitHub Actions Workflow",
@@ -6040,7 +5907,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package",
@@ -6051,7 +5918,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package",
@@ -6150,18 +6017,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_test",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6172,7 +6028,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6183,7 +6039,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6194,7 +6050,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6205,7 +6061,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6216,7 +6072,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6227,7 +6083,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6238,7 +6094,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_dependencies",
@@ -6249,7 +6105,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6261,7 +6117,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6273,7 +6129,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L14",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6285,7 +6141,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L15",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6297,7 +6153,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L16",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6309,7 +6165,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L17",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6321,7 +6177,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L18",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6333,7 +6189,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6345,7 +6201,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6356,7 +6212,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6367,7 +6223,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6378,7 +6234,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6389,18 +6245,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_tsx",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6411,7 +6256,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6422,7 +6267,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6433,7 +6278,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6444,7 +6289,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "package_devdependencies",
@@ -6452,21 +6297,10 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L33",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_vitest",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6478,7 +6312,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6490,7 +6324,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6502,7 +6336,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6514,7 +6348,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6526,7 +6360,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6538,7 +6372,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6550,19 +6384,7 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L30",
-      "weight": 1.0,
-      "context": "import",
-      "_origin": "ast",
-      "source": "package_devdependencies_tsx",
-      "target": "tsx",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L29",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
@@ -6574,24 +6396,12 @@
       "relation": "imports",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L30",
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
       "source": "package_devdependencies_vite",
       "target": "vite",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L33",
-      "weight": 1.0,
-      "context": "import",
-      "_origin": "ast",
-      "source": "package_devdependencies_vitest",
-      "target": "vitest",
       "confidence_score": 1.0
     },
     {
@@ -9962,7 +9772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L87",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -10212,6 +10022,17 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_hooks_usetrainschedule",
+      "target": "src_hooks_usetrainschedule_getweekdates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useTrainSchedule.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_hooks_usetrainschedule",
       "target": "src_hooks_usetrainschedule_usetrainschedule",
       "confidence_score": 1.0
     },
@@ -10320,7 +10141,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_hooks_usetrainschedule",
-      "target": "src_lib_vsdate_getweekdates",
+      "target": "src_lib_vsdate_getactivevsdatestr",
       "confidence_score": 1.0
     },
     {
@@ -10339,13 +10160,25 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "src/hooks/useTrainSchedule.ts",
-      "source_location": "L45",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_hooks_usetrainschedule_getweekdates",
+      "target": "src_lib_vsdate_getactivevsdatestr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/hooks/useTrainSchedule.ts",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_hooks_usetrainschedule_usetrainschedule",
-      "target": "src_lib_errorlog_logerror"
+      "target": "src_hooks_usetrainschedule_getweekdates",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -10353,11 +10186,11 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/hooks/useTrainSchedule.ts",
-      "source_location": "L13",
+      "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_hooks_usetrainschedule_usetrainschedule",
-      "target": "src_lib_vsdate_getweekdates"
+      "target": "src_lib_errorlog_logerror"
     },
     {
       "relation": "imports",
@@ -10377,7 +10210,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L86",
+      "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -11413,122 +11246,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate_getactivevsdatestr",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate_getweekdates",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate_test_dirname",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate_test_harness",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate_test_mocknow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.test.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_test",
-      "target": "src_lib_vsdate_test_tsxcli",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.timezone-harness.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_timezone_harness",
-      "target": "src_lib_vsdate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.timezone-harness.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_timezone_harness",
-      "target": "src_lib_vsdate_getactivevsdatestr",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.timezone-harness.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_timezone_harness",
-      "target": "src_lib_vsdate_getweekdates",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/vsDate.ts",
@@ -11537,17 +11254,6 @@
       "_origin": "ast",
       "source": "src_lib_vsdate",
       "target": "src_lib_vsdate_getactivevsdatestr",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.ts",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate",
-      "target": "src_lib_vsdate_getweekdates",
       "confidence_score": 1.0
     },
     {
@@ -11560,18 +11266,6 @@
       "_origin": "ast",
       "source": "src_pages_trainschedule",
       "target": "src_lib_vsdate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/vsDate.ts",
-      "source_location": "L33",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_lib_vsdate_getweekdates",
-      "target": "src_lib_vsdate_getactivevsdatestr",
       "confidence_score": 1.0
     },
     {
@@ -11592,7 +11286,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L95",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12194,7 +11888,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L102",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12206,7 +11900,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L216",
+      "source_location": "L234",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12218,7 +11912,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L250",
+      "source_location": "L223",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12230,7 +11924,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/TrainSchedule.tsx",
-      "source_location": "L260",
+      "source_location": "L233",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_pages_trainschedule_trainschedule",
@@ -12720,18 +12414,6 @@
       "_origin": "ast",
       "source": "tsconfig_node_include",
       "target": "ref_vite_config_ts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "vitest.config.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "vitest_config",
-      "target": "vite_config",
       "confidence_score": 1.0
     },
     {
@@ -14189,5 +13871,5 @@
       "source_file": "docs/superpowers/specs/2026-07-18-supabase-migrations-design.md"
     }
   ],
-  "built_at_commit": "4f145006b514048fea0ded664c42ca865eac4de0"
+  "built_at_commit": "9c0c0d99925ff0b20a18aee9a588383d875a0261"
 }

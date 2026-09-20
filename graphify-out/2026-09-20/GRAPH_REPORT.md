@@ -1,16 +1,16 @@
-# Graph Report - AllianceTracker  (2026-09-20)
+# Graph Report - AllianceTracker  (2026-09-10)
 
 ## Corpus Check
-- 91 files · ~148,324 words
+- 88 files · ~147,637 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 462 nodes · 701 edges · 83 communities (23 shown, 60 thin omitted)
+- 450 nodes · 685 edges · 83 communities (23 shown, 60 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 41 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4f145006`
+- Built from commit: `9c0c0d99`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,13 +19,13 @@
 - Supabase CLI Migrations — Design Spec
 - Supabase CLI Migrations Implementation Plan
 - App.tsx
-- StormPage.tsx
+- types.ts
 - dependencies
 - DemeritManager.tsx
 - MarshallMap.tsx
 - compilerOptions
 - devDependencies
-- VsPointManager.tsx
+- MemberManager.tsx
 - reconcile.ts
 - useLanguage.ts
 - compilerOptions
@@ -93,7 +93,7 @@
 - Stand Down Tracker feature (README)
 - VS Points feature (README)
 - req.md — Marshall Visualizer Technical Brief
-- types.ts
+- AllianceTech.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `logError()` - 23 edges
@@ -134,7 +134,7 @@
 
 ### Community 0 - "logError"
 Cohesion: 0.09
-Nodes (31): EventLogImport(), EventLogImportProps, useScheduleSettings(), useTrainSchedule(), logError(), supabase, supabaseAnonKey, supabaseUrl (+23 more)
+Nodes (31): useScheduleSettings(), getWeekDates(), useTrainSchedule(), logError(), supabase, supabaseAnonKey, supabaseUrl, FriendsListEntry (+23 more)
 
 ### Community 1 - "Supabase CLI Migrations — Design Spec"
 Cohesion: 0.06
@@ -145,36 +145,36 @@ Cohesion: 0.07
 Nodes (40): Alliance Member Auto-Sync (changelog entry), Alliance Tech Queue Drag-and-Drop Reorder (changelog entry), Desert Storm & Canyon Storm Event Tracking (changelog entry), Error Logging (changelog entry), Member Timezone Field (changelog entry), Supabase CLI Migrations (changelog entry), Train Schedule Week Mode Toggle (changelog entry), WPNZ Tactical Theme Rebrand (changelog entry) (+32 more)
 
 ### Community 3 - "App.tsx"
-Cohesion: 0.08
-Nodes (32): App(), LoginPage(), LoginPageProps, NavBar(), NavBarProps, tabs, SortableTechRow(), SortableTechRowProps (+24 more)
+Cohesion: 0.10
+Nodes (25): App(), LoginPage(), LoginPageProps, NavBar(), NavBarProps, tabs, useAuth(), useOoto() (+17 more)
 
-### Community 4 - "StormPage.tsx"
+### Community 4 - "types.ts"
 Cohesion: 0.15
-Nodes (22): DemeritManagerProps, MemberManagerProps, AddingTo, attendanceLabel(), attendancePillClass(), compareMembersByRankThenName(), formatWeekStart(), rankNum() (+14 more)
+Nodes (23): EventLogImportProps, AddingTo, attendanceLabel(), attendancePillClass(), compareMembersByRankThenName(), formatWeekStart(), rankNum(), StormPage() (+15 more)
 
 ### Community 5 - "dependencies"
-Cohesion: 0.07
-Nodes (26): @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities, i18next, dependencies, @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities (+18 more)
+Cohesion: 0.08
+Nodes (25): @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities, i18next, dependencies, @dnd-kit/core, @dnd-kit/sortable, @dnd-kit/utilities (+17 more)
 
 ### Community 6 - "DemeritManager.tsx"
-Cohesion: 0.25
-Nodes (6): DemeritManager(), formatDate(), FormState, SortDir, SortKey, Demerit
+Cohesion: 0.22
+Nodes (7): DemeritManager(), DemeritManagerProps, formatDate(), FormState, SortDir, SortKey, Demerit
 
 ### Community 7 - "MarshallMap.tsx"
-Cohesion: 0.16
-Nodes (16): CellDef, COLORS, GRID_LAYOUT, MarshallVisualizer(), MarshallVisualizerProps, MG, useMarshallData(), DamageLog (+8 more)
+Cohesion: 0.13
+Nodes (17): EventLogImport(), CellDef, COLORS, GRID_LAYOUT, MarshallVisualizer(), MarshallVisualizerProps, MG, useMarshallData() (+9 more)
 
 ### Community 8 - "compilerOptions"
 Cohesion: 0.10
 Nodes (19): DOM, DOM.Iterable, ES2020, src, compilerOptions, allowImportingTsExtensions, isolatedModules, jsx (+11 more)
 
 ### Community 9 - "devDependencies"
-Cohesion: 0.09
-Nodes (23): autoprefixer, devDependencies, autoprefixer, postcss, supabase, tailwindcss, tsx, @types/react (+15 more)
+Cohesion: 0.11
+Nodes (19): autoprefixer, devDependencies, autoprefixer, postcss, supabase, tailwindcss, @types/react, @types/react-dom (+11 more)
 
-### Community 10 - "VsPointManager.tsx"
-Cohesion: 0.15
-Nodes (15): ErrorLogManager(), formatTimestamp(), formatDate(), FormState, JsonRow, SortDir, SortKey, VsPointManager() (+7 more)
+### Community 10 - "MemberManager.tsx"
+Cohesion: 0.08
+Nodes (30): ErrorLogManager(), formatTimestamp(), EditState, formatPower(), MemberManager(), MemberManagerProps, memberToEditState(), RANK_COLORS (+22 more)
 
 ### Community 11 - "reconcile.ts"
 Cohesion: 0.24
@@ -204,9 +204,9 @@ Nodes (3): CANYON_STORM_CONFIG, DESERT_STORM_CONFIG, StormConfig type
 Cohesion: 0.67
 Nodes (3): build job (npm run build), deploy job (GitHub Pages), migrate job (supabase db push)
 
-### Community 82 - "types.ts"
-Cohesion: 0.10
-Nodes (22): EditState, formatPower(), MemberManager(), memberToEditState(), RANK_COLORS, rankNum(), RANKS, SortDir (+14 more)
+### Community 82 - "AllianceTech.tsx"
+Cohesion: 0.25
+Nodes (8): SortableTechRow(), SortableTechRowProps, useAllianceTech(), AllianceTechQueueItem, AllianceTech(), DEVELOPMENT_TECHS, PickerState, WAR_TECHS
 
 ## Ambiguous Edges - Review These
 - `Multi-Language Support Implementation Plan` → `WPNZ Tactical Theme Rebrand Implementation Plan`  [AMBIGUOUS]
@@ -215,7 +215,7 @@ Nodes (22): EditState, formatPower(), MemberManager(), memberToEditState(), RANK
   index.html · relation: references
 
 ## Knowledge Gaps
-- **192 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+187 more)
+- **186 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+181 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **60 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -226,13 +226,13 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: shares_data_with) - confidence is low._
 - **What is the exact relationship between `WPNZ Logo Asset (public/logo.png)` and `index.html (WPNZ Tracker app shell)`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `logError()` connect `logError` to `App.tsx`, `StormPage.tsx`, `DemeritManager.tsx`, `MarshallMap.tsx`, `VsPointManager.tsx`, `types.ts`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `Member` connect `StormPage.tsx` to `logError`, `DemeritManager.tsx`, `MarshallMap.tsx`, `VsPointManager.tsx`, `types.ts`?**
+- **Why does `logError()` connect `logError` to `App.tsx`, `types.ts`, `DemeritManager.tsx`, `MarshallMap.tsx`, `MemberManager.tsx`, `AllianceTech.tsx`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `Member` connect `types.ts` to `logError`, `MemberManager.tsx`, `DemeritManager.tsx`, `MarshallMap.tsx`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `supabase` connect `logError` to `App.tsx`, `StormPage.tsx`, `DemeritManager.tsx`, `MarshallMap.tsx`, `VsPointManager.tsx`, `useLanguage.ts`, `types.ts`?**
+- **Why does `supabase` connect `logError` to `App.tsx`, `types.ts`, `DemeritManager.tsx`, `MarshallMap.tsx`, `MemberManager.tsx`, `useLanguage.ts`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **What connects `name`, `private`, `version` to the rest of the system?**
-  _192 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _186 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `logError` be split into smaller, more focused modules?**
-  _Cohesion score 0.08888888888888889 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
