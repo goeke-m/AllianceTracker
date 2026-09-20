@@ -25,16 +25,17 @@ export function getActiveVsDateStr(): string {
   return `${y}-${m}-${d}`
 }
 
-// Sunday-to-Sunday week (8 dates) containing the active VS date, as ISO date
-// strings. Anchored on getActiveVsDateStr() and walked entirely in UTC so
-// every viewer sees the same week regardless of their own timezone.
-export function getWeekDates(): string[] {
+// Sunday-to-Saturday week (7 dates) containing the active VS date, shifted by
+// `offset` whole weeks, as ISO date strings. Anchored on getActiveVsDateStr()
+// and walked entirely in UTC so every viewer sees the same week regardless of
+// their own timezone.
+export function getWeekDates(offset = 0): string[] {
   const [y, m, d] = getActiveVsDateStr().split('-').map(Number)
   const today = new Date(Date.UTC(y, m - 1, d))
   const sunday = new Date(today)
-  sunday.setUTCDate(today.getUTCDate() - today.getUTCDay())
+  sunday.setUTCDate(today.getUTCDate() - today.getUTCDay() + offset * 7)
   const dates: string[] = []
-  for (let i = 0; i <= 7; i++) {
+  for (let i = 0; i < 7; i++) {
     const dt = new Date(sunday)
     dt.setUTCDate(sunday.getUTCDate() + i)
     dates.push(dt.toISOString().slice(0, 10))

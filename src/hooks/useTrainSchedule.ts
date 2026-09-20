@@ -4,13 +4,13 @@ import { logError } from '../lib/errorLog'
 import { getWeekDates } from '../lib/vsDate'
 import type { Member, TrainEntry } from '../lib/types'
 
-export function useTrainSchedule() {
+export function useTrainSchedule(weekOffset = 0) {
   const [members, setMembers] = useState<Member[]>([])
   const [entries, setEntries] = useState<TrainEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const weekDates = getWeekDates()
+  const weekDates = getWeekDates(weekOffset)
   const startDate = weekDates[0]
   const endDate = weekDates[weekDates.length - 1]
 

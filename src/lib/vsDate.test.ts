@@ -51,9 +51,9 @@ describe('getWeekDates', () => {
     mockNow('2026-09-10T13:00:00Z') // active VS date: 2026-09-09
   })
 
-  it('returns 8 consecutive calendar days', () => {
+  it('returns 7 consecutive calendar days', () => {
     const dates = getWeekDates()
-    expect(dates).toHaveLength(8)
+    expect(dates).toHaveLength(7)
     for (let i = 1; i < dates.length; i++) {
       const prev = new Date(`${dates[i - 1]}T00:00:00Z`)
       const curr = new Date(`${dates[i]}T00:00:00Z`)
@@ -68,6 +68,20 @@ describe('getWeekDates', () => {
 
   it('includes the active VS date', () => {
     expect(getWeekDates()).toContain(getActiveVsDateStr())
+  })
+
+  it('ends on a Saturday', () => {
+    const dates = getWeekDates()
+    expect(new Date(`${dates[6]}T00:00:00Z`).getUTCDay()).toBe(6)
+  })
+
+  it('shifts by whole weeks with an offset', () => {
+    const base = getWeekDates()
+    expect(getWeekDates(1)[0]).toBe('2026-09-13')
+    expect(getWeekDates(-1)[0]).toBe('2026-08-30')
+    expect(getWeekDates(0)).toEqual(base)
+    // next week starts the day after this week ends
+    expect(getWeekDates(1)[0] > base[6]).toBe(true)
   })
 })
 

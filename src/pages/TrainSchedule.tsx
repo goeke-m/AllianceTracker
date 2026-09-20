@@ -82,7 +82,8 @@ interface EditState {
 export function TrainSchedule() {
   const { t } = useTranslation()
   const { isAdmin } = useAuth()
-  const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule()
+  const [weekOffset, setWeekOffset] = useState(0)
+  const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule(weekOffset)
   const { weekMode, setWeekMode } = useScheduleSettings()
   const [editState, setEditState] = useState<EditState | null>(null)
   const [showR4Info, setShowR4Info] = useState(false)
@@ -160,22 +161,6 @@ export function TrainSchedule() {
     }
   }
 
-  if (loading) {
-    return (
-      <div className="p-4 pb-24 flex items-center justify-center min-h-[50vh]">
-        <p className="text-gray-400 animate-pulse">{t('profileBar.loadingText')}</p>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="p-4 pb-24">
-        <p className="text-game-highlight text-sm">{error}</p>
-      </div>
-    )
-  }
-
   return (
     <div className="p-4 pb-24">
       <div className="flex items-start justify-between mb-1 gap-2">
@@ -216,6 +201,48 @@ export function TrainSchedule() {
       </div>
       {modeError && <p className="text-game-highlight text-xs mb-1">{modeError}</p>}
 
+      <div className="flex items-center justify-between mb-3 text-sm">
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setWeekOffset(o => o - 1)}
+            aria-label={t('schedule.prevWeek')}
+            title={t('schedule.prevWeek')}
+            className="px-2 py-0.5 rounded border border-game-accent text-game-standard hover:text-white transition-colors"
+          >
+            ‹
+          </button>
+          <span className="text-gray-300 text-xs">
+            {formatDate(weekDates[0])} – {formatDate(weekDates[weekDates.length - 1])}
+          </span>
+          <button
+            type="button"
+            onClick={() => setWeekOffset(o => o + 1)}
+            aria-label={t('schedule.nextWeek')}
+            title={t('schedule.nextWeek')}
+            className="px-2 py-0.5 rounded border border-game-accent text-game-standard hover:text-white transition-colors"
+          >
+            ›
+          </button>
+        </div>
+        {weekOffset !== 0 && (
+          <button
+            type="button"
+            onClick={() => setWeekOffset(0)}
+            className="text-xs text-game-standard border border-game-standard rounded px-2 py-0.5 hover:bg-game-standard hover:text-white transition-colors"
+          >
+            {t('schedule.thisWeek')}
+          </button>
+        )}
+      </div>
+
+      {loading ? (
+        <div className="flex items-center justify-center min-h-[50vh]">
+          <p className="text-gray-400 animate-pulse">{t('profileBar.loadingText')}</p>
+        </div>
+      ) : error ? (
+        <p className="text-game-highlight text-sm">{error}</p>
+      ) : (
       <div className="space-y-2">
         {weekDates.map((date, index) => {
           const entry = entryByDate.get(date)
@@ -278,6 +305,7 @@ export function TrainSchedule() {
           )
         })}
       </div>
+      )}
 
       {/* R4 rotation info modal */}
       {showR4Info && (
