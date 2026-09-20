@@ -36,6 +36,7 @@ export function SeasonStatsManager({ members }: SeasonStatsManagerProps) {
   const seasonRef = useRef(season)
 
   async function load(s: number) {
+    if (seasonRef.current !== s) return
     setLoading(true)
     const { data, error } = await supabase.from('season_battle_stats').select('*').eq('season', s)
     if (seasonRef.current !== s) return // a newer season was selected; drop this response
@@ -103,6 +104,7 @@ export function SeasonStatsManager({ members }: SeasonStatsManagerProps) {
       .from('season_battle_stats')
       .upsert(payload, { onConflict: 'season,member_id' })
     setSaving(false)
+    if (seasonRef.current !== season) return // season changed mid-save; don't touch the new season's state
     if (error) {
       setError(error.message)
       logError('SeasonStatsManager.handleSave', error)
@@ -125,6 +127,7 @@ export function SeasonStatsManager({ members }: SeasonStatsManagerProps) {
           <select
             value={season}
             onChange={e => setSeason(Number(e.target.value))}
+            disabled={saving}
             className="bg-game-dark border border-game-accent rounded-lg px-3 py-1.5 text-white text-sm"
           >
             {SEASONS.map(s => (
