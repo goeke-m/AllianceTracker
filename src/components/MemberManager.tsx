@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
-import { OWNER_USER_ID } from '../lib/constants'
+import { OWNER_USER_ID, ALLIANCE_MAX_MEMBERS } from '../lib/constants'
 import { logError } from '../lib/errorLog'
 import type { Member, RankValue, SquadType } from '../lib/types'
 import { formatNumber } from '../lib/locale'
@@ -256,7 +256,7 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-bold text-white">{t('members.title', { displayed: displayed.length, total: members.length })}</h2>
+        <h2 className="text-lg font-bold text-white">{t('members.title', { displayed: displayed.length, total: ALLIANCE_MAX_MEMBERS })}</h2>
         {syncUserId === OWNER_USER_ID && (
           <button
             onClick={handleSync}

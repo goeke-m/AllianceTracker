@@ -2,6 +2,8 @@ import type { StormConfig } from './types'
 
 export const OWNER_USER_ID = 'edac282d-fd53-4353-8af8-c6b7c3f7480d'
 
+export const ALLIANCE_MAX_MEMBERS = 100
+
 export const DESERT_STORM_CONFIG: StormConfig = {
   eventType: 'ds',
   label: 'Desert Storm',
