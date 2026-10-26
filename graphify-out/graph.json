@@ -797,7 +797,7 @@
       "_origin": "ast",
       "id": "src_components_errorlogmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "errorlogmanager.tsx"
     },
     {
@@ -809,7 +809,7 @@
       "_origin": "ast",
       "id": "src_components_errorlogmanager_formattimestamp",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formattimestamp()"
     },
     {
@@ -821,7 +821,7 @@
       "_origin": "ast",
       "id": "src_components_errorlogmanager_errorlogmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "errorlogmanager()"
     },
     {
@@ -867,8 +867,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_languageswitcher",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "languageswitcher.tsx"
     },
     {
@@ -878,8 +878,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_components_languageswitcher_language_options",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "language_options"
     },
     {
@@ -890,8 +890,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_languageswitcher_languageswitcher",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "languageswitcher()"
     },
     {
@@ -1043,7 +1043,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_membermanager",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "membermanager.tsx"
     },
@@ -1056,7 +1056,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membermanagerprops",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "membermanagerprops"
     },
@@ -1067,7 +1067,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_membermanager_ranks",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "ranks"
     },
@@ -1078,7 +1078,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_membermanager_squad_types",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "squad_types"
     },
@@ -1089,7 +1089,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_components_membermanager_timezones",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "timezones"
     },
@@ -1100,7 +1100,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_components_membermanager_rank_colors",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "rank_colors"
     },
@@ -1112,7 +1112,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_formatpower",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "formatpower()"
     },
@@ -1125,7 +1125,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_sortkey",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "sortkey"
     },
@@ -1138,7 +1138,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_sortdir",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "sortdir"
     },
@@ -1151,7 +1151,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_membermanager_editstate",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "editstate"
     },
@@ -1163,7 +1163,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membertoeditstate",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "membertoeditstate()"
     },
@@ -1175,7 +1175,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_sorticon",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "sorticon()"
     },
@@ -1187,7 +1187,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_ranknum",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "ranknum()"
     },
@@ -1199,7 +1199,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_membermanager_membermanager",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "membermanager()"
     },
@@ -1344,8 +1344,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_sortabletechrow",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "sortabletechrow.tsx"
     },
     {
@@ -1357,8 +1357,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_components_sortabletechrow_sortabletechrowprops",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "sortabletechrowprops"
     },
     {
@@ -1369,8 +1369,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_components_sortabletechrow_sortabletechrow",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "sortabletechrow()"
     },
     {
@@ -1503,7 +1503,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspointmanager.tsx"
     },
     {
@@ -1516,7 +1516,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_vspointmanagerprops",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspointmanagerprops"
     },
     {
@@ -1528,7 +1528,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sunday",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sunday()"
     },
     {
@@ -1540,7 +1540,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_formatdate",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatdate()"
     },
     {
@@ -1553,7 +1553,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sortkey",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortkey"
     },
     {
@@ -1566,7 +1566,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sortdir",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sortdir"
     },
     {
@@ -1578,7 +1578,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_sorticon",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "sorticon()"
     },
     {
@@ -1591,7 +1591,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_formstate",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formstate"
     },
     {
@@ -1604,7 +1604,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_jsonrow",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "jsonrow"
     },
     {
@@ -1616,7 +1616,7 @@
       "_origin": "ast",
       "id": "src_components_vspointmanager_vspointmanager",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspointmanager()"
     },
     {
@@ -1638,8 +1638,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_usealliancetech_usealliancetech",
-      "community": 7,
-      "community_name": "logError",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "usealliancetech()"
     },
     {
@@ -1649,8 +1649,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_useauth",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 0,
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "useauth.ts"
     },
     {
@@ -1661,8 +1661,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_useauth_useauth",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 0,
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "useauth()"
     },
     {
@@ -1672,8 +1672,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_uselanguage",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "uselanguage.ts"
     },
     {
@@ -1684,8 +1684,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_uselanguage_issupportedlanguage",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "issupportedlanguage()"
     },
     {
@@ -1696,8 +1696,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_uselanguage_uselanguage",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "uselanguage()"
     },
     {
@@ -1719,8 +1719,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_hooks_usemarshalldata_usemarshalldata",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "usemarshalldata()"
     },
     {
@@ -1870,15 +1870,26 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_lib_constants_owner_user_id",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "owner_user_id"
+    },
+    {
+      "label": "ALLIANCE_MAX_MEMBERS",
+      "file_type": "code",
+      "source_file": "src/lib/constants.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "src_lib_constants_alliance_max_members",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
+      "norm_label": "alliance_max_members"
     },
     {
       "label": "DESERT_STORM_CONFIG",
       "file_type": "code",
       "source_file": "src/lib/constants.ts",
-      "source_location": "L5",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "src_lib_constants_desert_storm_config",
       "community": 3,
@@ -1889,7 +1900,7 @@
       "label": "CANYON_STORM_CONFIG",
       "file_type": "code",
       "source_file": "src/lib/constants.ts",
-      "source_location": "L13",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "src_lib_constants_canyon_storm_config",
       "community": 3,
@@ -1900,11 +1911,11 @@
       "label": "SEASONS",
       "file_type": "code",
       "source_file": "src/lib/constants.ts",
-      "source_location": "L21",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "src_lib_constants_seasons",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 4,
+      "community_name": "types.ts",
       "norm_label": "seasons"
     },
     {
@@ -1937,8 +1948,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_i18n",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "i18n.ts"
     },
     {
@@ -1948,8 +1959,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_lib_i18n_supported_languages",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "supported_languages"
     },
     {
@@ -1961,8 +1972,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_i18n_supportedlanguage",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "supportedlanguage"
     },
     {
@@ -1973,8 +1984,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_lib_i18n_issupportedlanguage",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "issupportedlanguage()"
     },
     {
@@ -1985,8 +1996,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_lib_i18n_detectinitiallanguage",
-      "community": 12,
-      "community_name": "useLanguage.ts",
+      "community": 3,
+      "community_name": "App.tsx",
       "norm_label": "detectinitiallanguage()"
     },
     {
@@ -1997,7 +2008,7 @@
       "_origin": "ast",
       "id": "src_lib_locale",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "locale.ts"
     },
     {
@@ -2008,7 +2019,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_locale_tags",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "locale_tags"
     },
     {
@@ -2020,7 +2031,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_activelocaletag",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "activelocaletag()"
     },
     {
@@ -2032,7 +2043,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_formatdate",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatdate()"
     },
     {
@@ -2044,7 +2055,7 @@
       "_origin": "ast",
       "id": "src_lib_locale_formatdatetime",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatdatetime()"
     },
     {
@@ -2055,8 +2066,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_lib_locale_formatnumber",
-      "community": 4,
-      "community_name": "types.ts",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "formatnumber()"
     },
     {
@@ -2266,7 +2277,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_rankvalue",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "rankvalue"
     },
@@ -2279,7 +2290,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_squadtype",
-      "community": 82,
+      "community": 10,
       "community_name": "MemberManager.tsx",
       "norm_label": "squadtype"
     },
@@ -2318,8 +2329,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_pbuser",
-      "community": 4,
-      "community_name": "types.ts",
+      "community": 0,
+      "community_name": "TrainSchedule.tsx",
       "norm_label": "pbuser"
     },
     {
@@ -2370,8 +2381,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_ootoentry",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "ootoentry"
     },
     {
@@ -2435,8 +2446,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_types_alliancetechqueueitem",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "alliancetechqueueitem"
     },
     {
@@ -2462,7 +2473,7 @@
       "_origin": "ast",
       "id": "src_lib_types_vspoint",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "vspoint"
     },
     {
@@ -2488,7 +2499,7 @@
       "_origin": "ast",
       "id": "src_lib_types_errorlogentry",
       "community": 10,
-      "community_name": "VsPointManager.tsx",
+      "community_name": "MemberManager.tsx",
       "norm_label": "errorlogentry"
     },
     {
@@ -2748,8 +2759,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_adminpanel",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "adminpanel.tsx"
     },
     {
@@ -2761,8 +2772,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_adminpanel_admintab",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "admintab"
     },
     {
@@ -2772,8 +2783,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_adminpanel_tab_label_keys",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "tab_label_keys"
     },
     {
@@ -2784,8 +2795,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_adminpanel_adminpanel",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 10,
+      "community_name": "MemberManager.tsx",
       "norm_label": "adminpanel()"
     },
     {
@@ -2795,8 +2806,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_alliancetech",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "alliancetech.tsx"
     },
     {
@@ -2807,8 +2818,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_alliancetech_levels",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "levels()"
     },
     {
@@ -2818,8 +2829,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_alliancetech_development_techs",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "development_techs"
     },
     {
@@ -2829,8 +2840,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_pages_alliancetech_war_techs",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "war_techs"
     },
     {
@@ -2842,8 +2853,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_alliancetech_pickerstate",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "pickerstate"
     },
     {
@@ -2854,8 +2865,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_alliancetech_alliancetech",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 12,
+      "community_name": "AllianceTech.tsx",
       "norm_label": "alliancetech()"
     },
     {
@@ -3123,8 +3134,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_marshallmap_marshallmap",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "marshallmap()"
     },
     {
@@ -3134,8 +3145,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_out",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "out.tsx"
     },
     {
@@ -3146,8 +3157,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_out_today",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "today()"
     },
     {
@@ -3158,8 +3169,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_out_formatdate",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "formatdate()"
     },
     {
@@ -3170,8 +3181,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_out_getstatus",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "getstatus()"
     },
     {
@@ -3183,8 +3194,8 @@
       "_callable_class": true,
       "_origin": "ast",
       "id": "src_pages_out_editstate",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "editstate"
     },
     {
@@ -3195,8 +3206,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_out_out",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "out()"
     },
     {
@@ -3207,8 +3218,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_out_section",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "section()"
     },
     {
@@ -3219,8 +3230,8 @@
       "_callable": true,
       "_origin": "ast",
       "id": "src_pages_out_entrycard",
-      "community": 3,
-      "community_name": "App.tsx",
+      "community": 7,
+      "community_name": "logError",
       "norm_label": "entrycard()"
     },
     {
@@ -3352,6 +3363,198 @@
       "norm_label": "vite-env.d.ts"
     },
     {
+      "label": "heropower.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "heropower.ts"
+    },
+    {
+      "label": "HeroPowerRow",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_heropowerrow",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "heropowerrow"
+    },
+    {
+      "label": "HeroPowerUpdate",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L10",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_heropowerupdate",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "heropowerupdate"
+    },
+    {
+      "label": "HeroPowerMatch",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L15",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_heropowermatch",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "heropowermatch"
+    },
+    {
+      "label": "SUFFIX",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_suffix",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "suffix"
+    },
+    {
+      "label": "parsePowerValue()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_parsepowervalue",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "parsepowervalue()"
+    },
+    {
+      "label": "decodeEntities()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L30",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_decodeentities",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "decodeentities()"
+    },
+    {
+      "label": "cellText()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L42",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_celltext",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "celltext()"
+    },
+    {
+      "label": "cells()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L46",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_cells",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "cells()"
+    },
+    {
+      "label": "parseHeroPower()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L50",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_parseheropower",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "parseheropower()"
+    },
+    {
+      "label": "normalize()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L71",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_normalize",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "normalize()"
+    },
+    {
+      "label": "matchHeroPower()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L74",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_matchheropower",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "matchheropower()"
+    },
+    {
+      "label": "heropower_test.ts",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_test",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "heropower_test.ts"
+    },
+    {
+      "label": "th()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L4",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_test_th",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "th()"
+    },
+    {
+      "label": "row()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_test_row",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "row()"
+    },
+    {
+      "label": "page()",
+      "file_type": "code",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "supabase_functions_sync_alliance_members_heropower_test_page",
+      "community": 11,
+      "community_name": "heropower.ts",
+      "norm_label": "page()"
+    },
+    {
       "label": "index.ts",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/index.ts",
@@ -3359,18 +3562,18 @@
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_index",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "index.ts"
     },
     {
       "label": "corsHeaders",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/index.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_index_corsheaders",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "corsheaders"
     },
     {
@@ -3381,7 +3584,7 @@
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "reconcile.ts"
     },
     {
@@ -3394,7 +3597,7 @@
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_rankvalue",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "rankvalue"
     },
     {
@@ -3407,7 +3610,7 @@
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_apimember",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "apimember"
     },
     {
@@ -3420,70 +3623,70 @@
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_dbmember",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "dbmember"
     },
     {
       "label": "SyncUpdate",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L17",
+      "source_location": "L19",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_syncupdate",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "syncupdate"
     },
     {
       "label": "NameMatch",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_namematch",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "namematch"
     },
     {
       "label": "ReconcileResult",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L28",
+      "source_location": "L29",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_reconcileresult",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "reconcileresult"
     },
     {
       "label": "mapRank()",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L35",
+      "source_location": "L36",
       "_callable": true,
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_maprank",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "maprank()"
     },
     {
       "label": "reconcile()",
       "file_type": "code",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L40",
+      "source_location": "L41",
       "_callable": true,
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_reconcile",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "reconcile()"
     },
     {
@@ -3494,7 +3697,7 @@
       "_origin": "ast",
       "id": "supabase_functions_sync_alliance_members_reconcile_test",
       "community": 11,
-      "community_name": "reconcile.ts",
+      "community_name": "heropower.ts",
       "norm_label": "reconcile_test.ts"
     },
     {
@@ -8337,6 +8540,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_components_membermanager",
+      "target": "src_lib_constants_alliance_max_members",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/MemberManager.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_components_membermanager",
       "target": "src_lib_constants_owner_user_id",
       "confidence_score": 1.0
     },
@@ -11135,7 +11350,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/constants.ts",
-      "source_location": "L13",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_lib_constants",
+      "target": "src_lib_constants_alliance_max_members",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/constants.ts",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_lib_constants",
@@ -11146,7 +11372,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/constants.ts",
-      "source_location": "L5",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_lib_constants",
@@ -11168,7 +11394,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/lib/constants.ts",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_lib_constants",
@@ -13301,8 +13527,318 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_cells",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_celltext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_decodeentities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_heropowermatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_heropowerrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_heropowerupdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_matchheropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_parseheropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_parsepowervalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_suffix",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_index",
+      "target": "supabase_functions_sync_alliance_members_heropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_parseheropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_parsepowervalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower_parsepowervalue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_celltext",
+      "target": "supabase_functions_sync_alliance_members_heropower_decodeentities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_cells",
+      "target": "supabase_functions_sync_alliance_members_heropower_celltext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_parseheropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_cells",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower_parseheropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_index",
+      "target": "supabase_functions_sync_alliance_members_heropower_parseheropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower.ts",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_matchheropower",
+      "target": "supabase_functions_sync_alliance_members_heropower_normalize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower_matchheropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_index",
+      "target": "supabase_functions_sync_alliance_members_heropower_matchheropower",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower_test_page",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
       "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower_test_row",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test",
+      "target": "supabase_functions_sync_alliance_members_heropower_test_th",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "source_file": "supabase/functions/sync-alliance-members/heropower_test.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "supabase_functions_sync_alliance_members_heropower_test_page",
+      "target": "supabase_functions_sync_alliance_members_heropower_test_th",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "supabase/functions/sync-alliance-members/index.ts",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_index",
@@ -13359,7 +13895,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile",
@@ -13370,7 +13906,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile",
@@ -13392,7 +13928,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile",
@@ -13403,7 +13939,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile",
@@ -13414,7 +13950,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L17",
+      "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile",
@@ -13438,7 +13974,7 @@
       "context": "type",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile_namematch",
@@ -13450,7 +13986,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "supabase/functions/sync-alliance-members/reconcile.ts",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
       "source": "supabase_functions_sync_alliance_members_reconcile_reconcile",
@@ -15426,5 +15962,5 @@
       "source_file": "docs/superpowers/specs/2026-07-18-supabase-migrations-design.md"
     }
   ],
-  "built_at_commit": "2a3af195467c081c916f924539bd465544998fc7"
+  "built_at_commit": "a69682b8fef7f250b1ef86bf5cee586529175935"
 }
