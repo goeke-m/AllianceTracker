@@ -13,12 +13,13 @@ export interface DbMember {
   name: string
 }
 
-// Field names match Supabase column names exactly (Rank and THP are PascalCase/uppercase in the schema).
+// Field names match Supabase column names exactly (Rank is PascalCase in the schema).
+// THP (total hero power) is not set here: the API's power is troop-dependent individual power.
+// THP comes from lastwarrank.com instead (see heropower.ts).
 export interface SyncUpdate {
   game_uid: string
   name: string
   Rank: RankValue
-  THP: number
 }
 
 export interface NameMatch extends SyncUpdate {
@@ -57,7 +58,6 @@ export function reconcile(apiMembers: ApiMember[], dbMembers: DbMember[]): Recon
       game_uid: api.uid,
       name: api.name,
       Rank: mapRank(api.rank),
-      THP: api.power,
     }
 
     if (dbByUid.has(api.uid)) {

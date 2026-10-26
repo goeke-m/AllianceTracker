@@ -1,8 +1,10 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 import { reconcile } from './reconcile.ts'
+import { parseHeroPower, matchHeroPower } from './heropower.ts'
 
 const SYNC_USER_ID = 'edac282d-fd53-4353-8af8-c6b7c3f7480d'
 const LASTWAR_BASE = 'https://api.lastwar.tools'
+const LASTWARRANK_BASE = 'https://lastwarrank.com'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -90,7 +92,6 @@ Deno.serve(async (req) => {
           game_uid: m.game_uid,
           name: m.name,
           Rank: m.Rank,
-          THP: m.THP,
           updated_at: new Date().toISOString(),
         }))
       )
@@ -102,7 +103,7 @@ Deno.serve(async (req) => {
     for (const m of result.toMatchByName) {
       const { error } = await supabaseAdmin
         .from('members')
-        .update({ game_uid: m.game_uid, name: m.name, Rank: m.Rank, THP: m.THP, updated_at: new Date().toISOString() })
+        .update({ game_uid: m.game_uid, name: m.name, Rank: m.Rank, updated_at: new Date().toISOString() })
         .eq('id', m.dbId)
       if (error) errors.push(`name-match update error for "${m.name}": ${error.message}`)
       else updated++
@@ -112,7 +113,7 @@ Deno.serve(async (req) => {
     for (const m of result.toUpdate) {
       const { error } = await supabaseAdmin
         .from('members')
-        .update({ name: m.name, Rank: m.Rank, THP: m.THP, updated_at: new Date().toISOString() })
+        .update({ name: m.name, Rank: m.Rank, updated_at: new Date().toISOString() })
         .eq('game_uid', m.game_uid)
       if (error) errors.push(`update error for "${m.name}": ${error.message}`)
       else updated++
@@ -129,8 +130,36 @@ Deno.serve(async (req) => {
       else removed++
     }
 
+    // Total hero power isn't in the API, so scrape it from lastwarrank.com. Runs after the
+    // member sync so newly inserted members are included. Failures are reported but non-fatal.
+    let heroPowerUpdated = 0
+    let heroPowerUnmatched: string[] = []
+    const rankAllianceId = Deno.env.get('LASTWARRANK_ALLIANCE_ID')
+    if (rankAllianceId) {
+      try {
+        const pageResp = await fetch(`${LASTWARRANK_BASE}/alliance/${rankAllianceId}`, {
+          headers: { 'User-Agent': 'AllianceTracker/1.0 (alliance member sync)' },
+        })
+        if (!pageResp.ok) throw new Error(`HTTP ${pageResp.status}`)
+        const rows = parseHeroPower(await pageResp.text())
+
+        const { data: current, error: currentErr } = await supabaseAdmin.from('members').select('id, name')
+        if (currentErr) throw new Error(currentErr.message)
+
+        const match = matchHeroPower(rows, current ?? [])
+        heroPowerUnmatched = match.unmatched
+        for (const u of match.updates) {
+          const { error } = await supabaseAdmin.from('members').update({ THP: u.THP }).eq('id', u.dbId)
+          if (error) errors.push(`hero power update error for "${u.dbId}": ${error.message}`)
+          else heroPowerUpdated++
+        }
+      } catch (err) {
+        errors.push(`hero power scrape failed: ${err instanceof Error ? err.message : String(err)}`)
+      }
+    }
+
     return new Response(
-      JSON.stringify({ added, updated, removed, errors }),
+      JSON.stringify({ added, updated, removed, heroPowerUpdated, heroPowerUnmatched, errors }),
       { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     )
   } catch (err) {
