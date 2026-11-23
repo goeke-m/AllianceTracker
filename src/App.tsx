@@ -4,7 +4,8 @@ import { useAuth } from './hooks/useAuth'
 import { LoginPage } from './components/LoginPage'
 import { NavBar } from './components/NavBar'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
-import { MarshallMap } from './pages/MarshallMap'
+// Marshall map disabled (not currently in use) — uncomment to restore
+// import { MarshallMap } from './pages/MarshallMap'
 import { TrainSchedule } from './pages/TrainSchedule'
 import { Out } from './pages/Out'
 import { AdminPanel } from './pages/AdminPanel'
@@ -76,7 +77,8 @@ export function App() {
 
       {/* Page content with top/bottom padding for fixed bars */}
       <div className="pt-10 min-h-screen">
-        {safePage === 'map' && <MarshallMap isAdmin={isAdmin} />}
+        {/* Marshall map disabled — uncomment to restore */}
+        {/* {safePage === 'map' && <MarshallMap isAdmin={isAdmin} />} */}
         {safePage === 'schedule' && <TrainSchedule />}
         {safePage === 'tech' && <AllianceTech />}
         {safePage === 'kills' && <KillList isAdmin={isAdmin} />}
