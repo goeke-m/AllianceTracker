@@ -2,64 +2,38 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { TFunction } from 'i18next'
 import { useTrainSchedule } from '../hooks/useTrainSchedule'
-import { useScheduleSettings } from '../hooks/useScheduleSettings'
 import { useAuth } from '../hooks/useAuth'
 import { logError } from '../lib/errorLog'
 import { getActiveVsDateStr } from '../lib/vsDate'
-import type { TrainEntry, WeekMode } from '../lib/types'
+import type { TrainEntry } from '../lib/types'
 
-const DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const HOUR_OPTIONS = Array.from({ length: 24 }, (_, i) => i)
 
-const R4_ROTATION = [
-  'Ruthless Cajun',
-  '순금이 FOREVER',
-  'ShadowMohawk',
-  'Freya',
-  'Flipnotic',
+const DEFENDER_ROTATION = [
   'Tricky100original',
-  'PAINisthebestTEACHER',
-  'Ares',
-  'Saucy808',
-  '가이아Gaiavoid',
+  'BaconALcH3MiST',
   'Gilletparballes',
+  'Gigiyy',
+  'Ares',
+  '가이아Gaiavoid',
+  'Ruthless Cajun',
+  'TriggerPull',
 ]
 
-function buildDowSources(mode: WeekMode, t: TFunction): Record<string, { captain: string; firstMate: string }> {
-  const rotation = t('schedule.sourceRotation')
-  const rank = (n: number) =>
-    mode === 'push' ? t('schedule.sourceVsRank', { n }) : t('schedule.sourceDonationRank', { n })
-
-  if (mode === 'push') {
-    return {
-      Sun: { captain: rotation, firstMate: rank(4) },
-      Mon: { captain: rotation, firstMate: rank(5) },
-      Tue: { captain: rotation, firstMate: rank(6) },
-      Wed: { captain: rotation, firstMate: rank(7) },
-      Thu: { captain: rank(1), firstMate: rank(8) },
-      Fri: { captain: rank(2), firstMate: rank(9) },
-      Sat: { captain: rank(3), firstMate: rank(10) },
-    }
-  }
-  return {
-    Sun: { captain: rotation, firstMate: rank(2) },
-    Mon: { captain: rotation, firstMate: rank(3) },
-    Tue: { captain: rotation, firstMate: rank(4) },
-    Wed: { captain: rotation, firstMate: rank(5) },
-    Thu: { captain: rotation, firstMate: rank(6) },
-    Fri: { captain: rotation, firstMate: rank(7) },
-    Sat: { captain: rank(1), firstMate: rank(8) },
-  }
-}
+// Captain source per day, in displayed card order (VS Day 1 … VS Rest Day)
+const CAPTAIN_SOURCE_KEYS = [
+  'schedule.sourceMvp',
+  'schedule.sourceCapture',
+  'schedule.sourceKills',
+  'schedule.sourceAboveAndBeyond',
+  'schedule.sourceAboveAndBeyond',
+  'schedule.sourceGoldTycoon',
+  'schedule.sourceAllianceRandom',
+] as const
 
 function formatDate(iso: string): string {
   const [y, m, d] = iso.split('-')
   return `${m}/${d}/${y.slice(2)}`
-}
-
-function getDow(iso: string): string {
-  const [y, m, d] = iso.split('-').map(Number)
-  return DOW[new Date(y, m - 1, d).getDay()]
 }
 
 function getVsDayLabel(index: number, t: TFunction): string {
@@ -81,13 +55,10 @@ export function TrainSchedule() {
   const { isAdmin } = useAuth()
   const [weekOffset, setWeekOffset] = useState(0)
   const { members, entries, weekDates, loading, error, saveEntry, deleteEntry } = useTrainSchedule(weekOffset)
-  const { weekMode, setWeekMode } = useScheduleSettings()
   const [editState, setEditState] = useState<EditState | null>(null)
-  const [showR4Info, setShowR4Info] = useState(false)
+  const [showRotationInfo, setShowRotationInfo] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
-  const [modeSaving, setModeSaving] = useState(false)
-  const [modeError, setModeError] = useState<string | null>(null)
 
   const todayStr = getActiveVsDateStr()
 
@@ -95,8 +66,6 @@ export function TrainSchedule() {
   for (const e of entries) {
     entryByDate.set(e.date, e)
   }
-
-  const dowSources = buildDowSources(weekMode, t)
 
   function openEdit(date: string) {
     const existing = entryByDate.get(date)
@@ -144,59 +113,21 @@ export function TrainSchedule() {
     return members.find(m => m.id === id)?.name ?? '—'
   }
 
-  async function handleWeekModeChange(mode: WeekMode) {
-    if (mode === weekMode || modeSaving) return
-    setModeSaving(true)
-    setModeError(null)
-    try {
-      await setWeekMode(mode)
-    } catch (err) {
-      setModeError(err instanceof Error ? err.message : t('schedule.weekModeUpdateFailed'))
-      logError('TrainSchedule.handleWeekModeChange', err)
-    } finally {
-      setModeSaving(false)
-    }
-  }
-
   return (
     <div className="p-4 pb-24">
       <div className="flex items-start justify-between mb-1 gap-2">
         <h1 className="text-xl font-bold text-game-primary">{t('schedule.title')}</h1>
         <div className="flex items-center gap-3">
-          <div className="flex items-center rounded-full border border-game-accent overflow-hidden text-xs">
-            {(['push', 'save'] as const).map(mode => {
-              const active = mode === weekMode
-              const label = mode === 'push' ? t('schedule.pushWeek') : t('schedule.saveWeek')
-              const baseClass = `px-2 py-1 font-semibold transition-colors ${
-                active ? 'bg-game-primary text-game-dark' : 'text-gray-400'
-              }`
-              if (!isAdmin) {
-                return <span key={mode} className={baseClass}>{label}</span>
-              }
-              return (
-                <button
-                  key={mode}
-                  type="button"
-                  onClick={() => handleWeekModeChange(mode)}
-                  disabled={active || modeSaving}
-                  className={`${baseClass} ${!active ? 'hover:text-white' : ''} disabled:cursor-default`}
-                >
-                  {label}
-                </button>
-              )
-            })}
-          </div>
           <button
-            onClick={() => setShowR4Info(true)}
+            onClick={() => setShowRotationInfo(true)}
             className="text-game-standard hover:text-white transition-colors text-sm flex items-center gap-1"
-            title={t('schedule.r4RotationTitleAttr')}
+            title={t('schedule.defenderRotationTitleAttr')}
           >
-            <span>{t('schedule.r4RotationLabel')}</span>
+            <span>{t('schedule.defenderRotationLabel')}</span>
             <span>ⓘ</span>
           </button>
         </div>
       </div>
-      {modeError && <p className="text-game-highlight text-xs mb-1">{modeError}</p>}
 
       <div className="flex items-center justify-between mb-3 text-sm">
         <div className="flex items-center gap-2">
@@ -244,7 +175,7 @@ export function TrainSchedule() {
         {weekDates.map((date, index) => {
           const entry = entryByDate.get(date)
           const isToday = date === todayStr
-          const sources = dowSources[getDow(date)]
+          const captainSource = t(CAPTAIN_SOURCE_KEYS[index % 7])
 
           return (
             <div
@@ -276,12 +207,12 @@ export function TrainSchedule() {
               <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                 <div>
                   <span className="text-gray-500 text-xs uppercase tracking-wide">{t('schedule.captainColumnLabel')}</span>
-                  <p className="text-gray-400 text-xs italic">{sources.captain}</p>
+                  <p className="text-gray-400 text-xs italic">{captainSource}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.conductor)}</p>}
                 </div>
                 <div>
                   <span className="text-gray-500 text-xs uppercase tracking-wide">{t('schedule.firstMateColumnLabel')}</span>
-                  <p className="text-gray-400 text-xs italic">{sources.firstMate}</p>
+                  <p className="text-gray-400 text-xs italic">{t('schedule.sourceRotation')}</p>
                   {entry && <p className="text-white font-medium">{getMemberName(entry.vip)}</p>}
                 </div>
                 {typeof entry?.boardingHour === 'number' && (
@@ -304,18 +235,18 @@ export function TrainSchedule() {
       </div>
       )}
 
-      {/* R4 rotation info modal */}
-      {showR4Info && (
+      {/* Defender rotation info modal */}
+      {showRotationInfo && (
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
           <div className="bg-game-card border border-game-accent rounded-2xl w-full max-w-xs p-5 space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="text-game-primary font-bold">{t('schedule.r4RotationLabel')}</h2>
-              <button onClick={() => setShowR4Info(false)} className="text-gray-400 hover:text-white text-xl leading-none">
+              <h2 className="text-game-primary font-bold">{t('schedule.defenderRotationLabel')}</h2>
+              <button onClick={() => setShowRotationInfo(false)} className="text-gray-400 hover:text-white text-xl leading-none">
                 ×
               </button>
             </div>
             <ol className="space-y-1">
-              {R4_ROTATION.map((name, i) => (
+              {DEFENDER_ROTATION.map((name, i) => (
                 <li key={name} className="flex items-center gap-2 text-sm">
                   <span className="text-game-primary font-bold w-5 text-right shrink-0">{i + 1}.</span>
                   <span className="text-white">{name}</span>
