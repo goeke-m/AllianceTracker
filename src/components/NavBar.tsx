@@ -10,7 +10,8 @@ interface NavBarProps {
 
 const tabs: { id: Page; icon: string; adminOnly?: boolean }[] = [
   { id: 'schedule', icon: '📋' },
-  { id: 'map', icon: '🗺️' },
+  // Marshall map disabled — uncomment to restore
+  // { id: 'map', icon: '🗺️' },
   { id: 'tech', icon: '🔧' },
   { id: 'kills', icon: '⚔️' },
   { id: 'friends', icon: '🤝' },
