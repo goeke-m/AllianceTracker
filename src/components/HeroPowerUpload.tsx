@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { supabase } from '../lib/supabase'
 import { logError } from '../lib/errorLog'
-import { formatPower } from '../lib/formatPower'
+import { formatPowerPrecise } from '../lib/formatPower'
 import { buildHeroPowerPreview, type HeroPowerPreview } from '../lib/heroPowerImport'
 import type { Member } from '../lib/types'
 
@@ -113,7 +113,7 @@ export function HeroPowerUpload({ members, onDone }: HeroPowerUploadProps) {
                       <li key={c.id} className="flex justify-between gap-3 px-3 py-1.5">
                         <span className="text-white truncate">{c.name}</span>
                         <span className="text-gray-300 whitespace-nowrap">
-                          {formatPower(c.oldTHP)} → {formatPower(c.newTHP)}
+                          {formatPowerPrecise(c.oldTHP)} → {formatPowerPrecise(c.newTHP)}
                         </span>
                       </li>
                     ))}
