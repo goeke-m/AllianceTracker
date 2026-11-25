@@ -203,6 +203,18 @@
       "importedCount_other": "Se importaron {{count}} registros de daño.",
       "skippedSuffix": " Omitidos (sin coincidencia): {{list}}",
       "placeholderIntro": "Pega aquí la salida JSON de Gemini, por ejemplo:"
+    },
+    "heroPowerImport": {
+      "button": "Importar poder de héroes",
+      "reading": "Leyendo…",
+      "summary": "{{rows}} en la página · {{matched}} coincidencias · {{changes}} cambios",
+      "noChanges": "Sin cambios de poder de héroes",
+      "notOnPage": "No están en la página (se mantiene el THP): {{names}}",
+      "apply": "Aplicar",
+      "applying": "Aplicando…",
+      "cancel": "Cancelar",
+      "result": "Se actualizaron {{count}} valores de poder de héroes",
+      "errorsPrefix": "Errores de importación: {{errors}}"
     }
   },
   "demerits": {

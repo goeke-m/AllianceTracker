@@ -2,6 +2,11 @@
 
 All notable changes to WPNZ Tracker (formerly OPNz Tracker) are documented here.
 
+## 2026-11-25
+
+### Added
+- **Hero Power Upload** — Owner can upload a saved lastwarrank.com alliance page in the Members tab to update THP, with a preview before applying. Replaces the automatic scrape, which lastwarrank.com's bot check now blocks. Name matching now also ignores repeated spaces.
+
 ## 2026-07-18
 
 ### Added

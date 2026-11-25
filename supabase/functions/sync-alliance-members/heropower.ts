@@ -68,7 +68,7 @@ export function parseHeroPower(html: string): HeroPowerRow[] {
   return result
 }
 
-const normalize = (name: string) => name.trim().toLowerCase()
+const normalize = (name: string) => name.trim().replace(/\s+/g, ' ').toLowerCase()
 
 // Matches page rows to DB members by name. Only THP is updated; the DB name is never changed.
 export function matchHeroPower(

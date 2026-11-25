@@ -203,6 +203,18 @@
       "importedCount_other": "Imported {{count}} damage logs.",
       "skippedSuffix": " Skipped (no match): {{list}}",
       "placeholderIntro": "Paste Gemini JSON output here, e.g.:"
+    },
+    "heroPowerImport": {
+      "button": "Import Hero Power",
+      "reading": "Reading…",
+      "summary": "{{rows}} on page · {{matched}} matched · {{changes}} changes",
+      "noChanges": "No hero power changes",
+      "notOnPage": "Not on page (THP kept): {{names}}",
+      "apply": "Apply",
+      "applying": "Applying…",
+      "cancel": "Cancel",
+      "result": "Updated {{count}} hero power values",
+      "errorsPrefix": "Import errors: {{errors}}"
     }
   },
   "demerits": {
