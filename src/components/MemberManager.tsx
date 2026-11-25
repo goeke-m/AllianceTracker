@@ -5,6 +5,8 @@ import { OWNER_USER_ID, ALLIANCE_MAX_MEMBERS } from '../lib/constants'
 import { logError } from '../lib/errorLog'
 import type { Member, RankValue, SquadType } from '../lib/types'
 import { formatNumber } from '../lib/locale'
+import { formatPower } from '../lib/formatPower'
+import { HeroPowerUpload } from './HeroPowerUpload'
 
 interface MemberManagerProps {
   members: Member[]
@@ -43,14 +45,6 @@ const RANK_COLORS: Record<RankValue, string> = {
   R3: 'bg-game-standard',
   R4: 'bg-game-leadership',
   R5: 'bg-yellow-500',
-}
-
-function formatPower(val?: number | null): string {
-  if (val == null) return '—'
-  if (val === 0) return '0'
-  if (val >= 1_000_000) return `${(val / 1_000_000).toFixed(1)}M`
-  if (val >= 1_000) return `${(val / 1_000).toFixed(1)}K`
-  return String(val)
 }
 
 type SortKey = 'Rank' | 'name' | 'THP' | 'S1_Power' | 'S2_Power' | 'Strike_Team' | 'avg_vs'
@@ -258,13 +252,16 @@ export function MemberManager({ members, onRefresh, syncUserId }: MemberManagerP
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-white">{t('members.title', { displayed: displayed.length, total: ALLIANCE_MAX_MEMBERS })}</h2>
         {syncUserId === OWNER_USER_ID && (
-          <button
-            onClick={handleSync}
-            disabled={syncing}
-            className="bg-game-card border border-game-accent text-gray-300 font-semibold px-4 py-1.5 rounded-lg text-sm hover:border-game-primary hover:text-white transition-colors disabled:opacity-50"
-          >
-            {syncing ? t('members.syncingLabel') : t('members.syncButton')}
-          </button>
+          <div className="flex gap-2">
+            <HeroPowerUpload members={members} onDone={onRefresh} />
+            <button
+              onClick={handleSync}
+              disabled={syncing}
+              className="bg-game-card border border-game-accent text-gray-300 font-semibold px-4 py-1.5 rounded-lg text-sm hover:border-game-primary hover:text-white transition-colors disabled:opacity-50"
+            >
+              {syncing ? t('members.syncingLabel') : t('members.syncButton')}
+            </button>
+          </div>
         )}
       </div>
 
